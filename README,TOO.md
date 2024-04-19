@@ -104,5 +104,68 @@ int main()
     return 0;
 }
 ```
+**BC10 实现四舍五入**
+```
+//目前还没做好
+```
+**BC11 成绩输入输出**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b,c=0;
+    scanf("%d %d %d",&a,&b,&c);
+    printf("score1=%d,score2=%d,score3=%d",a,b,c);
+    return 0;
+}
+}
+```
+**BC12 学生基本信息输入输出**
+```
+#include <stdio.h>
+
+int main() {
+    long long a=0;
+    int d,e=0;
+    float b,c,da=1.000;
+    scanf("%lld;%f,%f,%f",&a,&b,&c,&da);
+    d=b*100;
+    e=b*1000;
+    if (e-d*10>4) {d++;}
+    b=d/100.000;
+    d=c*100;
+    e=c*1000;
+    if (e-d*10>4) {d++;}
+    c=d/100.000;
+    d=da*100;
+    e=da*1000;
+    if (e-d*10>4) {d++;}
+    da=d/100.000;
+    printf("The each subject score of No. %d is %.2f, %.2f, %.2f.",a,b,c,da);
+    return 0;
+}
+```
+**BC13 出生日期输入输出**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b,c=0;
+    scanf("%4d%2d%2d",&a,&b,&c);
+    printf("year=%d\nmonth=%02d\ndate=%02d",a,b,c);
+    return 0;
+}
+```
+**BC14 按照格式输入并交换输出**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b=0;
+    scanf("a=%d,b=%d",&a,&b);
+    printf("a=%d,b=%d",b,a);
+    return 0;
+}
+```
 
 
