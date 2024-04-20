@@ -213,5 +213,57 @@ int main() {
     return 0;
 }
 ```
+**BC20 进制A+B**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b=0;
+    scanf("%x %o",&a,&b);
+    printf("%d",a+b);
+    return 0;
+}
+```
+**BC21 牛牛学加法**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b=0;
+    scanf("%d %d",&a,&b);
+    printf("%d",a+b);
+    return 0;
+}
+```
+**BC22 牛牛学除法**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b=0;
+    scanf("%d %d",&a,&b);
+    printf("%d",a/b);
+    return 0;
+}
+```
+**BC23 牛牛学取余**
+```
+#include <stdio.h>
+
+int main()
+{
+    int a, b, c, d = 0;
+    scanf("%d %d",&a,&b);
+    c = b;
+    for (b = b; b < a; b = b + c) { d = b; }
+    printf("%d", a - d);
+    return 0;
+ 
+}
+```
+**BC24 浮点数的个位数字**
+```
+//目前还没做好
+```
 
 
