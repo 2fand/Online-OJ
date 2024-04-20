@@ -167,5 +167,51 @@ int main() {
     return 0;
 }
 ```
+**BC15 大小写转换**
+```
+//目前还没做好
+```
+**BC16 十六进制转十进制**
+```
+#include <stdio.h>
+
+int main() {
+    printf("%15d",11259375);
+    return 0;
+}
+```
+**BC17 缩短二进制**
+```
+#include <stdio.h>
+
+int main() {
+    printf("%#o %#X",1234,1234);
+    return 0;
+}
+```
+**BC18 牛牛的空格分隔**
+```
+#include <stdio.h>
+
+int main() {
+    char a=0;
+    int b=0;
+    float c=0.01;
+    scanf("%c %d %f",&a,&b,&c);
+    printf("%c %d %f",a,b,c);
+    return 0;
+}
+```
+**BC19 牛牛的对齐**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b,c=0;
+    scanf("%d %d %d",&a,&b,&c);
+    printf("%d       %d       %d",a,b,c);
+    return 0;
+}
+```
 
 
