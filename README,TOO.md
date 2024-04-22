@@ -261,9 +261,80 @@ int main()
  
 }
 ```
-**BC24 浮点数的个位数字**
+**BC25 牛牛买电影票**
 ```
-//目前还没做好
+#include <stdio.h>
+
+int main() {
+    int x=0;
+    scanf("%d",&x);
+    printf("%d",x*100);
+    return 0;
+}
 ```
+**BC26 计算带余除法**
+```
+#include <stdio.h>
 
+int main() {
+    int a,b,c=0;
+    scanf("%d %d",&a,&b);
+    c=a/b;
+    printf("%d %d",c,a-b*c);
+    return 0;
+}
+```
+**BC27 整数的个位**
+```
+#include <stdio.h>
 
+int main() {
+    int a,b=0;
+    scanf("%d",&a);
+    b=a/10;
+    printf("%d",a-b*10);
+    return 0;
+}
+```
+**BC28 整数的十位**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b,c=0;
+    scanf("%d",&a);
+    b=a/10;
+    c=a/100;
+    printf("%d",b-c*10);
+    return 0;
+}
+```
+**BC29 开学？**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b,c=0;
+    scanf("%d %d",&a,&b);
+    a=a+b;    
+    c=a/7;
+    b=a-c*7;
+    if (b==0) {b=7;}
+    printf("%d",b);
+    return 0;
+}
+```
+**BC30 时间转换**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b,c=0;
+    scanf("%d",&a);
+    b=a/3600;
+    a=a-b*3600;
+    c=a/60;
+    printf("%d %d %d",b,c,a-c*60);
+    return 0;
+}
+```
