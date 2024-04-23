@@ -334,7 +334,16 @@ int main() {
     b=a/3600;
     a=a-b*3600;
     c=a/60;
-    printf("%d %d %d",b,c,a-c*60);
+}
+```
+**BC31 2的n次方计算**
+```
+#include <stdio.h>
+
+int main() {
+    int a=0;
+    scanf("%d",&a);
+    printf("%d",2<<(a-1));
     return 0;
 }
 ```
