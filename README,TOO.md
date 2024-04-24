@@ -347,3 +347,14 @@ int main() {
     return 0;
 }
 ```
+**BC32 你能活多少秒**
+```
+#include <stdio.h>
+
+int main() {
+    int age=0;
+    scanf("%d",&age);
+    printf("%lld0000",age*3156);
+    return 0;
+}
+```
