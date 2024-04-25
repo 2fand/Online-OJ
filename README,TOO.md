@@ -358,3 +358,20 @@ int main() {
     return 0;
 }
 ```
+**BC36 温度转换**
+```
+#include <stdio.h>
+
+int main() {
+    float f,c=1.000;
+    scanf("%f",&f);
+    c=5.000/9.000*(f-32.000);
+    int a,b=0;
+    a=c*1000;
+    b=c*10000;
+    if (b-a*10>4) {a++;}
+    c=a/1000.000;
+    printf("%.3f",c);
+    return 0;
+}
+```
