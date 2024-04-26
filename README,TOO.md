@@ -371,6 +371,16 @@ int main() {
     b=c*10000;
     if (b-a*10>4) {a++;}
     c=a/1000.000;
+```
+**BC37 牛牛的圆**
+```
+#include <stdio.h>
+
+int main() {
+    int i=1;
+    scanf("%d",&i);
+    printf("%.2f",3.14*i*i);
+    return 0;
     printf("%.3f",c);
     return 0;
 }
