@@ -381,7 +381,17 @@ int main() {
     scanf("%d",&i);
     printf("%.2f",3.14*i*i);
     return 0;
-    printf("%.3f",c);
+}
+```
+**WY11 星际穿越**
+```
+#include <stdio.h>
+
+int main() {
+    long long a,i=0;
+    scanf("%lld",&a);
+    while (i+i*i<=a) {i++;}
+    printf("%lld",i-1);
     return 0;
 }
 ```
