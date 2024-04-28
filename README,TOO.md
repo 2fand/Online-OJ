@@ -395,3 +395,16 @@ int main() {
     return 0;
 }
 ```
+**BC38 牛牛的并联电路**
+```
+#include <stdio.h>
+
+int main() {
+    int r1,r2=0;
+    scanf("%d %d",&r1,&r2);
+    double v=r1;
+    double b=r2;
+    printf("%.1f",1.000/((1.000/v)+(1.000/b)));
+    return 0;
+}
+```
