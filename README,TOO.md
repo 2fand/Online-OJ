@@ -404,7 +404,19 @@ int main() {
     scanf("%d %d",&r1,&r2);
     double v=r1;
     double b=r2;
+
     printf("%.1f",1.000/((1.000/v)+(1.000/b)));
+    return 0;
+}
+```
+**BC47 (a+b-c)*d的计算问题**
+```
+#include <stdio.h>
+
+int main() {
+    int a,b,c,d=0;
+    scanf("%d %d %d %d",&a,&b,&c,&d);
+    printf("%d",(a+b-c)*d);
     return 0;
 }
 ```
