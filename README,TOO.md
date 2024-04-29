@@ -409,7 +409,7 @@ int main() {
     return 0;
 }
 ```
-**BC47 (a+b-c)*d的计算问题**
+**BC47 (a+b-c)\*d的计算问题**
 ```
 #include <stdio.h>
 
