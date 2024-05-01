@@ -1,7 +1,7 @@
 (每天更5题)
  
 **BC1 Hello Nowcoder** 
-```
+```c
 #include <stdio.h>
 
 int main() 
@@ -11,7 +11,7 @@ int main()
 }
 ```
  **BC2 小飞机** 
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
 }
 ``` 
 **BC3 牛牛学说话之-整数**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -31,7 +31,7 @@ int main() {
 } 
 ```
 **BC4 牛牛学说话之-浮点数**
-```
+```c
 #include <stdio.h>
 int main() {
     float a=1.000000;
@@ -45,7 +45,7 @@ int main() {
 }
 ```
 **BC5 牛牛学说话之-字符**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -56,7 +56,7 @@ int main() {
 }
 ```
 **BC6 牛牛的第二个整数**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -69,7 +69,7 @@ int main() {
 }
 ```
 **BC7 牛牛的字符矩形**
-```
+```c
 #include <stdio.h>
 
 int main()
@@ -81,7 +81,7 @@ int main()
 }
 ```
 **BC8 牛牛的字符菱形**
-```
+```c
 #include <stdio.h>
 
 int main()
@@ -93,7 +93,7 @@ int main()
 }
 ```
 **BC9 字符转ASCII码**
-```
+```c
 #include <stdio.h>
 
 int main()
@@ -105,11 +105,11 @@ int main()
 }
 ```
 **BC10 实现四舍五入**
-```
+```c
 //目前还没做好
 ```
 **BC11 成绩输入输出**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -121,7 +121,7 @@ int main() {
 }
 ```
 **BC12 学生基本信息输入输出**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -146,7 +146,7 @@ int main() {
 }
 ```
 **BC13 出生日期输入输出**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -157,7 +157,7 @@ int main() {
 }
 ```
 **BC14 按照格式输入并交换输出**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -168,11 +168,11 @@ int main() {
 }
 ```
 **BC15 大小写转换**
-```
+```c
 //目前还没做好
 ```
 **BC16 十六进制转十进制**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -181,7 +181,7 @@ int main() {
 }
 ```
 **BC17 缩短二进制**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -190,7 +190,7 @@ int main() {
 }
 ```
 **BC18 牛牛的空格分隔**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -203,7 +203,7 @@ int main() {
 }
 ```
 **BC19 牛牛的对齐**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -214,7 +214,7 @@ int main() {
 }
 ```
 **BC20 进制A+B**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -225,7 +225,7 @@ int main() {
 }
 ```
 **BC21 牛牛学加法**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -236,7 +236,7 @@ int main() {
 }
 ```
 **BC22 牛牛学除法**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -247,7 +247,7 @@ int main() {
 }
 ```
 **BC23 牛牛学取余**
-```
+```c
 #include <stdio.h>
 
 int main()
@@ -262,7 +262,7 @@ int main()
 }
 ```
 **BC25 牛牛买电影票**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -273,7 +273,7 @@ int main() {
 }
 ```
 **BC26 计算带余除法**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -297,7 +297,7 @@ int main() {
 }
 ```
 **BC28 整数的十位**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -325,7 +325,7 @@ int main() {
 }
 ```
 **BC30 时间转换**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -337,7 +337,7 @@ int main() {
 }
 ```
 **BC31 2的n次方计算**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -348,7 +348,7 @@ int main() {
 }
 ```
 **BC32 你能活多少秒**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -359,7 +359,7 @@ int main() {
 }
 ```
 **BC36 温度转换**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -373,7 +373,7 @@ int main() {
     c=a/1000.000;
 ```
 **BC37 牛牛的圆**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -384,7 +384,7 @@ int main() {
 }
 ```
 **WY11 星际穿越**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -396,7 +396,7 @@ int main() {
 }
 ```
 **BC38 牛牛的并联电路**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -421,7 +421,29 @@ int main() {
 }
 ```
 **BC48 牛牛的线段**
+```c
+#include <stdio.h>
+
+int main() {
+    long long x1,x2,y1,y2=0;
+    scanf("%lld %lld %lld %lld",&x1,&y1,&x2,&y2);
+    printf("%lld",((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)));
+    return 0;
+}
 ```
+**BC48 牛牛的线段**
+```c
+#include <stdio.h>
+
+int main() {
+    long long x1,x2,y1,y2=0;
+    scanf("%lld %lld %lld %lld",&x1,&y1,&x2,&y2);
+    printf("%lld",((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)));
+    return 0;
+}
+```
+**BC50 你是天才吗？**
+```c
 #include <stdio.h>
 
 int main() {
