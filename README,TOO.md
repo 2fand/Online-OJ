@@ -118,7 +118,6 @@ int main() {
     printf("score1=%d,score2=%d,score3=%d",a,b,c);
     return 0;
 }
-}
 ```
 **BC12 学生基本信息输入输出**
 ```c
