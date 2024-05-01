@@ -420,3 +420,14 @@ int main() {
     return 0;
 }
 ```
+**BC48 牛牛的线段**
+```
+#include <stdio.h>
+
+int main() {
+    long long x1,x2,y1,y2=0;
+    scanf("%lld %lld %lld %lld",&x1,&y1,&x2,&y2);
+    printf("%lld",((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)));
+    return 0;
+}
+```
