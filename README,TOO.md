@@ -463,3 +463,14 @@ int main() {
     return 0;
 }
 ```
+**BC57 四季** 
+```c
+#include <stdio.h>
+
+int main() {
+    int a,b=0;
+    scanf("%4d%2d",&a,&b);
+    printf("%s",b>=3 && b<=5 ? "spring" : b>=6 && b<=8 ? "summer" : b>=9 && b<=11 ? "autumn" : "winter");
+    return 0;
+}
+```
