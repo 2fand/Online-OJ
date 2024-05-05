@@ -463,6 +463,17 @@ int main() {
     return 0;
 }
 ```
+**BC56 判断字母** 
+```c
+#include <stdio.h>
+
+int main() {
+    char a=0;
+    scanf("%c",&a);
+    printf("%s",(a>=65 && a<=90) || (a>=97 && a<=112) ? "YES" : "NO");
+    return 0;
+}
+```
 **BC57 四季** 
 ```c
 #include <stdio.h>
