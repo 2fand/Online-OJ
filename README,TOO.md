@@ -463,6 +463,17 @@ int main() {
     return 0;
 }
 ```
+**BC55 判断闰年**
+```c
+#include <stdio.h>
+
+int main() {
+    int a=0;
+    scanf("%d",&a);
+    printf("%s",a%100==0 ? a%400==0 ? "yes" : "no" : a%4==0 ? "yes" : "no");
+    return 0;
+}
+```
 **BC56 判断字母** 
 ```c
 #include <stdio.h>
