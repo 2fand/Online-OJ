@@ -463,6 +463,17 @@ int main() {
     return 0;
 }
 ```
+**BC54 牛牛的判断题**
+```c
+#include <stdio.h>
+
+int main() {
+    int l,x,r=0;
+    scanf("%d %d %d",&x,&l,&r);
+    printf("%s",l<=x && x<=r ? "true" : "false");
+    return 0;
+}
+```
 **BC55 判断闰年**
 ```c
 #include <stdio.h>
