@@ -507,3 +507,14 @@ int main() {
     return 0;
 }
 ```
+**BC78 KiKi说祝福语** 
+```c
+#include <stdio.h>
+
+int main() {
+    int a,i=0;
+    scanf("%d",&a);
+    for (i=0;i<a;i++) {printf("Happy new year!Good luck!\n");}
+    return 0;
+}
+```
