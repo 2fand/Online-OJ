@@ -507,6 +507,17 @@ int main() {
     return 0;
 }
 ```
+**BC75 小乐乐是否被叫家长**
+```c
+#include <stdio.h>
+
+int main() {
+    int a,b,c=0;
+    scanf("%d %d %d",&a,&b,&c);
+    printf("%s",((a+b+c))/3<60 ? "YES" : "NO");
+    return 0;
+}
+```
 **BC78 KiKi说祝福语** 
 ```c
 #include <stdio.h>
