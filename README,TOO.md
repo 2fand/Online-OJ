@@ -507,6 +507,19 @@ int main() {
     return 0;
 }
 ```
+**BC62 统计数据正负个数**
+```c
+#include <stdio.h>
+
+int main() {
+    long long a[10]={0};
+    int i,n=0;
+    scanf("%lld %lld %lld %lld %lld %lld %lld %lld %lld %lld ",&a[0],&a[1],&a[2],&a[3],&a[4],&a[5],&a[6],&a[7],&a[8],&a[9]);
+    for (i=0;i<10;i++) {if (a[i]<0) {n++;}}
+    printf("positive:%d\nnegative:%d",10-n,n);
+    return 0;
+}
+```
 **BC75 小乐乐是否被叫家长**
 ```c
 #include <stdio.h>
