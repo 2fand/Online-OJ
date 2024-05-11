@@ -542,3 +542,16 @@ int main() {
     return 0;
 }
 ```
+**BC79 小乐乐求和** 
+```c
+#include <stdio.h>
+
+int main() {
+    long long n,i=0;
+    long long ii=1;
+    scanf("%lld",&n);
+    for (ii=1;ii<n+1;ii++) {i+=ii;}
+    printf("%lld",i);
+    return 0;
+}
+```
