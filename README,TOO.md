@@ -520,6 +520,21 @@ int main() {
     return 0;
 }
 ```
+**BC63 网购** 
+```c
+#include <stdio.h>
+
+int main() {
+    int b,c=0;
+    float a=0;
+    scanf("%f %d %d %d",&a,&b,&b,&c);
+    if (b==11) {a*=0.7;}
+    else {a*=0.8;}
+    if (c==1) {a-=50;}
+    printf("%.2f",a<0 ? 0.00 : a);
+    return 0;
+}
+```
 **BC75 小乐乐是否被叫家长**
 ```c
 #include <stdio.h>
