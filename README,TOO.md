@@ -1,4 +1,4 @@
-(每天更5题)
+(现在每天更1题)
  
 **BC1 Hello Nowcoder** 
 ```c
@@ -567,6 +567,18 @@ int main() {
     scanf("%lld",&n);
     for (ii=1;ii<n+1;ii++) {i+=ii;}
     printf("%lld",i);
+    return 0;
+}
+```
+**BC80 奇偶统计** 
+```c
+#include <stdio.h>
+
+int main() {
+    int n=0;
+    scanf("%d",&n);
+    if (n%2==0) {printf("%d %d",(n-n%2)/2,(n-n%2)/2);}
+    else {printf("%d %d",(n-n%2)/2+1,(n-n%2)/2);}
     return 0;
 }
 ```
