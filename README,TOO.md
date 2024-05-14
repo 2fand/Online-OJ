@@ -535,6 +535,17 @@ int main() {
     return 0;
 }
 ```
+**BC68 牛牛的一周**
+```c
+#include <stdio.h>
+
+int main() {
+    int a=0;
+    scanf("%d",&a);
+    printf("%sday",a==1 ? "Mon" : a==2 ? "Tues" : a==3 ? "Wednes" : a==4 ? "Thurs" : a==5 ? "Fri" : a==6 ? "Satur" : "Sun");
+    return 0;
+}
+```
 **BC75 小乐乐是否被叫家长**
 ```c
 #include <stdio.h>
