@@ -463,6 +463,20 @@ int main() {
     return 0;
 }
 ```
+**BC51 及格分数**
+```c
+#include <stdio.h>
+
+void abc(int b) {printf("%s\n",b>59 ? "Pass" : "Fail");}
+int main() {
+    int a=0;
+    while (scanf("%d",&a) != EOF) { // 注意 while 处理多个 case
+        // 64 位输出请用 printf("%lld") to 
+        abc(a);
+    }
+    return 0;
+}
+```
 **BC54 牛牛的判断题**
 ```c
 #include <stdio.h>
