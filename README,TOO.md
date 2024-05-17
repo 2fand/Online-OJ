@@ -431,7 +431,7 @@ int main() {
 }
 ```
 **BC47 (a+b-c)\*d的计算问题**
-```
+```c
 #include <stdio.h>
 
 int main() {
