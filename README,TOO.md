@@ -521,6 +521,19 @@ int main() {
     return 0;
 }
 ```
+**BC59 小乐乐找最大数**
+```c
+#include <stdio.h>
+
+int main() {
+    int a[4]={0};
+    int i,max=0;
+    scanf("%d %d %d %d",&a[0],&a[1],&a[2],&a[3]);
+    for (i=0;i<4;i++) {if(a[i]>max) {max=a[i];}}
+    printf("%d",max);
+    return 0;
+}
+```
 **BC62 统计数据正负个数**
 ```c
 #include <stdio.h>
