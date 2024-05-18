@@ -632,3 +632,15 @@ int main() {
     return 0;
 }
 ```
+**BC99 正方形图案** 
+```c
+#include <stdio.h>
+
+int main() {
+    int a,i=0;
+    while (scanf("%d", &a) != EOF) { for (i=0;i<a;i++) {
+        printf("*");}
+        printf("\n");}
+    return 0;
+}
+```
