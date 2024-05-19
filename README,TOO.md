@@ -644,3 +644,16 @@ int main() {
     return 0;
 }
 ```
+**BC100 直角三角形图案** 
+```c
+#include <stdio.h>
+
+int main() {
+    int a,i,ii=0;
+    while (scanf("%d",&a) != EOF) {
+        for (i=1;i<a+1;i++) {for (ii=i;ii>=1;ii--) {if (ii==1) {printf("*\n");}
+        else {printf("* ");}
+        }}}
+    return 0;
+}
+```
