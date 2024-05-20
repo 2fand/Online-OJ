@@ -657,3 +657,13 @@ int main() {
     return 0;
 }
 ```
+**BC101 翻转直角三角形图案** 
+```c
+int main() {
+    int a,i,ii=0;
+    while (scanf("%d",&a) != EOF) { 
+        for (i=a;i>0;i--) {for (ii=i;ii>0;ii--) {printf("*%c",ii==1 ? '\n' : ' ');}}
+    }
+    return 0;
+}
+```
