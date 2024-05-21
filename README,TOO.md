@@ -573,6 +573,17 @@ int main() {
     return 0;
 }
 ```
+**BC74 获得月份天数**
+```c
+#include <stdio.h>
+
+int main() {
+    int a,b=0;
+    while (scanf("%d %d",&a,&b) != EOF) { 
+    printf("%d\n",b==1 || b==3 || b==5 || b==7 || b==8 || b==10 || b==12 ? 31 : b==2 ? a%4==0 ? a%100==0 ? a%400==0 ? 29 : 28: 29: 28: 30);}
+    return 0;
+}
+```
 **BC75 小乐乐是否被叫家长**
 ```c
 #include <stdio.h>
