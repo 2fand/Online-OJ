@@ -670,11 +670,29 @@ int main() {
 ```
 **BC101 翻转直角三角形图案** 
 ```c
+#include <stdio.h>
+
 int main() {
     int a,i,ii=0;
     while (scanf("%d",&a) != EOF) { 
         for (i=a;i>0;i--) {for (ii=i;ii>0;ii--) {printf("*%c",ii==1 ? '\n' : ' ');}}
     }
+    return 0;
+}
+```
+**CC13 KiKi定义电子日历类** 
+```c
+#include <stdio.h>
+
+struct Tdate{
+    int Mouth;
+    int Day;
+    int Year;
+};
+int main() {
+    struct Tdate a={0};
+    scanf("%d %d %d",&a.Year,&a.Mouth,&a.Day);
+    printf("%d/%d/%d",a.Day,a.Mouth,a.Year);
     return 0;
 }
 ```
