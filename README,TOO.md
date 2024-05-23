@@ -260,6 +260,20 @@ int main()
  
 }
 ```
+**BC24 浮点数的个位数字**
+```c
+#include <stdio.h>
+
+int main() {
+    float a=0.0;
+    scanf("%f",&a);
+    int b,c=0;
+    b=(int)a;
+    c=a/10;
+    printf("%d",b-c*10);
+    return 0;
+}
+```
 **BC25 牛牛买电影票**
 ```c
 #include <stdio.h>
