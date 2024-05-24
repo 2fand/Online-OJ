@@ -587,6 +587,15 @@ int main() {
     return 0;
 }
 ```
+**BC72 牛牛的计划**
+```c
+int main() {
+    int y,m,d,yl,ml,dl=0;
+    scanf("%d %d %d %d %d %d",&y,&m,&d,&yl,&ml,&dl);
+    printf("%s",y<yl ? "yes" : y==yl ? m<ml ? "yes" : m==ml ? d<=dl ? "yes" : "no" : "no" : "no");
+    return 0;
+}
+```
 **BC74 获得月份天数**
 ```c
 #include <stdio.h>
