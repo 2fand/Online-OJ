@@ -719,3 +719,18 @@ int main() {
     return 0;
 }
 ```
+**BC118 N个数之和** 
+```c
+#include <stdio.h>
+
+int main() {
+    int a[50]={0};
+    int i,ii,b=0;
+    scanf("%d",&i);
+    for (ii=0;ii<i;ii++) {scanf("%d",&a[ii]);}
+    b=a[0];
+    for (ii=1;ii<i;ii++) {b+=a[ii];}
+    printf("%d",b);
+    return 0;
+}
+```
