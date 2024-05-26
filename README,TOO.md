@@ -618,6 +618,38 @@ int main() {
     return 0;
 }
 ```
+**BC77 简单计算器** 
+```c
+#include <stdio.h>
+
+int main() {
+    double a,b,d=0.0;
+    int e,f=0;
+    char c=0;
+    while (scanf("%lf%c%lf",&a,&c,&b) != EOF) {
+        if (c!='+' && c!='-' && c!='*' && c!='/') {printf("Invalid operation!");}
+    else {if (c=='/' && b==0.0) {printf("Wrong!Division by zero!");}
+    else {
+        switch (c) {
+            case '+':
+            d=a+b;
+            break;
+            case '-':
+            d=a-b;
+            break;
+            case '*':
+            d=a*b;
+            break;
+            case '/':
+            d=a/b;
+        }
+        (e=d*10000,f=d*100000);
+        if (f-e*10>4) {e++;}
+        printf("%.4lf%c%.4f=%.4lf",a,c,b,e/10000.0);
+    }}}
+    return 0;
+}
+```
 **BC78 KiKi说祝福语** 
 ```c
 #include <stdio.h>
