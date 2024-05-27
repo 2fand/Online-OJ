@@ -686,6 +686,21 @@ int main() {
     return 0;
 }
 ```
+**BC83 牛牛学数列** 
+```c
+#include <stdio.h>
+
+int main() {
+    int in,ii=0;
+    int ia=1;
+    scanf("%d",&in);
+    for (ii=2;ii<in+1;ii++) {
+        if (ii%2) {ia+=ii;}
+        else {ia-=ii;}}
+    printf("%d",ia);
+    return 0;
+}
+```
 **BC98 线段图案** 
 ```c
 #include <stdio.h>
