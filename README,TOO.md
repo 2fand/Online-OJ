@@ -686,6 +686,19 @@ int main() {
     return 0;
 }
 ```
+**BC82 乘法表** 
+```c
+#include <stdio.h>
+
+int main() {
+    int ii,iii=1;
+    for (ii=1;ii<10;ii++) {for (iii=1;iii<ii+1;iii++) {
+        if (ii*iii<10) {printf("%d*%d= %d%c",iii,ii,iii*ii,ii==iii ? '\n' : ' ');}
+        else {printf("%d*%d=%d%c",iii,ii,iii*ii,ii==iii ? '\n' : ' ');}
+    }} 
+    return 0;
+}
+```
 **BC83 牛牛学数列** 
 ```c
 #include <stdio.h>
