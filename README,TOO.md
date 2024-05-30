@@ -775,6 +775,18 @@ int main() {
     return 0;
 }
 ```
+**BC109 正斜线形图案** 
+```c
+#include <stdio.h>
+
+int main() {
+    int ia,ii,iii=0;
+    while (scanf("%d", &ia) != EOF) { 
+        for (ii=ia;ii>0;ii--) {for (iii=ii;iii>0;iii--) {printf("%s",iii==1 ? "*\n" : " ");}}
+    }
+    return 0;
+}
+```
 **CC13 KiKi定义电子日历类** 
 ```c
 #include <stdio.h>
