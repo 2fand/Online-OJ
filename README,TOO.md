@@ -587,6 +587,41 @@ int main() {
     return 0;
 }
 ```
+**BC69 HTTP状态码**
+```c
+#include <stdio.h>
+
+int main() {
+    int ia=0;
+    while (scanf("%d", &ia) != EOF) {
+        switch (ia) {
+            case 200:
+            printf("OK");
+            break;
+            case 202:
+            printf("Accepted");
+            break;
+            case 400:
+            printf("Bad Request");
+            break;
+            case 403:
+            printf("Forbidden");
+            break;
+            case 404:
+            printf("Not Found");
+            break;
+            case 500:
+            printf("Internal Server Error");
+            break;
+            case 502:
+            printf("Bad Gateway");
+            break;
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
 **BC72 牛牛的计划**
 ```c
 int main() {
