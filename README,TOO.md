@@ -535,6 +535,17 @@ int main() {
     return 0;
 }
 ```
+**BC58 健康评估** 
+```c
+#include <stdio.h>
+
+int main() {
+    float f,fa=0.0;
+    scanf("%f %f",&f,&fa);
+    printf("%sormal",18.5 <= f/(fa*fa) && f/(fa*fa) <=23.9 ? "N" : "Abn");
+    return 0;
+}
+```
 **BC59 小乐乐找最大数**
 ```c
 #include <stdio.h>
