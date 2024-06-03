@@ -491,6 +491,18 @@ int main() {
     return 0;
 }
 ```
+**BC52 判断整数奇偶性**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    while (scanf("%d", &i) != EOF) {
+        printf("%s\n", i % 2 ? "Odd" : "Even");
+    }
+    return 0;
+}
+```
 **BC54 牛牛的判断题**
 ```c
 #include <stdio.h>
