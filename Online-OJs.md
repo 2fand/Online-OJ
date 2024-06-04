@@ -1,3 +1,4 @@
+# 牛客网
 *(现在每天更1题)*
  
 **BC1 Hello Nowcoder** 
@@ -499,6 +500,26 @@ int main() {
     int i = 0;
     while (scanf("%d", &i) != EOF) {
         printf("%s\n", i % 2 ? "Odd" : "Even");
+    }
+    return 0;
+}
+```
+**BC53 判断是元音还是辅音**
+```c
+#include <stdio.h>
+
+int main() {
+    char c = 0;
+    int i = 1;
+    while (scanf("%c", &c) != EOF) {
+        if (i++ % 2) {
+            if ('A' == c || 'E' == c || 'I' == c || 'O' == c || 'U' == c || 'a' == c ||
+                    'e' == c || 'i' == c || 'o' == c || 'u' == c) {
+                printf("Vowel\n");
+            } else {
+                printf("Consonant\n");
+            }
+        }
     }
     return 0;
 }
