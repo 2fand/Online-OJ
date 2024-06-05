@@ -909,3 +909,19 @@ int main() {
     return 0;
 }
 ```
+**CPP13 计算一个数的阶乘** 
+```c
+#include <stdio.h>
+
+int main() {
+    long long i = 0;
+    int ia = 0;
+    while (scanf("%lld", &i) != EOF) {
+        for (ia = i - 1; ia > 0; ia--) {
+            i *= ia;
+        }
+        printf("%lld", i);
+    }
+    return 0;
+}
+```
