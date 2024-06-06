@@ -169,7 +169,15 @@ int main() {
 ```
 **BC15 大小写转换**
 ```c
-//目前还没做好
+#include <stdio.h>
+
+int main() {
+    char c = 0;
+    while (scanf("%c", &c) != EOF) {
+        printf("%c", '\n' == c ? '\n' : c + 32);
+    }
+    return 0;
+}
 ```
 **BC16 十六进制转十进制**
 ```c
