@@ -453,6 +453,17 @@ int main() {
     return 0;
 }
 ```
+**BC43 小乐乐排电梯**
+```c
+#include <stdio.h>
+
+int main() {
+    int a=0;
+    scanf("%d",&a);
+    printf("%.2f",3.14*a*a*a+3.14*a*a*a/3);
+    return 0;
+}
+```
 **BC47 (a+b-c)\*d的计算问题**
 ```c
 #include <stdio.h>
