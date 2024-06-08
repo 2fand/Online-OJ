@@ -380,6 +380,26 @@ int main() {
     return 0;
 }
 ```
+**BC35 KiKi和酸奶**
+```c
+#include <stdio.h>
+
+int main() {
+    int in = 0;
+    int ih = 0;
+    int im = 0;
+    int ia = 0;
+    while (scanf("%d %d %d", &in, &ih, &im) != EOF) {
+        if (!(im % ih)) {
+            ia = in - (im / ih);
+        } else {
+            ia = in - (im / ih + 1);
+        }
+        printf("%d ", ia);
+    }
+    return 0;
+}
+```
 **BC36 温度转换**
 ```c
 #include <stdio.h>
