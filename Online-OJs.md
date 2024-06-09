@@ -832,6 +832,25 @@ int main() {
     return 0;
 }
 ```
+**BC88 魔法数字变换** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    scanf("%d", &i);
+    for (i = i; 1 != i; ia++) {
+        if (i % 2) {
+            (i *= 3, i++);
+        } else {
+            i /= 2;
+        }
+    }
+    printf("%d", ia);
+    return 0;
+}
+```
 **BC98 线段图案** 
 ```c
 #include <stdio.h>
