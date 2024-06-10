@@ -631,6 +631,22 @@ int main() {
     return 0;
 }
 ```
+**BC60 判断是不是字母**
+```c
+#include <stdio.h>
+
+int main() {
+    char c = 0;
+    while (scanf("%c", &c) != EOF) {
+        if ('\n' == c) {
+            printf("\n");
+        } else {
+            printf("%c is %s alphabet.", c, (c >= 65 && c <= 90) || (c>=97 && c<=122) ? "an" : "not an");
+        }
+    }
+    return 0;
+}
+```
 **BC62 统计数据正负个数**
 ```c
 #include <stdio.h>
