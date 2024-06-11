@@ -484,6 +484,24 @@ int main() {
     return 0;
 }
 ```
+**BC44 小乐乐与欧几里得**
+```c
+#include <stdio.h>
+
+int main() {
+    long long ll = 0;
+    long long lla = 0;
+    long long llb = 0;
+    while (scanf("%lld %lld", &lla, &llb) != EOF) {
+        long long llab = lla * llb;
+        while (lla % llb) {
+            (ll = lla % llb, lla = llb, llb = ll);
+        }
+        printf("%lld", llb + llab / llb);
+    }
+    return 0;
+}
+```
 **BC47 (a+b-c)\*d的计算问题**
 ```c
 #include <stdio.h>
