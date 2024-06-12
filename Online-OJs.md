@@ -739,6 +739,25 @@ int main() {
     return 0;
 }
 ```
+**BC70 计算单位阶跃函数**
+```c
+#include <stdio.h>
+
+int main() {
+    int it = 0;
+    while (scanf("%d", &it) != EOF) {
+        if (it > 0) {
+            printf("1");
+        } else if (it < 0) {
+            printf("0");
+        } else {
+            printf("0.5");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
 **BC72 牛牛的计划**
 ```c
 int main() {
