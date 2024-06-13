@@ -451,6 +451,25 @@ int main() {
     return 0;
 }
 ```
+**BC39 牛牛的水杯**
+```c
+#include <stdio.h>
+
+int main() {
+    int ih = 0;
+    int ir = 0;
+    int i = 0;
+    int ia = 0;
+    int ib = 1;
+    scanf("%d %d", &ih, &ir);
+    (i = 3.14 * (float)ih * (float)ir * (float)ir, ia = i);
+    for (ib = 1; i < 10000; i += ia) {
+        ib++;
+    }
+    printf("%d", ib);
+    return 0;
+}
+```
 **BC40 牛牛的等差数列**
 ```c
 #include <stdio.h>
