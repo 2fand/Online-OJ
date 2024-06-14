@@ -876,6 +876,32 @@ int main() {
     return 0;
 }
 ```
+**BC81 KiKi求质数个数** 
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int i = 100;
+    int ia = 2;
+    int ib = 0;
+    int ic = 0;
+    for (i = 100; i < 1000; i++) {
+        for (ia = 2; ia <= sqrt(i); ia++) {
+            if (!(i % ia)) {
+                ib = 1;
+                break;
+            }
+        }
+        if (!(ib)) {
+            ic++;
+        }
+        ib = 0;
+    }
+    printf("%d", ic);
+    return 0;
+}
+```
 **BC82 乘法表** 
 ```c
 #include <stdio.h>
