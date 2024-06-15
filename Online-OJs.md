@@ -1022,6 +1022,29 @@ int main() {
     return 0;
 }
 ```
+**BC111 空心正方形图案** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    while (scanf("%d", &i) != EOF) {
+        for (ia = 0; ia < i; ia++) {
+            for (ib = 0; ib < i; ib++) {
+                if (!(ia) || i - 1 == ia) {
+                    printf("* ");
+                } else {
+                    printf("%c ", (!(ib) || i - 1 == ib) ? '*' : ' ');
+                }
+            }
+            printf("\n");
+        }
+    }
+    return 0;
+}
+```
 **CC13 KiKi定义电子日历类** 
 ```c
 #include <stdio.h>
