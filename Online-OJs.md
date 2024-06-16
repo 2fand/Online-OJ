@@ -712,6 +712,22 @@ int main() {
     return 0;
 }
 ```
+**BC66 牛牛的通勤** 
+```c
+#include <stdio.h>
+
+int main() {
+    long long ll = 0;
+    long long lla = 0;
+    scanf("%lld", (lla += 10, &ll));
+    long long llb=ll;
+    for (ll = ll; ll > 0; ll -= 10) {
+        lla++;
+    }
+    printf("%c", lla > llb ? 'w' : 'v');
+    return 0;
+}
+```
 **BC68 牛牛的一周**
 ```c
 #include <stdio.h>
