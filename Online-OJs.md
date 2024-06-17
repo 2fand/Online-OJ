@@ -1061,6 +1061,24 @@ int main() {
     return 0;
 }
 ```
+**BC113 数字三角形** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    while (scanf("%d", &i) != EOF) {
+        for (ia = 1; ia < i + 1; ia++) {
+            for (ib = 1; ib < ia + 1; ib++) {
+                printf("%d%c", ib, ia == ib ? '\n' : ' ');
+            }
+        }
+    }
+    return 0;
+}
+```
 **CC13 KiKi定义电子日历类** 
 ```c
 #include <stdio.h>
