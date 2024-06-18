@@ -1138,3 +1138,31 @@ int main() {
     return 0;
 }
 ```
+**BC119 最高分与最低分之差** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int arr[10000] = {0};
+    scanf("%d", &i);
+    for (ia = 0; ia < i; ia++) {
+        scanf("%d", &arr[ia]);
+    }
+    int max = arr[0];
+    int min = arr[0];
+    for (ia = i - 1; ia > 0; ia--) {
+        if (max < arr[ia]) {
+            max = arr[ia];
+        }
+    }
+    for (ia = i - 1; ia > 0; ia--) {
+        if (min > arr[ia]) {
+            min = arr[ia];
+        }
+    }
+    printf("%d", max - min);
+    return 0;
+}
+```
