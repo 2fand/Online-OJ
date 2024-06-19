@@ -946,6 +946,25 @@ int main() {
     return 0;
 }
 ```
+**BC86 牛牛学数列4** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 1;
+    int ib = 1;
+    long long ll = 0;
+    scanf("%d", &i);
+    for (ia = 1; ia < i + 1; ia++) {
+        for (ib = ia; ib > 0; ib--) {
+            ll += ib;
+        }
+    }
+    printf("%lld", ll);
+    return 0;
+}
+```
 **BC88 魔法数字变换** 
 ```c
 #include <stdio.h>
