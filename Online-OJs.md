@@ -793,6 +793,28 @@ int main() {
     return 0;
 }
 ```
+**BC71 三角形判断**
+```c
+#include <stdio.h>
+
+int main() {
+    int ia, ib, ic = 0;
+    while (scanf("%d %d %d", &ia, &ib, &ic) != EOF) {
+        if (ia == ib && ib == ic) {
+            printf("Equilateral triangle!");
+        } else {
+            if (ia + ib > ic && ia + ic > ib && ib + ic > ia) {
+                printf("%s triangle!", ia == ib || ia == ic ||
+                       ib == ic ? "Isosceles" : "Ordinary");
+            } else {
+                printf("Not a triangle!");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
 **BC72 牛牛的计划**
 ```c
 int main() {
