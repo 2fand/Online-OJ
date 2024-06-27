@@ -1,5 +1,5 @@
 # 牛客网
-*(现在每天更1题)*
+*(每天更1题)*
  
 **BC1 Hello Nowcoder** 
 ```c
@@ -7,8 +7,8 @@
 
 int main() 
 {    
-    printf("Hello Nowcoder!");
-    return 0;
+ printf("Hello Nowcoder!");
+ return 0;
 }
 ```
  **BC2 小飞机** 
@@ -16,8 +16,8 @@ int main()
 #include <stdio.h>
 
 int main() {
-    printf("     **     \n     **     \n************\n************\n    *  *    \n    *  *    ");
-    return 0;
+ printf(" ** \n ** \n************\n************\n * * \n * * ");
+ return 0;
 }
 ``` 
 **BC3 牛牛学说话之-整数**
@@ -25,20 +25,20 @@ int main() {
 #include <stdio.h>
 
 int main() {
-    int i=0;
-    scanf("%d",&i);
-    printf("%d",i);
-    return 0;
+ int i=0;
+ scanf("%d",&i);
+ printf("%d",i);
+ return 0;
 } 
 ```
 **BC4 牛牛学说话之-浮点数**
 ```c
 #include <stdio.h>
 int main() {
-    float a=1.000000;
-    int b,c=0;
-    scanf("%f",&a);
-    b=a*1000;
+ float a=1.000000;
+ int b,c=0;
+ scanf("%f",&a);
+ b=a*1000;
     c=a*10000;
     if (c-b*10>4) {b++;}
     printf("%.3f",b/1000.0000);
