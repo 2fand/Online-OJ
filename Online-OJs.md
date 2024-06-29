@@ -684,6 +684,29 @@ int main() {
     return 0;
 }
 ```
+**BC61 牛牛的二三七整除**
+```c
+#include <stdio.h>
+
+int main() {
+    int i, ifl = 0;
+    scanf("%d", &i);
+    if (!(i % 2)) {
+        printf("2 ");
+        ifl++;
+    }
+    if (!(i % 3)) {
+        printf("3 ");
+        ifl++;
+    }
+    if (!(i % 7)) {
+        printf("7 ");
+        ifl++;
+    }
+    printf("%c", ifl ? '\n' : 'n');
+    return 0;
+}
+```
 **BC62 统计数据正负个数**
 ```c
 #include <stdio.h>
