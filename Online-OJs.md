@@ -1010,6 +1010,24 @@ int main() {
     return 0;
 }
 ```
+**BC87 数位之和** 
+```c
+#include <stdio.h>
+
+int bc87(int i) {
+    int icount = 0;
+    while (i) {
+        (icount += i % 10, i /= 10);
+    }
+    return icount;
+}
+int main() {
+    int i = 0;
+    scanf("%d", &i);
+    printf("%d", bc87(i));
+    return 0;
+}
+```
 **BC88 魔法数字变换** 
 ```c
 #include <stdio.h>
