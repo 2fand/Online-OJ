@@ -1010,7 +1010,7 @@ int main() {
     return 0;
 }
 ```
-**BC87 数位之和** 
+**BC87 数位之和(循环版)** 
 ```c
 #include <stdio.h>
 
@@ -1020,6 +1020,24 @@ int bc87(int i) {
         (icount += i % 10, i /= 10);
     }
     return icount;
+}
+int main() {
+    int i = 0;
+    scanf("%d", &i);
+    printf("%d", bc87(i));
+    return 0;
+}
+```
+**BC87 数位之和(递归版)** 
+```c
+#include <stdio.h>
+
+int bc87(int i) {
+    if (i < 10) {
+        return i;
+    } else {
+        return i % 10 + bc87(i / 10);
+    }
 }
 int main() {
     int i = 0;
