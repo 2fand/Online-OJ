@@ -1266,3 +1266,21 @@ int main() {
     return 0;
 }
 ```
+**BC168 牛牛的西格玛** 
+```c
+#include <stdio.h>
+
+int sigma(int in) {
+    if (in != 1) {
+        return in + sigma(in - 1);
+    } else {
+        return 1;
+    }
+}
+int main() {
+    int in = 0;
+    scanf("%d", &in);
+    printf("%d", sigma(in));
+    return 0;
+}
+```
