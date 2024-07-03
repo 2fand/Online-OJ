@@ -1284,3 +1284,20 @@ int main() {
     return 0;
 }
 ```
+**BC170 牛牛的digit** 
+```c
+#include <stdio.h>
+#include <math.h>
+
+int digit(int ix, int i) {
+    return ix % (long long)pow(10, i);
+}
+int main() {
+    int i = 0;
+    int ix = 0;
+    scanf("%d %d", &ix, &i);
+    ix = digit(ix, i);
+    printf("%d", ix);
+    return 0;
+}
+```
