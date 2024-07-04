@@ -1301,3 +1301,25 @@ int main() {
     return 0;
 }
 ```
+**BC171 牛牛的Hermite多项式** 
+```c
+#include <stdio.h>
+
+int h(int in, int ix) {
+    if (0 == in) {
+        return 1;
+    } else if (1 == in) {
+        return 2 * in;
+    } else if (in > 1) {
+        return 2 * ix * h(in - 1, ix) - 2 * (in - 1) * h(in - 2, ix);
+    }
+    return 0;
+}
+int main() {
+    int in = 0;
+    int ix = 0;
+    scanf("%d %d", &in, &ix);
+    printf("%d", h(in, ix));
+    return 0;
+}
+```
