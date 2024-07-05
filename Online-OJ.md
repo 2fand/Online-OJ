@@ -1266,6 +1266,21 @@ int main() {
     return 0;
 }
 ```
+**BC144 登录验证** 
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[25] = "";
+    char stra[25] = "";
+    while (EOF != scanf("%s %s", str, stra)) {
+        printf("Login %s!\n", strcmp(str, "admin") ||
+               strcmp(stra, "admin") ? "Fail" : "Success");
+    }
+    return 0;
+}
+```
 **BC168 牛牛的西格玛** 
 ```c
 #include <stdio.h>
