@@ -1266,6 +1266,33 @@ int main() {
     return 0;
 }
 ```
+**BC132 矩阵计算** 
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[10][10] = {0};
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    long long llcount = 0;
+    scanf("%d %d", &i, &ib);
+    for (; i > 0; i--) {
+        for (ia = 0; ia < ib; ia++) {
+            scanf("%d", &arr[i][ia]);
+        }
+    }
+    for (i = 0; i < 10; i++) {
+        for (ia = 0; ia < 10; ia++) {
+            if (arr[i][ia] > 0) {
+                llcount += arr[i][ia];
+            }
+        }
+    }
+    printf("%lld", llcount);
+    return 0;
+}
+```
 **BC144 登录验证** 
 ```c
 #include <stdio.h>
