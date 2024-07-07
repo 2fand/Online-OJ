@@ -1065,6 +1065,21 @@ int main() {
     return 0;
 }
 ```
+**BC94 反向输出一个四位数** 
+```c
+#include <stdio.h>
+
+int main() {
+    int in = 0;
+    int i = 0;
+    scanf("%d", &in);
+    for (i = 0; i < 4; i++) {
+        printf("%d", in % 10);
+        in /= 10;
+    }
+    return 0;
+}
+```
 **BC98 线段图案** 
 ```c
 #include <stdio.h>
