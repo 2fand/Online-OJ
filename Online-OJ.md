@@ -1308,6 +1308,26 @@ int main() {
     return 0;
 }
 ```
+**BC143 [NOIP2018]标题统计** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int icount = 0;
+    char str[6] = "";
+    for (i = 0; EOF != scanf("%c", &str[i]); i++) {
+        ;
+    }
+    for (i = 0; i < 5; i++) {
+        if (' ' != str[i] && '\n' != str[i] && '\0' != str[i]) {
+            icount++;
+        }
+    }
+    printf("%d", icount);
+    return 0;
+}
+```
 **BC144 登录验证** 
 ```c
 #include <stdio.h>
