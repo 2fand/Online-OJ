@@ -521,6 +521,38 @@ int main() {
     return 0;
 }
 ```
+**BC45 小乐乐改数字**
+```c
+#include <stdio.h>
+
+int main() {
+    long long ll = 0;
+    int i = 0;
+    int arr[10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+    int iflag = 0;
+    scanf("%lld", &ll);
+    for (; ll; (ll /= 10, i++)) {
+        arr[i] = ll % 10;
+    }
+    for (i = 0; -1 != arr[i]; i++) {
+        if (arr[i] % 2) {
+            arr[i] = 1;
+        } else {
+            arr[i] = 0;
+        }
+    }
+    for (i--; -1 != i; i--) {
+        if (arr[i] || iflag) {
+            printf("%d", arr[i]);
+            iflag++;
+        }
+    }
+    if (!iflag) {
+        printf("0");
+    }
+    return 0;
+}
+```
 **BC47 (a+b-c)\*d的计算问题**
 ```c
 #include <stdio.h>
