@@ -1112,6 +1112,26 @@ int main() {
     return 0;
 }
 ```
+**BC96 [NOIP2015]金币** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 1;
+    int ib = 1;
+    int ic = 1;
+    int id = 0;
+    scanf("%d", &i);
+    for (; ia < i; (ic += ib, id--, ia++)) {
+        if (!id) {
+            (ib++, id = ib);
+        }
+    }
+    printf("%d", ic);
+    return 0;
+}
+```
 **BC98 线段图案** 
 ```c
 #include <stdio.h>
