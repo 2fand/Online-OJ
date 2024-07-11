@@ -1228,6 +1228,28 @@ int main() {
     return 0;
 }
 ```
+**BC112 空心三角形图案** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    while (EOF != scanf("%d", &i)) {
+        for (ia = 0; ia < i + 1; ia++) {
+            for (ib = 0; ib < ia; ib++) {
+                if (ia + 1 == i + 1) {
+                    printf("*%c", ib + 1 == ia ? '\n' : ' ');
+                } else {
+                    printf("%c%c", !ib || ib + 1 == ia ? '*' : ' ', ib + 1 == ia ? '\n' : ' ');
+                }
+            }
+        }
+    }
+    return 0;
+}
+```
 **BC113 数字三角形** 
 ```c
 #include <stdio.h>
