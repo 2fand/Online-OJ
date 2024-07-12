@@ -1355,6 +1355,33 @@ int main() {
     return 0;
 }
 ```
+**BC124 序列中删除指定数字** 
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[50] = {-1};
+    int i = 0;
+    int ia = 0;
+    int id = 0;
+    for (i = 0; i < 49; i++) {
+        arr[i + 1] = arr[i];
+    }
+    for ((scanf("%d", &i), ia = 0); ia < i; ia++) {
+        scanf("%d", &arr[ia]);
+    }
+    scanf("%d", &id);
+    for (ia = 0; ia < i; ia++) {
+        if (arr[ia] == id) {
+            arr[ia] = -1;
+        }
+    }
+    for (ia = 0; ia < i; ia++) {
+        -1 != arr[ia] && printf("%d ", arr[ia]);
+    }
+    return 0;
+}
+```
 **BC132 矩阵计算** 
 ```c
 #include <stdio.h>
