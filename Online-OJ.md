@@ -1409,6 +1409,48 @@ int main() {
     return 0;
 }
 ```
+**BC141 井字棋** 
+```c
+#include <stdio.h>
+
+int main() {
+    char str[3][3];
+    char stra[3] = "KB";
+    int i = 0;
+    int ia = 0;
+    int iw = 0;
+    for (i = 0; i < 3; i++) {
+        scanf("%c %c %c\n", &str[i][0], &str[i][1], &str[i][2]);
+    }
+    for (ia = 0; ia < 2; ia++) {
+        for (i = 0; i < 3; i++) {
+            if (str[i][0] == str[i][1] && str[i][1] == str[i][2] && stra[ia] == str[i][1]) {
+                ia || (iw = 1), ia && (iw = -1);
+            }
+        }
+        for (i = 0; i < 3; i++) {
+            if (str[0][i] == str[1][i] && str[1][i] == str[2][i] && stra[ia] == str[1][i]) {
+                ia || (iw = 1), ia && (iw = -1);
+            }
+        }
+        if (str[0][0] == str[1][1] && str[1][1] == str[2][2] && stra[ia] == str[1][1] || str[0][2] == str[1][1] && str[1][1] == str[2][0] && stra[ia] == str[1][1]) {
+            ia || (iw = 1), ia && (iw = -1);
+        }
+    }
+    switch (iw) {
+        case -1:
+            printf("BoBo wins!");
+            break;
+        case 1:
+            printf("KiKi wins!");
+            break;
+        case 0:
+            printf("No winner!");
+            break;
+    }
+    return 0;
+}
+```
 **BC143 [NOIP2018]标题统计** 
 ```c
 #include <stdio.h>
