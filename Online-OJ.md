@@ -1543,3 +1543,22 @@ int main() {
     return 0;
 }
 ```
+**BC173 牛牛逆序输出** 
+```c
+#include <stdio.h>
+
+int rept(int i) {
+    printf("%d",i%10);
+    if (!(i/10)) {
+        return 0;
+    } else {
+        return rept(i/10);
+    }  
+}
+int main() {
+    int i=0;
+    scanf("%d",&i);
+    rept(i);
+    return 0;
+}
+```
