@@ -492,6 +492,20 @@ int main() {
     return 0;
 }
 ```
+**BC42 小乐乐定闹钟**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ik = 0;
+    scanf("%d:%d %d", &i, &ia, &ik);
+    int iad = i * 60 + ia + ik;
+    printf("%02d:%02d", iad / 60 % 24, iad % 60);
+    return 0;
+} 
+```
 **BC43 小乐乐排电梯**
 ```c
 #include <stdio.h>
