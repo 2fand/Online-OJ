@@ -1126,6 +1126,31 @@ int main() {
     return 0;
 }
 ```
+**BC95 小乐乐与进制转换** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int arr[15] = {-1};
+    for (i = 1; i < 15; i++) {
+        arr[i] = -1;
+    }
+    scanf("%d", &i);
+    for (ia = 0; i / 6; ia++) {
+        arr[ia] = i % 6;
+        i /= 6;
+    }
+    for (arr[ia] = i % 6; -1 != arr[ia];) {
+        ia++;
+    }
+    for (ia--; -1 != ia; ia--) {
+        printf("%d", arr[ia]);
+    }
+    return 0;
+}
+```
 **BC96 [NOIP2015]金币** 
 ```c
 #include <stdio.h>
