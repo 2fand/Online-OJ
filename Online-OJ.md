@@ -1421,6 +1421,31 @@ int main() {
     return 0;
 }
 ```
+**BC128 班级成绩输入输出** 
+```c
+#include <stdio.h>
+
+int main() {
+    float arr[5][5] = {0.0f};
+    int i = 0;
+    int ia = 0;
+    float sum = 0.0f;
+    for (i = 0; i < 5; i++) {
+        for (ia = 0; ia < 5; ia++) {
+            scanf("%f ", &arr[i][ia]);
+        }
+    }
+    for (i = 0; i < 5; i++) {
+        for (ia = 0; ia < 5; ia++) {
+            printf("%.1f ", arr[i][ia]);
+            sum += arr[i][ia];
+        }
+        printf("%.1f \n", sum);
+        sum = 0.0f;
+    }
+    return 0;
+}
+```
 **BC132 矩阵计算** 
 ```c
 #include <stdio.h>
