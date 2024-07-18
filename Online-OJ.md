@@ -1607,6 +1607,25 @@ int main() {
     return 0;
 }
 ```
+**BC172 牛牛的排列数** 
+```c
+#include <stdio.h>
+
+long long amn(long long ll, long long lla) {
+    if (1 == lla) {
+        return ll;
+    } else {
+        return (ll - lla + 1) * amn(ll, lla - 1);
+    }
+}
+int main() {
+    long long lln = 0;
+    long long llm = 0;
+    scanf("%lld %lld", &lln, &llm);
+    printf("%lld", amn(lln, llm));
+    return 0;
+}
+```
 **BC173 牛牛逆序输出** 
 ```c
 #include <stdio.h>
