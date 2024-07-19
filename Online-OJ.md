@@ -1550,6 +1550,32 @@ int main() {
     return 0;
 }
 ```
+**BC151 数位五五** 
+```c
+#include <stdio.h>
+
+int bc151(int i, int ia) {
+    int icount = 0;
+    for (; i <= ia; i++) {
+        int isum = 0;
+        int ib = i;
+        for (; ib / 10; ib /= 10) {
+            isum += ib % 10;
+        }
+        if (isum += ib % 10, !(isum % 5)) {
+            icount++;
+        }
+    }
+    return icount;
+}
+int main() {
+    int i = 0;
+    int ia = 0;
+    scanf("%d %d", &i, &ia);
+    printf("%d", bc151(i, ia));
+    return 0;
+}
+```
 **BC168 牛牛的西格玛** 
 ```c
 #include <stdio.h>
