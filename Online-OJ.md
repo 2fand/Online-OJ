@@ -1576,6 +1576,26 @@ int main() {
     return 0;
 }
 ```
+**BC153 [NOIP2010]数字统计** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int count = 0;
+    scanf("%d %d", &i, &ia);
+    for (; i <= ia; i++) {
+        int ib = i;
+        for (; ib / 10; ib /= 10) {
+            2 == ib % 10 && count++;
+        }
+        2 == ib % 10 && count++;
+    }
+    printf("%d", count);
+    return 0;
+}
+```
 **BC168 牛牛的西格玛** 
 ```c
 #include <stdio.h>
