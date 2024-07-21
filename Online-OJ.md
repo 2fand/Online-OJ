@@ -1550,6 +1550,19 @@ int main() {
     return 0;
 }
 ```
+**BC149 简写单词** 
+```c
+#include <stdio.h>
+
+int main() {
+    char str[50] = "";
+    while (EOF != scanf("%s", str)) {
+        str[0] > 96 && (str[0] -= 32);
+        printf("%c", str[0]);
+    }
+    return 0;
+}
+```
 **BC151 数位五五** 
 ```c
 #include <stdio.h>
