@@ -1550,6 +1550,29 @@ int main() {
     return 0;
 }
 ```
+**BC147 竞选社长** 
+```c
+#include <stdio.h>
+
+int main() {
+    int ia = 0;
+    int ib = 0;
+    char str[100] = "";
+    scanf("%s", str);
+    char* cp = str;
+    for (; '0' != *cp; cp++) {
+        'A' == *cp && ia++, 'B' == *cp && ib++;
+    }
+    if (ia > ib) {
+        printf("A");
+    } else if (ia < ib) {
+        printf("B");
+    } else {
+        printf("E");
+    }
+    return 0;
+}
+```
 **BC149 简写单词** 
 ```c
 #include <stdio.h>
