@@ -1,4 +1,4 @@
-# 牛客网
+![image](https://github.com/user-attachments/assets/d25c20a6-bf79-4c6a-9e89-f720b3d95eac)# 牛客网
 *(每天更1题)*
  
 **BC1 Hello Nowcoder** 
@@ -1320,6 +1320,27 @@ int main() {
     struct Tdate a={0};
     scanf("%d %d %d",&a.Year,&a.Mouth,&a.Day);
     printf("%d/%d/%d",a.Day,a.Mouth,a.Year);
+    return 0;
+}
+```
+**BC116 [NOIP2013]记数问题** 
+```c
+#include <stdio.h>
+
+int main() {
+    int in = 0;
+    int ix = 0;
+    int count = 0;
+    scanf("%d %d", &in, &ix);
+    int ia = in;
+    for (; ia > 0; ia--) {
+        in = ia;
+        for (; in / 10; in /= 10) {
+            ix == (in % 10) && count++;
+        }
+        ix == (in % 10) && count++;
+    }
+    printf("%d", count);
     return 0;
 }
 ```
