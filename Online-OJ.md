@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d25c20a6-bf79-4c6a-9e89-f720b3d95eac)# 牛客网
+# 牛客网
 *(每天更1题)*
  
 **BC1 Hello Nowcoder** 
@@ -1630,6 +1630,27 @@ int main() {
     int ia = 0;
     scanf("%d %d", &i, &ia);
     printf("%d", bc151(i, ia));
+    return 0;
+}
+```
+**BC152 The Biggest Water Problem** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ic = 0;
+    scanf("%d", &i);
+    while (i > 9) {
+        for (ia = i; ia / 10; ia /= 10) {
+            ic += ia % 10;
+        }
+        ic += ia % 10;
+        i = ic;
+        ic = 0;
+    }
+    printf("%d", i);
     return 0;
 }
 ```
