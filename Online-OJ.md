@@ -1467,6 +1467,40 @@ int main() {
     return 0;
 }
 ```
+**BC131 矩阵相等判定** 
+```c
+#include <stdio.h>
+
+int main() {
+    long long arr[10][10] = {0};
+    long long arra[10][10] = {0};
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    int ic = 0;
+    scanf("%d %d", &i, &ia);
+    for (ib = 0; ib < i; ib++) {
+        for (ic = 0; ic < ia; ic++) {
+            scanf("%lld", &arr[ib][ic]);
+        }
+    }
+    for (ib = 0; ib < i; ib++) {
+        for (ic = 0; ic < ia; ic++) {
+            scanf("%lld", &arra[ib][ic]);
+        }
+    }
+    for (i = 0; i < 10; i++) {
+        for (ia = 0; ia < 10; ia++) {
+            if (arr[i][ia] != arra[i][ia]) {
+                goto g;
+            }
+        }
+    }
+g:
+    (10 == i && 10 == ia) && printf("Yes\n"), (10 == i && 10 == ia) || printf("No\n");
+    return 0;
+}
+```
 **BC132 矩阵计算** 
 ```c
 #include <stdio.h>
