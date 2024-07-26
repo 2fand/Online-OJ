@@ -1037,6 +1037,24 @@ int main() {
     return 0;
 }
 ```
+**BC84 牛牛学数列2** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    double d = 0;
+    scanf("%d", &i);
+    for (; i > 0; i--) {
+        d += 1.0 / i;
+    }
+    int ia = d * 1000000;
+    int ib = d * 10000000;
+    (ib - ia * 10) > 4 && ia++;
+    printf("%.6f", ia / 1000000.0);
+    return 0;
+}
+```
 **BC86 牛牛学数列4** 
 ```c
 #include <stdio.h>
