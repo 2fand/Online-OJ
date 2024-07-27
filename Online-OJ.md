@@ -1129,6 +1129,29 @@ int main() {
     return 0;
 }
 ```
+**BC89 包含数字9的数** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 10;
+    int ia = 0;
+    int icount = 2;
+    for (; i < 2010; i++) {
+        int iflag = 1;
+        for (ia = i; ia / 10; ia /= 10) {
+            if (9 == ia % 10) {
+                icount++;
+                iflag = 0;
+                break;
+            }
+        }
+        iflag&& (9 == ia % 10 && icount++);
+    }
+    printf("%d", icount);
+    return 0;
+}
+```
 **BC94 反向输出一个四位数** 
 ```c
 #include <stdio.h>
