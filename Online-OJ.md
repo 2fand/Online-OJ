@@ -1749,6 +1749,24 @@ int main() {
     return 0;
 }
 ```
+**BC166 小乐乐走台阶** 
+```c
+#include <stdio.h>
+
+long long bc166(int in) {
+    if (in < 2) {
+        return 1;
+    } else {
+        return bc166(in - 1) + bc166(in - 2);
+    }
+}
+int main() {
+    int in = 0;
+    scanf("%d", &in);
+    printf("%lld", bc166(in));
+    return 0;
+}
+```
 **BC168 牛牛的西格玛** 
 ```c
 #include <stdio.h>
