@@ -1456,6 +1456,40 @@ int main() {
     return 0;
 }
 ```
+**BC121 有序序列合并** 
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[2000] = {0};
+    int i = 0;
+    int ia = 0;
+    scanf("%d %d", &i, &ia);
+    int ib = i;
+    int ic = i;
+    int id = 0;
+    int itmp = 0;
+    for (i = 0; i < ib; i++) {
+        scanf("%d", &arr[i]);
+    }
+    for (; ic < i + ia; ic++) {
+        scanf("%d", &arr[ic]);
+    }
+    for (id = ic; id > 0; id--) {
+        for (ib = 0; ib < id - 1; ib++) {
+            if (arr[ib] > arr[ib + 1]) {
+                itmp = arr[ib];
+                arr[ib] = arr[ib + 1];
+                arr[ib + 1] = itmp;
+            }
+        }
+    }
+    for (i = 0; i < ic; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+```
 **BC124 序列中删除指定数字** 
 ```c
 #include <stdio.h>
