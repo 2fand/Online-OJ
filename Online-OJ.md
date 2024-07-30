@@ -1490,6 +1490,31 @@ int main() {
     return 0;
 }
 ```
+**BC122 有序序列判断** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int is = 0;
+    int arr[50] = {0};
+    scanf("%d", &i);
+    for (; ia < i; ia++) {
+        scanf("%d", &arr[ia]);
+    }
+    for (ia = 0; ia < i - 1; ia++) {
+        (arr[ia] < arr[ia + 1] && !is)&& (is = -1);
+        (arr[ia] > arr[ia + 1] && !is)&& (is = 1);
+        if ((arr[ia] < arr[ia + 1] && 1 == is) || (arr[ia] > arr[ia + 1] && -1 == is)) {
+            printf("un");
+            break;
+        }
+    }
+    printf("sorted");
+    return 0;
+}
+```
 **BC124 序列中删除指定数字** 
 ```c
 #include <stdio.h>
