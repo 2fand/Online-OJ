@@ -1456,6 +1456,38 @@ int main() {
     return 0;
 }
 ```
+**BC120 争夺前五名** 
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[50] = {0};
+    int in = 0;
+    int i = 0;
+    scanf("%d", &in);
+    for (; i < in; i++) {
+        scanf("%d", &arr[i]);
+    }
+    while (in - 1 != i) {
+        for (i = 0; i < in - 1; i++) {
+            if (arr[i] < arr[i + 1]) {
+                int itmp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = itmp;
+            }
+        }
+        for (i = 0; i < in - 1; i++) {
+            if (arr[i] < arr[i + 1]) {
+                break;
+            }
+        }
+    }
+    for (i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+```
 **BC121 有序序列合并** 
 ```c
 #include <stdio.h>
