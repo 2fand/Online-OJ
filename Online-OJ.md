@@ -1599,6 +1599,27 @@ int main() {
     return 0;
 }
 ```
+**BC129 矩阵元素定位** 
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[5][5] = {0};
+    int in = 0;
+    int im = 0;
+    int ix = 0;
+    int iy = 0;
+    scanf("%d %d", &in, &im);
+    for (; ix < in; ix++) {
+        for (iy = 0; iy < im; iy++) {
+            scanf("%d", &arr[ix][iy]);
+        }
+    }
+    scanf("%d %d", &ix, &iy);
+    printf("%d", arr[ix - 1][iy - 1]);
+    return 0;
+}
+```
 **BC131 矩阵相等判定** 
 ```c
 #include <stdio.h>
