@@ -1974,3 +1974,30 @@ int main() {
     return 0;
 }
 ```
+**NC140 排序** 
+```c
+/**
+ * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+ *
+ * 将给定数组排序
+ * @param arr int整型一维数组 待排序的数组
+ * @param arrLen int arr数组长度
+ * @return int整型一维数组
+ * @return int* returnSize 返回数组行数
+ */
+int* MySort(int* arr, int arrLen, int* returnSize) {
+    int i = 0;
+    int ia = 0;
+    for (; i < arrLen; i++) {
+        for (ia = 0; ia < arrLen - 1; ia++) {
+            if (arr[ia] > arr[ia + 1]) {
+                int itmp = arr[ia];
+                arr[ia] = arr[ia + 1];
+                arr[ia + 1] = itmp;
+            }
+        }
+    }
+    *returnSize = arrLen;
+    return arr;
+}
+```
