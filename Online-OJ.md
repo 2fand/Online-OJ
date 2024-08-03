@@ -1758,6 +1758,29 @@ int main() {
     return 0;
 }
 ```
+**BC146 添加逗号** 
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[11] = "";
+    char stra[11] = "";
+    scanf("%s", str);
+    int i = 0;
+    int ia = strlen(str) % 3;
+    ia && (ia = 3 - ia);
+    for (; i < strlen(str); i++) {
+        stra[i] = str[strlen(str) - i - 1];
+    }
+    strcpy(str, stra);
+    for (i = strlen(str) - 1; i > -1; ia++, i--) {
+        printf("%c", str[i]);
+        (2 == ia && i) && (printf(","), ia = -1);
+    }
+    return 0;
+}
+```
 **BC147 竞选社长** 
 ```c
 #include <stdio.h>
