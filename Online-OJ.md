@@ -2024,3 +2024,30 @@ int* MySort(int* arr, int arrLen, int* returnSize) {
     return arr;
 }
 ```
+**CC15 牛牛的书** 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int intcmp(const void* vp, const void* vpa) {
+    return *(int*)vp - *(int*)vpa;
+}
+struct Book {
+    int imoney;
+    char strname[100];
+};
+int main() {
+    struct Book b[10];
+    int i = 0;
+    int ia = 0;
+    scanf("%d", &i);
+    for (; ia < i; ia++) {
+        scanf("%s %d", b[ia].strname, &b[ia].imoney);
+    }
+    qsort(b, ia, sizeof b[0], intcmp);
+    for (ia = 0; ia < i; ia++) {
+        printf("%s\n", (b[ia]).strname);
+    }
+    return 0;
+}
+```
