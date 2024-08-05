@@ -2051,3 +2051,31 @@ int main() {
     return 0;
 }
 ```
+**CC16 牛牛的平面向量** 
+```c
+#include <stdio.h>
+
+struct Xy {
+    int ix;
+    int iy;
+};
+int main() {
+    int i = 0;
+    int ia = 0;
+    int icount = 0;
+    scanf("%d", &i);
+    struct Xy x[10] = {0};
+    for (; ia < i; ia++) {
+        scanf("%d %d", &x[ia].ix, &x[ia].iy);
+    }
+    for (ia = 0; ia < i; ia++) {
+        icount += x[ia].ix;
+    }
+    printf("%d ", icount);
+    for (ia = 0, icount = 0; ia < i; ia++) {
+        icount += x[ia].iy;
+    }
+    printf("%d", icount);
+    return 0;
+}
+```
