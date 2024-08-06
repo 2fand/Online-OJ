@@ -7,8 +7,8 @@
 
 int main() 
 {    
- printf("Hello Nowcoder!");
- return 0;
+    printf("Hello Nowcoder!");
+    return 0;
 }
 ```
  **BC2 小飞机** 
@@ -16,8 +16,8 @@ int main()
 #include <stdio.h>
 
 int main() {
- printf(" ** \n ** \n************\n************\n * * \n * * ");
- return 0;
+    printf("     **     \n     **     \n************\n************\n    *  *    \n    *  *    ");
+    return 0;
 }
 ``` 
 **BC3 牛牛学说话之-整数**
@@ -25,20 +25,20 @@ int main() {
 #include <stdio.h>
 
 int main() {
- int i=0;
- scanf("%d",&i);
- printf("%d",i);
- return 0;
+    int i=0;
+    scanf("%d",&i);
+    printf("%d",i);
+    return 0;
 } 
 ```
 **BC4 牛牛学说话之-浮点数**
 ```c
 #include <stdio.h>
 int main() {
- float a=1.000000;
- int b,c=0;
- scanf("%f",&a);
- b=a*1000;
+    float a=1.000000;
+    int b,c=0;
+    scanf("%f",&a);
+    b=a*1000;
     c=a*10000;
     if (c-b*10>4) {b++;}
     printf("%.3f",b/1000.0000);
@@ -307,7 +307,7 @@ int main() {
 }
 ```
 **BC27 整数的个位**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -332,7 +332,7 @@ int main() {
 }
 ```
 **BC29 开学？**
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -356,6 +356,8 @@ int main() {
     b=a/3600;
     a=a-b*3600;
     c=a/60;
+    printf("%d %d %d",b,c,a-c*60);
+    return 0;
 }
 ```
 **BC31 2的n次方计算**
@@ -413,6 +415,9 @@ int main() {
     b=c*10000;
     if (b-a*10>4) {a++;}
     c=a/1000.000;
+    printf("%.3f",c);
+    return 0;
+}
 ```
 **BC37 牛牛的圆**
 ```c
@@ -425,18 +430,6 @@ int main() {
     return 0;
 }
 ```
-**WY11 星际穿越**
-```c
-#include <stdio.h>
-
-int main() {
-    long long a,i=0;
-    scanf("%lld",&a);
-    while (i+i*i<=a) {i++;}
-    printf("%lld",i-1);
-    return 0;
-}
-```
 **BC38 牛牛的并联电路**
 ```c
 #include <stdio.h>
@@ -446,7 +439,6 @@ int main() {
     scanf("%d %d",&r1,&r2);
     double v=r1;
     double b=r2;
-
     printf("%.1f",1.000/((1.000/v)+(1.000/b)));
     return 0;
 }
@@ -567,7 +559,7 @@ int main() {
     return 0;
 }
 ```
-**BC47 (a+b-c)\*d的计算问题**
+__BC47 (a+b-c)*d的计算问题__
 ```c
 #include <stdio.h>
 
@@ -589,14 +581,14 @@ int main() {
     return 0;
 }
 ```
-**BC50 你是天才吗？**
+**BC50 你是天才吗？** 
 ```c
 #include <stdio.h>
 
 int main() {
-    long long x1,x2,y1,y2=0;
-    scanf("%lld %lld %lld %lld",&x1,&y1,&x2,&y2);
-    printf("%lld",((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)));
+    int i=0;
+    scanf("%d",&i);
+    if (i>139) {printf("Genius");}
     return 0;
 }
 ```
@@ -904,7 +896,7 @@ int main() {
     return 0;
 }
 ```
-**BC75 小乐乐是否被叫家长**
+**BC75 小乐乐是否被叫家长** 
 ```c
 #include <stdio.h>
 
@@ -1348,22 +1340,7 @@ int main() {
     return 0;
 }
 ```
-**CC13 KiKi定义电子日历类** 
-```c
-#include <stdio.h>
 
-struct Tdate{
-    int Mouth;
-    int Day;
-    int Year;
-};
-int main() {
-    struct Tdate a={0};
-    scanf("%d %d %d",&a.Year,&a.Mouth,&a.Day);
-    printf("%d/%d/%d",a.Day,a.Mouth,a.Year);
-    return 0;
-}
-```
 **BC116 [NOIP2013]记数问题** 
 ```c
 #include <stdio.h>
@@ -1997,31 +1974,46 @@ int main() {
     return 0;
 }
 ```
-**NC140 排序** 
+**CC6 牛牛的排序** 
 ```c
-/**
- * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
- *
- * 将给定数组排序
- * @param arr int整型一维数组 待排序的数组
- * @param arrLen int arr数组长度
- * @return int整型一维数组
- * @return int* returnSize 返回数组行数
- */
-int* MySort(int* arr, int arrLen, int* returnSize) {
+#include <stdio.h>
+#include <stdlib.h>
+
+int intcmp(const void* vp, const void* vpa) {
+    return *(int*)vp - *(int*)vpa;
+}
+void sort(int* array, int n)  {
+    qsort(array, n, 4, intcmp);
+}
+int main() {
     int i = 0;
     int ia = 0;
-    for (; i < arrLen; i++) {
-        for (ia = 0; ia < arrLen - 1; ia++) {
-            if (arr[ia] > arr[ia + 1]) {
-                int itmp = arr[ia];
-                arr[ia] = arr[ia + 1];
-                arr[ia + 1] = itmp;
-            }
-        }
+    scanf("%d", &i);
+    int* arrp = (int*)malloc(4 * i);
+    for (ia = 0; ia < i; ia++) {
+        scanf("%d", &arrp[ia]);
     }
-    *returnSize = arrLen;
-    return arr;
+    sort(arrp, i);
+    for (ia = 0; ia < i; ia++) {
+        printf("%d ", arrp[ia]);
+    }
+    return 0;
+}
+```
+**CC13 KiKi定义电子日历类** 
+```c
+#include <stdio.h>
+
+struct Tdate{
+    int Mouth;
+    int Day;
+    int Year;
+};
+int main() {
+    struct Tdate a={0};
+    scanf("%d %d %d",&a.Year,&a.Mouth,&a.Day);
+    printf("%d/%d/%d",a.Day,a.Mouth,a.Year);
+    return 0;
 }
 ```
 **CC15 牛牛的书** 
@@ -2076,6 +2068,45 @@ int main() {
         icount += x[ia].iy;
     }
     printf("%d", icount);
+    return 0;
+}
+```
+**NC140 排序** 
+```c
+/**
+ * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+ *
+ * 将给定数组排序
+ * @param arr int整型一维数组 待排序的数组
+ * @param arrLen int arr数组长度
+ * @return int整型一维数组
+ * @return int* returnSize 返回数组行数
+ */
+int* MySort(int* arr, int arrLen, int* returnSize) {
+    int i = 0;
+    int ia = 0;
+    for (; i < arrLen; i++) {
+        for (ia = 0; ia < arrLen - 1; ia++) {
+            if (arr[ia] > arr[ia + 1]) {
+                int itmp = arr[ia];
+                arr[ia] = arr[ia + 1];
+                arr[ia + 1] = itmp;
+            }
+        }
+    }
+    *returnSize = arrLen;
+    return arr;
+}
+```
+**WY11 星际穿越**
+```c
+#include <stdio.h>
+
+int main() {
+    long long a,i=0;
+    scanf("%lld",&a);
+    while (i+i*i<=a) {i++;}
+    printf("%lld",i-1);
     return 0;
 }
 ```
