@@ -1974,6 +1974,31 @@ int main() {
     return 0;
 }
 ```
+**CC5 牛牛的新数组求和** 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int cal(int* array, int n) {
+    int ia = 0;
+    int ic = 0;
+    for (ia = 0; ia < n; ia++) {
+        ic += array[ia];
+    }
+    return ic;
+}
+int main() {
+    int i = 0;
+    int ia = 0;
+    scanf("%d", &i);
+    int* arrp = (int*)malloc(4 * i);
+    for (; ia < i; ia++) {
+        scanf("%d", &arrp[ia]);
+    }
+    printf("%d", cal(arrp, i));
+    return 0;
+}
+```
 **CC6 牛牛的排序** 
 ```c
 #include <stdio.h>
