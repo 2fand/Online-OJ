@@ -2096,6 +2096,24 @@ int main() {
     return 0;
 }
 ```
+**NC120 二进制中1的个数** 
+```c
+/**
+ * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+ *
+ *
+ * @param n int整型
+ * @return int整型
+ */
+int NumberOf1(int n ) {
+    int ic = 0;
+    int i = 0;
+    for (; i < 32; n >>= 1, i++) {
+        ic += (n & 1);
+    }
+    return ic;
+}
+```
 **NC140 排序** 
 ```c
 /**
