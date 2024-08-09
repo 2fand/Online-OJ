@@ -2096,6 +2096,32 @@ int main() {
     return 0;
 }
 ```
+**NB158 牛牛的名字游戏** 
+```c
+#include <string.h>
+/**
+ * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+ *
+ *
+ * @param s string字符串
+ * @return int整型
+ */
+int lengthOfLastWord(char* s ) {
+    int iconut = 0;
+    char* cp = strpbrk(s, " ");
+    if (!cp) {
+        return strlen(s);
+    }
+    cp && (cp += strlen(s) - 1);
+    for (; ' ' == *cp; cp--) {
+        ;
+    }
+    for (; ' ' != *cp; iconut++, cp--) {
+        ;
+    }
+    return iconut;
+}
+```
 **NC120 二进制中1的个数** 
 ```c
 /**
