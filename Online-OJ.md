@@ -2096,6 +2096,28 @@ int main() {
     return 0;
 }
 ```
+**FED33 加粗文字** 
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <p><b>牛客网</b>，程序员必备求职神器</p>
+    <script type="text/javascript">
+        // 填写JavaScript
+    </script>
+</body>
+
+</html>
+```
 **NB158 牛牛的名字游戏** 
 ```c
 #include <string.h>
