@@ -2189,6 +2189,15 @@ int* MySort(int* arr, int arrLen, int* returnSize) {
     return arr;
 }
 ```
+**PIO1 只有输出**
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello Nowcoder!");
+    return 0;
+}
+```
 **WY11 星际穿越**
 ```c
 #include <stdio.h>
