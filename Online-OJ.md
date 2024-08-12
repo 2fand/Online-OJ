@@ -2198,6 +2198,15 @@ int main() {
     return 0;
 }
 ```
+**PIO15 单组_补充前导零**
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello Nowcoder!");
+    return 0;
+}
+```
 **WY11 星际穿越**
 ```c
 #include <stdio.h>
