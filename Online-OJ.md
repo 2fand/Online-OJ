@@ -2198,6 +2198,22 @@ int main() {
     return 0;
 }
 ```
+**PIO10 单组_字符串**
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int i = 0;
+    scanf("%d", &i);
+    char* str = malloc(i--);
+    scanf("%s", str);
+    while (i > -1) {
+        printf("%c", str[i--]);
+    }
+    return 0;
+}
+```
 **PIO15 单组_补充前导零**
 ```c
 #include <stdio.h>
