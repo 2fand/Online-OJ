@@ -2198,6 +2198,18 @@ int main() {
     return 0;
 }
 ```
+**PIO2 单组_A+B**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    scanf("%d %d", &i, &ia);
+    printf("%d", i + ia);
+    return 0;
+}
+```
 **PIO10 单组_字符串**
 ```c
 #include <stdio.h>
