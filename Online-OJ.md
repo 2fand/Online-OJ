@@ -2223,6 +2223,22 @@ int main() {
     return 0;
 }
 ```
+**PIO4 多组_A+B_T组形式**
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int i = 0;
+    int arradd[2] = {0};
+    scanf("%d", &i);
+    for (; i; i--) {
+        scanf("%d %d", &arradd[0], &arradd[1]);
+        printf("%d\n", arradd[0] + arradd[1]);
+    }
+    return 0;
+}
+```
 **PIO10 单组_字符串**
 ```c
 #include <stdio.h>
