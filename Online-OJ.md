@@ -2239,6 +2239,19 @@ int main() {
     return 0;
 }
 ```
+**PIO5 多组_A+B_零尾模式**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    while (scanf("%d %d", &i, &ia), i || ia) {
+        printf("%d\n", i + ia);
+    }
+    return 0;
+}
+```
 **PIO10 单组_字符串**
 ```c
 #include <stdio.h>
