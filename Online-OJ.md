@@ -2252,6 +2252,23 @@ int main() {
     return 0;
 }
 ```
+**PIO6 单组_一维数组**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    long long icount = 0;
+    scanf("%d", &i);
+    for (; i > 0; i--) {
+        scanf("%d", &ia);
+        icount += ia;
+    }
+    printf("%lld", icount);
+    return 0;
+}
+```
 **PIO10 单组_字符串**
 ```c
 #include <stdio.h>
