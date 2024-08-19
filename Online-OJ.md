@@ -2269,6 +2269,28 @@ int main() {
     return 0;
 }
 ```
+**PIO7 多组_一维数组_T组形式**
+```c
+#include <stdio.h>
+
+int main() {
+    int it = 0;
+    int in = 0;
+    int i = 0;
+    long long icount = 0;
+    scanf("%d", &it);
+    for (; it; it--) {
+        scanf("%d", &in);
+        for (; in; in--) {
+            scanf("%d", &i);
+            icount += i;
+        }
+        printf("%lld\n", icount);
+        icount = 0;
+    }
+    return 0;
+}
+```
 **PIO10 单组_字符串**
 ```c
 #include <stdio.h>
