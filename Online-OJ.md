@@ -2291,6 +2291,23 @@ int main() {
     return 0;
 }
 ```
+**PIO8 单组_二维数组**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    long long llcount = 0;
+    scanf("%d %lld", &i, &llcount);
+    i *= llcount;
+    for (llcount = 0; i; i--) {
+        scanf("%d", &ia);
+        llcount += ia;
+    }
+    printf("%lld", llcount);
+    return 0;
+}
 **PIO10 单组_字符串**
 ```c
 #include <stdio.h>
