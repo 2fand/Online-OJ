@@ -2308,6 +2308,28 @@ int main() {
     printf("%lld", llcount);
     return 0;
 }
+```
+**PIO9 多组_二维数组_T组形式**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int in = 0;
+    int im = 0;
+    long long llcount = 0;
+    scanf("%d", &i);
+    for (; i; i--) {
+        scanf("%d %lld", &in, &llcount);
+        for (in *= llcount, llcount = 0; in; in--) {
+            scanf("%d", &im);
+            llcount += im;
+        }
+        printf("%lld\n", llcount);
+    }
+    return 0;
+}
+```
 **PIO10 单组_字符串**
 ```c
 #include <stdio.h>
