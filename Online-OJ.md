@@ -2355,6 +2355,17 @@ int main() {
     return 0;
 }
 ```
+**PIO16 单组_spj判断YES与NO**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    scanf("%d", &i);
+    printf("%s", i % 2 ? "yes" : "no");
+    return 0;
+}
+```
 **WY11 星际穿越**
 ```c
 #include <stdio.h>
