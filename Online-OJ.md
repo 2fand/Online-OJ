@@ -2346,6 +2346,17 @@ int main() {
     return 0;
 }
 ```
+**PIO14 单组_保留小数位数**
+```c
+#include <stdio.h>
+
+int main() {
+    double d = 0.0;
+    scanf("%lf", &d);
+    printf("%.3lf", d);
+    return 0;
+}
+```
 **PIO15 单组_补充前导零**
 ```c
 #include <stdio.h>
