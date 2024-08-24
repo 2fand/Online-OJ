@@ -559,6 +559,20 @@ int main() {
     return 0;
 }
 ```
+__BC46 KiKi算期末成绩__
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[4] = {0};
+    int i = 0;
+    for (; i < 4; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("%.1f", arr[0] / 5.0 + arr[1] / 10.0 + arr[2] / 5.0 + arr[3] / 2.0);
+    return 0;
+}
+```
 __BC47 (a+b-c)*d的计算问题__
 ```c
 #include <stdio.h>
