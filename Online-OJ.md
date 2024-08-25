@@ -787,6 +787,25 @@ int main() {
     return 0;
 }
 ```
+**BC64 牛牛的快递** 
+```c
+#include <stdio.h>
+
+int main() {
+    float f = 0.0f;
+    char c = 0;
+    scanf("%f %c", &f, &c);
+    int imoney = 20;
+    if (f--, f > 0) {
+        for (; f > 0; f -= 1) {
+            imoney++;
+        }
+    }
+    'y' == c && (imoney += 5);
+    printf("%d", imoney);
+    return 0;
+}
+```
 **BC66 牛牛的通勤** 
 ```c
 #include <stdio.h>
