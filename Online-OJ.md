@@ -2379,6 +2379,24 @@ int main() {
     return 0;
 }
 ```
+**PIO11 多组_字符串_T组形式**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    char str[100001] = "";
+    for (scanf("%d", &i); i; i--) {
+        scanf("%d %s", &ia, str);
+        for (ia--; ia > -1; ia--) {
+            printf("%c", str[ia]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
 **PIO14 单组_保留小数位数**
 ```c
 #include <stdio.h>
