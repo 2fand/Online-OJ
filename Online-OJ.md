@@ -1557,6 +1557,29 @@ int main() {
     return 0;
 }
 ```
+**BC123 有序序列插入一个整数** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    int ic = 0;
+    scanf("%d", &ia);
+    long long arr[50] = {0};
+    for (i = 0; i < ia; i++) {
+        scanf("%lld", &arr[i]);
+    }
+    scanf("%d", &ib);
+    for (i = 0; i < ia; i++) {
+        !ic && arr[i] > ib && (printf("%d ", ib), ic = 1);
+        printf("%lld ", arr[i]);
+    }
+    ic || printf("%d ", ib);
+    return 0;
+}
+```
 **BC124 序列中删除指定数字** 
 ```c
 #include <stdio.h>
