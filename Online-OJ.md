@@ -1937,6 +1937,23 @@ int main() {
     return 0;
 }
 ```
+**BC154 牛牛的短信** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    float fcount = 0;
+    scanf("%d", &i);
+    for (; i; i--) {
+        scanf("%d", &ia);
+        ia > 60 && (fcount += 0.2), ia > 60 || (fcount += 0.1);
+    }
+    printf("%.1f", fcount);
+    return 0;
+}
+```
 **BC166 小乐乐走台阶** 
 ```c
 #include <stdio.h>
