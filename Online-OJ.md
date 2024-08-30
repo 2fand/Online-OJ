@@ -382,6 +382,30 @@ int main() {
     return 0;
 }
 ```
+**BC33 统计成绩**
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    float farr[100] = {0.0f};
+    scanf("%d", &i);
+    for (; ia < i; ia++) {
+        scanf("%f", &farr[ia]);
+    }
+    float fmin = farr[0];
+    float fmax = farr[0];
+    float fsum = 0.0f;
+    for (ia = 0; ia < i; ia++) {
+        fsum += farr[ia];
+        fmin > farr[ia]&& (fmin = farr[ia]);
+        fmax < farr[ia]&& (fmax = farr[ia]);
+    }
+    printf("%.2f %.2f %.2f", fmax, fmin, fsum / (float)i);
+    return 0;
+}
+```
 **BC35 KiKi和酸奶**
 ```c
 #include <stdio.h>
