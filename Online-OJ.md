@@ -1201,6 +1201,23 @@ int main() {
     return 0;
 }
 ```
+**BC90 小乐乐算多少人被请家长** 
+```c
+#include <stdio.h>
+
+int main() {
+    int in = 0;
+    int icount = 0;
+    scanf("%d", &in);
+    float arr[3] = {0};
+    for (; in; in--) {
+        scanf("%f %f %f", &arr[0], &arr[1], &arr[2]);
+        (arr[0] + arr[1] + arr[2]) / 3.0 < 60 && icount++;
+    }
+    printf("%d", icount);
+    return 0;
+}
+```
 **BC93 公务员面试** 
 ```c
 #include <stdio.h>
