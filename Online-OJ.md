@@ -1668,6 +1668,27 @@ int main() {
     return 0;
 }
 ```
+**BC126 小乐乐查找数字** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int icount = 0;
+    int ix = 0;
+    int arr[100] = {0};
+    scanf("%d", &i);
+    for (; ia < i; ia++) {
+        scanf("%d", &arr[ia]);
+    }
+    for (scanf("%d", &ix), ia = 0; ia < i; ia++) {
+        ix == arr[ia] && icount++;
+    }
+    printf("%d", icount);
+    return 0;
+}
+```
 **BC128 班级成绩输入输出** 
 ```c
 #include <stdio.h>
