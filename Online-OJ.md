@@ -1919,6 +1919,29 @@ int main() {
     return 0;
 }
 ```
+**BC148 字符串操作** 
+```c
+#include <stdio.h>
+
+int main() {
+    char str[100] = "";
+    int in = 0;
+    int im = 0;
+    int il = 0;
+    int ir = 0;
+    char c1 = 0;
+    char c2 = 0;
+    scanf("%d %d %s", &in, &im, str);
+    for (; im; im--) {
+        scanf("%d %d %c %c", &il, &ir, &c1, &c2);
+        for (in = il - 1; in < ir; in++) {
+            c1 == str[in] && (str[in] = c2);
+        }
+    }
+    printf("%s", str);
+    return 0;
+}
+```
 **BC149 简写单词** 
 ```c
 #include <stdio.h>
