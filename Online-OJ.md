@@ -1298,6 +1298,38 @@ int main() {
     return 0;
 }
 ```
+**BC97 回文对称数** 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void reverses(char* str, int ilen) {
+    char* cp = str;
+    char* cpa = str + ilen - 1;
+    for (; cp < cpa; cp++, cpa--) {
+        char ctmp = 0;
+        ctmp = *cp;
+        *cp = *cpa;
+        *cpa = ctmp;
+    }
+}
+int reversei(int i) {
+    char str[8] = "";
+    sprintf(str, "%d", i);
+    reverses(str, strlen(str));
+    return atoi(str);
+}
+int main() {
+    int i = 0;
+    int ia = 1;
+    scanf("%d", &i);
+    for (; ia <= i; ia++) {
+        ia == reversei(ia) && printf("%d\n", ia);
+    }
+    return 0;
+}
+```
 **BC98 线段图案** 
 ```c
 #include <stdio.h>
