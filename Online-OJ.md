@@ -1379,6 +1379,32 @@ int main() {
     return 0;
 }
 ```
+**BC103 金字塔图案** 
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    while (EOF != scanf("%d", &i)) {
+        int ic = i;
+        for (i--; i > -1; i--) {
+            for (ia = 0; ia < i; ia++) {
+                printf(" ");
+            }
+            for (ib = 0; ib < ic - i; ib++) {
+                printf("%c", ib % 2 ? ' ' : '*');
+            }
+            for (ic++, ia = 0; ia < i; ia++) {
+                printf(" ");
+            }
+            printf("\n");
+        }
+    }
+    return 0;
+}
+```
 **BC108 反斜线形图案** 
 ```c
 #include <stdio.h>
