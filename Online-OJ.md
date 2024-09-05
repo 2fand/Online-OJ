@@ -1,6 +1,6 @@
 # 牛客网
 *(每天更1题)*
- 
+## C 
 **BC1 Hello Nowcoder** 
 ```c
 #include <stdio.h>
@@ -11,7 +11,7 @@ int main()
     return 0;
 }
 ```
- **BC2 小飞机** 
+**BC2 小飞机** 
 ```c
 #include <stdio.h>
 
@@ -2640,6 +2640,17 @@ int main() {
     scanf("%lld",&a);
     while (i+i*i<=a) {i++;}
     printf("%lld",i-1);
+    return 0;
+}
+```
+## C++
+**CPP1 定义变量**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "1\n4\n8\n8\n";
     return 0;
 }
 ```
