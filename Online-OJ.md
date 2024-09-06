@@ -2654,3 +2654,16 @@ int main() {
     return 0;
 }
 ```
+**CPP3 两数求和**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    cin >> i >> ia;
+    cout << i + ia;
+    return 0;
+}
+```
