@@ -2667,3 +2667,16 @@ int main() {
     return 0;
 }
 ```
+**CPP4 获取两数中的较大值**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    cin >> i >> ia;
+    cout << (i < ia ? ia : i);
+    return 0;
+}
+```
