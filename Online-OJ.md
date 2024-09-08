@@ -2680,3 +2680,22 @@ int main() {
     return 0;
 }
 ```
+**CPP5 简单运算**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int itmp = 0;
+    cin >> i >> ia;
+    if (i < ia) {
+        itmp = ia;
+        ia = i;
+        i = itmp;
+    }
+    cout << i + ia << ' ' << i - ia << ' ' << i * ia << ' ' << i / ia << ' ' << i % ia;
+    return 0;
+}
+```
