@@ -2712,3 +2712,17 @@ int main() {
     return 0;
 }
 ```
+**CPP7 获取三个数中的最大值（三元表达式实现）**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    cin >> a >> b >> c;
+    cout << ((a >= b && a >= c) ? a : (b >= a && b >= c) ? b : c) << endl;
+    return 0;
+}
+```
