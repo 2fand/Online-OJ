@@ -2726,3 +2726,26 @@ int main() {
     return 0;
 }
 ```
+**CPP8 计算商品打折结算金额**
+```c
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double price;
+    cin >> price;
+    if (price >= 5000) {
+        price *= 0.6;
+    } else if (price >= 2000) {
+        price *= 0.7;
+    } else if (price >= 500) {
+        price *= 0.8;
+    } else if (price >= 100) {
+        price *= 0.9;
+    }
+    cout << setiosflags(ios::fixed) << setprecision(1) << price << endl;
+
+    return 0;
+}
+```
