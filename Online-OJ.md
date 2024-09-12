@@ -2749,3 +2749,25 @@ int main() {
     return 0;
 }
 ```
+**CPP9 判断身材状态**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    double dw = 0.0;
+    double dh = 0.0;
+    cin >> dw >> dh;
+    dw /= dh * dh;
+    if (dw < 18.5) {
+        cout << "偏瘦" << endl;
+    } else if (dw < 20.9) {
+        cout << "苗条" << endl;
+    } else if (dw < 24.9) {
+        cout << "适中" << endl;
+    } else {
+        cout << "偏胖" << endl;
+    }
+    return 0;
+}
+```
