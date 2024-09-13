@@ -2771,3 +2771,27 @@ int main() {
     return 0;
 }
 ```
+**CPP10 判断成绩等级**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int score = 0;
+    cin >> score;
+    if (score > 100 || score < 0) {
+        cout << "成绩不合法" << endl;
+    } else if (score > 89) {
+        cout << "优秀" << endl;
+    } else if (score > 79) {
+        cout << "良" << endl;
+    } else if (score > 69) {
+        cout << "中" << endl;
+    } else if (score > 59) {
+        cout << "及格" << endl;
+    } else {
+        cout << "差" << endl;
+    }
+    return 0;
+}
+```
