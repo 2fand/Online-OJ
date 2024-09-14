@@ -2795,3 +2795,39 @@ int main() {
     return 0;
 }
 ```
+**CPP11 判断季节**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int im;
+    cin >> im;
+    switch (im) {
+        case 12:
+        case 1:
+        case 2:
+            cout << "冬季" << endl;
+            break;
+        case 3:
+        case 4:
+        case 5:
+            cout << "春季" << endl;
+            break;
+        case 6:
+        case 7:
+        case 8:
+            cout << "夏季" << endl;
+            break;
+        case 9:
+        case 10:
+        case 11:
+            cout << "秋季" << endl;
+            break;
+        default:
+            cout << "不合法" << endl;
+            break;
+    }
+    return 0;
+}
+```
