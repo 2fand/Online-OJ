@@ -2831,3 +2831,19 @@ int main() {
     return 0;
 }
 ```
+**CPP12 求 1 - n 之间偶数的和**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 0;
+    cin >> n;
+    int sum = 0;
+    for (; n > 0; n--) {
+        n % 2 || (sum += n);
+    }
+    cout << sum << endl;
+    return 0;
+}
+```
