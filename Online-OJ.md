@@ -2847,3 +2847,18 @@ int main() {
     return 0;
 }
 ```
+**CPP24 字符串拼接**
+```c
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "";
+    string stra = "";
+    getline(cin, str);
+    getline(cin, stra);
+    cout << str << stra;
+    return 0;
+}
+```
