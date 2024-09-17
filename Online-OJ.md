@@ -2847,6 +2847,22 @@ int main() {
     return 0;
 }
 ```
+**CPP14 输出水仙花数**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 100;
+    for (; i < 1000; i++) {
+        int ia = i % 10;
+        int ib = i / 10 % 10;
+        int ic = i / 100;
+        i == ia * ia * ia + ib * ib * ib + ic * ic * ic && cout << i << endl;
+    }
+    return 0;
+}
+```
 **CPP24 字符串拼接**
 ```c
 #include <iostream>
