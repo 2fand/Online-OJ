@@ -2863,6 +2863,25 @@ int main() {
     return 0;
 }
 ```
+**CPP15 打印乘法表**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 1;
+    int ib = 1;
+    cin >> i;
+    for (; ia < i + 1; ia++) {
+        for (ib = 1; ib < ia + 1; ib++) {
+            cout << ib << " * " << ia << " = " << ia * ib << "    ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+```
 **CPP24 字符串拼接**
 ```c
 #include <iostream>
