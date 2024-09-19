@@ -2897,3 +2897,23 @@ int main() {
     return 0;
 }
 ```
+**CPP56 字符的个数**
+```c
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string str = "";
+    cin >> str;
+    int i = size(str);
+    int arr[3] = {0};
+    char* cp = &str[0];
+    for (int ia = 0; ia < i; ia++, cp++) {
+        *cp >= 'a' && *cp <= 'c' && arr[*cp - 'a']++;
+    }
+    for (i = 0; i < 3; i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
+```
