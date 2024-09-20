@@ -2897,6 +2897,25 @@ int main() {
     return 0;
 }
 ```
+**CPP25 结构体简单使用**
+```c
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct student {
+    string strname;
+    float iheight;
+    int iage;
+};
+
+int main() {
+    student s = {};
+    cin >> s.strname >> s.iage >> s.iheight;
+    cout << s.strname << " " << s.iage << " " << s.iheight;
+    return 0;
+}
+```
 **CPP56 字符的个数**
 ```c
 #include <iostream>
