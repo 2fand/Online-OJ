@@ -2882,6 +2882,21 @@ int main() {
     return 0;
 }
 ```
+**CPP16 规律数列求和**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long ll = 99;
+    long long llsum = 9;
+    for (; 99999999999 != ll; ll *= 10, ll += 9) {
+        llsum += ll;
+    }
+    cout << llsum;
+    return 0;
+}
+```
 **CPP24 字符串拼接**
 ```c
 #include <iostream>
