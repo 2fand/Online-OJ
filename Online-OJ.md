@@ -2897,18 +2897,38 @@ int main() {
     return 0;
 }
 ```
-**CPP24 字符串拼接**
+**CPP16 规律数列求和**
 ```c
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
-    string str = "";
-    string stra = "";
-    getline(cin, str);
-    getline(cin, stra);
-    cout << str << stra;
+    long long ll = 99;
+    long long llsum = 9;
+    for (; 99999999999 != ll; ll *= 10, ll += 9) {
+        llsum += ll;
+    }
+    cout << llsum;
+    return 0;
+}
+```
+**CPP20 数组元素反转**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int arr[6] = { 0 };
+    for (; i < 6; i++) {
+        cin >> arr[i];
+    }
+    for (cout << (i = 0, "["); i < 6; i++) {
+        cout << arr[i] << (5 != i ? ", " : "]");
+    }
+    for (cout << endl << (i--, "["); i > -1; i--) {
+        cout << arr[i] << (i ? ", " : "]\n");
+    }
     return 0;
 }
 ```
