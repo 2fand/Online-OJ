@@ -2912,6 +2912,28 @@ int main() {
     return 0;
 }
 ```
+**CPP19 获取数组最值**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[8] = { 0 };
+    int i = 0;
+    for (; i < 8; i++) {
+        if (i < 6) {
+            cin >> arr[i];
+        } else {
+            arr[i] = arr[0];
+        }
+    }
+    for (i = 0; i < 6; i++) {
+        arr[6] < arr[i] && (arr[6] = arr[i]), arr[7] > arr[i] && (arr[7] = arr[i]);
+    }
+    cout << arr[7] << " " << arr[6];
+    return 0;
+}
+```
 **CPP20 数组元素反转**
 ```c
 #include <iostream>
