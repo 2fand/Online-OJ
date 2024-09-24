@@ -2973,6 +2973,21 @@ int main() {
     return 0;
 }
 ```
+**CPP26 利用指针遍历数组**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int ia = 0;
+    int i = 0;
+    for (i = 0; i < 6; i++) {
+        cin >> ia;
+        cout << ia << " ";
+    }
+    return 0;
+}
+```
 **CPP56 字符的个数**
 ```c
 #include <iostream>
