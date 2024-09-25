@@ -2988,6 +2988,22 @@ int main() {
     return 0;
 }
 ```
+**CPP27 获取字符串长度**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    char str[100] = { 0 };
+    int i = 0;
+    cin.getline(str, sizeof(str));
+    for (char* cp = str; *cp; cp++) {
+        i++;
+    }
+    cout << i;
+    return 0;
+}
+```
 **CPP56 字符的个数**
 ```c
 #include <iostream>
