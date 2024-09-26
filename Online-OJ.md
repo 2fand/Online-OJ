@@ -3004,6 +3004,23 @@ int main() {
     return 0;
 }
 ```
+**CPP28 复制部分字符串**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    char str[30] = { 0 };
+    char* cp = str;
+    cin.getline(str, sizeof(str));
+    int m = 0;
+    cin >> m;
+    for (cp += m - 1; *cp; cp++) {
+        cout << *cp;
+    }
+    return 0;
+}
+```
 **CPP56 字符的个数**
 ```c
 #include <iostream>
