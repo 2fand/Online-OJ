@@ -3021,6 +3021,23 @@ int main() {
     return 0;
 }
 ```
+**CPP31 比较字符串大小**
+```c
+#include <iostream>
+#include <cstring>
+using namespace std;
+#define MYSTRCMP(A,B) strcmp(A,B) > 0 ? 1 : -!!strcmp(A,B)
+
+int main() {
+    char s1[100] = { 0 };
+    char s2[100] = { 0 };
+    cin.getline(s1, sizeof(s1));
+    cin.getline(s2, sizeof(s2));
+    int ret = MYSTRCMP(s1,s2);
+    cout << ret << endl;
+    return 0;
+}
+```
 **CPP56 字符的个数**
 ```c
 #include <iostream>
