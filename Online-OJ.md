@@ -3021,6 +3021,21 @@ int main() {
     return 0;
 }
 ```
+**CPP29 创建动态数组**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    cin >> i;
+    for (ia = i; ia > 0; ia--, i++) {
+        cout << i << " ";
+    }
+    return 0;
+}
+```
 **CPP31 比较字符串大小**
 ```c
 #include <iostream>
