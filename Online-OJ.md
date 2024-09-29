@@ -3022,7 +3022,7 @@ int main() {
 }
 ```
 **CPP29 创建动态数组**
-```c
+```
 #include <iostream>
 using namespace std;
 
@@ -3051,6 +3051,32 @@ int main() {
     int ret = MYSTRCMP(s1,s2);
     cout << ret << endl;
     return 0;
+}
+```
+**CPP35 函数实现计算一个数的阶乘**
+```c
+#include <iostream>
+using namespace std;
+
+long long factorial(int n);
+
+int main() {
+
+    int n;
+    cin >> n;
+
+    cout << factorial(n) << endl;
+
+    return 0;
+}
+
+long long factorial(int n) {
+    if (1 != n) {
+        return n * factorial(n-1);
+    }
+    else {
+        return 1;
+    }
 }
 ```
 **CPP56 字符的个数**
