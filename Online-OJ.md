@@ -3079,6 +3079,38 @@ long long factorial(int n) {
     }
 }
 ```
+**CPP38 设计立方体类**
+```c
+#include <iostream>
+using namespace std;
+
+class Cube {
+    int m_il;
+    int m_iw;
+    int m_ih;
+  public:
+    void sgetLWH(bool b, int il = 0, int iw = 0, int ih = 0) {
+        if (b) {
+            cout << m_il << " " << m_iw << " " << m_ih << " " << 2 * (m_il * m_ih + m_il * m_iw + m_iw * m_ih) << " " << m_il* m_iw* m_ih;
+        } else {
+            m_il = il;
+            m_iw = iw;
+            m_ih = ih;
+        }
+    }
+};
+
+int main() {
+    int length, width, height;
+    cin >> length;
+    cin >> width;
+    cin >> height;
+    Cube c;
+    c.sgetLWH(false, length, width, height);
+    c.sgetLWH(true);
+    return 0;
+}
+```
 **CPP56 字符的个数**
 ```c
 #include <iostream>
