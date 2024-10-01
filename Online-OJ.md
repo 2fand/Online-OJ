@@ -3053,6 +3053,18 @@ int main() {
     return 0;
 }
 ```
+**CPP32 编写函数实现两数交换（指针方式）**
+```c
+#include <iostream>
+using namespace std;
+int main() {
+    int m, n;
+    cin >> m;
+    cin >> n;
+    cout << *&n << " " << *&m;
+    return 0;
+}
+```
 **CPP35 函数实现计算一个数的阶乘**
 ```c
 #include <iostream>
