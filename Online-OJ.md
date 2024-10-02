@@ -2954,6 +2954,27 @@ int main() {
     return 0;
 }
 ```
+**CPP21 C++冒泡排序**
+```c
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int>v;
+    int i = 0;
+    for (int ia = 0; i < 6; i++) {
+        cin >> ia;
+        v.push_back(ia);
+    }
+    sort(v.begin(),v.end());
+    for (vector<int>::iterator it=v.begin();v.end()!=it;it++){
+        cout << *it << " ";
+    }
+    return 0;
+}
+```
 **CPP25 结构体简单使用**
 ```c
 #include <iostream>
