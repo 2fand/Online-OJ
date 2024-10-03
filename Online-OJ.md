@@ -3112,6 +3112,31 @@ long long factorial(int n) {
     }
 }
 ```
+**CPP36 不死神兔问题**
+```c
+#include <iostream>
+using namespace std;
+
+int getSum(int n);
+
+int main() {
+    int n;
+    cin >> n;
+
+    cout << getSum(n) << endl;
+
+    return 0;
+}
+
+int getSum(int n) {
+    int i = 1;
+    int ia = 1;
+    for (n -= 2; n > -1; n--) {
+        i -= (ia = (i += ia * 2) - ia);
+    }
+    return i;
+}
+```
 **CPP38 设计立方体类**
 ```c
 #include <iostream>
