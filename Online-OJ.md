@@ -3137,6 +3137,25 @@ int getSum(int n) {
     return i;
 }
 ```
+**CPP37 编写函数实现两数交换（引用方式）**
+```c
+#include <iostream>
+using namespace std;
+
+void swap(int& i,int& ia){
+    cout << ia << " " << i << endl;
+}
+
+int main() {
+
+    int m, n;
+    cin >> m;
+    cin >> n;
+
+    swap(m,n);
+    return 0;
+}
+```
 **CPP38 设计立方体类**
 ```c
 #include <iostream>
