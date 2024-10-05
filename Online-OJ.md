@@ -3208,3 +3208,19 @@ int main() {
     return 0;
 }
 ```
+**CPP58 编写函数实现字符串翻转（引用方式）**
+```c
+#include<bits/stdc++.h>
+#include<algorithm>
+using namespace std;
+// write your code here......
+
+int main(){
+    string s;
+    getline(cin,s);
+    // write your code here......
+    reverse(s.begin(),s.end());
+    cout<<s;
+    return 0;
+}
+```
