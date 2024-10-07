@@ -3258,3 +3258,37 @@ int main(){
     return 0;
 }
 ```
+**CPP61 数组类的构造函数**
+```c
+#include<bits/stdc++.h>
+using namespace std;
+class Array{
+	private:
+		int n;//数组大小 
+		int *a;//数组 
+	public:
+		Array(int isize){
+			a = new int[isize]; 
+			n=isize;
+		}
+        void in_push_back(){
+			for (int i=0;i<n;i++){
+				cin >> a[i];
+			}
+		}
+		~Array(){
+			delete []a;
+		}
+		void show(){
+			for (int i=0;i<n;i++) cout<<a[i]<<' ';
+		}
+};
+int main(){
+	int isize=0;
+	cin >> isize;
+	Array a(isize);
+	a.in_push_back();
+	a.show();
+	return 0;
+}
+```
