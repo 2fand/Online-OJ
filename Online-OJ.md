@@ -3258,6 +3258,41 @@ int main(){
     return 0;
 }
 ```
+**CPP59 比较长方形的面积大小**
+```c
+#include<bits/stdc++.h>
+using namespace std;
+class rectangle {
+  private:
+    int length, width;
+  public:
+    void set(int x, int y) {
+        length = x;
+        width = y;
+    }
+    int getlength() {
+        return length;
+    }
+    int getwidth() {
+        return width;
+    }
+    int area() {
+        return length * width;
+    }
+    void compare(rectangle& a) {
+        cout << (area() > a.area());
+    }
+};
+int main() {
+    int l1, w1, l2, w2;
+    cin >> l1 >> w1 >> l2 >> w2;
+    rectangle a, b;
+    a.set(l1, w1);
+    b.set(l2, w2);
+    a.compare(b);
+    return 0;
+}
+```
 **CPP61 数组类的构造函数**
 ```c
 #include<bits/stdc++.h>
