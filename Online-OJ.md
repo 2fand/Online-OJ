@@ -3222,6 +3222,27 @@ int main() {
     return 0;
 }
 ```
+**CPP47 迭代器遍历容器**
+```c
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int>v;
+    int i = 0;
+    while (cin >> i) {
+        v.push_back(i);
+        cout << i << " ";
+    }
+    cout << endl;
+    while (!v.empty()) {
+        cout << v.back() << " ";
+        v.pop_back();
+    }
+    return 0;
+}
+``` 
 **CPP56 字符的个数**
 ```c
 #include <iostream>
