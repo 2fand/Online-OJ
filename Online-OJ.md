@@ -3222,6 +3222,55 @@ int main() {
     return 0;
 }
 ```
+**CPP43 加号运算符重载**
+```c
+#include <iostream>
+using namespace std;
+
+class Time {
+
+  public:
+    int hours;      // 小时
+    int minutes;    // 分钟
+
+    Time() {
+        hours = 0;
+        minutes = 0;
+    }
+
+    Time(int h, int m) {
+        this->hours = h;
+        this->minutes = m;
+    }
+
+    void show() {
+        cout << hours << " " << minutes << endl;
+    }
+
+    Time operator+(int i) {
+        this->minutes += i;
+        this->hours += this->minutes / 60;
+        this->minutes %= 60;
+        return *this;
+    }
+
+
+};
+
+int main() {
+
+    int h, m;
+    cin >> h;
+    cin >> m;
+
+    Time t1(h, m);
+
+    Time t2 = t1 + 140;
+    t2.show();
+
+    return 0;
+}
+```
 **CPP47 迭代器遍历容器**
 ```c
 #include <iostream>
