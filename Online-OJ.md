@@ -3505,3 +3505,19 @@ int main(){
 	return 0;
 }
 ```
+**CPP68 迭代器遍历set**
+```c
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	set<int>s;
+	int i=0;
+	while (cin >> i){
+		s.insert(i);
+	}
+	for (set<int>::iterator it = s.begin();s.end()!=it;it++){
+		cout << *it << " ";
+	}
+	return 0;
+}
+```
