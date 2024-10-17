@@ -3568,6 +3568,50 @@ int main() {
     return 0;
 }
 ```
+**CPP64 重载小于号**
+```c
+#include <iostream>
+using namespace std;
+
+class Time {
+
+    public:
+        int hours;      // 小时
+        int minutes;    // 分钟
+
+        Time() {
+            hours = 0;
+            minutes = 0;
+        }
+
+        Time(int h, int m) {
+            this->hours = h;
+            this->minutes = m;
+        }
+
+        void show() {
+            cout << hours << " " << minutes << endl;
+        }
+
+        bool operator<(Time& t){
+            return hours == t.hours && minutes < t.minutes || hours < t.hours;
+        }
+        
+
+};
+
+int main() {
+    int h, m;
+    cin >> h;
+    cin >> m;
+
+    Time t1(h, m);
+    Time t2(6, 6);
+	
+    if (t1<t2) cout<<"yes"; else cout<<"no";
+    return 0;
+}
+```
 **CPP68 迭代器遍历set**
 ```c
 #include<bits/stdc++.h>
