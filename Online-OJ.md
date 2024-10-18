@@ -3612,6 +3612,34 @@ int main() {
     return 0;
 }
 ```
+**CPP65 构建长方体类**
+```c
+#include<bits/stdc++.h>
+using namespace std;
+class rectangle {
+  protected:
+    int length, width;
+  public:
+    rectangle(int x, int y) {
+        length = x;
+        width = y;
+    }
+    void set(int x, int y) {
+        length = x;
+        width = y;
+    }
+    int area() {
+        return length * width;
+    }
+};
+int main() {
+    int x, y, z;
+    cin >> x >> y >> z;
+    rectangle a(x, y);
+    cout << a.area()*z;
+    return 0;
+}
+```
 **CPP68 迭代器遍历set**
 ```c
 #include<bits/stdc++.h>
