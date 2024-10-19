@@ -3389,6 +3389,29 @@ int main() {
     }
     return 0;
 }
+```
+**CPP51 使用算法**
+```c
+#include <iostream>
+#include <set>
+// write your code here......
+
+using namespace std;
+
+int main() {
+
+    int num;
+    multiset<int> s;
+    for (int i = 0; i < 5; i++) {
+        cin >> num;
+        s.insert(num);
+    }
+    for (set<int>::reverse_iterator it = s.rbegin(); s.rend() != it; it++) {
+        cout << *it << " ";
+    }
+
+    return 0;
+}
 ``` 
 **CPP56 字符的个数**
 ```c
