@@ -3754,6 +3754,50 @@ int main() {
     return 0;
 }
 ```
+**CPP66 求长方体表面积**
+```c
+#include<bits/stdc++.h>
+using namespace std;
+class rectangle {
+  protected:
+    int length, width;
+  public:
+    rectangle(int x, int y) {
+        length = x;
+        width = y;
+    }
+    void set(int x, int y) {
+        length = x;
+        width = y;
+    }
+    int getlength() {
+        return length;
+    }
+    int getwidth() {
+        return width;
+    }
+    int area() {
+        return length * width;
+    }
+};
+class cuboid: public rectangle {
+  private:
+    int height;
+  public:
+    cuboid(int ix, int iy, int iz): rectangle(ix, iy), height(iz) {}
+    int area() {
+        return 2 * (length * width + length * height + height * width);
+    }
+
+};
+int main() {
+    int x, y, z;
+    cin >> x >> y >> z;
+    cuboid a(x, y, z);
+    cout << a.rectangle::area() << '\n' << a.area();
+    return 0;
+}
+```
 **CPP68 迭代器遍历set**
 ```c
 #include<bits/stdc++.h>
