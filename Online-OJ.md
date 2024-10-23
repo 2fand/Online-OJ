@@ -3814,3 +3814,23 @@ int main(){
 	return 0;
 }
 ```
+**CPP72 找到数组里的第k大数(C++)**
+```c
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int n,k;
+	vector<int>a;
+	cin >> n >> k;
+	int i=0;
+	while (cin >> i){
+		a.push_back(i);
+	}
+	sort(a.begin(),a.end());
+	for (k--; k--; ){
+		a.erase(a.begin());
+	}
+	cout << a.front();
+	return 0;
+}
+```
