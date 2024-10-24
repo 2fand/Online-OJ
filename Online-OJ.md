@@ -3447,6 +3447,22 @@ int main() {
     return 0;
 }
 ```
+**CPP49 去除字符串中重复的字符**
+```c
+#include <iostream>
+#include <set>
+using namespace std;
+int main() {
+    char str[100] = { 0 };
+    cin.getline(str, sizeof(str));
+    set<char>s;
+    for (char* cp=str; *cp; cp++){
+        s.insert(*cp);
+    }
+    for (set<char>::iterator it = s.begin(); s.end() != it; cout << *it++){}
+    return 0;
+}
+```
 **CPP51 使用算法**
 ```c
 #include <iostream>
