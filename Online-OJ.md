@@ -3830,6 +3830,23 @@ int main(){
 	return 0;
 }
 ```
+**CPP69 最后k个元素**
+```c
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int k, i;
+    vector<int>a;
+    cin >> k >> k;
+    while (cin >> i) {
+        a.push_back(i);
+    }
+    for (vector<int>::reverse_iterator rit = a.rbegin(); k; k--) {
+        cout << *rit++ << " ";
+    }
+    return 0;
+}
+```
 **CPP72 找到数组里的第k大数(C++)**
 ```c
 #include<bits/stdc++.h>
