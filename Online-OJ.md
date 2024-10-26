@@ -3107,6 +3107,32 @@ int main() {
     return 0;
 }
 ```
+**CPP33 统计字符串中子串出现的次数**
+```c
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    char str[100] = { 0 };
+    char substr[100] = { 0 };
+
+    cin.getline(str, sizeof(str));
+    cin.getline(substr, sizeof(substr));
+
+    int count = 0;
+    char* cp = str;
+    char* cpa = str;
+    while (*cp++) {}
+    while ((cpa = strstr(cpa, substr))++) {
+        count++;
+    }
+
+    cout << count << endl;
+
+    return 0;
+}
+```
 **CPP35 函数实现计算一个数的阶乘**
 ```c
 #include <iostream>
