@@ -3949,3 +3949,31 @@ int main(){
 	return 0;
 }
 ```
+**WY36 交错01串**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    char str[51] = "";
+    char* cp = str;
+    int i = 1;
+    int ia = 0;
+    int ib = 0;
+    cin.getline(str, sizeof str);
+    for (; *cp; cp++) {
+        ib = cp[1] - '0';
+        if (0 > ib) {
+            ia <= i && (ia = i);
+            break;
+        } else if ((*cp - '0') != ib) {
+            i++;
+        } else {
+            ia <= i && (ia = i);
+            i = 1;
+        }
+    }
+    cout << ia;
+}
+// 64 位输出请用 printf("%lld")
+```
