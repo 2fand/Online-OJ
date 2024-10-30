@@ -3982,6 +3982,26 @@ int main() {
     return 0;
 }
 ```
+**CPP71 判断元素是否出现**
+```c
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	map<int,int>m;
+	int in=0;
+	int im=0;
+	int itemp=0;
+	cin >> in >> im;
+	for (;in;in--){
+		cin >> itemp;
+		m.insert({itemp,itemp});
+	}
+	while (cin >> itemp){
+		cout << (NULL != m[itemp] ? "yes" : "no") << endl;
+	}
+	return 0;
+}
+```
 **CPP72 找到数组里的第k大数(C++)**
 ```c
 #include<bits/stdc++.h>
