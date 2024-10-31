@@ -3133,6 +3133,46 @@ int main() {
     return 0;
 }
 ```
+**CPP34 使用字符函数统计字符串中各类型字符的个数**
+```c
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+    string str;
+    getline(cin, str);
+
+    int whitespace = 0;
+    int digits = 0;
+    int chars = 0;
+    int others = 0;
+    char tempch = 0;
+
+    while (tempch = str.back()) {
+        if (' ' == tempch) {
+            whitespace++;
+        } else if ('0' <= tempch && tempch <= '9') {
+            digits++;
+        } else if ('A' <= tempch && tempch <= 'Z' || 'a' <= tempch && tempch <= 'z') {
+            chars++;
+        } else {
+            others++;
+        }
+        str.pop_back();
+    }
+
+
+    cout << "chars : " << chars
+         << " whitespace : " << whitespace
+         << " digits : " << digits
+         << " others : " << others << endl;
+
+    return 0;
+}
+```
 **CPP35 函数实现计算一个数的阶乘**
 ```c
 #include <iostream>
