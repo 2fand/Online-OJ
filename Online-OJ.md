@@ -2996,6 +2996,33 @@ int main() {
     return 0;
 }
 ```
+**CPP23 计算公司年销售额**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int arr[4][3] = {
+        22, 66, 44,
+        77, 33, 88,
+        25, 45, 65,
+        11, 66, 99,
+    };
+
+    int sum = 0;
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 3; j++) {
+            sum += arr[i][j];
+        }
+    }
+
+    cout << sum << endl;
+
+    return 0;
+}
+```
 **CPP25 结构体简单使用**
 ```c
 #include <iostream>
