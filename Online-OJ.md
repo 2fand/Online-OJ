@@ -2644,6 +2644,7 @@ int main() {
 }
 ```
 ## C++
+
 **CPP1 定义变量**
 ```c
 #include <iostream>
@@ -2652,6 +2653,17 @@ using namespace std;
 int main() {
     cout << "1\n4\n8\n8\n";
     return 0;
+}
+```
+**CPP2 实现四舍五入**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    float f = 0.0;
+    cin >> f;
+    cout << (int)((f > 0 && (f += 0.5)) || (f -= 0.5), f);
 }
 ```
 **CPP3 两数求和**
