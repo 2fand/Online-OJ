@@ -2645,6 +2645,21 @@ int main() {
 ```
 ## C++
 
+**BC98 线段图案**
+```c
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int i=0;
+    while (cin >> i){
+        cout << string(i, '*') << endl;
+    }
+    return 0;
+}
+// 64 位输出请用 printf("%lld")
+```
 **CPP1 定义变量**
 ```c
 #include <iostream>
