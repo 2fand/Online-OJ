@@ -4116,6 +4116,31 @@ int main(){
 	return 0;
 }
 ```
+**OR119 01序列**
+```c
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    int i = 0;
+    int ia = 0;
+    int in = 0;
+    int iswap = 0;
+    cin >> i;
+    int* arr = new int[i];
+    for (; ia < i; ia++) {
+        cin >> arr[ia];
+    }
+    arr[0] || arr[1] || (arr[0] = 1, iswap++), arr[i - 2] || arr[i - 1] || (arr[i - 1] = 1, iswap++);//00000 -> 10001
+    cin >> in;
+    for (ia = 1; ia < i - 1; ia++) {
+        (arr[ia - 1] || arr[ia] || arr[ia + 1]) || (arr[ia] = 1, iswap++);// 000 -> 010
+    }
+    cout << ((in > iswap) ? "false" : "true");
+    delete[] arr;
+}
+// 64 位输出请用 printf("%lld")
+```
 **WY36 交错01串**
 ```c
 #include <iostream>
