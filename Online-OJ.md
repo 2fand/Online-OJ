@@ -4169,3 +4169,17 @@ int main() {
 }
 // 64 位输出请用 printf("%lld")
 ```
+**WY56 缩写**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    char str[51] = "";
+    while (cin >> str){
+        cout << str[0];
+    }
+    return 0;
+}
+// 64 位输出请用 printf("%lld")
+```
