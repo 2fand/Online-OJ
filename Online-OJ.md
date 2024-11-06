@@ -2924,18 +2924,22 @@ int main() {
     return 0;
 }
 ```
-**CPP16 规律数列求和**
+**CPP18 判断一个数是不是质数**
 ```c
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
-    long long ll = 99;
-    long long llsum = 9;
-    for (; 99999999999 != ll; ll *= 10, ll += 9) {
-        llsum += ll;
+    int i = 0;
+    int ia = 2;
+    for (cin >> i; ia < sqrt(i); ia++) {
+        if (!(i % ia)){
+            cout << "不";
+            break;
+        }
     }
-    cout << llsum;
+    cout << "是质数";
     return 0;
 }
 ```
