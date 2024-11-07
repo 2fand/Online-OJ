@@ -2924,6 +2924,35 @@ int main() {
     return 0;
 }
 ```
+**CPP17 计算小球走过的路程和反弹高度**
+```c
+#include <cstdio>
+#include <ios>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    // 下落的高度和落地的次数
+    double h;
+    int n;
+    double dadd = 0.0;
+
+    cin >> h;
+    cin >> n;
+    dadd -= h;
+
+    for (; n && (dadd += h, 1); n--){
+        dadd += h;
+        h /= 2;
+    }
+    
+    printf("%.1f %.1f", dadd, h);
+
+    return 0;
+}
+```
 **CPP18 判断一个数是不是质数**
 ```c
 #include <iostream>
