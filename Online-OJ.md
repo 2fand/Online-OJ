@@ -2645,6 +2645,17 @@ int main() {
 ```
 ## C++
 
+**BC1 Hello Nowcoder**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello Nowcoder!";
+    return 0;
+}
+// 64 位输出请用 printf("%lld")
+```
 **BC98 线段图案**
 ```c
 #include <iostream>
