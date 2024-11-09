@@ -4160,6 +4160,40 @@ int main(){
 	return 0;
 }
 ```
+**NC52 有效括号序列**
+```c
+#include <stack>
+#include <map>
+class Solution {
+public:
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     *
+     * 
+     * @param s string字符串 
+     * @return bool布尔型
+     */
+    bool isValid(string s) {
+        stack<char>st;
+        map<char, char>tempm={{')', '('}, {']', '['}, {'}', '{'}};
+        char cback=0;
+        for (int i=0; s[i]; i++){//例：([{}])
+            if ('(' == s[i] || '[' == s[i] || '{' == s[i]){
+                st.push(s[i]);//([{
+            }
+            else if(')' == s[i] || ']' == s[i] || '}' == s[i]){//}])
+                if (st.size() && st.top() == tempm[s[i]]){//防"]"使程序崩
+                    st.pop();
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+        return s.size() && !st.size();//防"["和空字符串合法
+    }
+};
+```
 **OR119 01序列**
 ```c
 #include <iostream>
