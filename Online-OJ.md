@@ -2645,6 +2645,35 @@ int main() {
 ```
 ## C++
 
+**AB1 【模板】栈**
+```c
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main() {
+    int icmd = 0;
+    int i = 0;
+    cin >> icmd;
+    stack<int>s;
+    string str = "";
+    for (; icmd; icmd--){
+        cin >> str;
+        if ("push" == str){
+            cin >> i;
+            s.push(i);
+        }
+        else if ("top" == str) {
+            s.empty() && cout << "error" << endl || cout << s.top() << endl;
+        }
+        else {
+            s.empty() && cout << "error" << endl || (cout << s.top() << endl, s.pop(), 0);
+        }
+    }
+}
+// 64 位输出请用 printf("%lld")
+```
 **BC1 Hello Nowcoder**
 ```c
 #include <iostream>
