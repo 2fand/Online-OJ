@@ -2719,6 +2719,16 @@ int main() {
 }
 // 64 位输出请用 printf("%lld")
 ```
+**BC2 小飞机**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "     **\n     **\n************\n************\n    *  *\n    *  *" << endl;
+}
+// 64 位输出请用 printf("%lld")
+```
 **BC98 线段图案**
 ```c
 #include <iostream>
