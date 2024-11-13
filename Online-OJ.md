@@ -4292,6 +4292,19 @@ int main() {
 }
 // 64 位输出请用 printf("%lld")
 ```
+**PIO17 单组_spj判断浮点误差**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int ir = 0;
+    cin >> ir;
+    cout << 3.14 * ir * ir;
+    return 0;
+}
+// 64 位输出请用 printf("%lld")
+```
 **WY36 交错01串**
 ```c
 #include <iostream>
