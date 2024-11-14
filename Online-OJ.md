@@ -4298,6 +4298,31 @@ int main() {
 using namespace std;
 
 int main() {
+    char str[1001001] = "";
+    int i = 0;
+    int ia = 0;
+    cin >> i >> ia;
+    i *= ia;
+    char* cp = &str[i + i / ia - 2];
+    int ib = ia;
+    ia = i;
+    for (; i; i--) {
+        cin >> *cp--;
+        if (i - 1 && i != ia && !((i - 1) % ib)) {
+            *cp-- = '\n';
+        }
+    }
+    cout << str;
+    return 0;
+}//11 10 9 * 7 6 5 * 3 2 1 0
+//" lkji/hgfe/dcba"
+```
+**PIO17 单组_spj判断浮点误差**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
     int ir = 0;
     cin >> ir;
     cout << 3.14 * ir * ir;
