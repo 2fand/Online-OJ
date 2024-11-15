@@ -2729,6 +2729,17 @@ int main() {
 }
 // 64 位输出请用 printf("%lld")
 ```
+**BC3 牛牛学说话之-整数**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i=0;
+    cin >> i;
+    cout << i;
+}
+```
 **BC98 线段图案**
 ```c
 #include <iostream>
