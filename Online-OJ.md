@@ -2708,6 +2708,40 @@ public:
     }
 };
 ```
+**AB5 点击消除**
+```c
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "";
+    stack<char>sk;
+    char* cp = NULL;
+    cin >> str;
+    for (cp = &str[0]; *cp; cp++){
+        if (sk.size() && sk.top() == *cp){
+            sk.pop();
+        }
+        else {
+            sk.push(*cp);
+        }
+    }
+    if (!sk.size()){
+        cout << 0;
+    }
+    else {
+        for (str.clear(), cp = &str[0]; sk.size(); cp++) {
+            *cp = sk.top();
+            sk.pop();
+        }
+        for (cp--; cp != str; cp--){
+            cout << *cp;
+        }
+    }
+}
+```
 **BC1 Hello Nowcoder**
 ```c
 #include <iostream>
