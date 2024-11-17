@@ -2742,6 +2742,35 @@ int main() {
     }
 }
 ```
+**AB7 【模板】队列**
+```c
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ic = 0;
+    queue<int>q;
+    string strcom;
+    for (cin >> ic; ic; ic--) {
+        cin >> strcom;
+        if ('u' == strcom[1]) {
+            cin >> i;
+            q.push(i);
+        } else {
+            if (q.size()){
+                cout << q.front() << endl;
+                'o' == strcom[1] && (q.pop(), 0);
+            }
+            else {
+                cout << "error" << endl;
+            } 
+        }
+    }
+}
+```
 **BC1 Hello Nowcoder**
 ```c
 #include <iostream>
