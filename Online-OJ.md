@@ -2803,6 +2803,26 @@ int main() {
     cout << i;
 }
 ```
+**BC91 水仙花数**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    bool b = false;
+    while (b = false, cin >> i >> ia) {
+        for (; i <= ia; i++) {
+            ((i / 100) * (i / 100) * (i / 100)) + ((i / 10 % 10) * (i / 10 % 10) *
+                                                   (i / 10 % 10)) + ((i % 10) * (i % 10) * (i % 10)) == i && (cout << i << " ", b = true);
+        }
+        b || (cout << "no");
+        cout << endl;
+    }
+}
+// 64 位输出请用 printf("%lld")
+```
 **BC98 线段图案**
 ```c
 #include <iostream>
