@@ -2838,6 +2838,29 @@ int main() {
 }
 // 64 位输出请用 printf("%lld")
 ```
+**BC102 带空格直角三角形图案**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ic = 0;
+    while (cin >> i) {
+        ia = i - 1;
+        ic = i;
+        for (i *= i; i; i--, ia--, 0 > ia && (ia = ic - 1)) {
+            if ((i - 1) / ic && ia > ic - 1 - (i - 1) / ic) {
+                cout << "  ";
+            } else {
+                cout << "* ";
+            }
+            (i - 1) % ic || cout << endl;
+        }
+    }
+}
+```
 **CPP1 定义变量**
 ```c
 #include <iostream>
