@@ -2861,6 +2861,34 @@ int main() {
     }
 }
 ```
+**BC155 牛牛的素数和**
+```c
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool issu(int i){
+    int ia = 2;
+    for (; ia <= sqrt(i); ia++){
+        if (!(i % ia)){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int iadd = 0;
+    cin >> i >> ia;
+    for (; i <= ia; i++){
+        issu(i) && (iadd += i);
+    }
+    cout << iadd;
+    return 0;
+}
+```
 **CPP1 定义变量**
 ```c
 #include <iostream>
