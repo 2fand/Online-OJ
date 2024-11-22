@@ -2916,6 +2916,29 @@ int main() {
     return 0;
 }
 ```
+**BC159 兔子的序列**
+```c
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int imax = 0;
+    cin >> i; 
+    int* arr = new int[i];
+    for (; ia < i; ia++){
+        cin >> arr[ia];
+    }
+    for (ia = 0; ia < i; ia++){
+        (int)sqrt(arr[ia]) * (int)sqrt(arr[ia]) == arr[ia] || (imax < arr[ia] && (imax = arr[ia]));
+    }
+    cout << imax;
+    delete[] arr;
+    return 0;
+}
+```
 **CPP1 定义变量**
 ```c
 #include <iostream>
