@@ -2916,6 +2916,55 @@ int main() {
     return 0;
 }
 ```
+**BC106 K形图案**
+```c
+#include <iostream>
+using namespace std;
+
+#define ABS(A) ((A) > 0 ? (A) : -(A))
+
+int main() {
+    int i = 0;
+    cin >> i;
+    const int ia = -i;
+    int ib = 0;
+    for (; i >= ia; i--){
+        for (ib = ABS(i) + 1; ib; ib--){
+            cout << "* ";
+        }
+        cout << endl;
+    }
+}
+// 64 位输出请用 printf("%lld")
+```
+**BC155 牛牛的素数和**
+```c
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool issu(int i){
+    int ia = 2;
+    for (; ia <= sqrt(i); ia++){
+        if (!(i % ia)){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int iadd = 0;
+    cin >> i >> ia;
+    for (; i <= ia; i++){
+        issu(i) && (iadd += i);
+    }
+    cout << iadd;
+    return 0;
+}
+```
 **BC159 兔子的序列**
 ```c
 #include <iostream>
