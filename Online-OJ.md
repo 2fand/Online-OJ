@@ -2861,6 +2861,34 @@ int main() {
     }
 }
 ```
+**BC104 翻转金字塔图案**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ik = 0;
+    int ix = 0;
+    int ih = 0;
+    while (cin >> i) {
+        ih = i;
+        for (; i; i--) {
+            ik = ih - i;
+            ix = i;
+            while (ik > 0 || ix > 0) {
+                if (ik-- > 0) {
+                    cout << " ";
+                } else if (ix-- > 0) {
+                    cout << "* ";
+                }
+            }
+            cout << endl;
+        }
+    }
+    return 0;
+}
+```
 **BC105 菱形图案**
 ```c
 #include <iostream>
