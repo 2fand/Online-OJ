@@ -2916,6 +2916,34 @@ int main() {
     }
 }
 ```
+**BC107 箭形图案**
+```c
+#include <iostream>
+using namespace std;
+
+#define ABS(A) ((A) > 0 ? (A) : -(A))
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    int ic = 0;
+    while (cin >> i){
+        ia = i + 1;
+        for (ib = -i; i >= ib; i--){
+            ic = ABS(i);
+            while (ic--){
+                cout << "  ";
+            }
+            ic = ia - ABS(i);
+            while (ic--){
+                cout << "*";
+            }
+            cout << endl;
+        }
+    }
+}
+```
 **BC155 牛牛的素数和**
 ```c
 #include <iostream>
