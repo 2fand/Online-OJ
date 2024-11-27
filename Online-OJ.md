@@ -2965,6 +2965,31 @@ int main() {
     }
 }
 ```
+**BC110 X形图案**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ic = 0;
+    while (cin >> i){
+        ic = i;
+        for (; i; i--){
+            for (ia = 0; ia < ic; ia++){
+                if (ic - i == ia || i - 1 == ia){
+                    cout << "*";
+                }
+                else {
+                    cout << " ";
+                }
+            }
+            cout << endl;
+        }
+    }
+}
+```
 **BC155 牛牛的素数和**
 ```c
 #include <iostream>
