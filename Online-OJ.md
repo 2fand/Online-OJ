@@ -2823,6 +2823,21 @@ int main() {
 }
 // 64 位输出请用 printf("%lld")
 ```
+**BC92 变种水仙花**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 10000;
+    for (; i < 100000; i++){
+        if ((i % 10) * (i / 10) + (i % 100) * (i / 100) + (i % 1000) * (i / 1000) + (i % 10000) * (i / 10000) == i){
+            cout << i << " ";
+        }
+    }
+    return 0;
+}
+```
 **BC98 线段图案**
 ```c
 #include <iostream>
