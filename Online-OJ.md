@@ -2803,6 +2803,51 @@ int main() {
     cout << i;
 }
 ```
+**BC76 [NOIP2008]ISBN号码**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    char str[10] = "";
+    char inch = 0;
+    char* cp = str;
+    char iisbn = 0;
+    int inum = 0;
+    int isum = 0;
+    while (9 != inum) {
+        cin >> inch;
+        inch <= '9' && inch >= '0'&& (*cp++ = inch, inum++);
+    }
+    cin >> inch >> iisbn;
+    if ('X' == iisbn){
+        iisbn = 10;
+    }else{
+        iisbn -= '0';
+    }
+    for (inum = 0; inum < 9; inum++) {
+        isum += (str[inum] - '0') * (inum + 1);
+    }
+    isum %= 11;
+    if (isum == iisbn) {
+        cout << "Right";
+    } else {
+        for (inum = 0; inum < 9; inum++) {
+            cout << str[inum];
+            if (!inum || 3 == inum || 8 == inum) {
+                cout << "-";
+            }
+        }
+        if (10 != isum){
+            cout << isum;
+        }
+        else {
+            cout << "X";
+        }
+    }
+    return 0;
+}
+```
 **BC91 水仙花数**
 ```c
 #include <iostream>
@@ -3003,6 +3048,92 @@ int main() {
             cout << endl;
         }
     }
+}
+```
+**BC133 回型矩阵**
+```c
+#include <iostream>
+using namespace std;
+
+enum DSAW{
+    D,
+    S,
+    A,
+    W
+};
+
+int main() {
+    int i = 0;
+    int ia = 2;
+    pair<int, int>pxy;
+    cin >> i;
+    int* arr = new int[i * i];
+    arr[0] = 1;
+    if (1 == i * i){
+        cout << 1;
+        return 0;
+    }
+    int* ip = arr;
+    DSAW d = D;
+    while (true){
+        pxy.first = (ip - arr) / i;
+        pxy.second = (ip - arr) % i;
+        switch (d) {
+        case D:
+            if (i - 1 == pxy.second || ip[1]){
+                d = S;
+                if (ip[i]){
+                    goto g;
+                }
+                ia--;
+            }
+            else {
+                *(++ip) = ia;
+            }
+            break;
+        case S:
+            if (i - 1 == pxy.first || ip[i]){
+                d = A;
+                ia--;
+            }
+            else {
+                ip += i;
+                *ip = ia;
+            }
+            break;
+        case A:
+            if (!pxy.second || ip[-1]){
+                d = W;
+                if (ip[-i]){
+                    goto g;
+                }
+                ia--;
+            }
+            else {
+                *(--ip) = ia;
+            }
+            break;
+        case W:
+            if (!pxy.first || ip[-i]){
+                d = D;
+                ia--;
+            }
+            else {
+                ip -= i;
+                *ip = ia;
+            }
+            break;
+        default:
+            break;
+        }
+        ia++;
+    }
+    g:
+    for (ia = 0; ia < i * i; ia++){
+        cout << arr[ia] << " ";
+        !((ia + 1) % i) && cout << endl;
+    }
+    return 0;
 }
 ```
 **BC155 牛牛的素数和**
