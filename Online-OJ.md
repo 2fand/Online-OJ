@@ -3050,6 +3050,32 @@ int main() {
     }
 }
 ```
+**BC130 最高身高**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    cin >> i >> ia;
+    const int isize = i * ia;
+    int* arr = new int[isize];
+    for (i = 0; i < isize; i++){
+        cin >> arr[i];
+    }
+    pair<int, int>pmax;
+    pmax.second = arr[0];
+    for (int i = 0; i < isize; i++){
+        if (arr[i] > pmax.second){
+            pmax.second = arr[i];
+            pmax.first = i;
+        }
+    }
+    cout << pmax.first / ia + 1 << " " << pmax.first % ia + 1;
+    return 0;
+}
+```
 **BC133 回型矩阵**
 ```c
 #include <iostream>
