@@ -3076,6 +3076,32 @@ int main() {
     return 0;
 }
 ```
+**BC127 筛选法求素数**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 2;
+    int ib = 0;
+    cin >> i;
+    int* arr = new int[i - 1];
+    for (; ia <= i; ia++){
+        arr[ia - 2] = ia;
+    }
+    for (ia = 2; ia <= i; ia++){
+        for (ib = ia - 1; ib < i - 1; ib++){
+            (!(arr[ib] % ia)) && (arr[ib] = 0);
+        }
+    }
+    for (ia = 0, ib = 0; ib < i - 1; ib++){
+        arr[ib] && (cout << arr[ib] << " ", ia++);
+    }
+    cout << endl << i - 1 - ia;
+    return 0;
+}
+```
 **BC133 回型矩阵**
 ```c
 #include <iostream>
