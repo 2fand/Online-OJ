@@ -3188,6 +3188,33 @@ int main() {
     return 0;
 }
 ```
+**BC135 图像相似度**
+```c
+#include <iostream>
+using namespace std;
+#define ABS(A) (0 > (A) ? -(A) : (A))
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    int iwidth = 0;
+    while (cin >> i) {
+        iwidth = 2 * i + 1;
+        for (ia = -i; ia <= i; i--) {
+            ib = ABS(i);
+            while (ib--) {
+                cout << " ";
+            }
+            ib = iwidth - ABS(i) * 2;
+            while (ib--) {
+                cout << (ib % 2 ? " " : "*");
+            }
+            cout << endl;
+        }
+    }
+}
+```
 **BC155 牛牛的素数和**
 ```c
 #include <iostream>
