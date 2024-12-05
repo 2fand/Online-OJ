@@ -3215,6 +3215,50 @@ int main() {
     }
 }
 ```
+**BC137 序列重组矩阵**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int isize = 0;
+    int i = 0;
+    int itemp = 0;
+    cin >> isize >> i;
+    isize *= i;
+    for (int ia = 0; ia < isize; ia++){
+        cin >> itemp;
+        cout << itemp << " ";
+        !((ia + 1) % i) && cout << endl;
+    }
+    return 0;
+}
+```
+**BC150 小乐乐计算函数**
+```c
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int max3(int ia, int ib, int ic) {
+    vector<int>v;
+    v.push_back(ia);
+    v.push_back(ib);
+    v.push_back(ic);
+    sort(v.begin(), v.end());
+    return v.back();
+}
+
+int main() {
+    int ia = 0;
+    int ib = 0;
+    int ic = 0;
+    cin >> ia >> ib >> ic;
+    printf("%.2f", max3(ia + ib, ib, ic) / ((float)(max3(ia, ib + ic, ic) + max3(ia, ib, ib + ic))));
+    return 0;
+}
+```
 **BC155 牛牛的素数和**
 ```c
 #include <iostream>
