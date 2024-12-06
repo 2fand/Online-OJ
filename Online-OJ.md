@@ -3215,6 +3215,31 @@ int main() {
     }
 }
 ```
+**BC136 KiKi判断上三角矩阵**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ib = 0;
+    cin >> i;
+    int* const arr = new int[i * i];
+    for (ib = 0; ib < i * i; ib++){
+        cin >> arr[ib];
+    }
+    for (int ia = 1; ia < i; ia++) {
+        for (ib = 0; ib < ia; ib++) {
+            if (arr[ia * i + ib]) {
+                cout << "NO";
+                return 0;
+            }
+        }
+    }
+    cout << "YES";
+    return 0;
+}
+```
 **BC137 序列重组矩阵**
 ```c
 #include <iostream>
