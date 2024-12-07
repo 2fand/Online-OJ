@@ -3050,6 +3050,50 @@ int main() {
     }
 }
 ```
+**BC114 圣诞树**
+```c
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int ib = 0;
+    int ic = 0;
+    cin >> i;
+    for (ia = 0; ia < 3 * i; ia++){
+        for (ib = ia; ib < 3 * i - 1; ib++){
+            cout << " ";
+        }
+        for (ib = 0; ib < ia / 3 + 1; ib++){
+            switch (ia % 3){
+            case 0:
+                cout << "*     ";
+                break;
+            case 1:
+                cout << "* *   ";
+                break;
+            case 2:
+                cout << "* * * ";
+                break;
+            default:
+                break;
+            }
+        }
+        cout << endl;
+    }
+    for (ia = 0; ia < i * i * 3; ia++){
+        if (!((ia + 1) % (i * 3))){
+            cout << "*" << endl;
+        }
+        else {
+            cout << " ";
+        }
+    }
+    return 0;
+}
+```
 **BC130 最高身高**
 ```c
 #include <iostream>
