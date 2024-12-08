@@ -3094,32 +3094,34 @@ int main() {
     return 0;
 }
 ```
-**BC130 最高身高**
+**BC125 序列中整数去重** 
 ```c
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()  {
     int i = 0;
     int ia = 0;
+    int ib = 0;
     cin >> i >> ia;
-    const int isize = i * ia;
-    int* arr = new int[isize];
-    for (i = 0; i < isize; i++){
-        cin >> arr[i];
-    }
-    pair<int, int>pmax;
-    pmax.second = arr[0];
-    for (int i = 0; i < isize; i++){
-        if (arr[i] > pmax.second){
-            pmax.second = arr[i];
-            pmax.first = i;
+    cout << ia << " ";
+    if (1 != i) {
+        int* const arr = new int[i];
+        arr[0] = ia;
+        for (ia = 1; ia < i; ia++) {
+            cin >> arr[ia];
+            for (ib = 0; ib < ia; ib++) {
+                if (arr[ia] == arr[ib]){
+                    break;
+                }
+            }
+            ib == ia && cout << arr[ib] << " ";
         }
+        delete[] arr;
     }
-    cout << pmax.first / ia + 1 << " " << pmax.first % ia + 1;
     return 0;
 }
-```
+``` 
 **BC127 筛选法求素数**
 ```c
 #include <iostream>
@@ -3143,6 +3145,32 @@ int main() {
         arr[ib] && (cout << arr[ib] << " ", ia++);
     }
     cout << endl << i - 1 - ia;
+    return 0;
+}
+```
+**BC130 最高身高**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    cin >> i >> ia;
+    const int isize = i * ia;
+    int* arr = new int[isize];
+    for (i = 0; i < isize; i++){
+        cin >> arr[i];
+    }
+    pair<int, int>pmax;
+    pmax.second = arr[0];
+    for (int i = 0; i < isize; i++){
+        if (arr[i] > pmax.second){
+            pmax.second = arr[i];
+            pmax.first = i;
+        }
+    }
+    cout << pmax.first / ia + 1 << " " << pmax.first % ia + 1;
     return 0;
 }
 ```
