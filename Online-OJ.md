@@ -3432,6 +3432,26 @@ int main() {
     return 0;
 }
 ```
+**BC164 牛牛的四叶玫瑰数**
+```c
+#include <iostream>
+using namespace std;
+
+int main() {
+    int il = 0;
+    int ir = 0;
+    cin >> il >> ir;
+    for (; il <= ir; il++) {
+        if (((il % 10) * (il % 10) * (il % 10) * (il % 10)) + ((
+                    il / 10 % 10) * (il / 10 % 10) * (il / 10 % 10) * (il / 10 % 10)) + ((
+                                il / 100 % 10) * (il / 100 % 10) * (il / 100 % 10) * (il / 100 % 10)) + ((
+                                            il / 1000 % 10) * (il / 1000 % 10) * (il / 1000 % 10) * (il / 1000 % 10)) == il) {
+            cout << il << " ";
+        }
+    }
+    return 0;
+}
+```
 **CPP1 定义变量**
 ```c
 #include <iostream>
