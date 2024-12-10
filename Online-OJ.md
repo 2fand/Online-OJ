@@ -2771,6 +2771,49 @@ int main() {
     }
 }
 ```
+**AB10 反转链表**
+```c
+/**
+ * struct ListNode {
+ *  int val;
+ *  struct ListNode *next;
+ *  ListNode(int x) : val(x), next(nullptr) {}
+ * };
+ */
+class Solution {
+  public:
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     *
+     *
+     * @param head ListNode类
+     * @return ListNode类
+     */
+    ListNode* ReverseList(ListNode* head) {
+        if (nullptr != head) {
+            stack<ListNode*>s;
+            ListNode* newlist = head;
+            ListNode** addlist = &newlist;
+            while (nullptr != head) {
+                s.push(head);
+                head = head->next;
+            }
+            newlist = s.top();
+            s.pop();
+            while (s.size()){
+                (*addlist)->next = s.top();
+                addlist = &((*addlist)->next);
+                s.pop();
+            }
+            (*addlist)->next = nullptr;
+            return newlist;
+        }
+        else {
+            return head;
+        }
+    }
+};
+```
 **BC1 Hello Nowcoder**
 ```c
 #include <iostream>
