@@ -2814,6 +2814,65 @@ class Solution {
     }
 };
 ```
+**AB11 合并两个排序的链表**
+```c
+/**
+ * struct ListNode {
+ *	int val;
+ *	struct ListNode *next;
+ *	ListNode(int x) : val(x), next(nullptr) {}
+ * };
+ */
+class Solution {
+public:
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     *
+     * 
+     * @param pHead1 ListNode类 
+     * @param pHead2 ListNode类 
+     * @return ListNode类
+     */
+    ListNode* Merge(ListNode* pHead1, ListNode* pHead2) {
+        queue<int>q;
+        ListNode* p1 = pHead1;
+        ListNode* p2 = pHead2;
+        ListNode* pnew = pHead1;
+        while (nullptr != p1 || nullptr != p2){
+            if (nullptr != p1 && nullptr != p2){
+                if (p1->val < p2->val){
+                    q.push(p1->val);
+                    p1 = p1->next;
+                }
+                else{
+                    q.push(p2->val);
+                    p2 = p2->next;
+                }
+            }
+            else if (nullptr != p1 && nullptr == p2){
+                q.push(p1->val);
+                p1 = p1->next;
+            }
+            else{
+                q.push(p2->val);
+                p2 = p2->next;   
+            }
+        }
+        if (q.size()){
+            pnew->val = q.front();
+            pnew->next = nullptr;
+            q.pop();
+            ListNode** addnode = &pnew;
+            while (q.size()) {
+                (*addnode)->next = new ListNode(q.front());
+                addnode = &(*addnode)->next;
+                q.pop();
+            }
+        }
+        return pnew;
+    }
+};
+```
 **AB12 删除链表的节点**
 ```c
 /**
