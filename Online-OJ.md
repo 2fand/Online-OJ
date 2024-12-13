@@ -2,7 +2,7 @@
 *(每天更1题)*
 ## C 
 **BC1 Hello Nowcoder** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() 
@@ -12,7 +12,7 @@ int main()
 }
 ```
 **BC2 小飞机** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -21,7 +21,7 @@ int main() {
 }
 ``` 
 **BC3 牛牛学说话之-整数**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -32,7 +32,7 @@ int main() {
 } 
 ```
 **BC4 牛牛学说话之-浮点数**
-```c
+```cpp
 #include <stdio.h>
 int main() {
     float a=1.000000;
@@ -46,7 +46,7 @@ int main() {
 }
 ```
 **BC5 牛牛学说话之-字符**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -57,7 +57,7 @@ int main() {
 }
 ```
 **BC6 牛牛的第二个整数**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -70,7 +70,7 @@ int main() {
 }
 ```
 **BC7 牛牛的字符矩形**
-```c
+```cpp
 #include <stdio.h>
 
 int main()
@@ -82,7 +82,7 @@ int main()
 }
 ```
 **BC8 牛牛的字符菱形**
-```c
+```cpp
 #include <stdio.h>
 
 int main()
@@ -94,7 +94,7 @@ int main()
 }
 ```
 **BC9 字符转ASCII码**
-```c
+```cpp
 #include <stdio.h>
 
 int main()
@@ -106,11 +106,11 @@ int main()
 }
 ```
 **BC10 实现四舍五入**
-```c
+```cpp
 //目前还没做好
 ```
 **BC11 成绩输入输出**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -121,7 +121,7 @@ int main() {
 }
 ```
 **BC12 学生基本信息输入输出**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -146,7 +146,7 @@ int main() {
 }
 ```
 **BC13 出生日期输入输出**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -157,7 +157,7 @@ int main() {
 }
 ```
 **BC14 按照格式输入并交换输出**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -168,7 +168,7 @@ int main() {
 }
 ```
 **BC15 大小写转换**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -180,7 +180,7 @@ int main() {
 }
 ```
 **BC16 十六进制转十进制**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -189,7 +189,7 @@ int main() {
 }
 ```
 **BC17 缩短二进制**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -198,7 +198,7 @@ int main() {
 }
 ```
 **BC18 牛牛的空格分隔**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -211,7 +211,7 @@ int main() {
 }
 ```
 **BC19 牛牛的对齐**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -222,7 +222,7 @@ int main() {
 }
 ```
 **BC20 进制A+B**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -233,7 +233,7 @@ int main() {
 }
 ```
 **BC21 牛牛学加法**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -244,7 +244,7 @@ int main() {
 }
 ```
 **BC22 牛牛学除法**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -255,7 +255,7 @@ int main() {
 }
 ```
 **BC23 牛牛学取余**
-```c
+```cpp
 #include <stdio.h>
 
 int main()
@@ -270,7 +270,7 @@ int main()
 }
 ```
 **BC24 浮点数的个位数字**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -284,7 +284,7 @@ int main() {
 }
 ```
 **BC25 牛牛买电影票**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -295,7 +295,7 @@ int main() {
 }
 ```
 **BC26 计算带余除法**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -307,7 +307,7 @@ int main() {
 }
 ```
 **BC27 整数的个位**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -319,7 +319,7 @@ int main() {
 }
 ```
 **BC28 整数的十位**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -332,7 +332,7 @@ int main() {
 }
 ```
 **BC29 开学？**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -347,7 +347,7 @@ int main() {
 }
 ```
 **BC30 时间转换**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -361,7 +361,7 @@ int main() {
 }
 ```
 **BC31 2的n次方计算**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -372,7 +372,7 @@ int main() {
 }
 ```
 **BC32 你能活多少秒**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -383,7 +383,7 @@ int main() {
 }
 ```
 **BC33 统计成绩**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -407,7 +407,7 @@ int main() {
 }
 ```
 **BC35 KiKi和酸奶**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -427,7 +427,7 @@ int main() {
 }
 ```
 **BC36 温度转换**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -444,7 +444,7 @@ int main() {
 }
 ```
 **BC37 牛牛的圆**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -455,7 +455,7 @@ int main() {
 }
 ```
 **BC38 牛牛的并联电路**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -468,7 +468,7 @@ int main() {
 }
 ```
 **BC39 牛牛的水杯**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -487,7 +487,7 @@ int main() {
 }
 ```
 **BC40 牛牛的等差数列**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -498,7 +498,7 @@ int main() {
 }
 ```
 **BC41 牛牛的球**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -509,7 +509,7 @@ int main() {
 }
 ```
 **BC42 小乐乐定闹钟**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -523,7 +523,7 @@ int main() {
 } 
 ```
 **BC43 小乐乐排电梯**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -534,7 +534,7 @@ int main() {
 }
 ```
 **BC44 小乐乐与欧几里得**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -552,7 +552,7 @@ int main() {
 }
 ```
 **BC45 小乐乐改数字**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -584,7 +584,7 @@ int main() {
 }
 ```
 __BC46 KiKi算期末成绩__
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -598,7 +598,7 @@ int main() {
 }
 ```
 __BC47 (a+b-c)*d的计算问题__
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -609,7 +609,7 @@ int main() {
 }
 ```
 **BC48 牛牛的线段**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -620,7 +620,7 @@ int main() {
 }
 ```
 **BC50 你是天才吗？** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -631,7 +631,7 @@ int main() {
 }
 ```
 **BC51 及格分数**
-```c
+```cpp
 #include <stdio.h>
 
 void abc(int b) {printf("%s\n",b>59 ? "Pass" : "Fail");}
@@ -645,7 +645,7 @@ int main() {
 }
 ```
 **BC52 判断整数奇偶性**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -657,7 +657,7 @@ int main() {
 }
 ```
 **BC53 判断是元音还是辅音**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -677,7 +677,7 @@ int main() {
 }
 ```
 **BC54 牛牛的判断题**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -688,7 +688,7 @@ int main() {
 }
 ```
 **BC55 判断闰年**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -699,7 +699,7 @@ int main() {
 }
 ```
 **BC56 判断字母** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -710,7 +710,7 @@ int main() {
 }
 ```
 **BC57 四季** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -721,7 +721,7 @@ int main() {
 }
 ```
 **BC58 健康评估** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -732,7 +732,7 @@ int main() {
 }
 ```
 **BC59 小乐乐找最大数**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -745,7 +745,7 @@ int main() {
 }
 ```
 **BC60 判断是不是字母**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -761,7 +761,7 @@ int main() {
 }
 ```
 **BC61 牛牛的二三七整除**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -784,7 +784,7 @@ int main() {
 }
 ```
 **BC62 统计数据正负个数**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -797,7 +797,7 @@ int main() {
 }
 ```
 **BC63 网购** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -812,7 +812,7 @@ int main() {
 }
 ```
 **BC64 牛牛的快递** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -831,7 +831,7 @@ int main() {
 }
 ```
 **BC66 牛牛的通勤** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -847,7 +847,7 @@ int main() {
 }
 ```
 **BC68 牛牛的一周**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -858,7 +858,7 @@ int main() {
 }
 ```
 **BC69 HTTP状态码**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -893,7 +893,7 @@ int main() {
 }
 ```
 **BC70 计算单位阶跃函数**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -912,7 +912,7 @@ int main() {
 }
 ```
 **BC71 三角形判断**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -934,7 +934,7 @@ int main() {
 }
 ```
 **BC72 牛牛的计划**
-```c
+```cpp
 int main() {
     int y,m,d,yl,ml,dl=0;
     scanf("%d %d %d %d %d %d",&y,&m,&d,&yl,&ml,&dl);
@@ -943,7 +943,7 @@ int main() {
 }
 ```
 **BC74 获得月份天数**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -954,7 +954,7 @@ int main() {
 }
 ```
 **BC75 小乐乐是否被叫家长** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -965,7 +965,7 @@ int main() {
 }
 ```
 **BC77 简单计算器** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -997,7 +997,7 @@ int main() {
 }
 ```
 **BC78 KiKi说祝福语** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1008,7 +1008,7 @@ int main() {
 }
 ```
 **BC79 小乐乐求和** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1021,7 +1021,7 @@ int main() {
 }
 ```
 **BC80 奇偶统计** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1033,7 +1033,7 @@ int main() {
 }
 ```
 **BC81 KiKi求质数个数** 
-```c
+```cpp
 #include <stdio.h>
 #include <math.h>
 
@@ -1059,7 +1059,7 @@ int main() {
 }
 ```
 **BC82 乘法表** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1072,7 +1072,7 @@ int main() {
 }
 ```
 **BC83 牛牛学数列** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1087,7 +1087,7 @@ int main() {
 }
 ```
 **BC84 牛牛学数列2** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1105,7 +1105,7 @@ int main() {
 }
 ```
 **BC86 牛牛学数列4** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1124,7 +1124,7 @@ int main() {
 }
 ```
 **BC87 数位之和(循环版)** 
-```c
+```cpp
 #include <stdio.h>
 
 int bc87(int i) {
@@ -1142,7 +1142,7 @@ int main() {
 }
 ```
 **BC87 数位之和(递归版)** 
-```c
+```cpp
 #include <stdio.h>
 
 int bc87(int i) {
@@ -1160,7 +1160,7 @@ int main() {
 }
 ```
 **BC88 魔法数字变换** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1179,7 +1179,7 @@ int main() {
 }
 ```
 **BC89 包含数字9的数** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1202,7 +1202,7 @@ int main() {
 }
 ```
 **BC90 小乐乐算多少人被请家长** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1219,7 +1219,7 @@ int main() {
 }
 ```
 **BC93 公务员面试** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1239,7 +1239,7 @@ int main() {
 }
 ```
 **BC94 反向输出一个四位数** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1254,7 +1254,7 @@ int main() {
 }
 ```
 **BC95 小乐乐与进制转换** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1279,7 +1279,7 @@ int main() {
 }
 ```
 **BC96 [NOIP2015]金币** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1299,7 +1299,7 @@ int main() {
 }
 ```
 **BC97 回文对称数** 
-```c
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -1331,7 +1331,7 @@ int main() {
 }
 ```
 **BC98 线段图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1343,7 +1343,7 @@ int main() {
 }
 ```
 **BC99 正方形图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1355,7 +1355,7 @@ int main() {
 }
 ```
 **BC100 直角三角形图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1368,7 +1368,7 @@ int main() {
 }
 ```
 **BC101 翻转直角三角形图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1380,7 +1380,7 @@ int main() {
 }
 ```
 **BC103 金字塔图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1406,7 +1406,7 @@ int main() {
 }
 ```
 **BC108 反斜线形图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1418,7 +1418,7 @@ int main() {
 }
 ```
 **BC109 正斜线形图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1430,7 +1430,7 @@ int main() {
 }
 ```
 **BC111 空心正方形图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1453,7 +1453,7 @@ int main() {
 }
 ```
 **BC112 空心三角形图案** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1475,7 +1475,7 @@ int main() {
 }
 ```
 **BC113 数字三角形** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1494,7 +1494,7 @@ int main() {
 ```
 
 **BC116 [NOIP2013]记数问题** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1515,7 +1515,7 @@ int main() {
 }
 ```
 **BC117 逆序输出** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1527,7 +1527,7 @@ int main() {
 }
 ```
 **BC118 N个数之和** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1542,7 +1542,7 @@ int main() {
 }
 ```
 **CPP13 计算一个数的阶乘** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1558,7 +1558,7 @@ int main() {
 }
 ```
 **BC119 最高分与最低分之差** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1586,7 +1586,7 @@ int main() {
 }
 ```
 **BC120 争夺前五名** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1618,7 +1618,7 @@ int main() {
 }
 ```
 **BC121 有序序列合并** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1652,7 +1652,7 @@ int main() {
 }
 ```
 **BC122 有序序列判断** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1677,7 +1677,7 @@ int main() {
 }
 ```
 **BC123 有序序列插入一个整数** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1700,7 +1700,7 @@ int main() {
 }
 ```
 **BC124 序列中删除指定数字** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1727,7 +1727,7 @@ int main() {
 }
 ```
 **BC126 小乐乐查找数字** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1748,7 +1748,7 @@ int main() {
 }
 ```
 **BC128 班级成绩输入输出** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1773,7 +1773,7 @@ int main() {
 }
 ```
 **BC129 矩阵元素定位** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1794,7 +1794,7 @@ int main() {
 }
 ```
 **BC131 矩阵相等判定** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1828,7 +1828,7 @@ g:
 }
 ```
 **BC132 矩阵计算** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1855,7 +1855,7 @@ int main() {
 }
 ```
 **BC141 井字棋** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1897,7 +1897,7 @@ int main() {
 }
 ```
 **BC143 [NOIP2018]标题统计** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1917,7 +1917,7 @@ int main() {
 }
 ```
 **BC144 登录验证** 
-```c
+```cpp
 #include <stdio.h>
 #include <string.h>
 
@@ -1932,7 +1932,7 @@ int main() {
 }
 ```
 **BC146 添加逗号** 
-```c
+```cpp
 #include <stdio.h>
 #include <string.h>
 
@@ -1955,7 +1955,7 @@ int main() {
 }
 ```
 **BC147 竞选社长** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -1978,7 +1978,7 @@ int main() {
 }
 ```
 **BC148 字符串操作** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2001,7 +2001,7 @@ int main() {
 }
 ```
 **BC149 简写单词** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2014,7 +2014,7 @@ int main() {
 }
 ```
 **BC151 数位五五** 
-```c
+```cpp
 #include <stdio.h>
 
 int bc151(int i, int ia) {
@@ -2040,7 +2040,7 @@ int main() {
 }
 ```
 **BC152 The Biggest Water Problem** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2061,7 +2061,7 @@ int main() {
 }
 ```
 **BC153 [NOIP2010]数字统计** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2081,7 +2081,7 @@ int main() {
 }
 ```
 **BC154 牛牛的短信** 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2098,7 +2098,7 @@ int main() {
 }
 ```
 **BC166 小乐乐走台阶** 
-```c
+```cpp
 #include <stdio.h>
 
 long long bc166(int in) {
@@ -2116,7 +2116,7 @@ int main() {
 }
 ```
 **BC168 牛牛的西格玛** 
-```c
+```cpp
 #include <stdio.h>
 
 int sigma(int in) {
@@ -2134,7 +2134,7 @@ int main() {
 }
 ```
 **BC170 牛牛的digit** 
-```c
+```cpp
 #include <stdio.h>
 #include <math.h>
 
@@ -2151,7 +2151,7 @@ int main() {
 }
 ```
 **BC171 牛牛的Hermite多项式** 
-```c
+```cpp
 #include <stdio.h>
 
 int h(int in, int ix) {
@@ -2173,7 +2173,7 @@ int main() {
 }
 ```
 **BC172 牛牛的排列数** 
-```c
+```cpp
 #include <stdio.h>
 
 long long amn(long long ll, long long lla) {
@@ -2192,7 +2192,7 @@ int main() {
 }
 ```
 **BC173 牛牛逆序输出** 
-```c
+```cpp
 #include <stdio.h>
 
 int rept(int i) {
@@ -2211,7 +2211,7 @@ int main() {
 }
 ```
 **CC5 牛牛的新数组求和** 
-```c
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -2236,7 +2236,7 @@ int main() {
 }
 ```
 **CC6 牛牛的排序** 
-```c
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -2262,7 +2262,7 @@ int main() {
 }
 ```
 **CC13 KiKi定义电子日历类** 
-```c
+```cpp
 #include <stdio.h>
 
 struct Tdate{
@@ -2278,7 +2278,7 @@ int main() {
 }
 ```
 **CC15 牛牛的书** 
-```c
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -2305,7 +2305,7 @@ int main() {
 }
 ```
 **CC16 牛牛的平面向量** 
-```c
+```cpp
 #include <stdio.h>
 
 struct Xy {
@@ -2355,7 +2355,7 @@ int main() {
 </html>
 ```
 **NB158 牛牛的名字游戏** 
-```c
+```cpp
 #include <string.h>
 /**
  * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
@@ -2381,7 +2381,7 @@ int lengthOfLastWord(char* s ) {
 }
 ```
 **NC120 二进制中1的个数** 
-```c
+```cpp
 /**
  * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
  *
@@ -2399,7 +2399,7 @@ int NumberOf1(int n ) {
 }
 ```
 **NC140 排序** 
-```c
+```cpp
 /**
  * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
  *
@@ -2426,7 +2426,7 @@ int* MySort(int* arr, int arrLen, int* returnSize) {
 }
 ```
 **PIO1 只有输出**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2435,7 +2435,7 @@ int main() {
 }
 ```
 **PIO2 单组_A+B**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2447,7 +2447,7 @@ int main() {
 }
 ```
 **PIO3 多组_A+B_EOF形式**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2460,7 +2460,7 @@ int main() {
 }
 ```
 **PIO4 多组_A+B_T组形式**
-```c
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -2476,7 +2476,7 @@ int main() {
 }
 ```
 **PIO5 多组_A+B_零尾模式**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2489,7 +2489,7 @@ int main() {
 }
 ```
 **PIO6 单组_一维数组**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2506,7 +2506,7 @@ int main() {
 }
 ```
 **PIO7 多组_一维数组_T组形式**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2528,7 +2528,7 @@ int main() {
 }
 ```
 **PIO8 单组_二维数组**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2546,7 +2546,7 @@ int main() {
 }
 ```
 **PIO9 多组_二维数组_T组形式**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2567,7 +2567,7 @@ int main() {
 }
 ```
 **PIO10 单组_字符串**
-```c
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -2583,7 +2583,7 @@ int main() {
 }
 ```
 **PIO11 多组_字符串_T组形式**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2601,7 +2601,7 @@ int main() {
 }
 ```
 **PIO14 单组_保留小数位数**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2612,7 +2612,7 @@ int main() {
 }
 ```
 **PIO15 单组_补充前导零**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2621,7 +2621,7 @@ int main() {
 }
 ```
 **PIO16 单组_spj判断YES与NO**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2632,7 +2632,7 @@ int main() {
 }
 ```
 **WY11 星际穿越**
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -2646,7 +2646,7 @@ int main() {
 ## C++
 
 **AB1 【模板】栈**
-```c
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
@@ -2675,7 +2675,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **AB3 有效括号序列**
-```c
+```cpp
 #include <stack>
 #include <map>
 class Solution {
@@ -2709,7 +2709,7 @@ public:
 };
 ```
 **AB5 点击消除**
-```c
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
@@ -2743,7 +2743,7 @@ int main() {
 }
 ```
 **AB7 【模板】队列**
-```c
+```cpp
 #include <iostream>
 #include <queue>
 #include <string>
@@ -2772,7 +2772,7 @@ int main() {
 }
 ```
 **AB10 反转链表**
-```c
+```cpp
 /**
  * struct ListNode {
  *  int val;
@@ -2815,7 +2815,7 @@ class Solution {
 };
 ```
 **AB11 合并两个排序的链表**
-```c
+```cpp
 /**
  * struct ListNode {
  *	int val;
@@ -2874,7 +2874,7 @@ public:
 };
 ```
 **AB12 删除链表的节点**
-```c
+```cpp
 /**
  * struct ListNode {
  *  int val;
@@ -2910,8 +2910,50 @@ class Solution {
     }
 };
 ```
+**AB18 【模板】堆**
+```cpp
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ipush = 0;
+    set<int>s;
+    set<int>::iterator it = s.end();
+    string str = "";
+    cin >> i;
+    while (i--){
+        cin >> str;
+        if ('u' == str[1]){
+            cin >> ipush;
+            s.insert(ipush);
+            it = s.end();
+            it--;
+        }
+        else {
+            if (s.size()){
+                cout << *it << endl;
+            }
+            else {
+                cout << "empty" << endl;
+            }
+            if ('p' == str[0] && s.size()){
+                it = s.end();
+                it--;
+                s.erase(it);
+                if (s.size()){
+                    it = s.end();
+                    it--;
+                }
+            }
+        }
+    }
+    return 0;
+}
+```
 **BC1 Hello Nowcoder**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -2922,7 +2964,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **BC2 小飞机**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -2932,7 +2974,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **BC3 牛牛学说话之-整数**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -2943,7 +2985,7 @@ int main() {
 }
 ```
 **BC76 [NOIP2008]ISBN号码**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -2988,7 +3030,7 @@ int main() {
 }
 ```
 **BC91 水仙花数**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3008,7 +3050,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **BC92 变种水仙花**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3023,7 +3065,7 @@ int main() {
 }
 ```
 **BC98 线段图案**
-```c
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -3038,7 +3080,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **BC102 带空格直角三角形图案**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3061,7 +3103,7 @@ int main() {
 }
 ```
 **BC104 翻转金字塔图案**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3089,7 +3131,7 @@ int main() {
 }
 ```
 **BC105 菱形图案**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 #define ABS(A) (0 > (A) ? -(A) : (A))
@@ -3116,7 +3158,7 @@ int main() {
 }
 ```
 **BC106 K形图案**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3137,7 +3179,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **BC107 箭形图案**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3165,7 +3207,7 @@ int main() {
 }
 ```
 **BC110 X形图案**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3190,7 +3232,7 @@ int main() {
 }
 ```
 **BC114 圣诞树**
-```c
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -3234,7 +3276,7 @@ int main() {
 }
 ```
 **BC125 序列中整数去重** 
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3262,7 +3304,7 @@ int main()  {
 }
 ``` 
 **BC127 筛选法求素数**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3288,7 +3330,7 @@ int main() {
 }
 ```
 **BC130 最高身高**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3314,7 +3356,7 @@ int main() {
 }
 ```
 **BC133 回型矩阵**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3400,7 +3442,7 @@ int main() {
 }
 ```
 **BC135 图像相似度**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 #define ABS(A) (0 > (A) ? -(A) : (A))
@@ -3427,7 +3469,7 @@ int main() {
 }
 ```
 **BC136 KiKi判断上三角矩阵**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3452,7 +3494,7 @@ int main() {
 }
 ```
 **BC137 序列重组矩阵**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3471,7 +3513,7 @@ int main() {
 }
 ```
 **BC150 小乐乐计算函数**
-```c
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -3496,7 +3538,7 @@ int main() {
 }
 ```
 **BC155 牛牛的素数和**
-```c
+```cpp
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -3524,7 +3566,7 @@ int main() {
 }
 ```
 **BC159 兔子的序列**
-```c
+```cpp
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -3547,7 +3589,7 @@ int main() {
 }
 ```
 **BC162 牛牛的素数判断**
-```c
+```cpp
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -3572,7 +3614,7 @@ int main() {
 }
 ```
 **BC164 牛牛的四叶玫瑰数**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3592,7 +3634,7 @@ int main() {
 }
 ```
 **CPP1 定义变量**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3602,7 +3644,7 @@ int main() {
 }
 ```
 **CPP2 实现四舍五入**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3613,7 +3655,7 @@ int main() {
 }
 ```
 **CPP3 两数求和**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3626,7 +3668,7 @@ int main() {
 }
 ```
 **CPP4 获取两数中的较大值**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3639,7 +3681,7 @@ int main() {
 }
 ```
 **CPP5 简单运算**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3658,7 +3700,7 @@ int main() {
 }
 ```
 **CPP6 交换两个变量的值**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3671,7 +3713,7 @@ int main() {
 }
 ```
 **CPP7 获取三个数中的最大值（三元表达式实现）**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3685,7 +3727,7 @@ int main() {
 }
 ```
 **CPP8 计算商品打折结算金额**
-```c
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -3708,7 +3750,7 @@ int main() {
 }
 ```
 **CPP9 判断身材状态**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3730,7 +3772,7 @@ int main() {
 }
 ```
 **CPP10 判断成绩等级**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3754,7 +3796,7 @@ int main() {
 }
 ```
 **CPP11 判断季节**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3790,7 +3832,7 @@ int main() {
 }
 ```
 **CPP12 求 1 - n 之间偶数的和**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3806,7 +3848,7 @@ int main() {
 }
 ```
 **CPP14 输出水仙花数**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3822,7 +3864,7 @@ int main() {
 }
 ```
 **CPP15 打印乘法表**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3841,7 +3883,7 @@ int main() {
 }
 ```
 **CPP16 规律数列求和**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3856,7 +3898,7 @@ int main() {
 }
 ```
 **CPP17 计算小球走过的路程和反弹高度**
-```c
+```cpp
 #include <cstdio>
 #include <ios>
 #include <iostream>
@@ -3885,7 +3927,7 @@ int main() {
 }
 ```
 **CPP18 判断一个数是不是质数**
-```c
+```cpp
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -3904,7 +3946,7 @@ int main() {
 }
 ```
 **CPP19 获取数组最值**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3926,7 +3968,7 @@ int main() {
 }
 ```
 **CPP20 数组元素反转**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -3946,7 +3988,7 @@ int main() {
 }
 ```
 **CPP21 C++冒泡排序**
-```c
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -3967,7 +4009,7 @@ int main() {
 }
 ```
 **CPP22 C++选择排序**
-```c
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -3988,7 +4030,7 @@ int main() {
 }
 ```
 **CPP23 计算公司年销售额**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4015,7 +4057,7 @@ int main() {
 }
 ```
 **CPP25 结构体简单使用**
-```c
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -4034,7 +4076,7 @@ int main() {
 }
 ```
 **CPP26 利用指针遍历数组**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4049,7 +4091,7 @@ int main() {
 }
 ```
 **CPP27 获取字符串长度**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4065,7 +4107,7 @@ int main() {
 }
 ```
 **CPP28 复制部分字符串**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4097,7 +4139,7 @@ int main() {
 }
 ```
 **CPP31 比较字符串大小**
-```c
+```cpp
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -4114,7 +4156,7 @@ int main() {
 }
 ```
 **CPP32 编写函数实现两数交换（指针方式）**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 int main() {
@@ -4126,7 +4168,7 @@ int main() {
 }
 ```
 **CPP33 统计字符串中子串出现的次数**
-```c
+```cpp
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -4152,7 +4194,7 @@ int main() {
 }
 ```
 **CPP34 使用字符函数统计字符串中各类型字符的个数**
-```c
+```cpp
 #include <iostream>
 #include <string>
 
@@ -4192,7 +4234,7 @@ int main() {
 }
 ```
 **CPP35 函数实现计算一个数的阶乘**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4218,7 +4260,7 @@ long long factorial(int n) {
 }
 ```
 **CPP36 不死神兔问题**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4243,7 +4285,7 @@ int getSum(int n) {
 }
 ```
 **CPP37 编写函数实现两数交换（引用方式）**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4262,7 +4304,7 @@ int main() {
 }
 ```
 **CPP38 设计立方体类**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4294,7 +4336,7 @@ int main() {
 }
 ```
 **CPP40 构造函数**
-```c
+```cpp
 #include <iostream>
 #include <string>
 
@@ -4328,7 +4370,7 @@ int main() {
 }
 ```
 **CPP41 浅拷贝和深拷贝**
-```c
+```cpp
 #include <iostream>
 #include <cstring>
 #pragma warning(disable : 4996)
@@ -4375,7 +4417,7 @@ int main() {
 }
 ```
 **CPP42 友元全局函数**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4405,7 +4447,7 @@ int main() {
 }
 ```
 **CPP43 加号运算符重载**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4454,7 +4496,7 @@ int main() {
 }
 ```
 **CPP44 子类中调用父类构造**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4511,7 +4553,7 @@ int main() {
 }
 ```
 **CPP45 重写子类计算逻辑**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4567,7 +4609,7 @@ int main() {
 }
 ```
 **CPP47 迭代器遍历容器**
-```c
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -4588,7 +4630,7 @@ int main() {
 }
 ```
 **CPP49 去除字符串中重复的字符**
-```c
+```cpp
 #include <iostream>
 #include <set>
 using namespace std;
@@ -4604,7 +4646,7 @@ int main() {
 }
 ```
 **CPP51 使用算法**
-```c
+```cpp
 #include <iostream>
 #include <set>
 // write your code here......
@@ -4627,7 +4669,7 @@ int main() {
 }
 ``` 
 **CPP56 字符的个数**
-```c
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -4647,7 +4689,7 @@ int main() {
 }
 ```
 **CPP58 编写函数实现字符串翻转（引用方式）**
-```c
+```cpp
 #include<bits/stdc++.h>
 #include<algorithm>
 using namespace std;
@@ -4663,7 +4705,7 @@ int main(){
 }
 ```
 **CPP59 比较长方形的面积大小**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 class rectangle {
@@ -4698,7 +4740,7 @@ int main() {
 }
 ```
 **CPP60 长方形的关系**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 class rectangle{
@@ -4738,7 +4780,7 @@ int main(){
 }
 ```
 **CPP61 数组类的构造函数**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 class Array{
@@ -4772,7 +4814,7 @@ int main(){
 }
 ```
 **CPP62 数组类的拷贝构造函数**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 class Array {
@@ -4805,7 +4847,7 @@ int main() {
 }
 ```
 **CPP63 友元类**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 class phone{
@@ -4839,7 +4881,7 @@ int main(){
 
 ```
 **CPP64 重载小于号**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -4883,7 +4925,7 @@ int main() {
 }
 ```
 **CPP65 构建长方体类**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 class rectangle {
@@ -4911,7 +4953,7 @@ int main() {
 }
 ```
 **CPP66 求长方体表面积**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 class rectangle {
@@ -4955,7 +4997,7 @@ int main() {
 }
 ```
 **CPP67 多态实现求面积体积**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 class rectangle {
@@ -5008,7 +5050,7 @@ int main() {
 }
 ```
 **CPP68 迭代器遍历set**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
@@ -5024,7 +5066,7 @@ int main(){
 }
 ```
 **CPP69 最后k个元素**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
@@ -5041,7 +5083,7 @@ int main() {
 }
 ```
 **CPP71 判断元素是否出现**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
@@ -5061,7 +5103,7 @@ int main(){
 }
 ```
 **CPP72 找到数组里的第k大数(C++)**
-```c
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
@@ -5081,7 +5123,7 @@ int main(){
 }
 ```
 **NC52 有效括号序列**
-```c
+```cpp
 #include <stack>
 #include <map>
 class Solution {
@@ -5115,7 +5157,7 @@ public:
 };
 ```
 **OR119 01序列**
-```c
+```cpp
 #include <iostream>
 using namespace std;
  
@@ -5140,7 +5182,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **PIO17 单组_spj判断浮点误差**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -5165,7 +5207,7 @@ int main() {
 //" lkji/hgfe/dcba"
 ```
 **PIO17 单组_spj判断浮点误差**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -5178,7 +5220,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **WY36 交错01串**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -5206,7 +5248,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 **WY56 缩写**
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
