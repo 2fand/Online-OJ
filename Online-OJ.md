@@ -5156,6 +5156,40 @@ public:
     }
 };
 ```
+**NC160 二分查找-I**
+```cpp
+class Solution {
+public:
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     *
+     * 
+     * @param nums int整型vector 
+     * @param target int整型 
+     * @return int整型
+     */
+    int search(vector<int>& nums, int target) {
+        if (nums.size()){
+            int ilow = 0;    
+            int ihigh = nums.size() - 1;    
+            int imid = 0;
+            while (ilow <= ihigh){
+                imid = (ilow + ihigh) / 2;
+                if (nums[imid] < target) {
+                    ilow = imid + 1;
+                }
+                else if (nums[imid] > target){
+                    ihigh = imid - 1;
+                }
+                else {
+                    return imid;
+                }
+            }                      
+        }
+        return -1;     
+    }
+};
+```
 **OR119 01序列**
 ```cpp
 #include <iostream>
