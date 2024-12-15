@@ -3512,6 +3512,37 @@ int main() {
     return 0;
 }
 ```
+**BC138 矩阵转置**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    cin >> i >> ia;
+    int* const arr = new int[i*ia];
+    int* ip = arr;
+    int inew = 0;
+    for (int icin = 0; icin < i * ia; icin++){
+        cin >> arr[icin];
+    }
+    while (1){
+        cout << *ip << " ";
+        if ((ip - arr) / ia == i - 1){
+            if (i * ia - 1 == ip - arr){
+                break;
+            }
+            cout << endl;
+            ip = arr + (++inew);
+        }
+        else {
+            ip += ia;
+        }
+    }
+    return 0;
+}
+```
 **BC150 小乐乐计算函数**
 ```cpp
 #include <iostream>
