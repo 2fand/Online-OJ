@@ -2984,6 +2984,15 @@ int main() {
     cout << i;
 }
 ```
+**BC16 十六进制转十进制**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    printf("%15d",0xabcdef);
+}
+```
 **BC76 [NOIP2008]ISBN号码**
 ```cpp
 #include <iostream>
