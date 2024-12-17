@@ -3552,6 +3552,49 @@ int main() {
     return 0;
 }
 ```
+**BC145 笨小猴**
+```cpp
+#include <iostream>
+#include <map>
+#include <cmath>
+using namespace std;
+
+int main() {
+    map<char, int>m;
+    char ch = 0;
+    while (cin >> ch){
+        if (' ' == ch){
+            continue;
+        }
+        if (!m.count(ch)){
+            m.insert({ch, 1});
+        }
+        else {
+            m[ch]++;
+        }
+    }
+    int imax = m.begin()->second;
+    int imin = m.begin()->second;
+    for (map<char, int>::iterator it = m.begin(); it != m.end(); it++){
+        imax < it->second && (imax = it->second);
+        imin > it->second && (imin = it->second);
+    }
+    const int izhi = imax - imin;
+    for (int i = 2; i < sqrt(izhi); i++){
+        if (!izhi % i){
+            cout << "No Answer" << endl << 0;
+            return 0;
+        }
+    }
+    if (izhi >= 2){
+        cout << "Lucky Word" << endl << izhi;
+    }
+    else {
+        cout << "No Answer" << endl << 0;
+    }
+    return 0;
+}
+```
 **BC150 小乐乐计算函数**
 ```cpp
 #include <iostream>
