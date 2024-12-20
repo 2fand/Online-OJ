@@ -3521,7 +3521,7 @@ int main() {
     return 0;
 }
 ```
-**BC138 矩阵转置**
+**BC142 扫雷**
 ```cpp
 #include <iostream>
 using namespace std;
@@ -3529,26 +3529,47 @@ using namespace std;
 int main() {
     int i = 0;
     int ia = 0;
+    int iln = 0;
+    int inum = 0;
+    int icount = 0;
     cin >> i >> ia;
-    int* const arr = new int[i*ia];
-    int* ip = arr;
-    int inew = 0;
-    for (int icin = 0; icin < i * ia; icin++){
+    const int arrn[8] = {(-ia) - 3, (-ia) - 2, (-ia) - 1, -1, 1, ia + 1, ia + 2, ia + 3};
+    const int isize = (i + 2) * (ia + 2);
+    char* const arr = new char[isize];
+    for (int icin = ia + 3; icin < (i + 1) * (ia + 2); icin++){
+        iln++;
         cin >> arr[icin];
+        if (!(iln % ia)){
+            icin += 2;
+        }
     }
-    while (1){
-        cout << *ip << " ";
-        if ((ip - arr) / ia == i - 1){
-            if (i * ia - 1 == ip - arr){
-                break;
-            }
-            cout << endl;
-            ip = arr + (++inew);
+    for (int icin = ia + 3; icin < (i + 1) * (ia + 2); icin++){
+        iln++;
+        if ('*' == arr[icin]){
+            cout << "*";
         }
         else {
-            ip += ia;
+            for (inum = 0, icount = 0; inum < 8; inum++){
+                '*' == arr[icin + arrn[inum]] && icount++;
+            }
+            cout << icount;
+        }
+        if (!(iln % ia)){
+            cout << endl;
+            icin += 2;
         }
     }
+    delete[] arr;
+    return 0;
+}
+```
+**BC1 Hello Nowcoder** 
+```cpp
+#include <stdio.h>
+
+int main() 
+{    
+    printf("Hello Nowcoder!");
     return 0;
 }
 ```
