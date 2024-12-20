@@ -2984,6 +2984,18 @@ int main() {
     cout << i;
 }
 ```
+**BC5 牛牛学说话之-字符**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch = 0;
+    cin >> ch;
+    cout << ch;
+    return 0;
+}
+```
 **BC6 牛牛的第二个整数**
 ```cpp
 #include <iostream>
