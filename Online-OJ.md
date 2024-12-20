@@ -2984,6 +2984,18 @@ int main() {
     cout << i;
 }
 ```
+**BC6 牛牛的第二个整数**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 0;
+    cin >> i >> i;
+    cout << i;
+    return 0;
+}
+```
 **BC16 十六进制转十进制**
 ```cpp
 #include <iostream>
