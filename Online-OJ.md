@@ -19,7 +19,7 @@ int main() {
     printf("     **     \n     **     \n************\n************\n    *  *    \n    *  *    ");
     return 0;
 }
-``` 
+```
 **BC3 牛牛学说话之-整数**
 ```cpp
 #include <stdio.h>
@@ -2984,6 +2984,18 @@ int main() {
     cout << i;
 }
 ```
+**BC4 牛牛学说话之-浮点数** 
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    float f = 0.0;
+    cin >> f;
+    printf("%.3f", f);
+    return 0;
+}
+``` 
 **BC5 牛牛学说话之-字符**
 ```cpp
 #include <iostream>
