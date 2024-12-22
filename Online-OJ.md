@@ -3773,6 +3773,32 @@ int main() {
     return 0;
 }
 ```
+**CC7 牛牛的单向链表** 
+```cpp
+#include <iostream>
+using namespace std;
+
+struct list{
+    int item;
+    list* next;
+};
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    cin >> i;
+    list* l = new list;
+    list** lp = &l;
+    while (i--){
+        cin >> ia;
+        (*lp)->next = new list;
+        (*lp)->next->item = ia;
+        cout << (*lp)->next->item << " ";
+        lp = &(*lp)->next;
+    }
+    return 0;
+}
+```
 **CPP1 定义变量**
 ```cpp
 #include <iostream>
