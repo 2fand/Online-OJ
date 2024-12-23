@@ -3799,6 +3799,52 @@ int main() {
     return 0;
 }
 ```
+**CC8 牛牛的链表交换** 
+```cpp
+#include <iostream>
+using namespace std;
+
+struct list{
+    int item;
+    list* next;
+};
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    cin >> i;
+    const int isize = i;
+    list* l = new list;
+    list** lp = &l;
+    while (i--){
+        cin >> ia;
+        (*lp)->next = new list;
+        (*lp)->next->item = ia;
+        lp = &(*lp)->next;
+        if (isize <= 2){
+            cout << (*lp)->item << " ";
+        }
+    }
+    if (isize > 2){
+        int itemp = l->next->item;
+        l->next->item = l->next->next->item;
+        l->next->next->item = itemp;
+        list** swapnode = &l;
+        while (nullptr != (*swapnode)->next->next){
+            swapnode = &(*swapnode)->next;
+        }
+        itemp = (*swapnode)->item;
+        (*swapnode)->item = (*swapnode)->next->item;
+        (*swapnode)->next->item = itemp;
+        lp = &l;
+        while (nullptr != (*lp)->next){
+            cout << (*lp)->next->item << " ";
+            lp = &(*lp)->next;
+        }
+    }
+    return 0;
+}
+```
 **CPP1 定义变量**
 ```cpp
 #include <iostream>
