@@ -3845,6 +3845,33 @@ int main() {
     return 0;
 }
 ```
+**CC9 牛牛的单链表求和** 
+```cpp
+#include <iostream>
+using namespace std;
+
+struct list{
+    int item;
+    list* next;
+};
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int iadd = 0;
+    cin >> i;
+    list* l = new list;
+    list** lp = &l;
+    while (i--){
+        cin >> ia;
+        (*lp)->next = new list;
+        iadd += ((*lp)->next->item = ia);
+        lp = &(*lp)->next;
+    }
+    cout << iadd;
+    return 0;
+}
+```
 **CPP1 定义变量**
 ```cpp
 #include <iostream>
