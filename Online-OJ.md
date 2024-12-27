@@ -3933,6 +3933,72 @@ int main() {
     return 0;
 }
 ```
+**CC12 牛牛的链表添加节点** 
+```cpp
+#include <iostream>
+using namespace std;
+
+struct list{
+    int item;
+    list* next;
+};
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int iaddnode = 0;
+    cin >> i >> iaddnode;
+    int iadd = 0;
+    list* l = new list;
+    list** lp = &l;
+    while (i--){
+        if (iadd == iaddnode){
+            cout << iadd << " ";
+        }
+        cin >> ia;
+        (*lp)->next = new list;
+        (*lp)->next->item = ia;
+        cout << (*lp)->next->item << " ";
+        lp = &(*lp)->next;
+        iadd++;
+    }
+    if (iadd == iaddnode){
+        cout << iadd << " ";
+    }
+    return 0;
+}#include <iostream>
+using namespace std;
+
+struct list{
+    int item;
+    list* next;
+};
+
+int main() {
+    int i = 0;
+    int ia = 0;
+    int iaddnode = 0;
+    cin >> i >> iaddnode;
+    int iadd = 0;
+    list* l = new list;
+    list** lp = &l;
+    while (i--){
+        if (iadd == iaddnode){
+            cout << iadd << " ";
+        }
+        cin >> ia;
+        (*lp)->next = new list;
+        (*lp)->next->item = ia;
+        cout << (*lp)->next->item << " ";
+        lp = &(*lp)->next;
+        iadd++;
+    }
+    if (iadd == iaddnode){
+        cout << iadd << " ";
+    }
+    return 0;
+}
+```
 **CPP1 定义变量**
 ```cpp
 #include <iostream>
