@@ -1,5 +1,5 @@
 # 牛客网
-*(每天更1题)*
+*(每天更1或0题)*
 ## C 
 **BC1 Hello Nowcoder** 
 ```cpp
@@ -5660,4 +5660,25 @@ int main() {
     return 0;
 }
 // 64 位输出请用 printf("%lld")
+```
+# 力扣
+***(每更一题)***
+**1. 两数之和**
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int i = 0;
+        int ia = 0;
+        for (i = 0; i < nums.size() - 1; i++){
+            for (ia = i + 1; nums.size() != ia; ia++){
+                if (nums[ia] + nums[i] == target){
+                    vector<int>v = {i, ia} ;
+                    return v;
+                }
+            }
+        }
+        return nums;
+    }
+};
 ```
