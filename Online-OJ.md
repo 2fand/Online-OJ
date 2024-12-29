@@ -5683,3 +5683,22 @@ public:
     }
 };
 ```
+**2. 两数相加**
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int i = 0;
+        int ia = 0;
+        for (i = 0; i < nums.size() - 1; i++){
+            for (ia = i + 1; nums.size() != ia; ia++){
+                if (nums[ia] + nums[i] == target){
+                    vector<int>v = {i, ia} ;
+                    return v;
+                }
+            }
+        }
+        return nums;
+    }
+};
+```
