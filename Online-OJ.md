@@ -3020,6 +3020,23 @@ int main() {
     return 0;
 }
 ```
+**BC15 大小写转换**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch = 0;
+    while (cin >> ch){
+        if (ch >= 'A' && ch <= 'Z'){
+            cout << (char)(ch - ('A' - 'a')) << endl;
+        }
+        else if (ch >= 'a' && ch <= 'z'){
+            cout << (char)(ch + ('A' - 'a')) << endl;
+        }
+    }
+}
+```
 **BC16 十六进制转十进制**
 ```cpp
 #include <iostream>
@@ -5662,7 +5679,7 @@ int main() {
 // 64 位输出请用 printf("%lld")
 ```
 # 力扣
-*(每天更一题)*
+*(每天可能更一题)*
 
 **1. 两数之和**
 ```cpp
