@@ -5719,3 +5719,9 @@ public:
     }
 };
 ```
+## SQL
+
+**SQL1 查询所有列**
+```sql
+SELECT id, device_id, gender, age, university, province FROM user_profile;
+```
