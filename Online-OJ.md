@@ -5678,6 +5678,12 @@ int main() {
 }
 // 64 位输出请用 printf("%lld")
 ```
+## SQL
+
+**SQL1 查询所有列**
+```sql
+SELECT id, device_id, gender, age, university, province FROM user_profile;
+```
 # 力扣
 *(每天可能更一题)*
 
@@ -5718,10 +5724,4 @@ public:
         return nums;
     }
 };
-```
-## SQL
-
-**SQL1 查询所有列**
-```sql
-SELECT id, device_id, gender, age, university, province FROM user_profile;
 ```
