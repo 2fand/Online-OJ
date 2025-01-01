@@ -5684,6 +5684,10 @@ int main() {
 ```sql
 SELECT id, device_id, gender, age, university, province FROM user_profile;
 ```
+**SQL2 查询多列**
+```sql
+SELECT device_id, gender, age, university FROM user_profile;
+```
 # 力扣
 *(每天可能更一题)*
 
