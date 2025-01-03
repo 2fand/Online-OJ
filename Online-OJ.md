@@ -5688,6 +5688,10 @@ SELECT id, device_id, gender, age, university, province FROM user_profile;
 ```sql
 SELECT device_id, gender, age, university FROM user_profile;
 ```
+**SQL3 查询结果去重**
+```sql
+SELECT DISTINCT(university) FROM user_profile;
+```
 # 力扣
 *(每天可能更一题)*
 
