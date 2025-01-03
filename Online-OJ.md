@@ -5692,6 +5692,10 @@ SELECT device_id, gender, age, university FROM user_profile;
 ```sql
 SELECT DISTINCT(university) FROM user_profile;
 ```
+**SQL3 查询结果去重**
+```sql
+SELECT device_id FROM user_profile LIMIT 2;
+```
 # 力扣
 *(每天可能更一题)*
 
