@@ -5704,6 +5704,10 @@ SELECT device_id user_infos_example FROM user_profile LIMIT 2;
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
 ```
+**SQL37 查找后多列排序**
+```sql
+SELECT device_id, gpa, age FROM user_profile ORDER BY gpa ASC, age ASC;
+```
 # 力扣
 *(每天可能更一题)*
 
