@@ -5708,6 +5708,10 @@ SELECT device_id, age FROM user_profile ORDER BY age ASC;
 ```sql
 SELECT device_id, gpa, age FROM user_profile ORDER BY gpa ASC, age ASC;
 ```
+**SQL38 查找后降序排列**
+```sql
+SELECT device_id, gpa, age FROM user_profile ORDER BY gpa DESC, age DESC;
+```
 # 力扣
 *(每天可能更一题)*
 
