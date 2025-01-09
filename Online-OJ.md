@@ -5700,9 +5700,13 @@ SELECT device_id FROM user_profile LIMIT 2;
 ```sql
 SELECT device_id user_infos_example FROM user_profile LIMIT 2;
 ```
-**SQL6 查找学校是北大的学生信息**
+**SQL7 查找年龄大于24岁的用户信息**
 ```sql
-SELECT device_id, university FROM user_profile WHERE '北京大学' = university;
+SELECT device_id, gender, age, university FROM user_profile WHERE age >= 24;
+```
+**SQL38 查找后降序排列**
+```sql
+SELECT device_id, gpa, age FROM user_profile ORDER BY gpa DESC, age DESC;
 ```
 **SQL36 查找后排序**
 ```sql
