@@ -5704,6 +5704,10 @@ SELECT device_id user_infos_example FROM user_profile LIMIT 2;
 ```sql
 SELECT device_id, gender, age, university FROM user_profile WHERE age >= 24;
 ```
+**SQL8 查找某个年龄段的用户信息**
+```sql
+SELECT device_id, gender, age FROM user_profile WHERE age BETWEEN 20 AND 23;
+```
 **SQL38 查找后降序排列**
 ```sql
 SELECT device_id, gpa, age FROM user_profile ORDER BY gpa DESC, age DESC;
