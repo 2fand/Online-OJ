@@ -5730,6 +5730,7 @@ SELECT device_id, gpa, age FROM user_profile ORDER BY gpa DESC, age DESC;
 ```
 # 力扣
 *(每天可能更一题)*
+## C++
 
 **1. 两数之和**
 ```cpp
@@ -5768,4 +5769,10 @@ public:
         return nums;
     }
 };
+```
+## SQL
+
+**182. 查找重复的电子邮箱**
+```cpp
+SELECT email Email FROM Person GROUP BY email HAVING count(email) >= 2;
 ```
