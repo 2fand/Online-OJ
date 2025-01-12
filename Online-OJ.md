@@ -5773,6 +5773,6 @@ public:
 ## SQL
 
 **182. 查找重复的电子邮箱**
-```cpp
+```sql
 SELECT email Email FROM Person GROUP BY email HAVING count(email) >= 2;
 ```
