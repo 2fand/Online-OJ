@@ -5716,6 +5716,10 @@ SELECT device_id, gender, age FROM user_profile WHERE age BETWEEN 20 AND 23;
 ```sql
 SELECT device_id, gender, age, university FROM user_profile WHERE university NOT LIKE '复旦%';
 ```
+**SQL13 Where in 和Not in**
+```sql
+SELECT device_id, gender, age, university, gpa FROM user_profile WHERE university REGEXP '(北京|山东|复旦).*';
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
