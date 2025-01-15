@@ -5716,6 +5716,10 @@ SELECT device_id, gender, age FROM user_profile WHERE age BETWEEN 20 AND 23;
 ```sql
 SELECT device_id, gender, age, university FROM user_profile WHERE university NOT LIKE '复旦%';
 ```
+**SQL10 用where过滤空值练习** 
+```sql
+SELECT device_id, gender, age, university FROM user_profile WHERE age IS NOT NULL;
+```
 **SQL11 高级操作符练习(1)**
 ```sql
 SELECT device_id, gender, age, university, gpa FROM user_profile WHERE 'male' = gender AND gpa > 3.5;
