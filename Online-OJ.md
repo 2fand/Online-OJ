@@ -5724,6 +5724,10 @@ SELECT device_id, gender, age, university FROM user_profile WHERE age IS NOT NUL
 ```sql
 SELECT device_id, gender, age, university, gpa FROM user_profile WHERE 'male' = gender AND gpa > 3.5;
 ```
+**SQL12 高级操作符练习(2)**
+```sql
+SELECT device_id, gender, age, university, gpa FROM user_profile WHERE gpa > 3.7 OR university LIKE '北%';
+```
 **SQL13 Where in 和Not in**
 ```sql
 SELECT device_id, gender, age, university, gpa FROM user_profile WHERE university REGEXP '(北京|山东|复旦).*';
