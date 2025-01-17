@@ -5732,6 +5732,10 @@ SELECT device_id, gender, age, university, gpa FROM user_profile WHERE gpa > 3.7
 ```sql
 SELECT device_id, gender, age, university, gpa FROM user_profile WHERE university REGEXP '(北京|山东|复旦).*';
 ```
+**SQL14 操作符混合运用**
+```sql
+SELECT device_id, gender, age, university, gpa FROM user_profile WHERE university LIKE '山%' AND gpa > 3.5 OR university LIKE '复%' AND gpa > 3.8;
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
