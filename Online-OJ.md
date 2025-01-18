@@ -5736,6 +5736,10 @@ SELECT device_id, gender, age, university, gpa FROM user_profile WHERE universit
 ```sql
 SELECT device_id, gender, age, university, gpa FROM user_profile WHERE university LIKE '山%' AND gpa > 3.5 OR university LIKE '复%' AND gpa > 3.8;
 ```
+**SQL15 查看学校名称中含北京的用户**
+```sql
+SELECT device_id, age, university FROM user_profile WHERE university LIKE '%北京%';
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
