@@ -5740,6 +5740,10 @@ SELECT device_id, gender, age, university, gpa FROM user_profile WHERE universit
 ```sql
 SELECT device_id, age, university FROM user_profile WHERE university LIKE '%北京%';
 ```
+**SQL16 查找GPA最高值**
+```sql
+SELECT ROUND(MAX(gpa), 1) gpa FROM user_profile WHERE university LIKE '复%';
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
