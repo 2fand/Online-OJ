@@ -5744,6 +5744,10 @@ SELECT device_id, age, university FROM user_profile WHERE university LIKE '%北�
 ```sql
 SELECT ROUND(MAX(gpa), 1) gpa FROM user_profile WHERE university LIKE '复%';
 ```
+**SQL17 计算男生人数以及平均GPA**
+```sql
+SELECT COUNT(gender) male_num, AVG(gpa) avg_gpa FROM user_profile WHERE gender LIKE 'm%';
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
