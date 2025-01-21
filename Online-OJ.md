@@ -5748,6 +5748,10 @@ SELECT ROUND(MAX(gpa), 1) gpa FROM user_profile WHERE university LIKE '复%';
 ```sql
 SELECT COUNT(gender) male_num, AVG(gpa) avg_gpa FROM user_profile WHERE gender LIKE 'm%';
 ```
+**SQL20 分组排序练习题**
+```sql
+SELECT university, ROUND(AVG(question_cnt), 4) avg_question_cnt FROM user_profile GROUP BY university ORDER BY avg_question_cnt ASC;
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
