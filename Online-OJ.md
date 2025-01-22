@@ -5752,6 +5752,10 @@ SELECT COUNT(gender) male_num, AVG(gpa) avg_gpa FROM user_profile WHERE gender L
 ```sql
 SELECT university, ROUND(AVG(question_cnt), 4) avg_question_cnt FROM user_profile GROUP BY university ORDER BY avg_question_cnt ASC;
 ```
+**SQL21 浙江大学用户题目回答情况**
+```sql
+SELECT device_id, question_id, result FROM question_practice_detail WHERE device_id IN(SELECT device_id FROM user_profile WHERE university LIKE '浙%') ORDER BY question_id ASC;
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
