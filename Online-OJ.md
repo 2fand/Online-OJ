@@ -5756,6 +5756,21 @@ SELECT university, ROUND(AVG(question_cnt), 4) avg_question_cnt FROM user_profil
 ```sql
 SELECT device_id, question_id, result FROM question_practice_detail WHERE device_id IN(SELECT device_id FROM user_profile WHERE university LIKE '浙%') ORDER BY question_id ASC;
 ```
+**SQL26 计算25岁以上和以下的用户数量**
+```sql
+SELECT
+    (
+        CASE
+            WHEN age >= 25 THEN "25岁及以上"
+            ELSE "25岁以下"
+        END
+    ) age_cut,
+    COUNT(*) number
+FROM
+    user_profile
+GROUP BY
+    age_cut;
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
