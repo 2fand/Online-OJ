@@ -5756,6 +5756,22 @@ SELECT university, ROUND(AVG(question_cnt), 4) avg_question_cnt FROM user_profil
 ```sql
 SELECT device_id, question_id, result FROM question_practice_detail WHERE device_id IN(SELECT device_id FROM user_profile WHERE university LIKE '浙%') ORDER BY question_id ASC;
 ```
+**SQL22 统计每个学校的答过题的用户的平均答题数**
+```sql
+SELECT
+    university,
+    ROUND(
+        COUNT(university) / COUNT(DISTINCT(user.device_id)), 4
+    ) avg_answer_cnt
+FROM
+    user_profile user
+    INNER JOIN question_practice_detail question 
+    ON user.device_id = question.device_id
+GROUP BY
+    university
+ORDER BY
+    university ASC;
+```
 **SQL26 计算25岁以上和以下的用户数量**
 ```sql
 SELECT
