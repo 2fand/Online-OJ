@@ -5847,6 +5847,20 @@ public:
 ```
 ## SQL
 
+**176. 第二高的薪水**
+```sql
+SELECT 
+    IF(
+    (SELECT COUNT(DISTINCT(salary))
+    FROM Employee) >= 2, 
+
+    (SELECT DISTINCT(salary)
+    FROM Employee
+    ORDER BY salary DESC
+    LIMIT 1, 1),
+
+    null) SecondHighestSalary;
+```
 **182. 查找重复的电子邮箱**
 ```sql
 SELECT email Email FROM Person GROUP BY email HAVING count(email) >= 2;
