@@ -5772,6 +5772,12 @@ GROUP BY
 ORDER BY
     university ASC;
 ```
+**SQL25 查找山东大学或者性别为男生的信息**
+```cpp
+SELECT device_id, gender, age, gpa FROM user_profile WHERE university LIKE '山东%'
+UNION ALL
+SELECT device_id, gender, age, gpa FROM user_profile WHERE gender LIKE 'm%';
+```
 **SQL26 计算25岁以上和以下的用户数量**
 ```sql
 SELECT
