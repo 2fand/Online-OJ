@@ -5793,6 +5793,20 @@ FROM
 GROUP BY
     age_cut;
 ```
+**SQL27 查看不同年龄段的用户明细**
+```sql
+SELECT
+    device_id,
+    gender,
+    CASE
+        WHEN age IS NULL THEN '其他'
+        WHEN age < 20 THEN '20岁以下'
+        WHEN age BETWEEN 20 AND 24  THEN '20-24岁'
+        ELSE '25岁及以上'
+    END age_cut
+FROM
+    user_profile;
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
