@@ -5807,6 +5807,18 @@ SELECT
 FROM
     user_profile;
 ```
+**SQL28 计算用户8月每天的练题数量**
+```sql
+SELECT 
+    DAY(date) day, 
+    COUNT(id) question_cnt
+FROM 
+    question_practice_detail
+GROUP BY
+    date
+HAVING
+    8 = MONTH(date);
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
