@@ -5852,6 +5852,32 @@ SELECT device_id, gpa, age FROM user_profile ORDER BY gpa DESC, age DESC;
 ```sql
 SELECT emp_no, birth_date, first_name, last_name, gender, hire_date FROM employees ORDER BY hire_date DESC LIMIT 1;
 ```
+**SQL201 查找入职员工时间升序排名的情况下的倒数第三的员工所有信息**
+```sql
+SELECT
+    emp_no,
+    birth_date,
+    first_name,
+    last_name,
+    gender,
+    hire_date
+FROM
+    employees
+WHERE
+    hire_date = (
+        SELECT
+            hire_date
+        FROM
+            employees
+        GROUP BY 
+            hire_date
+        ORDER BY
+            hire_date DESC
+        LIMIT
+            2, 1
+    );
+
+```
 # 力扣
 *(每天可能更一题)*
 ## C++
