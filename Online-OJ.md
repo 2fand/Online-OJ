@@ -5789,6 +5789,17 @@ GROUP BY
 ORDER BY
     university ASC;
 ```
+**SQL24 统计每个用户的平均刷题数**
+```cpp
+SELECT
+    '山东大学', q.difficult_level, COUNT(*) / COUNT(DISTINCT usr.device_id)
+FROM
+    user_profile usr, question_practice_detail qp, question_detail q
+WHERE
+    usr.device_id = qp.device_id AND qp.question_id = q.question_id AND usr.university LIKE '山东%'
+GROUP BY
+    q.difficult_level;
+```
 **SQL25 查找山东大学或者性别为男生的信息**
 ```cpp
 SELECT device_id, gender, age, gpa FROM user_profile WHERE university LIKE '山东%'
