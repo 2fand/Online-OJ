@@ -5847,6 +5847,15 @@ GROUP BY
 HAVING
     8 = MONTH(date);
 ```
+**SQL30 统计每种性别的人数**
+```sql
+SELECT 
+    SUBSTRING_INDEX(profile, ',', -1), COUNT(*) 
+FROM   
+    user_submit 
+GROUP BY
+    SUBSTRING_INDEX(profile, ',', -1);
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
