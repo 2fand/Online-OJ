@@ -5856,6 +5856,10 @@ FROM
 GROUP BY
     SUBSTRING_INDEX(profile, ',', -1);
 ```
+**SQL31 提取博客URL中的用户名**
+```sql
+SELECT device_id, SUBSTRING_INDEX(blog_url, 'l/', -1) FROM user_submit;
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
