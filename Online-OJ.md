@@ -5860,6 +5860,15 @@ GROUP BY
 ```sql
 SELECT device_id, SUBSTRING_INDEX(blog_url, 'l/', -1) FROM user_submit;
 ```
+**SQL32 截取出年龄**
+```sql
+SELECT 
+    SUBSTRING_INDEX(SUBSTRING_INDEX(profile, ',', -2), ',', 1) age, COUNT(*) number 
+FROM 
+    user_submit
+GROUP BY
+    SUBSTRING_INDEX(SUBSTRING_INDEX(profile, ',', -2), ',', 1);
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
