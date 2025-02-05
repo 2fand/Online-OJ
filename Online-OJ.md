@@ -5881,6 +5881,15 @@ SELECT device_id, gpa, age FROM user_profile ORDER BY gpa ASC, age ASC;
 ```sql
 SELECT device_id, gpa, age FROM user_profile ORDER BY gpa DESC, age DESC;
 ```
+**SQL39 21年8月份练题总数**
+```sql
+SELECT 
+    COUNT(DISTINCT device_id), COUNT(device_id)
+FROM
+    question_practice_detail
+WHERE
+    2021 = YEAR(date) AND 8 = MONTH(date);
+```
 **SQL200 查找最晚入职员工的所有信息**
 ```sql
 SELECT emp_no, birth_date, first_name, last_name, gender, hire_date FROM employees ORDER BY hire_date DESC LIMIT 1;
