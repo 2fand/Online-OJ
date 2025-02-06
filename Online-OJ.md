@@ -5920,6 +5920,15 @@ WHERE
     );
 
 ```
+**SQL202 查找当前薪水详情以及部门编号dept_no**
+```sql
+SELECT
+    s.emp_no, s.salary, s.from_date, s.to_date, d.dept_no
+FROM
+    salaries s, dept_manager d
+WHERE
+    s.emp_no = d.emp_no;
+```
 # 力扣
 *(每天可能更一题)*
 ## C++
