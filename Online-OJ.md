@@ -5869,6 +5869,23 @@ FROM
 GROUP BY
     SUBSTRING_INDEX(SUBSTRING_INDEX(profile, ',', -2), ',', 1);
 ```
+**SQL33 找出每个学校GPA最低的同学**
+```sql
+SELECT 
+    device_id, university, gpa
+FROM
+    (
+    SELECT
+        device_id, university, gpa, 
+        COUNT(*) OVER(PARTITION BY university ORDER BY gpa DESC ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) id
+    FROM
+        user_profile
+    ) tb
+WHERE
+    id = 1
+ORDER BY
+    university;
+```
 **SQL36 查找后排序**
 ```sql
 SELECT device_id, age FROM user_profile ORDER BY age ASC;
