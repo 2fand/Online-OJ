@@ -5680,6 +5680,8 @@ int main() {
 ```
 ## SQL
 
+### 基础
+
 **SQL1 查询所有列**
 ```sql
 SELECT id, device_id, gender, age, university, province FROM user_profile;
@@ -5946,6 +5948,31 @@ FROM
 WHERE
     s.emp_no = d.emp_no;
 ```
+
+### 大厂
+
+**SQL1 每个月Top3的周杰伦歌曲**
+```sql
+SELECT 
+    month, ranking, song_name, play_pv
+FROM
+(
+    SELECT 
+        MONTH(pl.fdate) month, 
+        ROW_NUMBER() OVER (PARTITION BY MONTH(pl.fdate) ORDER BY COUNT(*) DESC, si.song_id) ranking,
+        si.song_name,
+        COUNT(*) play_pv
+    FROM
+        play_log pl, song_info si, user_info ui
+    WHERE
+        pl.user_id = ui.user_id AND pl.song_id = si.song_id AND ui.age BETWEEN 18 AND 25 AND YEAR(pl.fdate) = 2022 AND si. singer_name   LIKE '周%'
+    GROUP BY
+        month, si.song_name, si.song_id
+) tb
+WHERE
+    ranking <= 3;
+```
+
 # 力扣
 *(每天可能更一题)*
 ## C++
