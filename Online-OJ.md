@@ -5050,7 +5050,49 @@ int main() {
 
     return 0;
 }
-``` 
+```
+**CPP54 实现简单计算器功能**
+```cpp
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+
+    char str[100] = { 0 };
+    cin.getline(str, sizeof(str));
+    int i=0;
+    int ia=0;
+    sscanf(str, "%*s %d %d", &i, &ia);
+    switch (str[0]){
+    case 'a':
+    case 'A':
+        cout << i + ia;
+        break;
+    case 's':
+    case 'S':
+        cout << i - ia;
+        break;
+    case 'm':
+    case 'M':
+        cout << i * ia;
+        break;
+    case 'd':
+    case 'D':
+        if (ia){
+            cout << i / ia;
+        }
+        else {
+            cout << "Error";
+        }
+    default:
+        break;
+    }
+    
+
+    return 0;
+}
+```
 **CPP56 字符的个数**
 ```cpp
 #include <iostream>
