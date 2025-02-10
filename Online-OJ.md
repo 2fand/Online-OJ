@@ -5051,6 +5051,90 @@ int main() {
     return 0;
 }
 ```
+**CPP53 个人所得税计算程序**
+```cpp
+#include <functional>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Employee {
+
+    private:
+        string name;
+        double salary;
+        double country_money;
+
+    public:
+        Employee(string n, double s){
+            this->name = n;
+            this->salary = s;
+        }
+        double get_salary(){
+            return this->salary;
+        }
+        string get_name(){
+            return this->name;
+        }
+        double calc(){
+            static float d = 0.0f;
+            static int fast_money = 0;
+            if (salary < 1500){
+                d = 0.03f;
+            }
+            else if(salary < 4500){
+                d = 0.1f;
+                fast_money = 105;
+            }
+            else if(salary < 9000){
+                d = 0.2f;
+                fast_money = 555;
+            }
+            else if(salary < 35000){
+                d = 0.25f;
+                fast_money = 1005;
+            }
+            else if(salary < 55000){
+                d = 0.3f;
+                fast_money = 2755;
+            }
+            else if(salary < 80000){
+                d = 0.35f;
+                fast_money = 5505;
+            }
+            else {
+                d = 0.45f;
+                fast_money = 13505;
+            }
+            this->country_money = (this->salary - 3500) * d - fast_money;
+            return this->country_money;
+        }
+    
+
+};
+
+class sort_greater{
+    public:
+    bool operator()(Employee& e, Employee& ea){
+        return e.get_salary() > ea.get_salary();
+    }
+};
+
+int main() {
+
+    vector<Employee>v = {Employee("张三", 7250), Employee("李四", 8000), Employee("王五", 100000)};
+    sort(v.begin(), v.end(), sort_greater());
+    for (Employee e : v){
+        printf("%s应该缴纳的个人所得税是：%.1f\n", e.get_name().c_str(), e.calc());
+    }
+    
+    
+
+    return 0;
+}
+```
 **CPP54 实现简单计算器功能**
 ```cpp
 #include <iostream>
