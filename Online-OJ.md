@@ -5135,6 +5135,43 @@ int main() {
     return 0;
 }
 ```
+**CPP52 统计字符串中各类型字符的个数**
+```cpp
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+
+    int letter = 0;
+    int digit = 0;
+    int space = 0;
+    int other = 0;
+    
+    char buf[1024] = {0};
+    cin.getline(buf, sizeof(buf));
+
+    for (char* cp = buf; *cp; cp++){
+        if ('a' <= *cp && 'z' >= *cp || 'A' <= *cp && 'Z' >= *cp){
+            letter++;
+        }
+        else if('0' <= *cp && '9' >= *cp){
+            digit++;
+        }
+        else if(' ' == *cp){
+            space++;
+        }
+        else {
+            other++;
+        }
+    }
+    
+
+    cout << "letter:" << letter << " digit:" << digit << " space:" << space << " other:" << other << endl;
+
+    return 0;
+}
+```
 **CPP54 实现简单计算器功能**
 ```cpp
 #include <iostream>
