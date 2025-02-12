@@ -5214,6 +5214,42 @@ int main() {
     return 0;
 }
 ```
+**CPP55 十进制整数转十六进制字符串**
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+string toHexString(int n);
+
+int main() {
+
+    int n;
+    cin >> n;
+
+    string hexStr = toHexString(n);
+    cout << hexStr << endl;
+
+    return 0;
+}
+
+string toHexString(int n) {
+    string hexstr = "0123456789ABCDEF";
+    string rtnstr;
+    string swapstr;
+    int getnum = 0;
+    while (n){
+        getnum = n % 16;
+        n /= 16;
+        rtnstr.push_back(hexstr[getnum]);
+    }
+    for (auto it = rtnstr.rbegin(); it != rtnstr.rend(); it++){
+        swapstr.push_back(*it);
+    }
+    rtnstr.swap(swapstr);
+    return rtnstr;
+}
+```
 **CPP56 字符的个数**
 ```cpp
 #include <iostream>
