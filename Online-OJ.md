@@ -5114,6 +5114,33 @@ int main() {
     return 0;
 }
 ```
+**CPP50 统计字符串中各字母字符对应的个数**
+```cpp
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+
+    char str[100] = { 0 };
+    cin.getline(str, sizeof(str));
+    map<char, int>m;
+    for (char* cp = str; *cp; cp++){
+        if (0 < m.count(*cp)){
+            m[*cp]++;
+        }
+        else if('a' <= *cp && 'z' >= *cp || 'A' <= *cp && 'Z' >= *cp){
+            m.insert({*cp, 1});
+        }
+    }
+    for (pair<char, int> p : m){
+        cout << p.first << ":" << p.second << endl;
+    }
+    
+
+    return 0;
+}
+```
 **CPP51 使用算法**
 ```cpp
 #include <iostream>
