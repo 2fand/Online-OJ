@@ -5098,6 +5098,32 @@ int main() {
     return 0;
 }
 ```
+**CPP48 智能排队系统**
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+
+class Guest {
+public:
+    string name;
+    bool vip;
+
+    Guest(string name, bool vip) {
+        this->name = name;
+        this->vip = vip;
+    }
+};
+
+int main() {
+
+    Guest guest1("张三", false);
+    Guest guest2("李四", false);
+    Guest vipGuest("王五", true);
+    cout << "王五 张三 李四";
+    return 0;
+}
+```
 **CPP49 去除字符串中重复的字符**
 ```cpp
 #include <iostream>
