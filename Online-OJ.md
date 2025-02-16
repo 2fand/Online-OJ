@@ -6353,6 +6353,31 @@ public:
     }
 };
 ```
+**14. 最长公共前缀**
+```cpp
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string frontstr;
+        int minsize = strs[0].size();
+        int ia = 0;
+        for (int i = 1; i < strs.size(); i++){
+            if (strs[i].size() < minsize){
+                minsize = strs[i].size();
+            }
+        }
+        for (int i = 0; i < minsize; i++){
+            for (ia = 0; ia < strs.size() - 1; ia++){
+                if (strs[ia][i] != strs[ia + 1][i]){
+                    return frontstr;
+                }
+            }
+            frontstr.push_back(strs[0][i]);
+        }
+        return frontstr;
+    }
+};
+```
 ## SQL
 
 **176. 第二高的薪水**
