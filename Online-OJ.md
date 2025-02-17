@@ -6353,6 +6353,58 @@ public:
     }
 };
 ```
+**13. 罗马数字转整数**
+```cpp
+class Solution {
+public:
+    int romanToInt(string s) {
+        int isum = 0;
+        int index = 0;
+        bool isNegte = false;
+        map<char, int>m={
+            {'I', 6}, 
+            {'V', 5}, 
+            {'X', 4}, 
+            {'L', 3}, 
+            {'C', 2}, 
+            {'D', 1}, 
+            {'M', 0}
+        };
+        for (int i = 0; i < s.size(); i++){
+            if(s.size() - 1 != i && m[s[i]] > m[s[i + 1]] && (m[s[i]] == 6 || m[s[i]] == 4 || m[s[i]] == 2) && m[s[i]] - m[s[i + 1]] <= 2){
+                isNegte = true;
+            }
+            switch(s[i]){
+            case 'I':
+                isum += (1 - isNegte * 2);
+                break;
+            case 'V':
+                isum += (1 - isNegte * 2) * 5;
+                break;
+            case 'X':
+                isum += (1 - isNegte * 2) * 10;
+                break;
+            case 'L':
+                isum += (1 - isNegte * 2) * 50;
+                break;
+            case 'C':
+                isum += (1 - isNegte * 2) * 100;
+                break;
+            case 'D':
+                isum += (1 - isNegte * 2) * 500;
+                break;
+            case 'M':
+                isum += (1 - isNegte * 2) * 1000;
+                break;
+            default:
+                break;
+            }
+            isNegte = false;
+        }
+        return isum;
+    }
+};
+```
 **14. 最长公共前缀**
 ```cpp
 class Solution {
