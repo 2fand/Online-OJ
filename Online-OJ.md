@@ -6430,6 +6430,26 @@ public:
     }
 };
 ```
+**27. 移除元素**
+```cpp
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        vector<int>v;
+        int k = nums.size();
+        for (int i : nums){
+            if (val == i){
+                k--;
+            }
+            else {
+                v.push_back(i);
+            }
+        }
+        nums = v;
+        return k;
+    }
+};
+```
 ## SQL
 
 **176. 第二高的薪水**
