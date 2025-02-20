@@ -6430,6 +6430,45 @@ public:
     }
 };
 ```
+**20. 有效的括号**
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char>strS;
+        for (char ch : s){
+            if ('(' == ch || '[' == ch || '{' == ch){
+                strS.push(ch);
+            }
+            else {
+                switch(ch){
+                case ')':
+                    if (!strS.size() || '(' != strS.top()){
+                        return false;
+                    }
+                    strS.pop();
+                    break;
+                case ']':
+                    if (!strS.size() || '[' != strS.top()){
+                        return false;
+                    }
+                    strS.pop();
+                    break;
+                case '}':
+                    if (!strS.size() || '{' != strS.top()){
+                        return false;
+                    }
+                    strS.pop();
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+        return !strS.size();
+    }
+};
+```
 **27. 移除元素**
 ```cpp
 class Solution {
