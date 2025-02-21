@@ -6353,6 +6353,21 @@ public:
     }
 };
 ```
+**9. 回文数**
+```cpp
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        char str[100] = "";
+        string strCmp;
+        sprintf(str, "%d", x);
+        for (int i = 0; str[i]; i++){
+            strCmp.insert(strCmp.begin(), str[i]);
+        }
+        return !strcmp(str, strCmp.c_str());
+    }
+};
+```
 **13. 罗马数字转整数**
 ```cpp
 class Solution {
