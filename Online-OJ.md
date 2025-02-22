@@ -6484,6 +6484,22 @@ public:
     }
 };
 ```
+**26. 删除有序数组中的重复项**
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        vector<int>v;
+        for (int i = 0; i < nums.size(); i++){
+            if (!i || nums[i - 1] != nums[i]){
+                v.push_back(nums[i]);
+            }
+        }
+        nums = v;
+        return v.size(); 
+    }
+};
+```
 **27. 移除元素**
 ```cpp
 class Solution {
