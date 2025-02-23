@@ -6534,6 +6534,19 @@ public:
     }
 };
 ```
+**58. 最后一个单词的长度**
+```cpp
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int index = s.size() - 1; 
+        int len = 0;
+        while (0 <= index && ' ' == s[index]){ index--; }
+        while (0 <= index && ' ' != s[index--]){ len++; }
+        return len;
+    }
+};
+```
 ## SQL
 
 **176. 第二高的薪水**
