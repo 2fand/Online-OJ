@@ -6547,6 +6547,34 @@ public:
     }
 };
 ```
+**66. 加一**
+```cpp
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        digits[digits.size() - 1]++;
+        int i = digits.size() - 1;
+        while (digits[i] >= 10 && i >= 0){
+            if (digits[i] >= 10){
+                if (i - 1 >= 0){
+                    digits[i - 1]++;
+                }
+                else {
+                    digits[i] %= 10;
+                    digits.push_back(0);
+                    for (int ia = 0; ia < digits.size() - 2; ia++){
+                        digits[ia + 1] = digits[ia];
+                    }
+                    digits[0] = 1;
+                    break;
+                }
+                digits[i--] %= 10;
+            }
+        }
+        return digits;
+    }
+};
+```
 ## SQL
 
 **176. 第二高的薪水**
