@@ -6575,6 +6575,42 @@ public:
     }
 };
 ```
+**67. 二进制求和**
+```cpp
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int addNum = 0;
+        bool bItToEnd = false;
+        bool bItaToEnd = false;
+        bool addOne = false;
+        string binStr;
+        auto it = a.rbegin(); 
+        auto ita = b.rbegin();
+        while (it != a.rend() || ita != b.rend()) {
+            addNum = (bItToEnd ? 0 : *it - '0') + (bItaToEnd ? 0 : *ita - '0') + addOne;
+            binStr.insert(binStr.cbegin(), addNum % 2 + '0');
+            addOne = addNum >= 2;
+            if (a.rend() != it){
+                it++;
+            }
+            if (b.rend() != ita){
+                ita++;
+            }
+            if (b.rend() == ita) {
+                bItaToEnd = true;
+            }
+            if (a.rend() == it) {
+                bItToEnd = true;
+            }
+        }
+        if (addOne){
+            binStr.insert(binStr.cbegin(), '1');
+        }
+        return binStr;
+    }
+};
+```
 **94. 二叉树的中序遍历**
 ```cpp
 /**
