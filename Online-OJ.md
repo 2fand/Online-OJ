@@ -6649,6 +6649,19 @@ public:
     }
 };
 ```
+**217. 存在重复元素**
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        set<int>s;
+        for (int i : nums){
+            s.insert(i);
+        }
+        return s.size() != nums.size();
+    }
+};
+```
 ## SQL
 
 **176. 第二高的薪水**
