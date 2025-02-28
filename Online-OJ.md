@@ -6649,6 +6649,19 @@ public:
     }
 };
 ```
+**136. 只出现一次的数字**
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int num = 0;
+        for (int i = 0; i < nums.size(); i++){
+            num ^= nums[i];
+        }
+        return num;
+    }
+};
+```
 **217. 存在重复元素**
 ```cpp
 class Solution {
