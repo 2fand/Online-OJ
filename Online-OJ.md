@@ -6662,6 +6662,20 @@ public:
     }
 };
 ```
+**191. 位1的个数**
+```cpp
+class Solution {
+public:
+    int hammingWeight(int n) {
+        int OneNum = 0;
+        while (n){
+            OneNum += n & 1;
+            n /= 2;
+        }
+        return OneNum;
+    }
+};
+```
 **217. 存在重复元素**
 ```cpp
 class Solution {
