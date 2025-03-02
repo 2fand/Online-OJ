@@ -6676,6 +6676,36 @@ public:
     }
 };
 ```
+**206. 反转链表**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        stack<int>s;
+        while (nullptr != head){
+            s.push(head->val);
+            head = head->next;
+        }
+        ListNode** searchNode = &head;
+        while (s.size()){
+            *searchNode = new ListNode(s.top());
+            s.pop();
+            searchNode = &((*searchNode)->next);
+        }
+        return head;
+    }
+};
+```
 **217. 存在重复元素**
 ```cpp
 class Solution {
