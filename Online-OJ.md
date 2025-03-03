@@ -6662,6 +6662,44 @@ public:
     }
 };
 ```
+**144. 二叉树的前序遍历**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int>v;
+        vector<int>returnV;
+        if (nullptr == root){
+            return v;
+        }
+        v.push_back(root->val);
+        if (nullptr != root->left){
+            returnV = preorderTraversal(root->left);
+            for (int i : returnV){
+                v.push_back(i);
+            }
+        }
+        if (nullptr != root->right){
+            returnV = preorderTraversal(root->right);
+            for (int i : returnV){
+                v.push_back(i);
+            }
+        }
+        return v;
+    }
+};
+```
 **191. 位1的个数**
 ```cpp
 class Solution {
