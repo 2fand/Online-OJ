@@ -6662,6 +6662,41 @@ public:
     }
 };
 ```
+**141. 环形链表**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if (nullptr == head){
+            return false;
+        }
+        ListNode** slowPtr = &head->next;
+        ListNode** fastPtr = &head;
+        if (nullptr != *slowPtr){
+            fastPtr = &head->next->next;
+            while (nullptr != *fastPtr){
+                slowPtr = &(*slowPtr)->next;
+                fastPtr = &(*fastPtr)->next;
+                if (nullptr != *fastPtr){
+                    fastPtr = &(*fastPtr)->next;
+                }
+                if (*fastPtr == *slowPtr){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
 **144. 二叉树的前序遍历**
 ```cpp
 /**
