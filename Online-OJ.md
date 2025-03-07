@@ -6649,6 +6649,29 @@ public:
     }
 };
 ```
+**125. 验证回文串**
+```cpp
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string ts;
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] >= 'A' && s[i] <= 'Z'){
+                ts.push_back(s[i] + 'a' - 'A');
+            }
+            else if(s[i] >= '0' && s[i] <= '9' || s[i] >= 'a' && s[i] <= 'z'){
+                ts.push_back(s[i]);
+            }
+        }
+        s = ts;
+        string rs;
+        for (int i = s.size() - 1; i >= 0; i--){
+            rs.push_back(s[i]);
+        }
+        return !s.compare(rs);
+    }
+};
+```
 **136. 只出现一次的数字**
 ```cpp
 class Solution {
