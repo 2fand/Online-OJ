@@ -6881,6 +6881,16 @@ public:
     }
 };
 ```
+**2235. 两整数相加**
+```cpp
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+};
+```
+
 ## SQL
 
 **176. 第二高的薪水**
