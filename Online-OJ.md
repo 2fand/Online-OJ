@@ -6913,6 +6913,10 @@ public:
 
 ## shell
 
+**192. 统计词频**
+```shell
+cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -r | awk '{printf("%s %s\n", $2, $1)}'
+```
 **193. 有效电话号码**
 ```shell
 awk '/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/' file.txt
