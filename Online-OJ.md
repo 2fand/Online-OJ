@@ -6901,6 +6901,23 @@ public:
     }
 };
 ```
+**231. 2 的幂**
+```cpp
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if (n < 0){
+            return false;
+        }
+        int bitNum = 0;
+        while (n){
+            bitNum += n & 1;
+            n /= 2;
+        }
+        return 1 == bitNum;
+    }
+};
+```
 **2235. 两整数相加**
 ```cpp
 class Solution {
