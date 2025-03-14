@@ -6918,6 +6918,30 @@ public:
     }
 };
 ```
+**342. 4的幂**
+```cpp
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        if (n < 0){
+            return false;
+        }
+        int bitNum = 0;
+        bool check = false;
+        while (n){
+            if (check && n & 1){
+                return false;
+            }
+            else {
+                bitNum += n & 1;
+            }
+            n /= 2;
+            check = !check;
+        }
+        return 1 == bitNum;
+    }
+};
+```
 **2235. 两整数相加**
 ```cpp
 class Solution {
