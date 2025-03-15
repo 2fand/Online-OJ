@@ -6962,6 +6962,14 @@ cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -r | awk '{printf("%s %s\
 ```shell
 awk '/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/' file.txt
 ```
+**194. 转置文件**
+```shell
+line=`head -n 1 file.txt | wc -w`
+for ((i=1;i<=$line;i++))
+do
+    awk '{print $'$i'}' file.txt | xargs
+done
+```
 **195. 第十行**
 ```shell
 sed -n '10p' file.txt
