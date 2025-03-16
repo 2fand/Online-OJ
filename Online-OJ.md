@@ -6918,6 +6918,22 @@ public:
     }
 };
 ```
+**326. 3 的幂**
+```cpp
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        long long ll = 1;
+        while (n != ll){
+            if (ll >= INT_MAX || n < ll){
+                return false;
+            }
+            ll = ll * 3;
+        }
+        return true;
+    }
+};
+```
 **342. 4的幂**
 ```cpp
 class Solution {
@@ -6942,6 +6958,7 @@ public:
     }
 };
 ```
+
 **2235. 两整数相加**
 ```cpp
 class Solution {
