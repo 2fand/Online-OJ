@@ -6918,6 +6918,31 @@ public:
     }
 };
 ```
+**263. 丑数**
+```cpp
+class Solution {
+public:
+    bool isUgly(int n) {
+        if (n <= 0){
+            return false;
+        }
+        vector<int> arr = {2, 3, 5};
+        int i = 0;
+        while (1 != n){
+            if (3 != i && !(n % arr[i])){
+                n /= arr[i];
+            }
+            else if(3 == i){
+                return false;
+            }
+            else{
+                i++;
+            }
+        }
+        return true;
+    }
+};
+```
 **326. 3 的幂**
 ```cpp
 class Solution {
