@@ -6983,7 +6983,22 @@ public:
     }
 };
 ```
-
+**344. 反转字符串**
+```cpp
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        auto it = s.begin();
+        auto rit = s.end() - 1;
+        char ch = 0;
+        for (; rit > it; it++, rit--){
+            ch = *it;
+            *it = *rit;
+            *rit = ch;
+        }
+    }
+};
+```
 **2235. 两整数相加**
 ```cpp
 class Solution {
