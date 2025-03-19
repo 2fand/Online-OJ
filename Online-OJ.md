@@ -6918,6 +6918,20 @@ public:
     }
 };
 ```
+**258. 各位相加**
+```cpp
+class Solution {
+public:
+    int addDigits(int num) {
+        int i = 0;
+        while (num){
+            i += num % 10;
+            num /= 10;
+        }
+        return i < 10 ? i : addDigits(i);
+    }
+};
+```
 **263. 丑数**
 ```cpp
 class Solution {
