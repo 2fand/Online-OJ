@@ -7013,6 +7013,25 @@ public:
     }
 };
 ```
+**414. 第三大的数**
+```cpp
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        set<int, greater<int>>s;
+            for (int i : nums){
+                s.insert(i);
+            }
+        if (2 >= s.size()){
+            return *s.begin();
+        }
+        else{
+            auto it = s.begin();
+            it++;
+            return *++it;
+        }
+    }
+};
 **2235. 两整数相加**
 ```cpp
 class Solution {
