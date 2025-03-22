@@ -6838,6 +6838,39 @@ public:
     }
 };
 ```
+**205. 同构字符串**
+```cpp
+class Solution {
+public:
+    bool isUnique(set<string>&s, char ch, bool isRight){
+        for (string str : s){
+            if (str[isRight] == ch){
+                return false;
+            }
+        }
+        return true;
+    }
+    bool isIsomorphic(string s, string t) {
+        char beforeChs = 0;
+        char beforeCht = 0;
+        string str = "  ";
+        set<string>se;
+        map<char, int>m;
+        for (int index = 0; index < s.size(); index++){
+            str[0] = s[index];
+            str[1] = t[index];
+            m.insert({str[0], str[0] - str[1]});
+            if (m[str[0]] != str[0] - str[1] || (1 == (beforeChs == s[index]) + (beforeCht == t[index])) || (1 == isUnique(se, s[index], false) + isUnique(se, t[index], true))){
+                return false;
+            }
+            se.insert(str);
+            beforeChs = s[index];
+            beforeCht = t[index];
+        }
+        return true;
+    }
+};
+```
 **206. 反转链表**
 ```cpp
 /**
@@ -7048,6 +7081,7 @@ public:
         }
     }
 };
+```
 **2235. 两整数相加**
 ```cpp
 class Solution {
