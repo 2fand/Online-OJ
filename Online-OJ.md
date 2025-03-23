@@ -7082,6 +7082,24 @@ public:
     }
 };
 ```
+**1299. 将每个元素替换为右侧最大元素**
+```cpp
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        int max = 0;
+        int ia = 0;
+        for (int i = 0; i < arr.size() - 1; i++){
+            for (max = arr[i + 1], ia = i + 1; ia < arr.size(); ia++){
+                max < arr[ia] ? max = arr[ia] : 0;
+            }
+            arr[i] = max;
+        }
+        arr.back() = -1;
+        return arr;
+    }
+};
+```
 **2235. 两整数相加**
 ```cpp
 class Solution {
