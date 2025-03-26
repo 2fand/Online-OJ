@@ -6708,6 +6708,33 @@ public:
     }
 };
 ```
+**104. 二叉树的最大深度**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        int i = 0;
+        int ia = 0;
+        if (nullptr == root){
+            return 0;
+        }
+        else {
+            return 1 + ((i = maxDepth(root->left)) > (ia = maxDepth(root->right)) ? i : ia);
+        }
+    }
+};
+```
 **125. 验证回文串**
 ```cpp
 class Solution {
