@@ -7195,6 +7195,28 @@ public:
     }
 };
 ```
+**2239. 找到最接近 0 的数字**
+```cpp
+class Solution {
+public:
+    int findClosestNumber(vector<int>& nums) {
+        int i = -1;
+        int n = 1;
+        for (int ia : nums){
+            if (!ia){
+                return 0;
+            }
+            else if (ia > 0){
+                -1 == i || i > ia ? i = ia : 0;
+            }
+            else {
+                1 == n || n < ia ? n = ia : 0;
+            }
+        }
+        return -1 == i || abs(n) < abs(i) ? (1 == n ? i : n) : i;
+    }
+};
+```
 
 ## shell
 
