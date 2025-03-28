@@ -6611,6 +6611,26 @@ public:
     }
 };
 ```
+**70. 爬楼梯**
+```cpp
+class Solution {
+public:
+    void swap(int& i, int& ia){
+        int itemp = i;
+        i = ia;
+        ia = itemp;
+    }
+    int climbStairs(int n) {
+        int i = 1;
+        int ia = 1;
+        while (n-- > 1){
+            i += ia;
+            swap(i, ia);
+        }
+        return ia;
+    }
+};
+```
 **94. 二叉树的中序遍历**
 ```cpp
 /**
