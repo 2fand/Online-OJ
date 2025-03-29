@@ -7020,6 +7020,23 @@ public:
     }
 };
 ```
+**219. 存在重复元素 II**
+```cpp
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        int j = 0;
+        for (int i = 0; i < nums.size() - 1; i++){
+            for (j = i + 1; j - i <= k && j < nums.size(); j++){
+                if (nums[i] == nums[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
 **222. 完全二叉树的节点个数**
 ```cpp
 /**
