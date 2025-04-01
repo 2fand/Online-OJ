@@ -6534,6 +6534,30 @@ public:
     }
 };
 ```
+**35. 搜索插入位置**
+```cpp
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int min = 0;
+        int max = nums.size() - 1;
+        int mid = (min + max) / 2;
+        while (max >= min){
+            if (nums[mid] == target){
+                return mid;
+            }
+            else if(nums[mid] > target){
+                max = mid - 1;
+            }
+            else {
+                min = mid + 1;
+            }
+            mid = (min + max) / 2;
+        }
+        return min;
+    }
+};
+```
 **58. 最后一个单词的长度**
 ```cpp
 class Solution {
