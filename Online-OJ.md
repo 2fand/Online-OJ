@@ -6484,6 +6484,37 @@ public:
     }
 };
 ```
+**21. 合并两个有序链表**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* listNew = new ListNode();
+        ListNode** addNode = &listNew;
+        while (nullptr != list1 || nullptr != list2){
+            if (nullptr == list1 || nullptr != list1 && nullptr != list2 && list1->val >= list2->val){
+                (*addNode)->next = new ListNode(list2->val), (addNode = &(*addNode)->next);    
+                list2 = list2->next;
+            }
+            else {
+                (*addNode)->next = new ListNode(list1->val), (addNode = &(*addNode)->next);
+                list1 = list1->next;
+            }
+        }
+        return listNew->next;
+    }
+};
+```
 **26. 删除有序数组中的重复项**
 ```cpp
 class Solution {
