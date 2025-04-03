@@ -6353,6 +6353,28 @@ public:
     }
 };
 ```
+**3. 无重复字符的最长子串**
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string str) {
+        set<char>s;
+        int ia = 0;
+        int ilong = 0;
+        for (int i = 0; i < str.size(); i++){
+            for (ia = i; ia < str.size(); ia++){
+                s.insert(str[ia]);
+                if (s.size() != (ia - i + 1)){
+                    break;
+                }
+            }
+            ilong < s.size() ? ilong = s.size() : 0;
+            s.clear();
+        }
+        return ilong;
+    }
+};
+```
 **9. 回文数**
 ```cpp
 class Solution {
