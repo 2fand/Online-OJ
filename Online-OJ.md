@@ -6375,6 +6375,34 @@ public:
     }
 };
 ```
+**4. 寻找两个正序数组的中位数**
+```cpp
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>v;
+        int i = 0;
+        int ia = 0;
+        for (; i < nums1.size() || ia < nums2.size(); ){
+            if (i < nums1.size() && ia < nums2.size()){
+                if (nums1[i] < nums2[ia]){
+                    v.push_back(nums1[i++]);
+                } 
+                else {
+                    v.push_back(nums2[ia++]);
+                }
+            }
+            else if(i < nums1.size()) {
+                v.push_back(nums1[i++]);
+            }
+            else {
+                v.push_back(nums2[ia++]);
+            }
+        }
+        return v.size() % 2 ? v[v.size() / 2] : (v[v.size() / 2] + v[v.size() / 2 - 1]) / 2.0;
+    }
+};
+```
 **9. 回文数**
 ```cpp
 class Solution {
