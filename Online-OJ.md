@@ -6565,6 +6565,37 @@ public:
     }
 };
 ```
+**24. 两两交换链表中的节点**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode** swapnodea = &head;
+        ListNode** swapnodeb = nullptr != head ? &(head->next) : nullptr;
+        int swapNum = 0;
+        while (nullptr != *swapnodea && nullptr != *swapnodeb){
+            swapNum = (*swapnodea)->val;
+            (*swapnodea)->val = (*swapnodeb)->val;
+            (*swapnodeb)->val = swapNum;
+            swapnodea = &(*swapnodea)->next->next;
+            if (nullptr != *swapnodea){
+                swapnodeb = &(*swapnodeb)->next->next;
+            }
+        }
+        return head;
+    }
+};
+```
 **26. 删除有序数组中的重复项**
 ```cpp
 class Solution {
