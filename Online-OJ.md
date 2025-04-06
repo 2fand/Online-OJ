@@ -6670,6 +6670,36 @@ public:
     }
 };
 ```
+**42. 接雨水**
+```cpp
+class Solution {
+public:
+    // int getMax(vector<int> v){
+    //     int max = 0;
+    //     for (int i : v){
+    //         i > max ? max = i : 0;
+    //     }
+    //     return max;
+    // }
+    int trap(vector<int>& height) {
+        vector<int>lh;
+        vector<int>rh;
+        int lmax = 0;
+        int rmax = 0;
+        int water = 0;
+        for (int i = 0; i < height.size(); i++){
+            lmax < height[i] ? lmax = height[i] : 0;
+            rmax < height[height.size() - i - 1] ? rmax = height[height.size() - i - 1] : 0;
+            lh.push_back(lmax);
+            rh.insert(rh.begin(), rmax);
+        }
+        for (int i = 0; i < height.size(); i++){
+            water += min(lh[i], rh[i]) - height[i];
+        }
+        return water;
+    }
+};
+```
 **58. 最后一个单词的长度**
 ```cpp
 class Solution {
