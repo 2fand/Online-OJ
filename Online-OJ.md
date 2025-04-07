@@ -6825,6 +6825,24 @@ public:
     }
 };
 ```
+**88. 合并两个有序数组**
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int>mergeV;
+        for (int i = 0, ia = 0; i < m || ia < n; ){
+            if (i >= m || i < m && ia < n && nums1[i] > nums2[ia]){
+                mergeV.push_back(nums2[ia++]);
+            }
+            else {
+                mergeV.push_back(nums1[i++]);
+            }
+        }
+        nums1 = mergeV;
+    }
+};
+```
 **94. 二叉树的中序遍历**
 ```cpp
 /**
