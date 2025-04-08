@@ -7435,6 +7435,21 @@ public:
     }
 };
 ```
+**461. 汉明距离**
+```cpp
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        int i = x ^ y;
+        int num = 0;
+        while (i){
+            i % 2 ? num++ : 0;
+            i /= 2;
+        }
+        return num;
+    }
+};
+```
 **1299. 将每个元素替换为右侧最大元素**
 ```cpp
 class Solution {
