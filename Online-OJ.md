@@ -7450,6 +7450,19 @@ public:
     }
 };
 ```
+**598. 区间加法 II**
+```cpp
+class Solution {
+public:
+    int maxCount(int maxHeight, int maxWidth, vector<vector<int>>& ops) {
+        for (vector<int> v : ops){
+            maxHeight > v[0] ? maxHeight = v[0] : 0;
+            maxWidth > v[1] ? maxWidth = v[1] : 0;
+        }
+        return maxHeight * maxWidth;
+    }
+};
+```
 **1299. 将每个元素替换为右侧最大元素**
 ```cpp
 class Solution {
