@@ -6418,6 +6418,18 @@ public:
     }
 };
 ```
+**10. 正则表达式匹配**
+```cpp
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        p.insert(0, "^");
+        p.append("$");
+        regex r(p);
+        return regex_search(s, r);
+    }
+};
+```
 **13. 罗马数字转整数**
 ```cpp
 class Solution {
