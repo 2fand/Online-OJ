@@ -7462,6 +7462,23 @@ public:
     }
 };
 ```
+**495. 提莫攻击**
+```cpp
+class Solution {
+public:
+    int findPoisonedDuration(vector<int>& timeSeries, int duration) {
+        int second = duration;
+        int time = duration;
+        int waitNum = 0;
+        for (int index = 1; index < timeSeries.size(); index++){
+            waitNum = timeSeries[index] - timeSeries[index - 1];
+            time = duration - waitNum;
+            second += time <= 0 ? duration : waitNum;
+        }
+        return second;
+    }
+};
+```
 **598. 区间加法 II**
 ```cpp
 class Solution {
