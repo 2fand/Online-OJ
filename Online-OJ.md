@@ -7462,6 +7462,35 @@ public:
     }
 };
 ```
+**463. 岛屿的周长**
+```cpp
+class Solution {
+public:
+    int islandPerimeter(int i, int ia, vector<vector<int>>& grid){
+        if (i < 0 || i >= grid.size() || ia < 0 || ia >= grid[0].size() || !grid[i][ia]){
+            return 1;
+        }
+        else if(2 == grid[i][ia]){
+            return 0;
+        }
+        grid[i][ia] = 2;
+        return islandPerimeter(i - 1, ia, grid) + islandPerimeter(i + 1, ia, grid) + islandPerimeter(i, ia - 1, grid) + islandPerimeter(i, ia + 1, grid);
+    }
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int i = 0;
+        int ia = 0;
+        vector<vector<int>> g = grid;
+        for (int i = 0; i < grid.size(); i++){
+            for (int ia = 0; ia < grid[0].size(); ia++){
+                if (grid[i][ia]){
+                    return islandPerimeter(i, ia, g);
+                }
+            }
+        }
+        return 0;
+    }
+};
+```
 **495. 提莫攻击**
 ```cpp
 class Solution {
