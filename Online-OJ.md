@@ -6725,6 +6725,32 @@ public:
     }
 };
 ```
+**65. 有效数字**
+```cpp
+class Solution {
+public:
+    bool isNumber(string s) {
+        regex rn("^[+-]?\\.?($|[eE])");
+        regex r("^[+-]?[0-9]*(\\.[0-9]*)?([eE][+-]?[0-9]+)?$");
+        return !regex_search(s, rn) && regex_search(s, r);
+    }
+};
+
+// 2 
+// 0089 
+// -0.1 
+// +3.14 
+// 4. 
+// -.9 
+// 2e10 
+// -90E3
+// 3e+7
+// +6e-1 
+// 53.5e93
+// -123.456e789
+
+
+```
 **66. 加一**
 ```cpp
 class Solution {
