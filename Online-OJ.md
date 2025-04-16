@@ -7602,6 +7602,22 @@ public:
     }
 };
 ```
+**500. 键盘行**
+```cpp
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+        vector<string>vs;
+        regex r("^[QqWwEeRrTtYyUuIiOoPp]+$|^[AaSsDdFfGgHhJjKkLl]+$|^[ZzXxCcVvBbNnMm]+$");
+        for (string s : words){
+            if (regex_search(s, r)){
+                vs.push_back(s);
+            }
+        }
+        return vs;
+    }
+};
+```
 **598. 区间加法 II**
 ```cpp
 class Solution {
