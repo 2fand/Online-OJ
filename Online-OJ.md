@@ -6835,6 +6835,43 @@ public:
     }
 };
 ```
+**71. 简化路径**
+```cpp
+class Solution {
+public:
+    string simplifyPath(string path) {
+        regex delnotEasy("/+$");
+        path = regex_replace(path, delnotEasy, "");
+        regex delnotEasyA("/{2,}");
+        path = regex_replace(path, delnotEasyA, "/");
+        string d = ""; 
+        list<string>l;
+        path.push_back('/');
+        cout << path << endl;
+        for (int i = 1; i < path.size(); i++){
+            if ('/' == path[i]) {
+                cout << d;
+                if (d == ".." && l.size()){
+                    l.pop_back();
+                }
+                else if(d != ".." && d != ".") {
+                    l.push_back(d);
+                }
+                d.clear();
+            }
+            else {
+                d.push_back(path[i]);
+            }
+        }
+        path.clear();
+        for (string s : l){
+            path.append("/");
+            path.append(s);
+        }
+        return path.empty() ? "/" : path;
+    }
+};
+```
 **83. 删除排序链表中的重复元素**
 ```cpp
 /**
