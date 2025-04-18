@@ -7502,6 +7502,22 @@ public:
     }
 };
 ```
+**283. 移动零**
+```cpp
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        int s = 1;
+        while (!isBadVersion(s)){
+            s++;
+        }
+        return s;
+    }
+};
+```
 **326. 3 的幂**
 ```cpp
 class Solution {
