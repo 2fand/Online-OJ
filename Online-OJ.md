@@ -7518,6 +7518,15 @@ public:
     }
 };
 ```
+**292. Nim 游戏**
+```cpp
+class Solution {
+public:
+    bool canWinNim(int n) {
+        return n % 4;
+    }
+};
+```
 **326. 3 的幂**
 ```cpp
 class Solution {
