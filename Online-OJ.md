@@ -7786,3 +7786,13 @@ SELECT
 ```sql
 SELECT email Email FROM Person GROUP BY email HAVING count(email) >= 2;
 ```
+**185. 部门工资前三高的所有员工**
+```sql
+SELECT
+    Department, Employee, Salary
+FROM (
+    SELECT DENSE_RANK() OVER (PARTITION BY d.name ORDER BY e.salary DESC) r, d.name Department, e.name Employee, e.        salary Salary FROM Employee e JOIN Department d ON e.departmentId = d.id
+) tb
+WHERE
+    r IN(1, 2, 3);
+```
