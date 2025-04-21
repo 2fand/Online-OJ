@@ -7796,3 +7796,7 @@ FROM (
 WHERE
     r IN(1, 2, 3);
 ```
+**584. 寻找用户推荐人**
+```sql
+SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id != 2;
+```
