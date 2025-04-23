@@ -6403,6 +6403,35 @@ public:
     }
 };
 ```
+**8. 字符串转换整数 (atoi)**
+```cpp
+class Solution {
+public:
+    int myAtoi(string s) {
+        regex r("^ +| +$");
+        regex ra("^[+-]?[0-9]*");
+        s = regex_replace(s, r, "");
+        sregex_iterator rsit(s.begin(), s.end(), ra);
+        s = rsit->str();
+        bool negaitve = false;
+        if ('-' == s.front()){
+            negaitve = true;
+        }
+        long long ll = 0;
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] >= '0' && s[i] <= '9') {
+                ll *= 10;
+                ll += s[i] - '0';
+            }
+            if (ll > INT_MAX){
+                return negaitve ? INT_MIN : INT_MAX;
+            }
+        }
+        negaitve ? ll = -ll : 0;
+        return ll;
+    }
+};
+```
 **9. 回文数**
 ```cpp
 class Solution {
