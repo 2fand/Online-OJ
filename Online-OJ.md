@@ -7643,6 +7643,40 @@ public:
     }
 };
 ```
+**412. Fizz Buzz**
+```cpp
+class Solution {
+public:
+    vector<string> fizzBuzz(int n) {
+        vector<string> sv;
+        string numStr = "";
+        string charStr = "0";
+        int temp = 0;
+        for (int i = 1; i <= n; i++){
+            if (!(i % 15)) {
+                numStr = "FizzBuzz";
+            }
+            else if(!(i % 5)) {
+                numStr = "Buzz";
+            }
+            else if(!(i % 3)) {
+                numStr = "Fizz";
+            }
+            else {
+                temp = i;
+                while (temp){
+                    charStr[0] = temp % 10 + '0';
+                    numStr.insert(0, charStr);
+                    temp /= 10;
+                }
+            }
+            sv.push_back(numStr);
+            numStr.clear();
+        }
+        return sv;
+    }
+};
+```
 **414. 第三大的数**
 ```cpp
 class Solution {
