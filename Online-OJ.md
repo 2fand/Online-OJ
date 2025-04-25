@@ -6901,6 +6901,25 @@ public:
     }
 };
 ```
+**75. 颜色分类**
+```cpp
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        vector<int> v[3] = {vector<int>(), vector<int>(), vector<int>()};
+        for (int i : nums){
+            v[i].push_back(i);
+        }
+        for (int i : v[1]){
+            v[0].push_back(i);
+        }
+        for (int i : v[2]){
+            v[0].push_back(i);
+        }
+        nums = v[0];
+    }
+};
+```
 **83. 删除排序链表中的重复元素**
 ```cpp
 /**
