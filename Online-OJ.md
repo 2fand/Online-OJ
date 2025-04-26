@@ -6920,6 +6920,55 @@ public:
     }
 };
 ```
+**79. 单词搜索**
+```cpp
+class Solution {
+public:
+    bool check(vector<vector<char>>& board, string word, int i, int ia){
+        string newWord;
+        bool b = false;
+        char tch = 0;
+        if (i >= 0 && i < board.size() && ia >= 0 && ia < board[0].size() && word.front() == board[i][ia]){
+            tch = board[i][ia];
+            board[i][ia] = ' ';
+        }
+        for (int i=1;i<word.size();i++){
+            newWord.push_back(word[i]);
+        }
+        if (newWord.empty()){
+            return true;
+        }
+        if (!b && ia + 1 < board[0].size() && newWord.front() == board[i][ia + 1]){
+            b |= check(board, newWord, i, ia + 1);
+        }
+        if (!b && i - 1 >= 0 && newWord.front() == board[i - 1][ia]){
+            b |= check(board, newWord, i - 1, ia);
+        }
+        if (!b && i + 1 < board.size() && newWord.front() == board[i + 1][ia]){
+            b |= check(board, newWord, i + 1, ia);
+        }
+        if (!b && ia - 1 >= 0 && newWord.front() == board[i][ia - 1]){
+            b |= check(board, newWord, i, ia - 1);
+        }
+        if (!b && tch){
+            board[i][ia] = tch;
+        }
+        return b;
+    }
+    bool exist(vector<vector<char>>& board, string word) {
+        vector<vector<char>> temp = board;
+        for (int i = 0; i < board.size(); i++){
+            for (int ia = 0; ia < board[0].size(); ia++){
+                if (word.front() == board[i][ia] && check(temp, word, i, ia)){
+                    return true;
+                }
+                temp = board;
+            }
+        }
+        return false;
+    }
+};
+```
 **83. 删除排序链表中的重复元素**
 ```cpp
 /**
