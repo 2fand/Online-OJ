@@ -6711,6 +6711,52 @@ public:
     }
 };
 ```
+**36. 有效的数独**
+```cpp
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        set<int>s;
+        set<int>sa;
+        int i = 0;
+        int ia = 0;
+        for (i = 0; i < 9; i++){
+            for (ia = 0; ia < 9; ia++){
+                if ('.' != board[i][ia]) {
+                    if (s.end() != s.find(board[i][ia])){
+                        return false;
+                    }
+                    s.insert(board[i][ia]);
+                }
+                if ('.' != board[ia][i]) {
+                    if (sa.end() != sa.find(board[ia][i])){
+                        return false;
+                    }
+                    sa.insert(board[ia][i]);
+                }
+            }
+            s.clear();
+            sa.clear();
+        }
+        for (int ib = 0; ib < 9; ib += 3){
+            for (int ic = 0; ic < 9; ic += 3){
+                for (i = 0; i < 3; i++){
+                    for (ia = 0; ia < 3; ia++){
+                        if ('.' != board[ib + i][ic + ia]) {
+                            if (s.end() != s.find(board[ib + i][ic + ia])){
+                                return false;
+                            }
+                            s.insert(board[ib + i][ic + ia]);
+                        }                      
+                    }
+                }
+                s.clear();
+            }
+        }
+        return true;
+    }
+};
+```
 **42. 接雨水**
 ```cpp
 class Solution {
