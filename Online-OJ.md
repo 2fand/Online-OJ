@@ -7015,6 +7015,47 @@ public:
     }
 };
 ```
+**81. 搜索旋转排序数组 II**
+```cpp
+class Solution {
+public:
+    void leftMove(vector<int>& v){
+        int temp = v.front();
+        for (int i = 0; i < v.size() - 1; i++){
+            v[i] = v[i + 1];
+        }
+        v.back() = temp;
+    }
+    bool search(vector<int>& nums, int target) {
+        int i = 0;
+        for (i = 0; i < nums.size() - 1; i++){
+            if (nums[i] > nums[i + 1]){
+                break;
+            }
+        }
+        vector<int>v = nums;
+        for (; i >= 0; i--){
+            leftMove(v);
+        }
+        int min = 0;
+        int max = v.size() - 1;
+        int mid = (min + max) / 2;
+        while (min <= max){
+            if (v[mid] == target){
+                return true;
+            }
+            else if(v[mid] < target){
+                min = mid + 1;
+            }
+            else {
+                max = mid - 1;
+            }
+            mid = (min + max) / 2;
+        }
+        return false;
+    }
+};
+```
 **83. 删除排序链表中的重复元素**
 ```cpp
 /**
