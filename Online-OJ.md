@@ -7102,6 +7102,59 @@ public:
     }
 };
 ```
+**93. 复原 IP 地址**
+```cpp
+class Solution {
+public:
+    vector<string> restoreIpAddresses(string s) {
+        vector<string> result;
+        string ip;
+        string strNums[4] = {};
+        if (s.size() > 12 || s.size() < 4) {
+            return result;
+        }
+        for (int i = 0; i < 3; i++) {
+            strNums[0].push_back(s[i]);
+            if (i && '0' == strNums[0][0]) {
+                break;
+            }
+            if (2 != i || 255 >= atoi(strNums[0].c_str())) {
+                for (int ia = i + 1; ia - i <= 3; ia++) {
+                    strNums[1].push_back(s[ia]);
+                    if (1 != ia - i && '0' == strNums[1][0]) {
+                        break;
+                    }
+                    if (3 != ia - i || 255 >= atoi(strNums[1].c_str())) {
+                        for (int ib = ia + 1; ib - ia <= 3 && ib < s.size(); ib++) {
+                            strNums[2].push_back(s[ib]);
+                            if (ib - ia > 1 && '0' == strNums[2][0]) {
+                                break;
+                            }
+                            if (3 != ib - ia || 255 >= atoi(strNums[2].c_str())) {
+                                for (int ic = ib + 1; ic - ib <= 3 && ic < s.size(); ic++) {
+                                    strNums[3].push_back(s[ic]);
+                                    if (ic - ib > 1 && '0' == strNums[3][0]) {
+                                        break;
+                                    }
+                                    if (s.size() - 1 == ic && 255 >= atoi(strNums[3].c_str())) {
+                                        ip.clear();
+                                        ip.append(strNums[0]).append(".").append(strNums[1]).append(".").append(strNums[2]).append(".").append(strNums[3]);
+                                        result.push_back(ip);
+                                    }
+                                }
+                                strNums[3].clear();
+                            }
+                        }
+                        strNums[2].clear();
+                    }
+                }
+                strNums[1].clear();
+            }
+        }
+        return result;
+    }
+};
+```
 **94. 二叉树的中序遍历**
 ```cpp
 /**
