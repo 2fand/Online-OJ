@@ -7193,6 +7193,31 @@ public:
     }
 };
 ```
+**97. 交错字符串**
+```cpp
+class Solution {
+public:
+    bool isInterleave(string s1, string s2, string s3) {
+        vector<int>bv(s2.size() + 1, false);
+        bv[0] = true;
+        if (s1.size() + s2.size() != s3.size()){
+            return false;
+        }
+        for (int i = 0; i <= s1.size(); ++i) {
+            for (int j = 0; j <= s2.size(); ++j) {
+                int p = i + j - 1;
+                if (i > 0) {
+                    bv[j] &= (s1[i - 1] == s3[p]);
+                }
+                if (j > 0) {
+                    bv[j] |= (bv[j - 1] && s2[j - 1] == s3[p]);
+                }
+            }
+        }
+        return bv[s2.size()];
+    }
+};
+```
 **100. 相同的树**
 ```cpp
 /**
