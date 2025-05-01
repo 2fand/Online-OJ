@@ -7551,6 +7551,38 @@ public:
     }
 };
 ```
+**202. 快乐数**
+```cpp
+class Solution {
+public:
+bool find(vector<int>& v, int i){
+    for (int f : v){
+        if (f == i){
+            return true;
+        }
+    }
+    return false;
+}
+    bool isHappy(int n) {
+        int tempN = n;
+        int newN = 0;
+        vector<int> v;
+        for (; 1 != n; ){
+            for (; n; ) {
+                newN += (n % 10) * (n % 10);
+                n /= 10;
+            }
+            n = newN;
+            if (find(v, n)){
+                return false;
+            }
+            v.push_back(n);
+            newN = 0;
+        }
+        return true;
+    }
+};
+```
 **203. 移除链表元素**
 ```cpp
 /**
