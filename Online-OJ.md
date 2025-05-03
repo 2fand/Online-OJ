@@ -8039,6 +8039,30 @@ public:
     }
 };
 ```
+**504. 七进制数**
+```cpp
+class Solution {
+public:
+    string convertToBase7(int num) {
+        if (!num){
+            return "0";
+        }
+        bool isNegative = num < 0;
+        string strNum;
+        string digitNum = " ";
+        num = abs(num);
+        while (num){
+            digitNum[0] = num % 7 + '0';
+            strNum.insert(0, digitNum);
+            num /= 7;
+        }
+        if (isNegative){
+            strNum.insert(0, "-");
+        }
+        return strNum;
+    }
+};
+```
 **598. 区间加法 II**
 ```cpp
 class Solution {
