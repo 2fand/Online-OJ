@@ -7962,6 +7962,26 @@ public:
     }
 };
 ```
+**415. 字符串相加**
+```cpp
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        string str = "";
+        int i = 0;
+        bool add = false;
+        for (auto it = num1.crbegin(), ita = num2.crbegin(); it != num1.crend() || ita != num2.crend(); ){
+            i = (it != num1.crend() ? (*it++ - '0') : 0) + (ita != num2.crend() ? (*ita++ - '0') : 0) + add;
+            str.insert(0, string(1, (i % 10) + '0'));
+            add = i >= 10;
+        }   
+        if (add){
+            str.insert(0, "1");          
+        }
+        return str;
+    }
+};
+```
 **461. 汉明距离**
 ```cpp
 class Solution {
