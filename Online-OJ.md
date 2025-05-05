@@ -6757,6 +6757,31 @@ public:
     }
 };
 ```
+**38. 外观数列**
+```cpp
+class Solution {
+public:
+    string countAndSay(int n) {
+        string str = "1";
+        string countStr;
+        for (; n > 1; n--){
+            for (char ch : str){
+                if (!countStr.size() || ch != countStr.back()){
+                    countStr.append("  ");
+                    countStr.back() = ch;
+                    countStr[countStr.size() - 2] = '1';
+                }
+                else {
+                    countStr[countStr.size() - 2]++;
+                }
+            }
+            str = countStr;
+            countStr.clear();
+        }
+        return str;
+    }
+};
+```
 **42. 接雨水**
 ```cpp
 class Solution {
