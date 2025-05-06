@@ -6812,6 +6812,32 @@ public:
     }
 };
 ```
+**46. 全排列**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> vv;
+    void swap(vector<int>& nums, int i, int ia){
+        int temp = nums[i];
+        nums[i] = nums[ia];
+        nums[ia] = temp;
+    }
+    void permute(vector<int>& nums, int min){
+        if (min >= nums.size()){
+            vv.push_back(nums);
+        }
+        for (int i = min; i < nums.size(); i++){
+            swap(nums, min, i);
+            permute(nums, min + 1);
+            swap(nums, min, i);
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        permute(nums, 0);
+        return vv;
+    }
+};
+```
 **58. 最后一个单词的长度**
 ```cpp
 class Solution {
