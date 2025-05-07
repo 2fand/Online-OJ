@@ -7928,6 +7928,33 @@ public:
     }
 };
 ```
+**345. 反转字符串中的元音字母**
+```cpp
+class Solution {
+public:
+    string reverseVowels(string s) {
+        string sa;
+        for (char ch : s){
+            if ('a' == ch || 'e' == ch || 'i' == ch || 'o' == ch || 'u' == ch || 'A' == ch || 'E' == ch || 'I' == ch || 'O' == ch || 'U' == ch){
+                sa.push_back(ch);
+            }
+        }
+        char temp = 0;
+        for (int i = 0; i < sa.size() / 2; i++){
+            temp = sa[i];
+            sa[i] = sa[sa.size() - 1 - i];
+            sa[sa.size() - 1 - i] = temp;
+        }
+        int i = 0;
+        for (int ia = 0; ia < s.size(); ia++){
+            if ('a' == s[ia] || 'e' == s[ia] || 'i' == s[ia] || 'o' == s[ia] || 'u' == s[ia] || 'A' == s[ia] || 'E' == s[ia] || 'I' == s[ia] || 'O' == s[ia] || 'U' == s[ia]){
+                s[ia] = sa[i++];
+            }
+        }
+        return s;
+    }
+};
+```
 **404. 左叶子之和**
 ```cpp
 /**
