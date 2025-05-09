@@ -8190,6 +8190,48 @@ public:
     }
 };
 ```
+**796. 旋转字符串**
+```cpp
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        vector<string>v;
+        string sa = s;
+        sa.push_back(sa.front());
+        sa.erase(0, 1);
+        while (s != sa){
+            v.push_back(sa);
+            sa.push_back(sa.front());
+            sa.erase(0, 1);
+        }
+        v.push_back(sa);
+        for (string str : v){
+            if (str == goal){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+**1299. 将每个元素替换为右侧最大元素**
+```cpp
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        int max = 0;
+        int ia = 0;
+        for (int i = 0; i < arr.size() - 1; i++){
+            for (max = arr[i + 1], ia = i + 1; ia < arr.size(); ia++){
+                max < arr[ia] ? max = arr[ia] : 0;
+            }
+            arr[i] = max;
+        }
+        arr.back() = -1;
+        return arr;
+    }
+};
+```
 **1299. 将每个元素替换为右侧最大元素**
 ```cpp
 class Solution {
