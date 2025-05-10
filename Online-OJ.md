@@ -7423,6 +7423,28 @@ public:
     }
 };
 ```
+**118. 杨辉三角**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<int>v = {1};
+        vector<int>va = v;
+        vector<vector<int>> result;
+        for (; numRows; numRows--){
+            result.push_back(v);
+            va.insert(va.begin(), 0);
+            va.push_back(0);
+            v.clear();
+            for (int i = 0; i < va.size() - 1; i++){
+                v.push_back(va[i] + va[i + 1]);
+            }
+            va = v;
+        }
+        return result;
+    }
+};
+```
 **121. 买卖股票的最佳时机**
 ```cpp
 class Solution {
