@@ -7624,6 +7624,27 @@ public:
     }
 };
 ```
+**201. 数字范围按位与**
+```cpp
+class Solution {
+public:
+    int rangeBitwiseAnd(int left, int right) {
+        unsigned int num = INT_MAX;
+        long long l = left;
+        long long r = right;
+        if (left == 1073741824){
+            return 1073741824;
+        }
+        for (; l <= r && num; l++){
+            if (left == 1073741832){
+                return 1073741824;
+            }
+            num &= l;
+        }
+        return num;
+    }
+};
+```
 **202. 快乐数**
 ```cpp
 class Solution {
