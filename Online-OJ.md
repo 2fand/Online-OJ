@@ -8293,6 +8293,15 @@ public:
     }
 };
 ```
+**2094. 找出 3 位偶数**
+```cpp
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+};
+```
 **2235. 两整数相加**
 ```cpp
 class Solution {
