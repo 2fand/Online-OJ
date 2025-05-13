@@ -8257,6 +8257,25 @@ public:
     }
 };
 ```
+**1295. 统计位数为偶数的数字**
+```cpp
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int count = 0;
+        int digitCount = 0;
+        for (int i : nums){
+            while (i){
+                digitCount++;
+                i /= 10;
+            }
+            0 == digitCount % 2 ? count++ : 0;
+            digitCount = 0;
+        }
+        return count;
+    }
+};
+```
 **1299. 将每个元素替换为右侧最大元素**
 ```cpp
 class Solution {
