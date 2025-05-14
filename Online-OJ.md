@@ -7998,6 +7998,24 @@ public:
     }
 };
 ```
+**387. 字符串中的第一个唯一字符**
+```cpp
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char, int>charNum;
+        for (char ch : s){
+            ++charNum[ch];
+        }
+        for (int i=0;i<s.length();i++){
+            if (1 == charNum[s[i]]){
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+```
 **389. 找不同**
 ```cpp
 class Solution {
