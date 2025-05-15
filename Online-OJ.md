@@ -8238,6 +8238,21 @@ public:
     }
 };
 ```
+**507. 完美数**
+```cpp
+class Solution {
+public:
+    bool checkPerfectNumber(int num) {
+        int add = 0;
+        for (int i = 1; i < num; i++){
+            if (0 == num % i){
+                add += i;
+            }
+        }
+        return add == num;
+    }
+};
+```
 **598. 区间加法 II**
 ```cpp
 class Solution {
