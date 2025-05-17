@@ -8290,6 +8290,28 @@ public:
     }
 };
 ```
+**917. 仅仅反转字母**
+```cpp
+class Solution {
+public:
+    string reverseOnlyLetters(string s) {
+        string temp;
+        for (char ch : s){
+            if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z'){
+                temp.push_back(ch);
+            }
+        }
+        reverse(temp.begin(), temp.end());
+        int i = 0;
+        for (char& ch : s){
+            if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z'){
+                ch = temp[i++];
+            }
+        }
+        return s;
+    }
+};
+```
 **1295. 统计位数为偶数的数字**
 ```cpp
 class Solution {
