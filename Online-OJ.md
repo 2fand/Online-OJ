@@ -7153,6 +7153,37 @@ public:
     }
 };
 ```
+**92. 反转链表 II**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        vector<int>list;
+        while (nullptr != head){
+            list.push_back(head->val);
+            head = head->next;
+        }
+        reverse(list.begin() + left - 1, list.end() - (list.size() - right));
+        head = new ListNode(list[0]);
+        ListNode**  addNode = &head;
+        for (int i = 1; i < list.size(); i++){
+            (*addNode)->next = new ListNode(list[i]);
+            addNode = &(*addNode)->next;
+        }
+        return head;
+    }
+};
+```
 **93. 复原 IP 地址**
 ```cpp
 class Solution {
