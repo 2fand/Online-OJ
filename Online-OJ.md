@@ -8380,21 +8380,17 @@ public:
     }
 };
 ```
-**1299. 将每个元素替换为右侧最大元素**
+**1550. 存在连续三个奇数的数组**
 ```cpp
 class Solution {
 public:
-    vector<int> replaceElements(vector<int>& arr) {
-        int max = 0;
-        int ia = 0;
-        for (int i = 0; i < arr.size() - 1; i++){
-            for (max = arr[i + 1], ia = i + 1; ia < arr.size(); ia++){
-                max < arr[ia] ? max = arr[ia] : 0;
+    bool threeConsecutiveOdds(vector<int>& arr) {
+        for (int i = 0; arr.size() >= 3 && i < arr.size() - 2; i++){
+            if (arr[i] % 2 && arr[i+1] % 2 && arr[i+2] % 2){
+                return true;
             }
-            arr[i] = max;
         }
-        arr.back() = -1;
-        return arr;
+        return false;
     }
 };
 ```
