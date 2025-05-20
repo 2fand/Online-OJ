@@ -1,3 +1,2199 @@
+# 力扣
+*(每天可能更一题)*
+## C++
+
+**1. 两数之和**
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int i = 0;
+        int ia = 0;
+        for (i = 0; i < nums.size() - 1; i++){
+            for (ia = i + 1; nums.size() != ia; ia++){
+                if (nums[ia] + nums[i] == target){
+                    vector<int>v = {i, ia} ;
+                    return v;
+                }
+            }
+        }
+        return nums;
+    }
+};
+```
+**2. 两数相加**
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int i = 0;
+        int ia = 0;
+        for (i = 0; i < nums.size() - 1; i++){
+            for (ia = i + 1; nums.size() != ia; ia++){
+                if (nums[ia] + nums[i] == target){
+                    vector<int>v = {i, ia} ;
+                    return v;
+                }
+            }
+        }
+        return nums;
+    }
+};
+```
+**3. 无重复字符的最长子串**
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string str) {
+        set<char>s;
+        int ia = 0;
+        int ilong = 0;
+        for (int i = 0; i < str.size(); i++){
+            for (ia = i; ia < str.size(); ia++){
+                s.insert(str[ia]);
+                if (s.size() != (ia - i + 1)){
+                    break;
+                }
+            }
+            ilong < s.size() ?F ilong = s.size() : 0;
+            s.clear();
+        }
+        return ilong;
+    }
+};
+```
+**4. 寻找两个正序数组的中位数**
+```cpp
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>v;
+        int i = 0;
+        int ia = 0;
+        for (; i < nums1.size() || ia < nums2.size(); ){
+            if (i < nums1.size() && ia < nums2.size()){
+                if (nums1[i] < nums2[ia]){
+                    v.push_back(nums1[i++]);
+                } 
+                else {
+                    v.push_back(nums2[ia++]);
+                }
+            }
+            else if(i < nums1.size()) {
+                v.push_back(nums1[i++]);
+            }
+            else {
+                v.push_back(nums2[ia++]);
+            }
+        }
+        return v.size() % 2 ? v[v.size() / 2] : (v[v.size() / 2] + v[v.size() / 2 - 1]) / 2.0;
+    }
+};
+```
+**8. 字符串转换整数 (atoi)**
+```cpp
+class Solution {
+public:
+    int myAtoi(string s) {
+        regex r("^ +| +$");
+        regex ra("^[+-]?[0-9]*");
+        s = regex_replace(s, r, "");
+        sregex_iterator rsit(s.begin(), s.end(), ra);
+        s = rsit->str();
+        bool negaitve = false;
+        if ('-' == s.front()){
+            negaitve = true;
+        }
+        long long ll = 0;
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] >= '0' && s[i] <= '9') {
+                ll *= 10;
+                ll += s[i] - '0';
+            }
+            if (ll > INT_MAX){
+                return negaitve ? INT_MIN : INT_MAX;
+            }
+        }
+        negaitve ? ll = -ll : 0;
+        return ll;
+    }
+};
+```
+**9. 回文数**
+```cpp
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        char str[100] = "";
+        string strCmp;
+        sprintf(str, "%d", x);
+        for (int i = 0; str[i]; i++){
+            strCmp.insert(strCmp.begin(), str[i]);
+        }
+        return !strcmp(str, strCmp.c_str());
+    }
+};
+```
+**10. 正则表达式匹配**
+```cpp
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        p.insert(0, "^");
+        p.append("$");
+        regex r(p);
+        return regex_search(s, r);
+    }
+};
+```
+**12. 整数转罗马数字**
+```cpp
+class Solution {
+public:
+    string intToRoman(int num) {
+        string Roman = string(num / 1000, 'M');
+        string strs[30] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+        Roman += strs[num / 100 % 10 + 20];
+        Roman += strs[num / 10 % 10 + 10];
+        Roman += strs[num % 10];
+        return Roman;
+    }
+};
+```
+**13. 罗马数字转整数**
+```cpp
+class Solution {
+public:
+    int romanToInt(string s) {
+        int isum = 0;
+        int index = 0;
+        bool isNegte = false;
+        map<char, int>m={
+            {'I', 6}, 
+            {'V', 5}, 
+            {'X', 4}, 
+            {'L', 3}, 
+            {'C', 2}, 
+            {'D', 1}, 
+            {'M', 0}
+        };
+        for (int i = 0; i < s.size(); i++){
+            if(s.size() - 1 != i && m[s[i]] > m[s[i + 1]] && (m[s[i]] == 6 || m[s[i]] == 4 || m[s[i]] == 2) && m[s[i]] - m[s[i + 1]] <= 2){
+                isNegte = true;
+            }
+            switch(s[i]){
+            case 'I':
+                isum += (1 - isNegte * 2);
+                break;
+            case 'V':
+                isum += (1 - isNegte * 2) * 5;
+                break;
+            case 'X':
+                isum += (1 - isNegte * 2) * 10;
+                break;
+            case 'L':
+                isum += (1 - isNegte * 2) * 50;
+                break;
+            case 'C':
+                isum += (1 - isNegte * 2) * 100;
+                break;
+            case 'D':
+                isum += (1 - isNegte * 2) * 500;
+                break;
+            case 'M':
+                isum += (1 - isNegte * 2) * 1000;
+                break;
+            default:
+                break;
+            }
+            isNegte = false;
+        }
+        return isum;
+    }
+};
+```
+**14. 最长公共前缀**
+```cpp
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string frontstr;
+        int minsize = strs[0].size();
+        int ia = 0;
+        for (int i = 1; i < strs.size(); i++){
+            if (strs[i].size() < minsize){
+                minsize = strs[i].size();
+            }
+        }
+        for (int i = 0; i < minsize; i++){
+            for (ia = 0; ia < strs.size() - 1; ia++){
+                if (strs[ia][i] != strs[ia + 1][i]){
+                    return frontstr;
+                }
+            }
+            frontstr.push_back(strs[0][i]);
+        }
+        return frontstr;
+    }
+};
+```
+**20. 有效的括号**
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char>strS;
+        for (char ch : s){
+            if ('(' == ch || '[' == ch || '{' == ch){
+                strS.push(ch);
+            }
+            else {
+                switch(ch){
+                case ')':
+                    if (!strS.size() || '(' != strS.top()){
+                        return false;
+                    }
+                    strS.pop();
+                    break;
+                case ']':
+                    if (!strS.size() || '[' != strS.top()){
+                        return false;
+                    }
+                    strS.pop();
+                    break;
+                case '}':
+                    if (!strS.size() || '{' != strS.top()){
+                        return false;
+                    }
+                    strS.pop();
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+        return !strS.size();
+    }
+};
+```
+**21. 合并两个有序链表**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* listNew = new ListNode();
+        ListNode** addNode = &listNew;
+        while (nullptr != list1 || nullptr != list2){
+            if (nullptr == list1 || nullptr != list1 && nullptr != list2 && list1->val >= list2->val){
+                (*addNode)->next = new ListNode(list2->val), (addNode = &(*addNode)->next);    
+                list2 = list2->next;
+            }
+            else {
+                (*addNode)->next = new ListNode(list1->val), (addNode = &(*addNode)->next);
+                list1 = list1->next;
+            }
+        }
+        return listNew->next;
+    }
+};
+```
+**24. 两两交换链表中的节点**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode** swapnodea = &head;
+        ListNode** swapnodeb = nullptr != head ? &(head->next) : nullptr;
+        int swapNum = 0;
+        while (nullptr != *swapnodea && nullptr != *swapnodeb){
+            swapNum = (*swapnodea)->val;
+            (*swapnodea)->val = (*swapnodeb)->val;
+            (*swapnodeb)->val = swapNum;
+            swapnodea = &(*swapnodea)->next->next;
+            if (nullptr != *swapnodea){
+                swapnodeb = &(*swapnodeb)->next->next;
+            }
+        }
+        return head;
+    }
+};
+```
+**26. 删除有序数组中的重复项**
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        vector<int>v;
+        for (int i = 0; i < nums.size(); i++){
+            if (!i || nums[i - 1] != nums[i]){
+                v.push_back(nums[i]);
+            }
+        }
+        nums = v;
+        return v.size(); 
+    }
+};
+```
+**27. 移除元素**
+```cpp
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        vector<int>v;
+        int k = nums.size();
+        for (int i : nums){
+            if (val == i){
+                k--;
+            }
+            else {
+                v.push_back(i);
+            }
+        }
+        nums = v;
+        return k;
+    }
+};
+```
+**28. 找出字符串中第一个匹配项的下标**
+```cpp
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if (nullptr == strstr(haystack.c_str(), needle.c_str())){
+            return -1;
+        }
+        else {
+            return strstr(haystack.c_str(), needle.c_str()) - haystack.c_str();
+        }
+    }
+};
+```
+**35. 搜索插入位置**
+```cpp
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int min = 0;
+        int max = nums.size() - 1;
+        int mid = (min + max) / 2;
+        while (max >= min){
+            if (nums[mid] == target){
+                return mid;
+            }
+            else if(nums[mid] > target){
+                max = mid - 1;
+            }
+            else {
+                min = mid + 1;
+            }
+            mid = (min + max) / 2;
+        }
+        return min;
+    }
+};
+```
+**36. 有效的数独**
+```cpp
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        set<int>s;
+        set<int>sa;
+        int i = 0;
+        int ia = 0;
+        for (i = 0; i < 9; i++){
+            for (ia = 0; ia < 9; ia++){
+                if ('.' != board[i][ia]) {
+                    if (s.end() != s.find(board[i][ia])){
+                        return false;
+                    }
+                    s.insert(board[i][ia]);
+                }
+                if ('.' != board[ia][i]) {
+                    if (sa.end() != sa.find(board[ia][i])){
+                        return false;
+                    }
+                    sa.insert(board[ia][i]);
+                }
+            }
+            s.clear();
+            sa.clear();
+        }
+        for (int ib = 0; ib < 9; ib += 3){
+            for (int ic = 0; ic < 9; ic += 3){
+                for (i = 0; i < 3; i++){
+                    for (ia = 0; ia < 3; ia++){
+                        if ('.' != board[ib + i][ic + ia]) {
+                            if (s.end() != s.find(board[ib + i][ic + ia])){
+                                return false;
+                            }
+                            s.insert(board[ib + i][ic + ia]);
+                        }                      
+                    }
+                }
+                s.clear();
+            }
+        }
+        return true;
+    }
+};
+```
+**38. 外观数列**
+```cpp
+class Solution {
+public:
+    string countAndSay(int n) {
+        string str = "1";
+        string countStr;
+        for (; n > 1; n--){
+            for (char ch : str){
+                if (!countStr.size() || ch != countStr.back()){
+                    countStr.append("  ");
+                    countStr.back() = ch;
+                    countStr[countStr.size() - 2] = '1';
+                }
+                else {
+                    countStr[countStr.size() - 2]++;
+                }
+            }
+            str = countStr;
+            countStr.clear();
+        }
+        return str;
+    }
+};
+```
+**42. 接雨水**
+```cpp
+class Solution {
+public:
+    // int getMax(vector<int> v){
+    //     int max = 0;
+    //     for (int i : v){
+    //         i > max ? max = i : 0;
+    //     }
+    //     return max;
+    // }
+    int trap(vector<int>& height) {
+        vector<int>lh;
+        vector<int>rh;
+        int lmax = 0;
+        int rmax = 0;
+        int water = 0;
+        for (int i = 0; i < height.size(); i++){
+            lmax < height[i] ? lmax = height[i] : 0;
+            rmax < height[height.size() - i - 1] ? rmax = height[height.size() - i - 1] : 0;
+            lh.push_back(lmax);
+            rh.insert(rh.begin(), rmax);
+        }
+        for (int i = 0; i < height.size(); i++){
+            water += min(lh[i], rh[i]) - height[i];
+        }
+        return water;
+    }
+};
+```
+**46. 全排列**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> vv;
+    void swap(vector<int>& nums, int i, int ia){
+        int temp = nums[i];
+        nums[i] = nums[ia];
+        nums[ia] = temp;
+    }
+    void permute(vector<int>& nums, int min){
+        if (min >= nums.size()){
+            vv.push_back(nums);
+        }
+        for (int i = min; i < nums.size(); i++){
+            swap(nums, min, i);
+            permute(nums, min + 1);
+            swap(nums, min, i);
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        permute(nums, 0);
+        return vv;
+    }
+};
+```
+**58. 最后一个单词的长度**
+```cpp
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int index = s.size() - 1; 
+        int len = 0;
+        while (0 <= index && ' ' == s[index]){ index--; }
+        while (0 <= index && ' ' != s[index--]){ len++; }
+        return len;
+    }
+};
+```
+**65. 有效数字**
+```cpp
+class Solution {
+public:
+    bool isNumber(string s) {
+        regex rn("^[+-]?\\.?($|[eE])");
+        regex r("^[+-]?[0-9]*(\\.[0-9]*)?([eE][+-]?[0-9]+)?$");
+        return !regex_search(s, rn) && regex_search(s, r);
+    }
+};
+
+// 2 
+// 0089 
+// -0.1 
+// +3.14 
+// 4. 
+// -.9 
+// 2e10 
+// -90E3
+// 3e+7
+// +6e-1 
+// 53.5e93
+// -123.456e789
+
+
+```
+**66. 加一**
+```cpp
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        digits[digits.size() - 1]++;
+        int i = digits.size() - 1;
+        while (digits[i] >= 10 && i >= 0){
+            if (digits[i] >= 10){
+                if (i - 1 >= 0){
+                    digits[i - 1]++;
+                }
+                else {
+                    digits[i] %= 10;
+                    digits.push_back(0);
+                    for (int ia = 0; ia < digits.size() - 2; ia++){
+                        digits[ia + 1] = digits[ia];
+                    }
+                    digits[0] = 1;
+                    break;
+                }
+                digits[i--] %= 10;
+            }
+        }
+        return digits;
+    }
+};
+```
+**67. 二进制求和**
+```cpp
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int addNum = 0;
+        bool bItToEnd = false;
+        bool bItaToEnd = false;
+        bool addOne = false;
+        string binStr;
+        auto it = a.rbegin(); 
+        auto ita = b.rbegin();
+        while (it != a.rend() || ita != b.rend()) {
+            addNum = (bItToEnd ? 0 : *it - '0') + (bItaToEnd ? 0 : *ita - '0') + addOne;
+            binStr.insert(binStr.cbegin(), addNum % 2 + '0');
+            addOne = addNum >= 2;
+            if (a.rend() != it){
+                it++;
+            }
+            if (b.rend() != ita){
+                ita++;
+            }
+            if (b.rend() == ita) {
+                bItaToEnd = true;
+            }
+            if (a.rend() == it) {
+                bItToEnd = true;
+            }
+        }
+        if (addOne){
+            binStr.insert(binStr.cbegin(), '1');
+        }
+        return binStr;
+    }
+};
+```
+**70. 爬楼梯**
+```cpp
+class Solution {
+public:
+    void swap(int& i, int& ia){
+        int itemp = i;
+        i = ia;
+        ia = itemp;
+    }
+    int climbStairs(int n) {
+        int i = 1;
+        int ia = 1;
+        while (n-- > 1){
+            i += ia;
+            swap(i, ia);
+        }
+        return ia;
+    }
+};
+```
+**71. 简化路径**
+```cpp
+class Solution {
+public:
+    string simplifyPath(string path) {
+        regex delnotEasy("/+$");
+        path = regex_replace(path, delnotEasy, "");
+        regex delnotEasyA("/{2,}");
+        path = regex_replace(path, delnotEasyA, "/");
+        string d = ""; 
+        list<string>l;
+        path.push_back('/');
+        cout << path << endl;
+        for (int i = 1; i < path.size(); i++){
+            if ('/' == path[i]) {
+                cout << d;
+                if (d == ".." && l.size()){
+                    l.pop_back();
+                }
+                else if(d != ".." && d != ".") {
+                    l.push_back(d);
+                }
+                d.clear();
+            }
+            else {
+                d.push_back(path[i]);
+            }
+        }
+        path.clear();
+        for (string s : l){
+            path.append("/");
+            path.append(s);
+        }
+        return path.empty() ? "/" : path;
+    }
+};
+```
+**75. 颜色分类**
+```cpp
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        vector<int> v[3] = {vector<int>(), vector<int>(), vector<int>()};
+        for (int i : nums){
+            v[i].push_back(i);
+        }
+        for (int i : v[1]){
+            v[0].push_back(i);
+        }
+        for (int i : v[2]){
+            v[0].push_back(i);
+        }
+        nums = v[0];
+    }
+};
+```
+**79. 单词搜索**
+```cpp
+class Solution {
+public:
+    bool check(vector<vector<char>>& board, string word, int i, int ia){
+        string newWord;
+        bool b = false;
+        char tch = 0;
+        if (i >= 0 && i < board.size() && ia >= 0 && ia < board[0].size() && word.front() == board[i][ia]){
+            tch = board[i][ia];
+            board[i][ia] = ' ';
+        }
+        for (int i=1;i<word.size();i++){
+            newWord.push_back(word[i]);
+        }
+        if (newWord.empty()){
+            return true;
+        }
+        if (!b && ia + 1 < board[0].size() && newWord.front() == board[i][ia + 1]){
+            b |= check(board, newWord, i, ia + 1);
+        }
+        if (!b && i - 1 >= 0 && newWord.front() == board[i - 1][ia]){
+            b |= check(board, newWord, i - 1, ia);
+        }
+        if (!b && i + 1 < board.size() && newWord.front() == board[i + 1][ia]){
+            b |= check(board, newWord, i + 1, ia);
+        }
+        if (!b && ia - 1 >= 0 && newWord.front() == board[i][ia - 1]){
+            b |= check(board, newWord, i, ia - 1);
+        }
+        if (!b && tch){
+            board[i][ia] = tch;
+        }
+        return b;
+    }
+    bool exist(vector<vector<char>>& board, string word) {
+        vector<vector<char>> temp = board;
+        for (int i = 0; i < board.size(); i++){
+            for (int ia = 0; ia < board[0].size(); ia++){
+                if (word.front() == board[i][ia] && check(temp, word, i, ia)){
+                    return true;
+                }
+                temp = board;
+            }
+        }
+        return false;
+    }
+};
+```
+**81. 搜索旋转排序数组 II**
+```cpp
+class Solution {
+public:
+    void leftMove(vector<int>& v){
+        int temp = v.front();
+        for (int i = 0; i < v.size() - 1; i++){
+            v[i] = v[i + 1];
+        }
+        v.back() = temp;
+    }
+    bool search(vector<int>& nums, int target) {
+        int i = 0;
+        for (i = 0; i < nums.size() - 1; i++){
+            if (nums[i] > nums[i + 1]){
+                break;
+            }
+        }
+        vector<int>v = nums;
+        for (; i >= 0; i--){
+            leftMove(v);
+        }
+        int min = 0;
+        int max = v.size() - 1;
+        int mid = (min + max) / 2;
+        while (min <= max){
+            if (v[mid] == target){
+                return true;
+            }
+            else if(v[mid] < target){
+                min = mid + 1;
+            }
+            else {
+                max = mid - 1;
+            }
+            mid = (min + max) / 2;
+        }
+        return false;
+    }
+};
+```
+**83. 删除排序链表中的重复元素**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode** node = &head;
+        while (nullptr != *node && nullptr != (*node)->next) {
+            if ((*node)->val == (*node)->next->val){
+                *node = (*node)->next;
+            }
+            else {
+                node = &(*node)->next;
+            }
+        }
+        return head;
+    }
+};
+```
+**88. 合并两个有序数组**
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int>mergeV;
+        for (int i = 0, ia = 0; i < m || ia < n; ){
+            if (i >= m || i < m && ia < n && nums1[i] > nums2[ia]){
+                mergeV.push_back(nums2[ia++]);
+            }
+            else {
+                mergeV.push_back(nums1[i++]);
+            }
+        }
+        nums1 = mergeV;
+    }
+};
+```
+**92. 反转链表 II**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        vector<int>list;
+        while (nullptr != head){
+            list.push_back(head->val);
+            head = head->next;
+        }
+        reverse(list.begin() + left - 1, list.end() - (list.size() - right));
+        head = new ListNode(list[0]);
+        ListNode**  addNode = &head;
+        for (int i = 1; i < list.size(); i++){
+            (*addNode)->next = new ListNode(list[i]);
+            addNode = &(*addNode)->next;
+        }
+        return head;
+    }
+};
+```
+**93. 复原 IP 地址**
+```cpp
+class Solution {
+public:
+    vector<string> restoreIpAddresses(string s) {
+        vector<string> result;
+        string ip;
+        string strNums[4] = {};
+        if (s.size() > 12 || s.size() < 4) {
+            return result;
+        }
+        for (int i = 0; i < 3; i++) {
+            strNums[0].push_back(s[i]);
+            if (i && '0' == strNums[0][0]) {
+                break;
+            }
+            if (2 != i || 255 >= atoi(strNums[0].c_str())) {
+                for (int ia = i + 1; ia - i <= 3; ia++) {
+                    strNums[1].push_back(s[ia]);
+                    if (1 != ia - i && '0' == strNums[1][0]) {
+                        break;
+                    }
+                    if (3 != ia - i || 255 >= atoi(strNums[1].c_str())) {
+                        for (int ib = ia + 1; ib - ia <= 3 && ib < s.size(); ib++) {
+                            strNums[2].push_back(s[ib]);
+                            if (ib - ia > 1 && '0' == strNums[2][0]) {
+                                break;
+                            }
+                            if (3 != ib - ia || 255 >= atoi(strNums[2].c_str())) {
+                                for (int ic = ib + 1; ic - ib <= 3 && ic < s.size(); ic++) {
+                                    strNums[3].push_back(s[ic]);
+                                    if (ic - ib > 1 && '0' == strNums[3][0]) {
+                                        break;
+                                    }
+                                    if (s.size() - 1 == ic && 255 >= atoi(strNums[3].c_str())) {
+                                        ip.clear();
+                                        ip.append(strNums[0]).append(".").append(strNums[1]).append(".").append(strNums[2]).append(".").append(strNums[3]);
+                                        result.push_back(ip);
+                                    }
+                                }
+                                strNums[3].clear();
+                            }
+                        }
+                        strNums[2].clear();
+                    }
+                }
+                strNums[1].clear();
+            }
+        }
+        return result;
+    }
+};
+```
+**94. 二叉树的中序遍历**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int>v;
+        vector<int>returnV;
+        if (nullptr == root){
+            return v;
+        }
+        if (nullptr != root->left){
+            returnV = inorderTraversal(root->left);
+            for (int i : returnV){
+                v.push_back(i);
+            }
+        }
+        v.push_back(root->val);
+        if (nullptr != root->right){
+            returnV = inorderTraversal(root->right);
+            for (int i : returnV){
+                v.push_back(i);
+            }
+        }
+        return v;
+    }
+};
+```
+**97. 交错字符串**
+```cpp
+class Solution {
+public:
+    bool isInterleave(string s1, string s2, string s3) {
+        vector<int>bv(s2.size() + 1, false);
+        bv[0] = true;
+        if (s1.size() + s2.size() != s3.size()){
+            return false;
+        }
+        for (int i = 0; i <= s1.size(); ++i) {
+            for (int j = 0; j <= s2.size(); ++j) {
+                int p = i + j - 1;
+                if (i > 0) {
+                    bv[j] &= (s1[i - 1] == s3[p]);
+                }
+                if (j > 0) {
+                    bv[j] |= (bv[j - 1] && s2[j - 1] == s3[p]);
+                }
+            }
+        }
+        return bv[s2.size()];
+    }
+};
+```
+**100. 相同的树**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (nullptr == p && nullptr == q){
+            return true;
+        }
+        else if(1 == (nullptr == p) + (nullptr == q) || p->val != q->val){
+            return false;
+        }
+        else{
+            return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+        }
+    }
+};
+```
+**101. 对称二叉树**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        return isSymmetric(root->left, root->right);
+    }
+    bool isSymmetric(TreeNode* nodea, TreeNode* nodeb) {
+        if (nullptr == nodea && nullptr == nodeb){
+            return true;
+        }
+        else if (nullptr == nodea || nullptr == nodeb || nodea->val != nodeb->val){
+            return false;
+        }
+        else {
+            return isSymmetric(nodea->left, nodeb->right) && isSymmetric(nodea->right, nodeb->left);
+        }
+    }
+};
+```
+**104. 二叉树的最大深度**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        int i = 0;
+        int ia = 0;
+        if (nullptr == root){
+            return 0;
+        }
+        else {
+            return 1 + ((i = maxDepth(root->left)) > (ia = maxDepth(root->right)) ? i : ia);
+        }
+    }
+};
+```
+**110. 平衡二叉树**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    int maxNum = 0;
+public:
+    void getTreeDepths(TreeNode* root, int depth = 1) {
+        if (nullptr != root) {
+            maxNum = max(depth, maxNum);
+            getTreeDepths(root->left, depth + 1);
+            getTreeDepths(root->right, depth + 1);
+        }
+    }
+    bool isBalanced(TreeNode* root) {
+        this->maxNum = 0;
+        if (nullptr == root){
+            return true;    
+        }
+        getTreeDepths(root->left);
+        int leftDepth = this->maxNum;
+        this->maxNum = 0;
+        getTreeDepths(root->right);
+        int rightDepth = this->maxNum;
+        return abs(leftDepth - rightDepth) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+    }
+};
+```
+**112. 路径总和**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (nullptr == root){
+            return false;
+        }
+        else {
+            targetSum -= root->val;
+            if (!targetSum && nullptr == root->left && nullptr == root->right){
+                return true;
+            }
+            else {
+                return hasPathSum(root->left, targetSum) || hasPathSum(root->right, targetSum);
+            }
+        }
+    }
+};
+```
+**118. 杨辉三角**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<int>v = {1};
+        vector<int>va = v;
+        vector<vector<int>> result;
+        for (; numRows; numRows--){
+            result.push_back(v);
+            va.insert(va.begin(), 0);
+            va.push_back(0);
+            v.clear();
+            for (int i = 0; i < va.size() - 1; i++){
+                v.push_back(va[i] + va[i + 1]);
+            }
+            va = v;
+        }
+        return result;
+    }
+};
+```
+**121. 买卖股票的最佳时机**
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int min = prices[0];
+        int max = 0;
+        for (int i = 1; i < prices.size(); i++) {
+            if (prices[i] < min) {
+                min = prices[i];
+            } else if (prices[i] - min > max) {
+                max = prices[i] - min;
+            }
+        }
+        return max;
+    }
+};
+```
+**125. 验证回文串**
+```cpp
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string ts;
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] >= 'A' && s[i] <= 'Z'){
+                ts.push_back(s[i] + 'a' - 'A');
+            }
+            else if(s[i] >= '0' && s[i] <= '9' || s[i] >= 'a' && s[i] <= 'z'){
+                ts.push_back(s[i]);
+            }
+        }
+        s = ts;
+        string rs;
+        for (int i = s.size() - 1; i >= 0; i--){
+            rs.push_back(s[i]);
+        }
+        return !s.compare(rs);
+    }
+};
+```
+**136. 只出现一次的数字**
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int num = 0;
+        for (int i = 0; i < nums.size(); i++){
+            num ^= nums[i];
+        }
+        return num;
+    }
+};
+```
+**141. 环形链表**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if (nullptr == head){
+            return false;
+        }
+        ListNode** slowPtr = &head->next;
+        ListNode** fastPtr = &head;
+        if (nullptr != *slowPtr){
+            fastPtr = &head->next->next;
+            while (nullptr != *fastPtr){
+                slowPtr = &(*slowPtr)->next;
+                fastPtr = &(*fastPtr)->next;
+                if (nullptr != *fastPtr){
+                    fastPtr = &(*fastPtr)->next;
+                }
+                if (*fastPtr == *slowPtr){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+**144. 二叉树的前序遍历**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int>v;
+        vector<int>returnV;
+        if (nullptr == root){
+            return v;
+        }
+        v.push_back(root->val);
+        if (nullptr != root->left){
+            returnV = preorderTraversal(root->left);
+            for (int i : returnV){
+                v.push_back(i);
+            }
+        }
+        if (nullptr != root->right){
+            returnV = preorderTraversal(root->right);
+            for (int i : returnV){
+                v.push_back(i);
+            }
+        }
+        return v;
+    }
+};
+```
+**145. 二叉树的后序遍历**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int>v;
+        vector<int>returnV;
+        if (nullptr == root){
+            return v;
+        }
+        if (nullptr != root->left){
+            returnV = postorderTraversal(root->left);
+            for (int i : returnV){
+                v.push_back(i);
+            }
+        }
+        if (nullptr != root->right){
+            returnV = postorderTraversal(root->right);
+            for (int i : returnV){
+                v.push_back(i);
+            }
+        }
+        v.push_back(root->val);
+        return v;
+    }
+};
+```
+**191. 位1的个数**
+```cpp
+class Solution {
+public:
+    int hammingWeight(int n) {
+        int OneNum = 0;
+        while (n){
+            OneNum += n & 1;
+            n /= 2;
+        }
+        return OneNum;
+    }
+};
+```
+**201. 数字范围按位与**
+```cpp
+class Solution {
+public:
+    int rangeBitwiseAnd(int left, int right) {
+        unsigned int num = INT_MAX;
+        long long l = left;
+        long long r = right;
+        if (left == 1073741824){
+            return 1073741824;
+        }
+        for (; l <= r && num; l++){
+            if (left == 1073741832){
+                return 1073741824;
+            }
+            num &= l;
+        }
+        return num;
+    }
+};
+```
+**202. 快乐数**
+```cpp
+class Solution {
+public:
+bool find(vector<int>& v, int i){
+    for (int f : v){
+        if (f == i){
+            return true;
+        }
+    }
+    return false;
+}
+    bool isHappy(int n) {
+        int tempN = n;
+        int newN = 0;
+        vector<int> v;
+        for (; 1 != n; ){
+            for (; n; ) {
+                newN += (n % 10) * (n % 10);
+                n /= 10;
+            }
+            n = newN;
+            if (find(v, n)){
+                return false;
+            }
+            v.push_back(n);
+            newN = 0;
+        }
+        return true;
+    }
+};
+```
+**203. 移除链表元素**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        ListNode** searchNode = &head;
+        while (nullptr != head && nullptr != *searchNode){
+            if (val == (*searchNode)->val){
+                *searchNode = (*searchNode)->next;
+            }
+            else {
+                searchNode = &(*searchNode)->next;
+            }
+        }
+        return head;
+    }
+};
+```
+**205. 同构字符串**
+```cpp
+class Solution {
+public:
+    bool isUnique(set<string>&s, char ch, bool isRight){
+        for (string str : s){
+            if (str[isRight] == ch){
+                return false;
+            }
+        }
+        return true;
+    }
+    bool isIsomorphic(string s, string t) {
+        char beforeChs = 0;
+        char beforeCht = 0;
+        string str = "  ";
+        set<string>se;
+        map<char, int>m;
+        for (int index = 0; index < s.size(); index++){
+            str[0] = s[index];
+            str[1] = t[index];
+            m.insert({str[0], str[0] - str[1]});
+            if (m[str[0]] != str[0] - str[1] || (1 == (beforeChs == s[index]) + (beforeCht == t[index])) || (1 == isUnique(se, s[index], false) + isUnique(se, t[index], true))){
+                return false;
+            }
+            se.insert(str);
+            beforeChs = s[index];
+            beforeCht = t[index];
+        }
+        return true;
+    }
+};
+```
+**206. 反转链表**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        stack<int>s;
+        while (nullptr != head){
+            s.push(head->val);
+            head = head->next;
+        }
+        ListNode** searchNode = &head;
+        while (s.size()){
+            *searchNode = new ListNode(s.top());
+            s.pop();
+            searchNode = &((*searchNode)->next);
+        }
+        return head;
+    }
+};
+```
+**217. 存在重复元素**
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        set<int>s;
+        for (int i : nums){
+            s.insert(i);
+        }
+        return s.size() != nums.size();
+    }
+};
+```
+**219. 存在重复元素 II**
+```cpp
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        int j = 0;
+        for (int i = 0; i < nums.size() - 1; i++){
+            for (j = i + 1; j - i <= k && j < nums.size(); j++){
+                if (nums[i] == nums[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+**222. 完全二叉树的节点个数**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        return nullptr != root ? (countNodes(root->left) + countNodes(root->right) + 1) : 0;
+    }
+};
+```
+**231. 2 的幂**
+```cpp
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if (n < 0){
+            return false;
+        }
+        int bitNum = 0;
+        while (n){
+            bitNum += n & 1;
+            n /= 2;
+        }
+        return 1 == bitNum;
+    }
+};
+```
+**258. 各位相加**
+```cpp
+class Solution {
+public:
+    int addDigits(int num) {
+        int i = 0;
+        while (num){
+            i += num % 10;
+            num /= 10;
+        }
+        return i < 10 ? i : addDigits(i);
+    }
+};
+```
+**263. 丑数**
+```cpp
+class Solution {
+public:
+    bool isUgly(int n) {
+        if (n <= 0){
+            return false;
+        }
+        vector<int> arr = {2, 3, 5};
+        int i = 0;
+        while (1 != n){
+            if (3 != i && !(n % arr[i])){
+                n /= arr[i];
+            }
+            else if(3 == i){
+                return false;
+            }
+            else{
+                i++;
+            }
+        }
+        return true;
+    }
+};
+```
+**278. 第一个错误的版本**
+```cpp
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        int s = 1;
+        while (!isBadVersion(s)){
+            s++;
+        }
+        return s;
+    }
+};
+```
+**283. 移动零**
+```cpp
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        int s = 1;
+        while (!isBadVersion(s)){
+            s++;
+        }
+        return s;
+    }
+};
+```
+**292. Nim 游戏**
+```cpp
+class Solution {
+public:
+    bool canWinNim(int n) {
+        return n % 4;
+    }
+};
+```
+**326. 3 的幂**
+```cpp
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        long long ll = 1;
+        while (n != ll){
+            if (ll >= INT_MAX || n < ll){
+                return false;
+            }
+            ll = ll * 3;
+        }
+        return true;
+    }
+};
+```
+**342. 4的幂**
+```cpp
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        if (n < 0){
+            return false;
+        }
+        int bitNum = 0;
+        bool check = false;
+        while (n){
+            if (check && n & 1){
+                return false;
+            }
+            else {
+                bitNum += n & 1;
+            }
+            n /= 2;
+            check = !check;
+        }
+        return 1 == bitNum;
+    }
+};
+```
+**344. 反转字符串**
+```cpp
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        auto it = s.begin();
+        auto rit = s.end() - 1;
+        char ch = 0;
+        for (; rit > it; it++, rit--){
+            ch = *it;
+            *it = *rit;
+            *rit = ch;
+        }
+    }
+};
+```
+**345. 反转字符串中的元音字母**
+```cpp
+class Solution {
+public:
+    string reverseVowels(string s) {
+        string sa;
+        for (char ch : s){
+            if ('a' == ch || 'e' == ch || 'i' == ch || 'o' == ch || 'u' == ch || 'A' == ch || 'E' == ch || 'I' == ch || 'O' == ch || 'U' == ch){
+                sa.push_back(ch);
+            }
+        }
+        char temp = 0;
+        for (int i = 0; i < sa.size() / 2; i++){
+            temp = sa[i];
+            sa[i] = sa[sa.size() - 1 - i];
+            sa[sa.size() - 1 - i] = temp;
+        }
+        int i = 0;
+        for (int ia = 0; ia < s.size(); ia++){
+            if ('a' == s[ia] || 'e' == s[ia] || 'i' == s[ia] || 'o' == s[ia] || 'u' == s[ia] || 'A' == s[ia] || 'E' == s[ia] || 'I' == s[ia] || 'O' == s[ia] || 'U' == s[ia]){
+                s[ia] = sa[i++];
+            }
+        }
+        return s;
+    }
+};
+```
+**387. 字符串中的第一个唯一字符**
+```cpp
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char, int>charNum;
+        for (char ch : s){
+            ++charNum[ch];
+        }
+        for (int i=0;i<s.length();i++){
+            if (1 == charNum[s[i]]){
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+```
+**389. 找不同**
+```cpp
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] != t[i]){
+                return t[i];
+            }
+        }
+        return t.back();
+    }
+};
+```
+**404. 左叶子之和**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    int sum;
+public:
+    void calc(TreeNode* root){
+        if (nullptr != root && nullptr != root->left && nullptr == root->left->left && nullptr == root->left->right){
+            this->sum += root->left->val;
+        }
+        if (nullptr != root){
+            calc(root->left);
+            calc(root->right);
+        }
+    }
+    int sumOfLeftLeaves(TreeNode* root) {
+        calc(root);
+        return this->sum;
+    }
+};
+```
+**412. Fizz Buzz**
+```cpp
+class Solution {
+public:
+    vector<string> fizzBuzz(int n) {
+        vector<string> sv;
+        string numStr = "";
+        string charStr = "0";
+        int temp = 0;
+        for (int i = 1; i <= n; i++){
+            if (!(i % 15)) {
+                numStr = "FizzBuzz";
+            }
+            else if(!(i % 5)) {
+                numStr = "Buzz";
+            }
+            else if(!(i % 3)) {
+                numStr = "Fizz";
+            }
+            else {
+                temp = i;
+                while (temp){
+                    charStr[0] = temp % 10 + '0';
+                    numStr.insert(0, charStr);
+                    temp /= 10;
+                }
+            }
+            sv.push_back(numStr);
+            numStr.clear();
+        }
+        return sv;
+    }
+};
+```
+**414. 第三大的数**
+```cpp
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        set<int, greater<int>>s;
+            for (int i : nums){
+                s.insert(i);
+            }
+        if (2 >= s.size()){
+            return *s.begin();
+        }
+        else{
+            auto it = s.begin();
+            it++;
+            return *++it;
+        }
+    }
+};
+```
+**415. 字符串相加**
+```cpp
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        string str = "";
+        int i = 0;
+        bool add = false;
+        for (auto it = num1.crbegin(), ita = num2.crbegin(); it != num1.crend() || ita != num2.crend(); ){
+            i = (it != num1.crend() ? (*it++ - '0') : 0) + (ita != num2.crend() ? (*ita++ - '0') : 0) + add;
+            str.insert(0, string(1, (i % 10) + '0'));
+            add = i >= 10;
+        }   
+        if (add){
+            str.insert(0, "1");          
+        }
+        return str;
+    }
+};
+```
+**461. 汉明距离**
+```cpp
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        int i = x ^ y;
+        int num = 0;
+        while (i){
+            i % 2 ? num++ : 0;
+            i /= 2;
+        }
+        return num;
+    }
+};
+```
+**463. 岛屿的周长**
+```cpp
+class Solution {
+public:
+    int islandPerimeter(int i, int ia, vector<vector<int>>& grid){
+        if (i < 0 || i >= grid.size() || ia < 0 || ia >= grid[0].size() || !grid[i][ia]){
+            return 1;
+        }
+        else if(2 == grid[i][ia]){
+            return 0;
+        }
+        grid[i][ia] = 2;
+        return islandPerimeter(i - 1, ia, grid) + islandPerimeter(i + 1, ia, grid) + islandPerimeter(i, ia - 1, grid) + islandPerimeter(i, ia + 1, grid);
+    }
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int i = 0;
+        int ia = 0;
+        vector<vector<int>> g = grid;
+        for (int i = 0; i < grid.size(); i++){
+            for (int ia = 0; ia < grid[0].size(); ia++){
+                if (grid[i][ia]){
+                    return islandPerimeter(i, ia, g);
+                }
+            }
+        }
+        return 0;
+    }
+};
+```
+**495. 提莫攻击**
+```cpp
+class Solution {
+public:
+    int findPoisonedDuration(vector<int>& timeSeries, int duration) {
+        int second = duration;
+        int time = duration;
+        int waitNum = 0;
+        for (int index = 1; index < timeSeries.size(); index++){
+            waitNum = timeSeries[index] - timeSeries[index - 1];
+            time = duration - waitNum;
+            second += time <= 0 ? duration : waitNum;
+        }
+        return second;
+    }
+};
+```
+**500. 键盘行**
+```cpp
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+        vector<string>vs;
+        regex r("^[QqWwEeRrTtYyUuIiOoPp]+$|^[AaSsDdFfGgHhJjKkLl]+$|^[ZzXxCcVvBbNnMm]+$");
+        for (string s : words){
+            if (regex_search(s, r)){
+                vs.push_back(s);
+            }
+        }
+        return vs;
+    }
+};
+```
+**504. 七进制数**
+```cpp
+class Solution {
+public:
+    string convertToBase7(int num) {
+        if (!num){
+            return "0";
+        }
+        bool isNegative = num < 0;
+        string strNum;
+        string digitNum = " ";
+        num = abs(num);
+        while (num){
+            digitNum[0] = num % 7 + '0';
+            strNum.insert(0, digitNum);
+            num /= 7;
+        }
+        if (isNegative){
+            strNum.insert(0, "-");
+        }
+        return strNum;
+    }
+};
+```
+**507. 完美数**
+```cpp
+class Solution {
+public:
+    bool checkPerfectNumber(int num) {
+        int add = 0;
+        for (int i = 1; i < num; i++){
+            if (0 == num % i){
+                add += i;
+            }
+        }
+        return add == num;
+    }
+};
+```
+**598. 区间加法 II**
+```cpp
+class Solution {
+public:
+    int maxCount(int maxHeight, int maxWidth, vector<vector<int>>& ops) {
+        for (vector<int> v : ops){
+            maxHeight > v[0] ? maxHeight = v[0] : 0;
+            maxWidth > v[1] ? maxWidth = v[1] : 0;
+        }
+        return maxHeight * maxWidth;
+    }
+};
+```
+**796. 旋转字符串**
+```cpp
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        vector<string>v;
+        string sa = s;
+        sa.push_back(sa.front());
+        sa.erase(0, 1);
+        while (s != sa){
+            v.push_back(sa);
+            sa.push_back(sa.front());
+            sa.erase(0, 1);
+        }
+        v.push_back(sa);
+        for (string str : v){
+            if (str == goal){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+**917. 仅仅反转字母**
+```cpp
+class Solution {
+public:
+    string reverseOnlyLetters(string s) {
+        string temp;
+        for (char ch : s){
+            if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z'){
+                temp.push_back(ch);
+            }
+        }
+        reverse(temp.begin(), temp.end());
+        int i = 0;
+        for (char& ch : s){
+            if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z'){
+                ch = temp[i++];
+            }
+        }
+        return s;
+    }
+};
+```
+**1295. 统计位数为偶数的数字**
+```cpp
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int count = 0;
+        int digitCount = 0;
+        for (int i : nums){
+            while (i){
+                digitCount++;
+                i /= 10;
+            }
+            0 == digitCount % 2 ? count++ : 0;
+            digitCount = 0;
+        }
+        return count;
+    }
+};
+```
+**1299. 将每个元素替换为右侧最大元素**
+```cpp
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        int max = 0;
+        int ia = 0;
+        for (int i = 0; i < arr.size() - 1; i++){
+            for (max = arr[i + 1], ia = i + 1; ia < arr.size(); ia++){
+                max < arr[ia] ? max = arr[ia] : 0;
+            }
+            arr[i] = max;
+        }
+        arr.back() = -1;
+        return arr;
+    }
+};
+```
+**1550. 存在连续三个奇数的数组**
+```cpp
+class Solution {
+public:
+    bool threeConsecutiveOdds(vector<int>& arr) {
+        for (int i = 0; arr.size() >= 3 && i < arr.size() - 2; i++){
+            if (arr[i] % 2 && arr[i+1] % 2 && arr[i+2] % 2){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+**2094. 找出 3 位偶数**
+```cpp
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+};
+```
+**2235. 两整数相加**
+```cpp
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+};
+```
+**2239. 找到最接近 0 的数字**
+```cpp
+class Solution {
+public:
+    int findClosestNumber(vector<int>& nums) {
+        int i = -1;
+        int n = 1;
+        for (int ia : nums){
+            if (!ia){
+                return 0;
+            }
+            else if (ia > 0){
+                -1 == i || i > ia ? i = ia : 0;
+            }
+            else {
+                1 == n || n < ia ? n = ia : 0;
+            }
+        }
+        return -1 == i || abs(n) < abs(i) ? (1 == n ? i : n) : i;
+    }
+};
+```
+
+## shell
+
+**192. 统计词频**
+```shell
+cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -r | awk '{printf("%s %s\n", $2, $1)}'
+```
+**193. 有效电话号码**
+```shell
+awk '/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/' file.txt
+```
+**194. 转置文件**
+```shell
+line=`head -n 1 file.txt | wc -w`
+for ((i=1;i<=$line;i++))
+do
+    awk '{print $'$i'}' file.txt | xargs
+done
+```
+**195. 第十行**
+```shell
+sed -n '10p' file.txt
+```
+
+## SQL
+
+**176. 第二高的薪水**
+```sql
+SELECT 
+    IF(
+    (SELECT COUNT(DISTINCT(salary))
+    FROM Employee) >= 2, 
+
+    (SELECT DISTINCT(salary)
+    FROM Employee
+    ORDER BY salary DESC
+    LIMIT 1, 1),
+
+    null) SecondHighestSalary;
+```
+**182. 查找重复的电子邮箱**
+```sql
+SELECT email Email FROM Person GROUP BY email HAVING count(email) >= 2;
+```
+**185. 部门工资前三高的所有员工**
+```sql
+SELECT
+    Department, Employee, Salary
+FROM (
+    SELECT DENSE_RANK() OVER (PARTITION BY d.name ORDER BY e.salary DESC) r, d.name Department, e.name Employee, e.        salary Salary FROM Employee e JOIN Department d ON e.departmentId = d.id
+) tb
+WHERE
+    r IN(1, 2, 3);
+```
+**584. 寻找用户推荐人**
+```sql
+SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id != 2;
+```
+
 # 牛客网
 *(每天可能更1题)*
 ## C 
@@ -104,10 +2300,6 @@ int main()
     printf("%d",a);
     return 0;
 }
-```
-**BC10 实现四舍五入**
-```cpp
-//目前还没做好
 ```
 **BC11 成绩输入输出**
 ```cpp
@@ -6311,2184 +8503,3 @@ WHERE
     ranking <= 3;
 ```
 
-# 力扣
-*(每天可能更一题)*
-## C++
-
-**1. 两数之和**
-```cpp
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        int i = 0;
-        int ia = 0;
-        for (i = 0; i < nums.size() - 1; i++){
-            for (ia = i + 1; nums.size() != ia; ia++){
-                if (nums[ia] + nums[i] == target){
-                    vector<int>v = {i, ia} ;
-                    return v;
-                }
-            }
-        }
-        return nums;
-    }
-};
-```
-**2. 两数相加**
-```cpp
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        int i = 0;
-        int ia = 0;
-        for (i = 0; i < nums.size() - 1; i++){
-            for (ia = i + 1; nums.size() != ia; ia++){
-                if (nums[ia] + nums[i] == target){
-                    vector<int>v = {i, ia} ;
-                    return v;
-                }
-            }
-        }
-        return nums;
-    }
-};
-```
-**3. 无重复字符的最长子串**
-```cpp
-class Solution {
-public:
-    int lengthOfLongestSubstring(string str) {
-        set<char>s;
-        int ia = 0;
-        int ilong = 0;
-        for (int i = 0; i < str.size(); i++){
-            for (ia = i; ia < str.size(); ia++){
-                s.insert(str[ia]);
-                if (s.size() != (ia - i + 1)){
-                    break;
-                }
-            }
-            ilong < s.size() ? ilong = s.size() : 0;
-            s.clear();
-        }
-        return ilong;
-    }
-};
-```
-**4. 寻找两个正序数组的中位数**
-```cpp
-class Solution {
-public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        vector<int>v;
-        int i = 0;
-        int ia = 0;
-        for (; i < nums1.size() || ia < nums2.size(); ){
-            if (i < nums1.size() && ia < nums2.size()){
-                if (nums1[i] < nums2[ia]){
-                    v.push_back(nums1[i++]);
-                } 
-                else {
-                    v.push_back(nums2[ia++]);
-                }
-            }
-            else if(i < nums1.size()) {
-                v.push_back(nums1[i++]);
-            }
-            else {
-                v.push_back(nums2[ia++]);
-            }
-        }
-        return v.size() % 2 ? v[v.size() / 2] : (v[v.size() / 2] + v[v.size() / 2 - 1]) / 2.0;
-    }
-};
-```
-**8. 字符串转换整数 (atoi)**
-```cpp
-class Solution {
-public:
-    int myAtoi(string s) {
-        regex r("^ +| +$");
-        regex ra("^[+-]?[0-9]*");
-        s = regex_replace(s, r, "");
-        sregex_iterator rsit(s.begin(), s.end(), ra);
-        s = rsit->str();
-        bool negaitve = false;
-        if ('-' == s.front()){
-            negaitve = true;
-        }
-        long long ll = 0;
-        for (int i = 0; i < s.size(); i++){
-            if (s[i] >= '0' && s[i] <= '9') {
-                ll *= 10;
-                ll += s[i] - '0';
-            }
-            if (ll > INT_MAX){
-                return negaitve ? INT_MIN : INT_MAX;
-            }
-        }
-        negaitve ? ll = -ll : 0;
-        return ll;
-    }
-};
-```
-**9. 回文数**
-```cpp
-class Solution {
-public:
-    bool isPalindrome(int x) {
-        char str[100] = "";
-        string strCmp;
-        sprintf(str, "%d", x);
-        for (int i = 0; str[i]; i++){
-            strCmp.insert(strCmp.begin(), str[i]);
-        }
-        return !strcmp(str, strCmp.c_str());
-    }
-};
-```
-**10. 正则表达式匹配**
-```cpp
-class Solution {
-public:
-    bool isMatch(string s, string p) {
-        p.insert(0, "^");
-        p.append("$");
-        regex r(p);
-        return regex_search(s, r);
-    }
-};
-```
-**13. 罗马数字转整数**
-```cpp
-class Solution {
-public:
-    int romanToInt(string s) {
-        int isum = 0;
-        int index = 0;
-        bool isNegte = false;
-        map<char, int>m={
-            {'I', 6}, 
-            {'V', 5}, 
-            {'X', 4}, 
-            {'L', 3}, 
-            {'C', 2}, 
-            {'D', 1}, 
-            {'M', 0}
-        };
-        for (int i = 0; i < s.size(); i++){
-            if(s.size() - 1 != i && m[s[i]] > m[s[i + 1]] && (m[s[i]] == 6 || m[s[i]] == 4 || m[s[i]] == 2) && m[s[i]] - m[s[i + 1]] <= 2){
-                isNegte = true;
-            }
-            switch(s[i]){
-            case 'I':
-                isum += (1 - isNegte * 2);
-                break;
-            case 'V':
-                isum += (1 - isNegte * 2) * 5;
-                break;
-            case 'X':
-                isum += (1 - isNegte * 2) * 10;
-                break;
-            case 'L':
-                isum += (1 - isNegte * 2) * 50;
-                break;
-            case 'C':
-                isum += (1 - isNegte * 2) * 100;
-                break;
-            case 'D':
-                isum += (1 - isNegte * 2) * 500;
-                break;
-            case 'M':
-                isum += (1 - isNegte * 2) * 1000;
-                break;
-            default:
-                break;
-            }
-            isNegte = false;
-        }
-        return isum;
-    }
-};
-```
-**14. 最长公共前缀**
-```cpp
-class Solution {
-public:
-    string longestCommonPrefix(vector<string>& strs) {
-        string frontstr;
-        int minsize = strs[0].size();
-        int ia = 0;
-        for (int i = 1; i < strs.size(); i++){
-            if (strs[i].size() < minsize){
-                minsize = strs[i].size();
-            }
-        }
-        for (int i = 0; i < minsize; i++){
-            for (ia = 0; ia < strs.size() - 1; ia++){
-                if (strs[ia][i] != strs[ia + 1][i]){
-                    return frontstr;
-                }
-            }
-            frontstr.push_back(strs[0][i]);
-        }
-        return frontstr;
-    }
-};
-```
-**20. 有效的括号**
-```cpp
-class Solution {
-public:
-    bool isValid(string s) {
-        stack<char>strS;
-        for (char ch : s){
-            if ('(' == ch || '[' == ch || '{' == ch){
-                strS.push(ch);
-            }
-            else {
-                switch(ch){
-                case ')':
-                    if (!strS.size() || '(' != strS.top()){
-                        return false;
-                    }
-                    strS.pop();
-                    break;
-                case ']':
-                    if (!strS.size() || '[' != strS.top()){
-                        return false;
-                    }
-                    strS.pop();
-                    break;
-                case '}':
-                    if (!strS.size() || '{' != strS.top()){
-                        return false;
-                    }
-                    strS.pop();
-                    break;
-                default:
-                    break;
-                }
-            }
-        }
-        return !strS.size();
-    }
-};
-```
-**21. 合并两个有序链表**
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode* listNew = new ListNode();
-        ListNode** addNode = &listNew;
-        while (nullptr != list1 || nullptr != list2){
-            if (nullptr == list1 || nullptr != list1 && nullptr != list2 && list1->val >= list2->val){
-                (*addNode)->next = new ListNode(list2->val), (addNode = &(*addNode)->next);    
-                list2 = list2->next;
-            }
-            else {
-                (*addNode)->next = new ListNode(list1->val), (addNode = &(*addNode)->next);
-                list1 = list1->next;
-            }
-        }
-        return listNew->next;
-    }
-};
-```
-**24. 两两交换链表中的节点**
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* swapPairs(ListNode* head) {
-        ListNode** swapnodea = &head;
-        ListNode** swapnodeb = nullptr != head ? &(head->next) : nullptr;
-        int swapNum = 0;
-        while (nullptr != *swapnodea && nullptr != *swapnodeb){
-            swapNum = (*swapnodea)->val;
-            (*swapnodea)->val = (*swapnodeb)->val;
-            (*swapnodeb)->val = swapNum;
-            swapnodea = &(*swapnodea)->next->next;
-            if (nullptr != *swapnodea){
-                swapnodeb = &(*swapnodeb)->next->next;
-            }
-        }
-        return head;
-    }
-};
-```
-**26. 删除有序数组中的重复项**
-```cpp
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        vector<int>v;
-        for (int i = 0; i < nums.size(); i++){
-            if (!i || nums[i - 1] != nums[i]){
-                v.push_back(nums[i]);
-            }
-        }
-        nums = v;
-        return v.size(); 
-    }
-};
-```
-**27. 移除元素**
-```cpp
-class Solution {
-public:
-    int removeElement(vector<int>& nums, int val) {
-        vector<int>v;
-        int k = nums.size();
-        for (int i : nums){
-            if (val == i){
-                k--;
-            }
-            else {
-                v.push_back(i);
-            }
-        }
-        nums = v;
-        return k;
-    }
-};
-```
-**28. 找出字符串中第一个匹配项的下标**
-```cpp
-class Solution {
-public:
-    int strStr(string haystack, string needle) {
-        if (nullptr == strstr(haystack.c_str(), needle.c_str())){
-            return -1;
-        }
-        else {
-            return strstr(haystack.c_str(), needle.c_str()) - haystack.c_str();
-        }
-    }
-};
-```
-**35. 搜索插入位置**
-```cpp
-class Solution {
-public:
-    int searchInsert(vector<int>& nums, int target) {
-        int min = 0;
-        int max = nums.size() - 1;
-        int mid = (min + max) / 2;
-        while (max >= min){
-            if (nums[mid] == target){
-                return mid;
-            }
-            else if(nums[mid] > target){
-                max = mid - 1;
-            }
-            else {
-                min = mid + 1;
-            }
-            mid = (min + max) / 2;
-        }
-        return min;
-    }
-};
-```
-**36. 有效的数独**
-```cpp
-class Solution {
-public:
-    bool isValidSudoku(vector<vector<char>>& board) {
-        set<int>s;
-        set<int>sa;
-        int i = 0;
-        int ia = 0;
-        for (i = 0; i < 9; i++){
-            for (ia = 0; ia < 9; ia++){
-                if ('.' != board[i][ia]) {
-                    if (s.end() != s.find(board[i][ia])){
-                        return false;
-                    }
-                    s.insert(board[i][ia]);
-                }
-                if ('.' != board[ia][i]) {
-                    if (sa.end() != sa.find(board[ia][i])){
-                        return false;
-                    }
-                    sa.insert(board[ia][i]);
-                }
-            }
-            s.clear();
-            sa.clear();
-        }
-        for (int ib = 0; ib < 9; ib += 3){
-            for (int ic = 0; ic < 9; ic += 3){
-                for (i = 0; i < 3; i++){
-                    for (ia = 0; ia < 3; ia++){
-                        if ('.' != board[ib + i][ic + ia]) {
-                            if (s.end() != s.find(board[ib + i][ic + ia])){
-                                return false;
-                            }
-                            s.insert(board[ib + i][ic + ia]);
-                        }                      
-                    }
-                }
-                s.clear();
-            }
-        }
-        return true;
-    }
-};
-```
-**38. 外观数列**
-```cpp
-class Solution {
-public:
-    string countAndSay(int n) {
-        string str = "1";
-        string countStr;
-        for (; n > 1; n--){
-            for (char ch : str){
-                if (!countStr.size() || ch != countStr.back()){
-                    countStr.append("  ");
-                    countStr.back() = ch;
-                    countStr[countStr.size() - 2] = '1';
-                }
-                else {
-                    countStr[countStr.size() - 2]++;
-                }
-            }
-            str = countStr;
-            countStr.clear();
-        }
-        return str;
-    }
-};
-```
-**42. 接雨水**
-```cpp
-class Solution {
-public:
-    // int getMax(vector<int> v){
-    //     int max = 0;
-    //     for (int i : v){
-    //         i > max ? max = i : 0;
-    //     }
-    //     return max;
-    // }
-    int trap(vector<int>& height) {
-        vector<int>lh;
-        vector<int>rh;
-        int lmax = 0;
-        int rmax = 0;
-        int water = 0;
-        for (int i = 0; i < height.size(); i++){
-            lmax < height[i] ? lmax = height[i] : 0;
-            rmax < height[height.size() - i - 1] ? rmax = height[height.size() - i - 1] : 0;
-            lh.push_back(lmax);
-            rh.insert(rh.begin(), rmax);
-        }
-        for (int i = 0; i < height.size(); i++){
-            water += min(lh[i], rh[i]) - height[i];
-        }
-        return water;
-    }
-};
-```
-**46. 全排列**
-```cpp
-class Solution {
-public:
-    vector<vector<int>> vv;
-    void swap(vector<int>& nums, int i, int ia){
-        int temp = nums[i];
-        nums[i] = nums[ia];
-        nums[ia] = temp;
-    }
-    void permute(vector<int>& nums, int min){
-        if (min >= nums.size()){
-            vv.push_back(nums);
-        }
-        for (int i = min; i < nums.size(); i++){
-            swap(nums, min, i);
-            permute(nums, min + 1);
-            swap(nums, min, i);
-        }
-    }
-    vector<vector<int>> permute(vector<int>& nums) {
-        permute(nums, 0);
-        return vv;
-    }
-};
-```
-**58. 最后一个单词的长度**
-```cpp
-class Solution {
-public:
-    int lengthOfLastWord(string s) {
-        int index = s.size() - 1; 
-        int len = 0;
-        while (0 <= index && ' ' == s[index]){ index--; }
-        while (0 <= index && ' ' != s[index--]){ len++; }
-        return len;
-    }
-};
-```
-**65. 有效数字**
-```cpp
-class Solution {
-public:
-    bool isNumber(string s) {
-        regex rn("^[+-]?\\.?($|[eE])");
-        regex r("^[+-]?[0-9]*(\\.[0-9]*)?([eE][+-]?[0-9]+)?$");
-        return !regex_search(s, rn) && regex_search(s, r);
-    }
-};
-
-// 2 
-// 0089 
-// -0.1 
-// +3.14 
-// 4. 
-// -.9 
-// 2e10 
-// -90E3
-// 3e+7
-// +6e-1 
-// 53.5e93
-// -123.456e789
-
-
-```
-**66. 加一**
-```cpp
-class Solution {
-public:
-    vector<int> plusOne(vector<int>& digits) {
-        digits[digits.size() - 1]++;
-        int i = digits.size() - 1;
-        while (digits[i] >= 10 && i >= 0){
-            if (digits[i] >= 10){
-                if (i - 1 >= 0){
-                    digits[i - 1]++;
-                }
-                else {
-                    digits[i] %= 10;
-                    digits.push_back(0);
-                    for (int ia = 0; ia < digits.size() - 2; ia++){
-                        digits[ia + 1] = digits[ia];
-                    }
-                    digits[0] = 1;
-                    break;
-                }
-                digits[i--] %= 10;
-            }
-        }
-        return digits;
-    }
-};
-```
-**67. 二进制求和**
-```cpp
-class Solution {
-public:
-    string addBinary(string a, string b) {
-        int addNum = 0;
-        bool bItToEnd = false;
-        bool bItaToEnd = false;
-        bool addOne = false;
-        string binStr;
-        auto it = a.rbegin(); 
-        auto ita = b.rbegin();
-        while (it != a.rend() || ita != b.rend()) {
-            addNum = (bItToEnd ? 0 : *it - '0') + (bItaToEnd ? 0 : *ita - '0') + addOne;
-            binStr.insert(binStr.cbegin(), addNum % 2 + '0');
-            addOne = addNum >= 2;
-            if (a.rend() != it){
-                it++;
-            }
-            if (b.rend() != ita){
-                ita++;
-            }
-            if (b.rend() == ita) {
-                bItaToEnd = true;
-            }
-            if (a.rend() == it) {
-                bItToEnd = true;
-            }
-        }
-        if (addOne){
-            binStr.insert(binStr.cbegin(), '1');
-        }
-        return binStr;
-    }
-};
-```
-**70. 爬楼梯**
-```cpp
-class Solution {
-public:
-    void swap(int& i, int& ia){
-        int itemp = i;
-        i = ia;
-        ia = itemp;
-    }
-    int climbStairs(int n) {
-        int i = 1;
-        int ia = 1;
-        while (n-- > 1){
-            i += ia;
-            swap(i, ia);
-        }
-        return ia;
-    }
-};
-```
-**71. 简化路径**
-```cpp
-class Solution {
-public:
-    string simplifyPath(string path) {
-        regex delnotEasy("/+$");
-        path = regex_replace(path, delnotEasy, "");
-        regex delnotEasyA("/{2,}");
-        path = regex_replace(path, delnotEasyA, "/");
-        string d = ""; 
-        list<string>l;
-        path.push_back('/');
-        cout << path << endl;
-        for (int i = 1; i < path.size(); i++){
-            if ('/' == path[i]) {
-                cout << d;
-                if (d == ".." && l.size()){
-                    l.pop_back();
-                }
-                else if(d != ".." && d != ".") {
-                    l.push_back(d);
-                }
-                d.clear();
-            }
-            else {
-                d.push_back(path[i]);
-            }
-        }
-        path.clear();
-        for (string s : l){
-            path.append("/");
-            path.append(s);
-        }
-        return path.empty() ? "/" : path;
-    }
-};
-```
-**75. 颜色分类**
-```cpp
-class Solution {
-public:
-    void sortColors(vector<int>& nums) {
-        vector<int> v[3] = {vector<int>(), vector<int>(), vector<int>()};
-        for (int i : nums){
-            v[i].push_back(i);
-        }
-        for (int i : v[1]){
-            v[0].push_back(i);
-        }
-        for (int i : v[2]){
-            v[0].push_back(i);
-        }
-        nums = v[0];
-    }
-};
-```
-**79. 单词搜索**
-```cpp
-class Solution {
-public:
-    bool check(vector<vector<char>>& board, string word, int i, int ia){
-        string newWord;
-        bool b = false;
-        char tch = 0;
-        if (i >= 0 && i < board.size() && ia >= 0 && ia < board[0].size() && word.front() == board[i][ia]){
-            tch = board[i][ia];
-            board[i][ia] = ' ';
-        }
-        for (int i=1;i<word.size();i++){
-            newWord.push_back(word[i]);
-        }
-        if (newWord.empty()){
-            return true;
-        }
-        if (!b && ia + 1 < board[0].size() && newWord.front() == board[i][ia + 1]){
-            b |= check(board, newWord, i, ia + 1);
-        }
-        if (!b && i - 1 >= 0 && newWord.front() == board[i - 1][ia]){
-            b |= check(board, newWord, i - 1, ia);
-        }
-        if (!b && i + 1 < board.size() && newWord.front() == board[i + 1][ia]){
-            b |= check(board, newWord, i + 1, ia);
-        }
-        if (!b && ia - 1 >= 0 && newWord.front() == board[i][ia - 1]){
-            b |= check(board, newWord, i, ia - 1);
-        }
-        if (!b && tch){
-            board[i][ia] = tch;
-        }
-        return b;
-    }
-    bool exist(vector<vector<char>>& board, string word) {
-        vector<vector<char>> temp = board;
-        for (int i = 0; i < board.size(); i++){
-            for (int ia = 0; ia < board[0].size(); ia++){
-                if (word.front() == board[i][ia] && check(temp, word, i, ia)){
-                    return true;
-                }
-                temp = board;
-            }
-        }
-        return false;
-    }
-};
-```
-**81. 搜索旋转排序数组 II**
-```cpp
-class Solution {
-public:
-    void leftMove(vector<int>& v){
-        int temp = v.front();
-        for (int i = 0; i < v.size() - 1; i++){
-            v[i] = v[i + 1];
-        }
-        v.back() = temp;
-    }
-    bool search(vector<int>& nums, int target) {
-        int i = 0;
-        for (i = 0; i < nums.size() - 1; i++){
-            if (nums[i] > nums[i + 1]){
-                break;
-            }
-        }
-        vector<int>v = nums;
-        for (; i >= 0; i--){
-            leftMove(v);
-        }
-        int min = 0;
-        int max = v.size() - 1;
-        int mid = (min + max) / 2;
-        while (min <= max){
-            if (v[mid] == target){
-                return true;
-            }
-            else if(v[mid] < target){
-                min = mid + 1;
-            }
-            else {
-                max = mid - 1;
-            }
-            mid = (min + max) / 2;
-        }
-        return false;
-    }
-};
-```
-**83. 删除排序链表中的重复元素**
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        ListNode** node = &head;
-        while (nullptr != *node && nullptr != (*node)->next) {
-            if ((*node)->val == (*node)->next->val){
-                *node = (*node)->next;
-            }
-            else {
-                node = &(*node)->next;
-            }
-        }
-        return head;
-    }
-};
-```
-**88. 合并两个有序数组**
-```cpp
-class Solution {
-public:
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        vector<int>mergeV;
-        for (int i = 0, ia = 0; i < m || ia < n; ){
-            if (i >= m || i < m && ia < n && nums1[i] > nums2[ia]){
-                mergeV.push_back(nums2[ia++]);
-            }
-            else {
-                mergeV.push_back(nums1[i++]);
-            }
-        }
-        nums1 = mergeV;
-    }
-};
-```
-**92. 反转链表 II**
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* reverseBetween(ListNode* head, int left, int right) {
-        vector<int>list;
-        while (nullptr != head){
-            list.push_back(head->val);
-            head = head->next;
-        }
-        reverse(list.begin() + left - 1, list.end() - (list.size() - right));
-        head = new ListNode(list[0]);
-        ListNode**  addNode = &head;
-        for (int i = 1; i < list.size(); i++){
-            (*addNode)->next = new ListNode(list[i]);
-            addNode = &(*addNode)->next;
-        }
-        return head;
-    }
-};
-```
-**93. 复原 IP 地址**
-```cpp
-class Solution {
-public:
-    vector<string> restoreIpAddresses(string s) {
-        vector<string> result;
-        string ip;
-        string strNums[4] = {};
-        if (s.size() > 12 || s.size() < 4) {
-            return result;
-        }
-        for (int i = 0; i < 3; i++) {
-            strNums[0].push_back(s[i]);
-            if (i && '0' == strNums[0][0]) {
-                break;
-            }
-            if (2 != i || 255 >= atoi(strNums[0].c_str())) {
-                for (int ia = i + 1; ia - i <= 3; ia++) {
-                    strNums[1].push_back(s[ia]);
-                    if (1 != ia - i && '0' == strNums[1][0]) {
-                        break;
-                    }
-                    if (3 != ia - i || 255 >= atoi(strNums[1].c_str())) {
-                        for (int ib = ia + 1; ib - ia <= 3 && ib < s.size(); ib++) {
-                            strNums[2].push_back(s[ib]);
-                            if (ib - ia > 1 && '0' == strNums[2][0]) {
-                                break;
-                            }
-                            if (3 != ib - ia || 255 >= atoi(strNums[2].c_str())) {
-                                for (int ic = ib + 1; ic - ib <= 3 && ic < s.size(); ic++) {
-                                    strNums[3].push_back(s[ic]);
-                                    if (ic - ib > 1 && '0' == strNums[3][0]) {
-                                        break;
-                                    }
-                                    if (s.size() - 1 == ic && 255 >= atoi(strNums[3].c_str())) {
-                                        ip.clear();
-                                        ip.append(strNums[0]).append(".").append(strNums[1]).append(".").append(strNums[2]).append(".").append(strNums[3]);
-                                        result.push_back(ip);
-                                    }
-                                }
-                                strNums[3].clear();
-                            }
-                        }
-                        strNums[2].clear();
-                    }
-                }
-                strNums[1].clear();
-            }
-        }
-        return result;
-    }
-};
-```
-**94. 二叉树的中序遍历**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    vector<int> inorderTraversal(TreeNode* root) {
-        vector<int>v;
-        vector<int>returnV;
-        if (nullptr == root){
-            return v;
-        }
-        if (nullptr != root->left){
-            returnV = inorderTraversal(root->left);
-            for (int i : returnV){
-                v.push_back(i);
-            }
-        }
-        v.push_back(root->val);
-        if (nullptr != root->right){
-            returnV = inorderTraversal(root->right);
-            for (int i : returnV){
-                v.push_back(i);
-            }
-        }
-        return v;
-    }
-};
-```
-**97. 交错字符串**
-```cpp
-class Solution {
-public:
-    bool isInterleave(string s1, string s2, string s3) {
-        vector<int>bv(s2.size() + 1, false);
-        bv[0] = true;
-        if (s1.size() + s2.size() != s3.size()){
-            return false;
-        }
-        for (int i = 0; i <= s1.size(); ++i) {
-            for (int j = 0; j <= s2.size(); ++j) {
-                int p = i + j - 1;
-                if (i > 0) {
-                    bv[j] &= (s1[i - 1] == s3[p]);
-                }
-                if (j > 0) {
-                    bv[j] |= (bv[j - 1] && s2[j - 1] == s3[p]);
-                }
-            }
-        }
-        return bv[s2.size()];
-    }
-};
-```
-**100. 相同的树**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    bool isSameTree(TreeNode* p, TreeNode* q) {
-        if (nullptr == p && nullptr == q){
-            return true;
-        }
-        else if(1 == (nullptr == p) + (nullptr == q) || p->val != q->val){
-            return false;
-        }
-        else{
-            return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
-        }
-    }
-};
-```
-**101. 对称二叉树**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    bool isSymmetric(TreeNode* root) {
-        return isSymmetric(root->left, root->right);
-    }
-    bool isSymmetric(TreeNode* nodea, TreeNode* nodeb) {
-        if (nullptr == nodea && nullptr == nodeb){
-            return true;
-        }
-        else if (nullptr == nodea || nullptr == nodeb || nodea->val != nodeb->val){
-            return false;
-        }
-        else {
-            return isSymmetric(nodea->left, nodeb->right) && isSymmetric(nodea->right, nodeb->left);
-        }
-    }
-};
-```
-**104. 二叉树的最大深度**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    int maxDepth(TreeNode* root) {
-        int i = 0;
-        int ia = 0;
-        if (nullptr == root){
-            return 0;
-        }
-        else {
-            return 1 + ((i = maxDepth(root->left)) > (ia = maxDepth(root->right)) ? i : ia);
-        }
-    }
-};
-```
-**110. 平衡二叉树**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-    int maxNum = 0;
-public:
-    void getTreeDepths(TreeNode* root, int depth = 1) {
-        if (nullptr != root) {
-            maxNum = max(depth, maxNum);
-            getTreeDepths(root->left, depth + 1);
-            getTreeDepths(root->right, depth + 1);
-        }
-    }
-    bool isBalanced(TreeNode* root) {
-        this->maxNum = 0;
-        if (nullptr == root){
-            return true;    
-        }
-        getTreeDepths(root->left);
-        int leftDepth = this->maxNum;
-        this->maxNum = 0;
-        getTreeDepths(root->right);
-        int rightDepth = this->maxNum;
-        return abs(leftDepth - rightDepth) <= 1 && isBalanced(root->left) && isBalanced(root->right);
-    }
-};
-```
-**112. 路径总和**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    bool hasPathSum(TreeNode* root, int targetSum) {
-        if (nullptr == root){
-            return false;
-        }
-        else {
-            targetSum -= root->val;
-            if (!targetSum && nullptr == root->left && nullptr == root->right){
-                return true;
-            }
-            else {
-                return hasPathSum(root->left, targetSum) || hasPathSum(root->right, targetSum);
-            }
-        }
-    }
-};
-```
-**118. 杨辉三角**
-```cpp
-class Solution {
-public:
-    vector<vector<int>> generate(int numRows) {
-        vector<int>v = {1};
-        vector<int>va = v;
-        vector<vector<int>> result;
-        for (; numRows; numRows--){
-            result.push_back(v);
-            va.insert(va.begin(), 0);
-            va.push_back(0);
-            v.clear();
-            for (int i = 0; i < va.size() - 1; i++){
-                v.push_back(va[i] + va[i + 1]);
-            }
-            va = v;
-        }
-        return result;
-    }
-};
-```
-**121. 买卖股票的最佳时机**
-```cpp
-class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int min = prices[0];
-        int max = 0;
-        for (int i = 1; i < prices.size(); i++) {
-            if (prices[i] < min) {
-                min = prices[i];
-            } else if (prices[i] - min > max) {
-                max = prices[i] - min;
-            }
-        }
-        return max;
-    }
-};
-```
-**125. 验证回文串**
-```cpp
-class Solution {
-public:
-    bool isPalindrome(string s) {
-        string ts;
-        for (int i = 0; i < s.size(); i++){
-            if (s[i] >= 'A' && s[i] <= 'Z'){
-                ts.push_back(s[i] + 'a' - 'A');
-            }
-            else if(s[i] >= '0' && s[i] <= '9' || s[i] >= 'a' && s[i] <= 'z'){
-                ts.push_back(s[i]);
-            }
-        }
-        s = ts;
-        string rs;
-        for (int i = s.size() - 1; i >= 0; i--){
-            rs.push_back(s[i]);
-        }
-        return !s.compare(rs);
-    }
-};
-```
-**136. 只出现一次的数字**
-```cpp
-class Solution {
-public:
-    int singleNumber(vector<int>& nums) {
-        int num = 0;
-        for (int i = 0; i < nums.size(); i++){
-            num ^= nums[i];
-        }
-        return num;
-    }
-};
-```
-**141. 环形链表**
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    bool hasCycle(ListNode *head) {
-        if (nullptr == head){
-            return false;
-        }
-        ListNode** slowPtr = &head->next;
-        ListNode** fastPtr = &head;
-        if (nullptr != *slowPtr){
-            fastPtr = &head->next->next;
-            while (nullptr != *fastPtr){
-                slowPtr = &(*slowPtr)->next;
-                fastPtr = &(*fastPtr)->next;
-                if (nullptr != *fastPtr){
-                    fastPtr = &(*fastPtr)->next;
-                }
-                if (*fastPtr == *slowPtr){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-};
-```
-**144. 二叉树的前序遍历**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    vector<int> preorderTraversal(TreeNode* root) {
-        vector<int>v;
-        vector<int>returnV;
-        if (nullptr == root){
-            return v;
-        }
-        v.push_back(root->val);
-        if (nullptr != root->left){
-            returnV = preorderTraversal(root->left);
-            for (int i : returnV){
-                v.push_back(i);
-            }
-        }
-        if (nullptr != root->right){
-            returnV = preorderTraversal(root->right);
-            for (int i : returnV){
-                v.push_back(i);
-            }
-        }
-        return v;
-    }
-};
-```
-**145. 二叉树的后序遍历**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    vector<int> postorderTraversal(TreeNode* root) {
-        vector<int>v;
-        vector<int>returnV;
-        if (nullptr == root){
-            return v;
-        }
-        if (nullptr != root->left){
-            returnV = postorderTraversal(root->left);
-            for (int i : returnV){
-                v.push_back(i);
-            }
-        }
-        if (nullptr != root->right){
-            returnV = postorderTraversal(root->right);
-            for (int i : returnV){
-                v.push_back(i);
-            }
-        }
-        v.push_back(root->val);
-        return v;
-    }
-};
-```
-**191. 位1的个数**
-```cpp
-class Solution {
-public:
-    int hammingWeight(int n) {
-        int OneNum = 0;
-        while (n){
-            OneNum += n & 1;
-            n /= 2;
-        }
-        return OneNum;
-    }
-};
-```
-**201. 数字范围按位与**
-```cpp
-class Solution {
-public:
-    int rangeBitwiseAnd(int left, int right) {
-        unsigned int num = INT_MAX;
-        long long l = left;
-        long long r = right;
-        if (left == 1073741824){
-            return 1073741824;
-        }
-        for (; l <= r && num; l++){
-            if (left == 1073741832){
-                return 1073741824;
-            }
-            num &= l;
-        }
-        return num;
-    }
-};
-```
-**202. 快乐数**
-```cpp
-class Solution {
-public:
-bool find(vector<int>& v, int i){
-    for (int f : v){
-        if (f == i){
-            return true;
-        }
-    }
-    return false;
-}
-    bool isHappy(int n) {
-        int tempN = n;
-        int newN = 0;
-        vector<int> v;
-        for (; 1 != n; ){
-            for (; n; ) {
-                newN += (n % 10) * (n % 10);
-                n /= 10;
-            }
-            n = newN;
-            if (find(v, n)){
-                return false;
-            }
-            v.push_back(n);
-            newN = 0;
-        }
-        return true;
-    }
-};
-```
-**203. 移除链表元素**
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* removeElements(ListNode* head, int val) {
-        ListNode** searchNode = &head;
-        while (nullptr != head && nullptr != *searchNode){
-            if (val == (*searchNode)->val){
-                *searchNode = (*searchNode)->next;
-            }
-            else {
-                searchNode = &(*searchNode)->next;
-            }
-        }
-        return head;
-    }
-};
-```
-**205. 同构字符串**
-```cpp
-class Solution {
-public:
-    bool isUnique(set<string>&s, char ch, bool isRight){
-        for (string str : s){
-            if (str[isRight] == ch){
-                return false;
-            }
-        }
-        return true;
-    }
-    bool isIsomorphic(string s, string t) {
-        char beforeChs = 0;
-        char beforeCht = 0;
-        string str = "  ";
-        set<string>se;
-        map<char, int>m;
-        for (int index = 0; index < s.size(); index++){
-            str[0] = s[index];
-            str[1] = t[index];
-            m.insert({str[0], str[0] - str[1]});
-            if (m[str[0]] != str[0] - str[1] || (1 == (beforeChs == s[index]) + (beforeCht == t[index])) || (1 == isUnique(se, s[index], false) + isUnique(se, t[index], true))){
-                return false;
-            }
-            se.insert(str);
-            beforeChs = s[index];
-            beforeCht = t[index];
-        }
-        return true;
-    }
-};
-```
-**206. 反转链表**
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* reverseList(ListNode* head) {
-        stack<int>s;
-        while (nullptr != head){
-            s.push(head->val);
-            head = head->next;
-        }
-        ListNode** searchNode = &head;
-        while (s.size()){
-            *searchNode = new ListNode(s.top());
-            s.pop();
-            searchNode = &((*searchNode)->next);
-        }
-        return head;
-    }
-};
-```
-**217. 存在重复元素**
-```cpp
-class Solution {
-public:
-    bool containsDuplicate(vector<int>& nums) {
-        set<int>s;
-        for (int i : nums){
-            s.insert(i);
-        }
-        return s.size() != nums.size();
-    }
-};
-```
-**219. 存在重复元素 II**
-```cpp
-class Solution {
-public:
-    bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        int j = 0;
-        for (int i = 0; i < nums.size() - 1; i++){
-            for (j = i + 1; j - i <= k && j < nums.size(); j++){
-                if (nums[i] == nums[j]){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-};
-```
-**222. 完全二叉树的节点个数**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    int countNodes(TreeNode* root) {
-        return nullptr != root ? (countNodes(root->left) + countNodes(root->right) + 1) : 0;
-    }
-};
-```
-**231. 2 的幂**
-```cpp
-class Solution {
-public:
-    bool isPowerOfTwo(int n) {
-        if (n < 0){
-            return false;
-        }
-        int bitNum = 0;
-        while (n){
-            bitNum += n & 1;
-            n /= 2;
-        }
-        return 1 == bitNum;
-    }
-};
-```
-**258. 各位相加**
-```cpp
-class Solution {
-public:
-    int addDigits(int num) {
-        int i = 0;
-        while (num){
-            i += num % 10;
-            num /= 10;
-        }
-        return i < 10 ? i : addDigits(i);
-    }
-};
-```
-**263. 丑数**
-```cpp
-class Solution {
-public:
-    bool isUgly(int n) {
-        if (n <= 0){
-            return false;
-        }
-        vector<int> arr = {2, 3, 5};
-        int i = 0;
-        while (1 != n){
-            if (3 != i && !(n % arr[i])){
-                n /= arr[i];
-            }
-            else if(3 == i){
-                return false;
-            }
-            else{
-                i++;
-            }
-        }
-        return true;
-    }
-};
-```
-**278. 第一个错误的版本**
-```cpp
-// The API isBadVersion is defined for you.
-// bool isBadVersion(int version);
-
-class Solution {
-public:
-    int firstBadVersion(int n) {
-        int s = 1;
-        while (!isBadVersion(s)){
-            s++;
-        }
-        return s;
-    }
-};
-```
-**283. 移动零**
-```cpp
-// The API isBadVersion is defined for you.
-// bool isBadVersion(int version);
-
-class Solution {
-public:
-    int firstBadVersion(int n) {
-        int s = 1;
-        while (!isBadVersion(s)){
-            s++;
-        }
-        return s;
-    }
-};
-```
-**292. Nim 游戏**
-```cpp
-class Solution {
-public:
-    bool canWinNim(int n) {
-        return n % 4;
-    }
-};
-```
-**326. 3 的幂**
-```cpp
-class Solution {
-public:
-    bool isPowerOfThree(int n) {
-        long long ll = 1;
-        while (n != ll){
-            if (ll >= INT_MAX || n < ll){
-                return false;
-            }
-            ll = ll * 3;
-        }
-        return true;
-    }
-};
-```
-**342. 4的幂**
-```cpp
-class Solution {
-public:
-    bool isPowerOfFour(int n) {
-        if (n < 0){
-            return false;
-        }
-        int bitNum = 0;
-        bool check = false;
-        while (n){
-            if (check && n & 1){
-                return false;
-            }
-            else {
-                bitNum += n & 1;
-            }
-            n /= 2;
-            check = !check;
-        }
-        return 1 == bitNum;
-    }
-};
-```
-**344. 反转字符串**
-```cpp
-class Solution {
-public:
-    void reverseString(vector<char>& s) {
-        auto it = s.begin();
-        auto rit = s.end() - 1;
-        char ch = 0;
-        for (; rit > it; it++, rit--){
-            ch = *it;
-            *it = *rit;
-            *rit = ch;
-        }
-    }
-};
-```
-**345. 反转字符串中的元音字母**
-```cpp
-class Solution {
-public:
-    string reverseVowels(string s) {
-        string sa;
-        for (char ch : s){
-            if ('a' == ch || 'e' == ch || 'i' == ch || 'o' == ch || 'u' == ch || 'A' == ch || 'E' == ch || 'I' == ch || 'O' == ch || 'U' == ch){
-                sa.push_back(ch);
-            }
-        }
-        char temp = 0;
-        for (int i = 0; i < sa.size() / 2; i++){
-            temp = sa[i];
-            sa[i] = sa[sa.size() - 1 - i];
-            sa[sa.size() - 1 - i] = temp;
-        }
-        int i = 0;
-        for (int ia = 0; ia < s.size(); ia++){
-            if ('a' == s[ia] || 'e' == s[ia] || 'i' == s[ia] || 'o' == s[ia] || 'u' == s[ia] || 'A' == s[ia] || 'E' == s[ia] || 'I' == s[ia] || 'O' == s[ia] || 'U' == s[ia]){
-                s[ia] = sa[i++];
-            }
-        }
-        return s;
-    }
-};
-```
-**387. 字符串中的第一个唯一字符**
-```cpp
-class Solution {
-public:
-    int firstUniqChar(string s) {
-        unordered_map<char, int>charNum;
-        for (char ch : s){
-            ++charNum[ch];
-        }
-        for (int i=0;i<s.length();i++){
-            if (1 == charNum[s[i]]){
-                return i;
-            }
-        }
-        return -1;
-    }
-};
-```
-**389. 找不同**
-```cpp
-class Solution {
-public:
-    char findTheDifference(string s, string t) {
-        sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
-        for (int i = 0; i < s.size(); i++){
-            if (s[i] != t[i]){
-                return t[i];
-            }
-        }
-        return t.back();
-    }
-};
-```
-**404. 左叶子之和**
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-    int sum;
-public:
-    void calc(TreeNode* root){
-        if (nullptr != root && nullptr != root->left && nullptr == root->left->left && nullptr == root->left->right){
-            this->sum += root->left->val;
-        }
-        if (nullptr != root){
-            calc(root->left);
-            calc(root->right);
-        }
-    }
-    int sumOfLeftLeaves(TreeNode* root) {
-        calc(root);
-        return this->sum;
-    }
-};
-```
-**412. Fizz Buzz**
-```cpp
-class Solution {
-public:
-    vector<string> fizzBuzz(int n) {
-        vector<string> sv;
-        string numStr = "";
-        string charStr = "0";
-        int temp = 0;
-        for (int i = 1; i <= n; i++){
-            if (!(i % 15)) {
-                numStr = "FizzBuzz";
-            }
-            else if(!(i % 5)) {
-                numStr = "Buzz";
-            }
-            else if(!(i % 3)) {
-                numStr = "Fizz";
-            }
-            else {
-                temp = i;
-                while (temp){
-                    charStr[0] = temp % 10 + '0';
-                    numStr.insert(0, charStr);
-                    temp /= 10;
-                }
-            }
-            sv.push_back(numStr);
-            numStr.clear();
-        }
-        return sv;
-    }
-};
-```
-**414. 第三大的数**
-```cpp
-class Solution {
-public:
-    int thirdMax(vector<int>& nums) {
-        set<int, greater<int>>s;
-            for (int i : nums){
-                s.insert(i);
-            }
-        if (2 >= s.size()){
-            return *s.begin();
-        }
-        else{
-            auto it = s.begin();
-            it++;
-            return *++it;
-        }
-    }
-};
-```
-**415. 字符串相加**
-```cpp
-class Solution {
-public:
-    string addStrings(string num1, string num2) {
-        string str = "";
-        int i = 0;
-        bool add = false;
-        for (auto it = num1.crbegin(), ita = num2.crbegin(); it != num1.crend() || ita != num2.crend(); ){
-            i = (it != num1.crend() ? (*it++ - '0') : 0) + (ita != num2.crend() ? (*ita++ - '0') : 0) + add;
-            str.insert(0, string(1, (i % 10) + '0'));
-            add = i >= 10;
-        }   
-        if (add){
-            str.insert(0, "1");          
-        }
-        return str;
-    }
-};
-```
-**461. 汉明距离**
-```cpp
-class Solution {
-public:
-    int hammingDistance(int x, int y) {
-        int i = x ^ y;
-        int num = 0;
-        while (i){
-            i % 2 ? num++ : 0;
-            i /= 2;
-        }
-        return num;
-    }
-};
-```
-**463. 岛屿的周长**
-```cpp
-class Solution {
-public:
-    int islandPerimeter(int i, int ia, vector<vector<int>>& grid){
-        if (i < 0 || i >= grid.size() || ia < 0 || ia >= grid[0].size() || !grid[i][ia]){
-            return 1;
-        }
-        else if(2 == grid[i][ia]){
-            return 0;
-        }
-        grid[i][ia] = 2;
-        return islandPerimeter(i - 1, ia, grid) + islandPerimeter(i + 1, ia, grid) + islandPerimeter(i, ia - 1, grid) + islandPerimeter(i, ia + 1, grid);
-    }
-    int islandPerimeter(vector<vector<int>>& grid) {
-        int i = 0;
-        int ia = 0;
-        vector<vector<int>> g = grid;
-        for (int i = 0; i < grid.size(); i++){
-            for (int ia = 0; ia < grid[0].size(); ia++){
-                if (grid[i][ia]){
-                    return islandPerimeter(i, ia, g);
-                }
-            }
-        }
-        return 0;
-    }
-};
-```
-**495. 提莫攻击**
-```cpp
-class Solution {
-public:
-    int findPoisonedDuration(vector<int>& timeSeries, int duration) {
-        int second = duration;
-        int time = duration;
-        int waitNum = 0;
-        for (int index = 1; index < timeSeries.size(); index++){
-            waitNum = timeSeries[index] - timeSeries[index - 1];
-            time = duration - waitNum;
-            second += time <= 0 ? duration : waitNum;
-        }
-        return second;
-    }
-};
-```
-**500. 键盘行**
-```cpp
-class Solution {
-public:
-    vector<string> findWords(vector<string>& words) {
-        vector<string>vs;
-        regex r("^[QqWwEeRrTtYyUuIiOoPp]+$|^[AaSsDdFfGgHhJjKkLl]+$|^[ZzXxCcVvBbNnMm]+$");
-        for (string s : words){
-            if (regex_search(s, r)){
-                vs.push_back(s);
-            }
-        }
-        return vs;
-    }
-};
-```
-**504. 七进制数**
-```cpp
-class Solution {
-public:
-    string convertToBase7(int num) {
-        if (!num){
-            return "0";
-        }
-        bool isNegative = num < 0;
-        string strNum;
-        string digitNum = " ";
-        num = abs(num);
-        while (num){
-            digitNum[0] = num % 7 + '0';
-            strNum.insert(0, digitNum);
-            num /= 7;
-        }
-        if (isNegative){
-            strNum.insert(0, "-");
-        }
-        return strNum;
-    }
-};
-```
-**507. 完美数**
-```cpp
-class Solution {
-public:
-    bool checkPerfectNumber(int num) {
-        int add = 0;
-        for (int i = 1; i < num; i++){
-            if (0 == num % i){
-                add += i;
-            }
-        }
-        return add == num;
-    }
-};
-```
-**598. 区间加法 II**
-```cpp
-class Solution {
-public:
-    int maxCount(int maxHeight, int maxWidth, vector<vector<int>>& ops) {
-        for (vector<int> v : ops){
-            maxHeight > v[0] ? maxHeight = v[0] : 0;
-            maxWidth > v[1] ? maxWidth = v[1] : 0;
-        }
-        return maxHeight * maxWidth;
-    }
-};
-```
-**796. 旋转字符串**
-```cpp
-class Solution {
-public:
-    bool rotateString(string s, string goal) {
-        vector<string>v;
-        string sa = s;
-        sa.push_back(sa.front());
-        sa.erase(0, 1);
-        while (s != sa){
-            v.push_back(sa);
-            sa.push_back(sa.front());
-            sa.erase(0, 1);
-        }
-        v.push_back(sa);
-        for (string str : v){
-            if (str == goal){
-                return true;
-            }
-        }
-        return false;
-    }
-};
-```
-**917. 仅仅反转字母**
-```cpp
-class Solution {
-public:
-    string reverseOnlyLetters(string s) {
-        string temp;
-        for (char ch : s){
-            if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z'){
-                temp.push_back(ch);
-            }
-        }
-        reverse(temp.begin(), temp.end());
-        int i = 0;
-        for (char& ch : s){
-            if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z'){
-                ch = temp[i++];
-            }
-        }
-        return s;
-    }
-};
-```
-**1295. 统计位数为偶数的数字**
-```cpp
-class Solution {
-public:
-    int findNumbers(vector<int>& nums) {
-        int count = 0;
-        int digitCount = 0;
-        for (int i : nums){
-            while (i){
-                digitCount++;
-                i /= 10;
-            }
-            0 == digitCount % 2 ? count++ : 0;
-            digitCount = 0;
-        }
-        return count;
-    }
-};
-```
-**1299. 将每个元素替换为右侧最大元素**
-```cpp
-class Solution {
-public:
-    vector<int> replaceElements(vector<int>& arr) {
-        int max = 0;
-        int ia = 0;
-        for (int i = 0; i < arr.size() - 1; i++){
-            for (max = arr[i + 1], ia = i + 1; ia < arr.size(); ia++){
-                max < arr[ia] ? max = arr[ia] : 0;
-            }
-            arr[i] = max;
-        }
-        arr.back() = -1;
-        return arr;
-    }
-};
-```
-**1550. 存在连续三个奇数的数组**
-```cpp
-class Solution {
-public:
-    bool threeConsecutiveOdds(vector<int>& arr) {
-        for (int i = 0; arr.size() >= 3 && i < arr.size() - 2; i++){
-            if (arr[i] % 2 && arr[i+1] % 2 && arr[i+2] % 2){
-                return true;
-            }
-        }
-        return false;
-    }
-};
-```
-**2094. 找出 3 位偶数**
-```cpp
-class Solution {
-public:
-    int sum(int num1, int num2) {
-        return num1 + num2;
-    }
-};
-```
-**2235. 两整数相加**
-```cpp
-class Solution {
-public:
-    int sum(int num1, int num2) {
-        return num1 + num2;
-    }
-};
-```
-**2239. 找到最接近 0 的数字**
-```cpp
-class Solution {
-public:
-    int findClosestNumber(vector<int>& nums) {
-        int i = -1;
-        int n = 1;
-        for (int ia : nums){
-            if (!ia){
-                return 0;
-            }
-            else if (ia > 0){
-                -1 == i || i > ia ? i = ia : 0;
-            }
-            else {
-                1 == n || n < ia ? n = ia : 0;
-            }
-        }
-        return -1 == i || abs(n) < abs(i) ? (1 == n ? i : n) : i;
-    }
-};
-```
-
-## shell
-
-**192. 统计词频**
-```shell
-cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -r | awk '{printf("%s %s\n", $2, $1)}'
-```
-**193. 有效电话号码**
-```shell
-awk '/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/' file.txt
-```
-**194. 转置文件**
-```shell
-line=`head -n 1 file.txt | wc -w`
-for ((i=1;i<=$line;i++))
-do
-    awk '{print $'$i'}' file.txt | xargs
-done
-```
-**195. 第十行**
-```shell
-sed -n '10p' file.txt
-```
-
-## SQL
-
-**176. 第二高的薪水**
-```sql
-SELECT 
-    IF(
-    (SELECT COUNT(DISTINCT(salary))
-    FROM Employee) >= 2, 
-
-    (SELECT DISTINCT(salary)
-    FROM Employee
-    ORDER BY salary DESC
-    LIMIT 1, 1),
-
-    null) SecondHighestSalary;
-```
-**182. 查找重复的电子邮箱**
-```sql
-SELECT email Email FROM Person GROUP BY email HAVING count(email) >= 2;
-```
-**185. 部门工资前三高的所有员工**
-```sql
-SELECT
-    Department, Employee, Salary
-FROM (
-    SELECT DENSE_RANK() OVER (PARTITION BY d.name ORDER BY e.salary DESC) r, d.name Department, e.name Employee, e.        salary Salary FROM Employee e JOIN Department d ON e.departmentId = d.id
-) tb
-WHERE
-    r IN(1, 2, 3);
-```
-**584. 寻找用户推荐人**
-```sql
-SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id != 2;
-```
