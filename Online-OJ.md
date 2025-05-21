@@ -90,6 +90,34 @@ public:
     }
 };
 ```
+**5. 最长回文子串**
+```cpp
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int len = 0;
+        int maxLen = 1;
+        unsigned int pos = 0;
+        for (int center = 0; center < s.length(); center++){
+            for (int right = 0; center - right >= 0 && center + right < s.length() && s[center - right] == s[center + right]; right++){
+                if (maxLen < right * 2 + 1){
+                    maxLen = right * 2 + 1;
+                    pos = center - right;
+                }
+            }
+        }
+        for (int center = 0; center < s.length() - 1; center++){
+            for (int right = 0; center - right >= 0 && center + 1 + right < s.length() && s[center - right] == s[center + right + 1]; right++){
+                if (maxLen < (right + 1) * 2){
+                    maxLen = (right + 1) * 2;
+                    pos = center - right;
+                }
+            }
+        }
+        return s.substr(pos, maxLen);
+    }
+};
+```
 **8. 字符串转换整数 (atoi)**
 ```cpp
 class Solution {
