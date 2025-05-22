@@ -118,6 +118,46 @@ public:
     }
 };
 ```
+**7. 整数反转**
+```cpp
+class Solution {
+public:
+    int reverse(int x) {
+        if (INT_MIN == x){
+            return 0;
+        }
+        bool isNegative = x < 0;
+        int i = 0;
+        x = abs(x);
+        vector<int>rnum;
+        vector<int>maxnum = {2, 1, 4, 7, 4, 8, 3, 6, 4, 7};
+        maxnum.back() += isNegative;
+        while (x){
+            rnum.push_back(x % 10);
+            x /= 10;
+        }
+        cout << INT_MAX << " " << INT_MIN;
+        if (rnum.size() > 10){
+            return 0;
+        }
+        else if (10 == rnum.size()){
+            for (int i = 0; i < 10; i++){
+                if (rnum[i] > maxnum[i]){
+                    return 0;
+                }
+                if (rnum[i] < maxnum[i]){
+                    break;
+                }
+            }
+        }
+        for (int ri = 0; ri < rnum.size(); ri++){
+            i *= 10;
+            i += rnum[ri];
+        }
+        return i * (isNegative ? -1 : 1);
+    }
+};
+```
 **8. 字符串转换整数 (atoi)**
 ```cpp
 class Solution {
