@@ -214,6 +214,33 @@ public:
     }
 };
 ```
+**11. 盛最多水的容器**
+```cpp
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int width = height.size() - 1;
+        int depth = 0;
+        for (int a = 0, b = height.size() - 1; a < b; ){
+            depth = max(min(height[a], height[b]) * width, depth);
+            if (height[a] < height[b]){
+                a++;
+                width--;
+            }
+            else if(height[a] > height[b]){
+                b--;
+                width--;
+            }
+            else {
+                a++;
+                b--;
+                width -= 2;
+            }
+        }
+        return depth;
+    }
+};
+```
 **12. 整数转罗马数字**
 ```cpp
 class Solution {
