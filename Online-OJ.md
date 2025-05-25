@@ -332,6 +332,50 @@ public:
     }
 };
 ```
+**17. 电话号码的字母组合**
+```cpp
+class Solution {
+public:
+    vector<string> chars = {
+        "abc",
+        "def",
+        "ghi",
+        "jkl",
+        "mno",
+        "pqrs",
+        "tuv",
+        "wxyz"
+    };
+    void add(string& s, int i, string& digits){
+        if (i < 0){
+            return;
+        }
+        s[i]++;
+        if (s[i] > chars[digits[i] - '2'].back()){
+            s[i] = chars[digits[i] - '2'].front();
+            add(s, i - 1, digits);
+        }
+    }
+    vector<string> letterCombinations(string digits) {
+        if (0 == digits.length()){
+            return {};
+        }
+        string phoneStr;
+        string beforeStr;
+        vector<string>result;
+        for (char ch : digits){
+            phoneStr.push_back(chars[ch - '2'][0]);
+        }
+        beforeStr = phoneStr;
+        int i = digits.length() - 1;
+        do {
+            add(phoneStr, i, digits);
+            result.push_back(phoneStr);
+        } while (beforeStr != phoneStr);
+        return result;
+    }
+};
+```
 **20. 有效的括号**
 ```cpp
 class Solution {
