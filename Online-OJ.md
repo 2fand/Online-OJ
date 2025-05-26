@@ -2008,6 +2008,24 @@ public:
     }
 };
 ```
+**455. 分发饼干**
+```cpp
+class Solution {
+public:
+    int findContentChildren(vector<int>& g, vector<int>& s) {
+        sort(g.begin(), g.end());
+        sort(s.begin(), s.end());
+        int childrenNum = 0;
+        for (int gi = g.size() - 1, si = s.size() - 1; gi >= 0 && si >= 0; gi--){
+            if (s[si] >= g[gi]){
+                childrenNum++;
+                si--;
+            }
+        }
+        return childrenNum;
+    }
+};
+```
 **461. 汉明距离**
 ```cpp
 class Solution {
