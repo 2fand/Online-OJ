@@ -2292,6 +2292,40 @@ public:
     }
 };
 ```
+**2894. 分类求和并作差**
+```cpp
+class Solution {
+public:
+    int differenceOfSums(int n, int m) {
+        int sum = 0;
+        int nsum = 0;
+        for (int i = n; i > 0; i--){
+            if (0 == i % m){
+                sum += i;
+            }
+            nsum += i;
+        }
+        return nsum - sum - sum;
+    }
+};
+```
+**2942. 查找包含给定字符的单词**
+```cpp
+class Solution {
+public:
+    vector<int> findWordsContaining(vector<string>& words, char x) {
+        vector<int>indexs;
+        int index = 0;
+        for (string s : words){
+            if (s.find_first_of(x) < s.size()){
+                indexs.push_back(index);
+            }
+            index++;
+        }
+        return indexs;
+    }
+};
+```
 
 ## shell
 
