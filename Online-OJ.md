@@ -2008,6 +2008,30 @@ public:
     }
 };
 ```
+**434. 字符串中的单词数**
+```cpp
+class Solution {
+public:
+    int countSegments(string s) {
+        int num = 1;
+        bool isEmpty = false;
+        bool last = false;
+        bool allEmpty = true; 
+        for (char ch : s){
+            isEmpty = ' ' == ch;
+            allEmpty &= ' ' == ch;
+            if (last && !isEmpty){
+                num++;
+            }
+            last = isEmpty;
+        }
+        if (allEmpty){
+            return 0;
+        }
+        return num - (' ' == s.front());
+    }
+};
+```
 **455. 分发饼干**
 ```cpp
 class Solution {
