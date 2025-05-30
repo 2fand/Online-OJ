@@ -1481,6 +1481,33 @@ public:
     }
 };
 ```
+**169. 多数元素**
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int maxcount = 0;
+        int count = 0;
+        int num = INT_MIN;
+        int result = 0;
+        for (int n : nums){
+            if (n != num){
+                count = 1;
+                num = n;
+            }
+            else {
+                count++;
+            }
+            maxcount = max(maxcount, count);
+            if (count > nums.size() / 2){
+                result = n;
+            }
+        }
+        return result;
+    }
+};
+```
 **191. 位1的个数**
 ```cpp
 class Solution {
