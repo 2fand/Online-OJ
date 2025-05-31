@@ -2059,6 +2059,28 @@ public:
     }
 };
 ```
+**448. 找到所有数组中消失的数字**
+```cpp
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        vector<int>v;
+        for (int i=1;i<=nums.size();i++){
+            v.push_back(i);
+        }
+        for (int i : nums){
+            v[i - 1] = 0;
+        }
+        for (auto it = v.begin(); v.end() != it; it++){
+            if (0 == *it){
+                v.erase(it, it+1);
+                it--;
+            }
+        }
+        return v;
+    }
+};
+```
 **455. 分发饼干**
 ```cpp
 class Solution {
