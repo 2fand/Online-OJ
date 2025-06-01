@@ -2382,6 +2382,22 @@ public:
     }
 };
 ```
+**2929. 给小朋友们分糖果 II**
+```cpp
+class Solution {
+public:
+    long long distributeCandies(int n, int limit) {
+        int i = 0;
+        int sub = 0;
+        long long count = 0;
+        for (; i <= min(n, limit); i++){
+            sub = ((n-i-limit)*2>=0)*((n-i-limit)*2);
+            count+=(n-i+1)-min(sub, n-i+1);
+        }
+        return count;
+    }
+};
+```
 **2942. 查找包含给定字符的单词**
 ```cpp
 class Solution {
