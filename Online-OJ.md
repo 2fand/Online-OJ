@@ -678,6 +678,32 @@ public:
     }
 };
 ```
+**55. 跳跃游戏**
+```cpp
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        return canJump(nums, 0);
+    }
+
+    bool canJump(vector<int>& nums, int index){
+        bool jump = false;
+        if (index + nums[index] >= nums.size() - 1){
+            return true;
+        }
+        else if(0 == nums[index]){
+            return false;
+        }
+        else {
+            for (int i = 1; !jump && index + i < nums.size() && i <= nums[index]; i++){
+                jump |= canJump(nums, index + i);
+            }
+        }
+        nums[index] = 0;
+        return jump;
+    }
+};
+```
 **58. 最后一个单词的长度**
 ```cpp
 class Solution {
