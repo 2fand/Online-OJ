@@ -2319,6 +2319,37 @@ public:
     }
 };
 ```
+**1298. 你能从盒子里获得的最大糖果数**
+```cpp
+class Solution {
+public:
+    int maxCandies(vector<int>& status, vector<int>& candies, vector<vector<int>>& keys, vector<vector<int>>& containedBoxes, vector<int>& initialBoxes) {
+        int candy = 0;
+        int lastSize = 0;
+        while (initialBoxes.size()){
+            lastSize = initialBoxes.size();
+            for (int keyi = 0; keyi < lastSize; keyi++){
+                if (1 == status[initialBoxes[keyi]] && 0 != keys[initialBoxes[keyi]].size()){
+                    for (int key : keys[initialBoxes[keyi]]){
+                        status[key] = 1;
+                    }
+                }
+            }
+            for (int i = 0; i < lastSize; i++){
+                if (0 == status[initialBoxes[i]]){
+                    continue;
+                }
+                for (int box : containedBoxes[initialBoxes[i]]){
+                    initialBoxes.push_back(box);    
+                }
+                candy += candies[initialBoxes[i]];
+            }
+            initialBoxes.erase(initialBoxes.begin(), initialBoxes.begin() + lastSize);
+        }
+        return candy;
+    }
+};
+```
 **1299. 将每个元素替换为右侧最大元素**
 ```cpp
 class Solution {
