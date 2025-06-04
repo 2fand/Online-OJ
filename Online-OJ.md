@@ -678,6 +678,57 @@ public:
     }
 };
 ```
+**54. 螺旋矩阵**
+```cpp
+class Solution {
+    enum wasd {
+        w,
+        a,
+        s,
+        d
+    };
+public: 
+    int& get(vector<vector<int>>& matrix, int pos) {
+        return matrix[pos / matrix[0].size()][pos % matrix[0].size()];
+    }
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> result;
+        const int move[4] = {-(int)matrix[0].size(), -1, (int)matrix[0].size(), 1};
+        wasd status = w;
+        int pos = 0;
+        for (int i = 0; i < matrix[0].size() * matrix.size(); i++) {
+            result.push_back(get(matrix, pos));
+            get(matrix, pos) = INT_MAX;
+            switch (status) {
+            case w:
+                if ((pos - matrix[0].size()) / matrix[0].size() >= matrix.size() || INT_MAX == get(matrix, pos - matrix[0].size())) {
+                    status = d;
+                }
+                break;
+            case a:
+                if ((pos - 1) % matrix[0].size() == matrix[0].size() - 1 || INT_MAX == get(matrix, pos - 1)) {
+                    status = w;
+                }
+                break;
+            case s:
+                if ((pos + matrix[0].size()) / matrix[0].size() >= matrix.size() || INT_MAX == get(matrix, pos + matrix[0].size())) {
+                    status = a;
+                }
+                break;
+            case d:
+                if ((pos + 1) % matrix[0].size() == 0 || INT_MAX == get(matrix, pos + 1)) {
+                    status = s;
+                }
+                break;
+            default:
+                break;
+            }
+            pos += move[status];
+        }
+        return result;
+    }
+};
+```
 **55. 跳跃游戏**
 ```cpp
 class Solution {
