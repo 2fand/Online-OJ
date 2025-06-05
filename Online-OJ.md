@@ -1881,7 +1881,7 @@ public:
     }
 };
 ```
-**292. Nim 游戏**
+2. Nim 游戏**
 ```cpp
 class Solution {
 public:
@@ -2133,6 +2133,19 @@ public:
             return 0;
         }
         return num - (' ' == s.front());
+    }
+};
+```
+**441. 排列硬币**
+```cpp
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        int level = 1;
+        while (n >= level) {
+            n -= level++;
+        }
+        return --level;
     }
 };
 ```
