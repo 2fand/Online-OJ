@@ -915,6 +915,35 @@ public:
     }
 };
 ```
+**73. 矩阵置零**
+```cpp
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        bool* isdel = new bool[matrix.size() + matrix[0].size()];
+        for (int i=0;i<matrix.size() + matrix[0].size();i++){
+            isdel[i] = false;
+        }
+        //mark
+        for (int i = 0; i < matrix.size(); i++){
+            for (int ia = 0; ia < matrix[0].size(); ia++){
+                if (0 == matrix[i][ia]){
+                    isdel[i] = true;
+                    isdel[matrix.size() + ia] = true;
+                }
+            }
+        }
+        //del
+        for (int i = 0; i < matrix.size(); i++){
+            for (int ia = 0; ia < matrix[0].size(); ia++){
+                if (isdel[i] || isdel[matrix.size() + ia]){
+                    matrix[i][ia] = 0;
+                }
+            }
+        }
+    }
+};
+```
 **75. 颜色分类**
 ```cpp
 class Solution {
