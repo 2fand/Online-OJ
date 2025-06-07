@@ -755,6 +755,28 @@ public:
     }
 };
 ```
+**56. 合并区间**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>> result;
+        for (long long i = 0; i < intervals.size(); i++){
+            if (intervals.size() - 1 != i && !(intervals[i][0] > intervals[i + 1][1] || intervals[i][1] < intervals[i + 1][0])){
+                intervals[i][0] = min(intervals[i][0], intervals[i + 1][0]);
+                intervals[i][1] = max(intervals[i][1], intervals[i + 1][1]);
+                intervals.erase(intervals.begin() + i + 1, intervals.begin() + i + 2);
+                i--;
+            }
+            else {
+                result.push_back(intervals[i]);
+            }
+        }
+        return result;
+    }
+};
+```
 **58. 最后一个单词的长度**
 ```cpp
 class Solution {
