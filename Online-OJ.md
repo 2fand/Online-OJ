@@ -2024,6 +2024,45 @@ public:
     }
 };
 ```
+**386. 字典序排数**
+```cpp
+class Solution {
+public:
+    int zero(int i){
+        int n = 0;
+        for (;;){
+            if (0 != i % 10){
+                return n;
+            }
+            n++;
+            i /= 10;
+        }
+    }
+    vector<int> lexicalOrder(int n) {
+        vector<int>result;
+        int i = 1;
+        int back = 1;
+        for (int c = 0; c < n; c++){
+            result.push_back(i);
+            if (i * 10 <= n){
+                i *= 10;
+                back = 10;
+            }
+            else if(n == i || i % 10 == 9){
+                i /= (1 == back ? 1 : pow(back, zero((i / 10 + 1) * 10)));
+                if (i < 10){
+                    back = 1;
+                }
+                i++;
+            }
+            else {
+                i++;
+            }
+        }
+        return result;
+    }
+};
+```
 **387. 字符串中的第一个唯一字符**
 ```cpp
 class Solution {
