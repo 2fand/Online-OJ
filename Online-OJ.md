@@ -1844,6 +1844,47 @@ public:
     }
 };
 ```
+**228. 汇总区间**
+```cpp
+class Solution {
+public:
+    vector<string> summaryRanges(vector<int>& nums) {
+        vector<string> r;
+        if (nums.size() == 0){
+            return r;
+        }
+        char* s = new char[32];
+        string rs;
+        int last = nums[0];
+        bool isAdd = false;
+        for (int i : nums) {
+            if (last + 1 == i) {
+                isAdd = true;
+            } else {
+                if (last != i) {
+                    if (isAdd) {
+                        rs += "->";
+                        sprintf(s, "%d", last);
+                        rs += s;
+                    }
+                    r.push_back(rs);
+                    isAdd = false;
+                }
+                sprintf(s, "%d", i);
+                rs = s;
+            }
+            last = i;
+        }
+        if (isAdd) {
+            rs += "->";
+            sprintf(s, "%d", last);
+            rs += s;
+        }
+        r.push_back(rs);
+        return r;
+    }
+};
+```
 **231. 2 的幂**
 ```cpp
 class Solution {
