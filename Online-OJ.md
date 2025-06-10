@@ -2667,7 +2667,33 @@ public:
     }
 };
 ```
-
+**3442. 奇偶频次间的最大差值 I**
+```cpp
+class Solution {
+public:
+    int maxDifference(string s) {
+        unordered_map<char, int>n;
+        string have;
+        for (char c : s){
+            if (0 == n[c]){
+                have.push_back(c);
+            }
+            n[c]++;
+        }
+        int maxN = 0;
+        int minN = INT_MAX;
+        for (char c : have){
+            if (1 == n[c] % 2){
+                maxN = max(n[c], maxN);
+            }
+            else {
+                minN = min(n[c], minN);
+            }
+        }
+        return maxN - minN;
+    }
+};
+```
 ## shell
 
 **192. 统计词频**
