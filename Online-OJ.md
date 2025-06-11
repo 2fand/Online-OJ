@@ -2634,6 +2634,36 @@ public:
     }
 };
 ```
+**2918. 数组的最小相等和**
+```cpp
+class Solution {
+public:
+    long long minSum(vector<int>& nums1, vector<int>& nums2) {
+        
+        long long r = 0;
+        bool have1 = false;
+        bool have2 = false;
+        long long sum1 = 0;
+        long long sum2 = 0;
+        for (int& i : nums1){
+            if (0 == i){
+                have1 = true;
+                i = 1;
+            }
+            sum1 += i;
+        }
+        for (int& i : nums2){
+            if (0 == i){
+                have2 = true;
+                i = 1;
+            }
+            sum2 += i;
+        }
+        r = max(sum1, sum2);
+        return sum1 != sum2 && (sum1 == r && !have2 || sum2 == r && !have1) ? -1 : r;
+    }
+};
+```
 **2929. 给小朋友们分糖果 II**
 ```cpp
 class Solution {
