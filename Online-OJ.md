@@ -2724,6 +2724,19 @@ public:
     }
 };
 ```
+**3423. 循环数组中相邻元素的最大差值**
+```cpp
+class Solution {
+public:
+    int maxAdjacentDistance(vector<int>& nums) {
+        int sub = 0;
+        for (int i = 0; i < nums.size(); i++){
+            sub = max(sub, abs(nums[i] - nums[(i + 1) % nums.size()]));
+        }
+        return sub;
+    }
+};
+```
 ## shell
 
 **192. 统计词频**
