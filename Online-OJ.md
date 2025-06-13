@@ -2577,12 +2577,54 @@ public:
     }
 };
 ```
+**1920. 基于排列构建数组**
+```cpp
+class Solution {
+public:
+    vector<int> buildArray(vector<int>& nums) {
+        vector<int>r;
+        for (int i : nums){
+            r.push_back(nums[i]);
+        }
+        return r;
+    }
+};
+```
 **2094. 找出 3 位偶数**
 ```cpp
 class Solution {
 public:
-    int sum(int num1, int num2) {
-        return num1 + num2;
+    int i = 10;
+    int ia = 10;
+    int ib = 10;
+    vector<int> findEvenNumbers(vector<int>& digits) {
+        vector<int>result;
+        for (auto it = digits.begin(); it < digits.end(); it++){
+            if (!(*it % 2)){
+                i = *it;
+                for (auto ita = digits.begin(); ita < digits.end(); ita++){
+                    if (it != ita){
+                        ia = *ita;
+                        for (auto itb = digits.begin(); itb < digits.end(); itb++){
+                            if (*itb && itb != ita && itb != it){
+                                ib = *itb;
+                                result.push_back(ib * 100 + ia * 10 + i);
+                                ib = 10;
+                            }
+                        }
+                        ia = 10;
+                    }
+                }
+            }
+        }
+        sort(result.begin(), result.end());
+        vector<int>temp;
+        for (int i : result){
+            if (!temp.size() || i != temp.back()){
+                temp.push_back(i);
+            }
+        }
+        return temp;
     }
 };
 ```
