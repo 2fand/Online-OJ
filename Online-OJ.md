@@ -2659,6 +2659,29 @@ public:
     }
 };
 ```
+**2566. 替换一个数字后的最大差值**
+```cpp
+class Solution {
+public:
+    int minMaxDifference(int num) {
+        int fx = 9;
+        int fn = (num / (int)pow(10, (int)log10(num))) % 10;
+        int mx = 0;
+        int mn = 0;
+        for (int i = log10(num); i >= 0; i--){
+            if (9 != num / (int)pow(10, i) % 10){
+                fx = num / (int)pow(10, i) % 10;
+                break;
+            }
+        }
+        for (int i = log10(num); i >= 0; i--){
+            mx += (num / (int)pow(10, i) % 10 == fx ? 9 : (num / (int)pow(10, i) % 10)) * (int)pow(10, i);
+            mn += (num / (int)pow(10, i) % 10 == fn ? 0 : (num / (int)pow(10, i) % 10)) * (int)pow(10, i);
+        }
+        return mx - mn;
+    }
+};
+```
 **2894. 分类求和并作差**
 ```cpp
 class Solution {
