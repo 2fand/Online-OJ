@@ -2563,6 +2563,37 @@ public:
     }
 };
 ```
+**1432. 改变一个整数能得到的最大差值**
+```cpp
+class Solution {
+public:
+    int maxDiff(int num) {
+        int a = 0;
+        int b = 0;
+        int xa = 9;
+        int xb = num / (int)pow(10, (int)log10(num));
+        int yb = num / (int)pow(10, (int)log10(num));
+        for (int i = log10(num); i >= 0; i--){
+            if (9 != num / (int)pow(10, i) % 10){
+                xa = num / (int)pow(10, i) % 10;
+                break;
+            }
+        }
+        for (int i = log10(num); i >= 0; i--){
+            if (num / (int)pow(10, (int)log10(num)) == num / (int)pow(10, i) % 10 && 1 != num / (int)pow(10, i) % 10 || num / (int)pow(10, (int)log10(num)) != num / (int)pow(10, i) % 10 && 0 != num / (int)pow(10, i) % 10){
+                xb = num / (int)pow(10, i) % 10;
+                yb = num / (int)pow(10, (int)log10(num)) == num / (int)pow(10, i) % 10;
+                break;
+            }
+        }
+        for (int i = log10(num); i >= 0; i--){
+            a += (num / (int)pow(10, i) % 10 == xa ? 9 : num / (int)pow(10, i) % 10) * (int)pow(10, i);
+            b += (num / (int)pow(10, i) % 10 == xb ? yb : num / (int)pow(10, i) % 10) * (int)pow(10, i);
+        }
+        return a - b;
+    }
+};
+```
 **1550. 存在连续三个奇数的数组**
 ```cpp
 class Solution {
