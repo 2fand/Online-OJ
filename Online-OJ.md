@@ -2621,6 +2621,23 @@ public:
     }
 };
 ```
+**2016. 增量元素之间的最大差值**
+```cpp
+class Solution {
+public:
+    int maximumDifference(vector<int>& nums) {
+        int sub = -1;
+        for (int p = nums.size() - 1; p > 0; p--){
+            for (int i = p - 1; i >= 0; i--){
+                if (nums[i] < nums[p]){
+                    sub = max(sub, nums[p] - nums[i]);
+                }
+            }
+        }       
+        return sub;
+    }
+};
+```
 **2094. 找出 3 位偶数**
 ```cpp
 class Solution {
