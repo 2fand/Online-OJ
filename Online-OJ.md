@@ -1444,6 +1444,29 @@ public:
     }
 };
 ```
+**119. 杨辉三角 II**
+```cpp
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int>r = {1};
+        int lsize = 1;
+        for (int i = 0; i < rowIndex; i++){
+            lsize = r.size();
+            for (int ia = -1; ia <= lsize - 1; ia++){
+                if (-1 == ia || lsize - 1 == ia){
+                    r.push_back(1);
+                }
+                else {
+                    r.push_back(r[ia] + r[ia + 1]);
+                }
+            }
+            r.erase(r.begin(), r.begin() + lsize);
+        }
+        return r;
+    }
+};
+```
 **121. 买卖股票的最佳时机**
 ```cpp
 class Solution {
