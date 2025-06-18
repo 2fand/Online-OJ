@@ -2833,6 +2833,23 @@ public:
     }
 };
 ```
+**2966. 划分数组并满足最大差限制**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> divideArray(vector<int>& nums, int k) {
+        vector<vector<int>> r;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); i += 3){
+            if (nums[i + 2] - nums[i] > k){
+                return {};
+            }
+            r.push_back({nums[i], nums[i + 1], nums[i + 2]});
+        }
+        return r;
+    }
+};
+```
 **3442. 奇偶频次间的最大差值 I**
 ```cpp
 class Solution {
