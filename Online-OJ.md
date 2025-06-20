@@ -2890,6 +2890,40 @@ public:
     }
 };
 ```
+**3443. K 次修改后的最大曼哈顿距离**
+```cpp
+class Solution {
+public:
+    int maxDistance(string s, int k) {
+        int ans = 0;
+        int north = 0, south = 0, east = 0, west = 0;
+        for (char c : s) {
+            switch (c) {
+            case 'N':
+                north++;
+                break;
+            case 'S':
+                south++;
+                break;
+            case 'E':
+                east++;
+                break;
+            case 'W':
+                west++;
+                break;
+            }
+            int times1 = min({north, south, k});        
+            int times2 = min({east, west, k - times1});
+            ans = max(ans, count(north, south, times1) + count(east, west, times2));
+        }
+        return ans;
+    }
+
+    int count(int drt1, int drt2, int times) {
+        return abs(drt1 - drt2) + times * 2;
+    }
+};
+```
 ## shell
 
 **192. 统计词频**
