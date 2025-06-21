@@ -2850,6 +2850,41 @@ public:
     }
 };
 ```
+**3085. 成为 K 特殊字符串需要删除的最少字符数**
+```cpp
+class Solution {
+public:
+    int minimumDeletions(string word, int k) {
+        unordered_map<char, int>charn;//字符数量
+        vector<int*>pn;//排序改变字符数量
+        int d = 0;//删除数
+        for (char ch : word){
+            charn[ch]++;
+            if (1 == charn[ch]){
+                pn.push_back(&charn[ch]);
+            }
+        }
+        sort(pn.begin(), pn.end(), [=](int* p, int* pa)->bool{
+            return *p >= *pa;
+        });
+        for (int i = 1; i < pn.size() - 1; i++){
+            if (abs(*pn[i] - *pn[i - 1]) < abs(*pn[i] - *pn[i + 1]) && *pn[i - 1] - *pn[i] > k){
+                d += *pn[i - 1] - *pn[i] - k;
+                *pn[i - 1] -= *pn[i] - k;
+            }
+            else if (abs(*pn[i] - *pn[i + 1]) < abs(*pn[i] - *pn[i - 1]) && *pn[i] - *pn[i + 1] > k){
+                d += *pn[i] - *pn[i + 1] - k;
+                *pn[i] -= *pn[i + 1] - k;
+            }
+            else if (*pn[i - 1] - *pn[i + 1] > k){
+                d += *pn[i - 1] - *pn[i + 1] - k;
+                *pn[i - 1] -= *pn[i + 1] - k;
+            }
+        }
+        return d;//4 2 1
+    }
+};
+```
 **3442. 奇偶频次间的最大差值 I**
 ```cpp
 class Solution {
