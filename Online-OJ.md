@@ -2699,6 +2699,31 @@ public:
     }
 };
 ```
+**2138. 将字符串拆分为若干长度为 k 的组**
+```cpp
+class Solution {
+public:
+    vector<string> divideString(string s, int k, char fill) {
+        vector<string> v;
+        string vstr;
+        int index = 0;
+        for (char ch : s){
+            vstr.push_back(ch);
+            index++;
+            if (k == index){
+                v.push_back(vstr);
+                vstr = "";
+                index = 0;
+            }
+        }
+        if (0 != index){
+            vstr.append(string(k - index, fill));
+            v.push_back(vstr);
+        }
+        return v;
+    }
+};
+```
 **2235. 两整数相加**
 ```cpp
 class Solution {
