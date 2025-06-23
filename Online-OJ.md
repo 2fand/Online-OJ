@@ -1391,6 +1391,61 @@ public:
     }
 };
 ```
+**111. 二叉树的最小深度**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if (nullptr == root){
+            return 0;
+        }
+        else if (nullptr == root->left && nullptr == root->right){
+            return 1;
+        }
+        else {
+            int leftDepth = depth(root->left, 2); 
+            int rightDepth = depth(root->right, 2);
+            if (0 == leftDepth){
+                return rightDepth;
+            }
+            else if (0 == rightDepth){
+                return leftDepth;
+            }
+            else {
+                return min(rightDepth, leftDepth);
+            }
+        }
+    }
+    int depth(TreeNode* root, int d){
+        if (nullptr == root){
+            return 0;
+        }
+        else if(nullptr == root->left && nullptr == root->right){
+            return d;
+        }
+        else if(nullptr == root->left) {
+            return depth(root->right, d + 1);
+        }
+        else if(nullptr == root->right){
+            return depth(root->left, d + 1);
+        }
+        else {
+            return min(depth(root->right, d + 1), depth(root->left, d + 1));
+        }
+    }
+};
+```
 **112. 路径总和**
 ```cpp
 /**
