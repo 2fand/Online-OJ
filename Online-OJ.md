@@ -1902,7 +1902,7 @@ public:
     }
 };
 ```
-**222. 完全二叉树的节点个数**
+2. 完全二叉树的节点个数**
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -2776,6 +2776,36 @@ public:
             v.push_back(vstr);
         }
         return v;
+    }
+};
+```
+**2200. 找出数组中的所有 K 近邻下标**
+```cpp
+class Solution {
+public:
+    int max(int a, int b){
+        return a > b ? a : b;
+    }
+    int min(int a, int b){
+        return a < b ? a : b;
+    }
+    vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
+        unordered_map<int, bool>indexs;
+        bool em = true;
+        for (int i = 0; i < nums.size(); i++){
+            if (key == nums[i]){
+                for (int j = max(0, i - k); j <= min(nums.size() - 1, i + k); j++){
+                    indexs[j] = true;
+                }
+            }
+        }
+        vector<int>r;
+        for (int i = 0; i < nums.size(); i++){
+            if (indexs[i]){
+                r.push_back(i);
+            }
+        }
+        return r;
     }
 };
 ```
