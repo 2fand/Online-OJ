@@ -622,6 +622,24 @@ public:
     }
 };
 ```
+**41. 缺失的第一个正数**
+```cpp
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        unordered_map<int, bool>m;
+        for (int i : nums){
+            m[i] = true;
+        }
+        for (int i = 1; ; i++){
+            if (!m[i]){
+                return i;
+            }
+        }
+        return 0;
+    }
+};
+```
 **42. 接雨水**
 ```cpp
 class Solution {
