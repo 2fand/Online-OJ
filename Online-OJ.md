@@ -1558,6 +1558,21 @@ public:
     }
 };
 ```
+**122. 买卖股票的最佳时机 II**
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int dollar = 0;
+        for (int i = 0; i < prices.size(); i++) {
+            if (i + 1 < prices.size() && prices[i] < prices[i + 1]){
+                dollar += prices[i + 1] - prices[i];
+            }
+        }
+        return dollar < 0 ? 0 : dollar;
+    }
+};
+```
 **125. 验证回文串**
 ```cpp
 class Solution {
