@@ -2787,6 +2787,29 @@ public:
     }
 };
 ```
+**2099. 找到和最大的长度为 K 的子序列**
+```cpp
+class Solution {
+public:
+    vector<int> maxSubsequence(vector<int>& nums, int k) {
+        vector<vector<int>>rnums;
+        vector<int>indexs;
+        vector<int>r;
+        for (int index = 0; index < nums.size(); index++){
+            rnums.push_back({nums[index], index});
+        }
+        sort(rnums.begin(), rnums.end());
+        for (int index = nums.size() - k; index < nums.size(); index++){
+            indexs.push_back(rnums[index][1]);
+        }
+        sort(indexs.begin(),indexs.end());
+        for (int index : indexs){
+            r.push_back(nums[index]);
+        }
+        return r;
+    }
+};
+```
 **2138. 将字符串拆分为若干长度为 k 的组**
 ```cpp
 class Solution {
