@@ -1720,6 +1720,22 @@ public:
     }
 };
 ```
+**168. Excel 表列名称**
+```cpp
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        string r = "";
+        while (columnNumber > 0){
+            --columnNumber;
+            r += columnNumber % 26 + 'A';
+            columnNumber /= 26;
+        }
+        reverse(r.begin(), r.end());
+        return r;
+    }
+};
+```
 **169. 多数元素**
 ```cpp
 class Solution {
