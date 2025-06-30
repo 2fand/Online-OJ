@@ -2563,6 +2563,41 @@ public:
     }
 };
 ```
+**594. 最长和谐子序列**
+```cpp
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int maxLen = 0;
+        int min = 0;
+        bool isHarmonious = false;
+        vector<int>numindex;
+        if (nums.size() == 1){
+            return 0;
+        }
+        for (int i = 1; i < nums.size(); i++){
+            if (numindex.empty()){
+                numindex.push_back(0);
+            }
+            if(numindex.back() != i){
+                numindex.push_back(i);
+            }
+        }
+        for (int i = 1; i < nums.size(); i++){
+            isHarmonious = (abs(nums[i] - nums[numindex[min]]) == 1);
+            if (abs(nums[i] - nums[numindex[min]]) > 1){
+                if (abs(nums[i - 1] - nums[numindex[min]]) == 1){
+                    maxLen = max(maxLen, i - numindex[min]);
+                }
+                min++;
+                isHarmonious = false;
+            }
+        } 
+        return maxLen > nums.size() - numindex[min] || abs(nums.back() - nums[numindex[min]]) != 1 ? maxLen : nums.size() - numindex[min];//1 2 2 2 3 3 5 7
+    }
+};
+```
 **598. 区间加法 II**
 ```cpp
 class Solution {
