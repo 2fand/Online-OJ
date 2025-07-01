@@ -1,5 +1,4 @@
 # 力扣
-*(每天可能更一题)*
 ## C++
 
 **1. 两数之和**
@@ -3102,6 +3101,26 @@ public:
     }
 };
 ```
+**3330. 找到初始输入字符串 I**
+```cpp
+class Solution {
+public:
+    int possibleStringCount(string word) {
+        int count = 1;
+        int notSameCharIndex = -1;
+        for (int index = 0; index < word.size(); index++){
+            if (-1 == notSameCharIndex || word[notSameCharIndex] != word[index]){
+                if (-1 != notSameCharIndex && 1 != index - notSameCharIndex){
+                    count += index - 1 - notSameCharIndex;
+                }
+                notSameCharIndex = index;
+            }
+        }
+        count += word.size() - 1 - notSameCharIndex;
+        return count;
+    }
+};
+```
 **3442. 奇偶频次间的最大差值 I**
 ```cpp
 class Solution {
@@ -3235,7 +3254,7 @@ SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id != 2;
 ```
 
 # 牛客网
-*(每天可能更1题)*
+
 ## C 
 **BC1 Hello Nowcoder** 
 ```cpp
