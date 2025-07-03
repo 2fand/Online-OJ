@@ -3116,6 +3116,27 @@ public:
     }
 };
 ```
+**3304. 找出第 K 个字符 I**
+```cpp
+class Solution {
+public:
+    char kthCharacter(int k) {
+        string temp = "";
+        string word = "a";
+        while (k > word.size()){
+            temp = word;
+            for (char& ch : temp){
+                ch++;
+                if (ch > 'z'){
+                    ch = 'a';
+                }
+            }
+            word += temp;
+        }
+        return word[k - 1];
+    }
+};
+```
 **3330. 找到初始输入字符串 I**
 ```cpp
 class Solution {
