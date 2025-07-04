@@ -695,6 +695,51 @@ public:
     }
 };
 ```
+**47. 全排列 II**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> re;
+    void summon(vector<int> sv, vector<int> nums){
+        if (sv.size() == nums.size()){
+            re.push_back(sv);
+            return;
+        }
+        sv.push_back(0);
+        int temp = 0;
+        int last = nums[0];
+        for (int index = 0; index < nums.size(); index++){
+            while (index > 0 && index < nums.size() && (nums[index] == last || -11 == nums[index])){
+                index++;
+            }
+            if (index >= nums.size()){
+                break;
+            }
+            last = nums[index];
+            if (-11 != nums[index]){
+                sv.back() = nums[index];
+                temp = nums[index];
+                nums[index] = -11;
+                summon(sv, nums);
+                nums[index] = temp;
+            }
+        }
+    }
+    vector<vector<int>> permuteUnique(vector<int>& nums) {    
+        vector<int>sv;
+        sort(nums.begin(), nums.end());
+        summon(sv, nums);
+        sort(re.begin(), re.end());
+        for (int i = 0; i < re.size() - 1; i++){
+            if (re[i] == re[i + 1]){
+                re.erase(re.begin() + i, re.begin() + i + 1);
+                i--;
+            }
+        }
+        return re;
+    }
+};
+```
 **48. 旋转图像**
 ```cpp
 class Solution {
