@@ -2784,6 +2784,25 @@ public:
     }
 };
 ```
+**1394. 找出数组中的幸运数**
+```cpp
+class Solution {
+public:
+    int findLucky(vector<int>& arr) {
+        unordered_map<int, int>shows;
+        for (int i : arr){
+            shows[i]++;
+        }
+        sort(arr.rbegin(), arr.rend());
+        for (int i : arr){
+            if (shows[i] == i){
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+```
 **1432. 改变一个整数能得到的最大差值**
 ```cpp
 class Solution {
