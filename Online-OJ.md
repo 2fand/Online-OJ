@@ -2848,6 +2848,43 @@ public:
     }
 };
 ```
+**1865. 找出和为指定值的下标对**
+```cpp
+class FindSumPairs {
+    vector<int>v1;
+    vector<int>v2;
+    unordered_map<int, int>numberCount;
+    unordered_map<int, int>addV2;
+public:
+    FindSumPairs(vector<int>& nums1, vector<int>& nums2) {
+        v1 = nums1;
+        v2 = nums2;
+        for (int i : v2){
+            numberCount[i]++;
+        }
+    }
+    void add(int index, int val) {
+        numberCount[v2[index]]--;
+        v2[index] += val;
+        numberCount[v2[index]]++;
+    }
+    //2, 3 | 3 > 1, 4 > 1
+    int count(int tot) {
+        int cont = 0;
+        for (int j = 0; j < v1.size(); j++){
+            cont += numberCount[tot - v1[j]];
+        }
+        return cont;
+    }
+};
+
+/**
+ * Your FindSumPairs object will be instantiated and called as such:
+ * FindSumPairs* obj = new FindSumPairs(nums1, nums2);
+ * obj->add(index,val);
+ * int param_2 = obj->count(tot);
+ */
+```
 **1920. 基于排列构建数组**
 ```cpp
 class Solution {
