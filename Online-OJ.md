@@ -2622,6 +2622,25 @@ public:
     }
 };
 ```
+**520. 检测大写字母**
+```cpp
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+        bool first = true;
+        bool second = true;
+        bool third = word[0] >= 'A' && word[0] <= 'Z';
+        for (char ch : word){
+            first &= ch >= 'A' && ch <= 'Z';
+            second &= ch >= 'a' && ch <= 'z';
+        }
+        for (int i = 1; i < word.size(); i++){
+            third &= word[i] >= 'a' && word[i] <= 'z';
+        }
+        return first || second || third;
+    }
+};
+```
 **594. 最长和谐子序列**
 ```cpp
 class Solution {
