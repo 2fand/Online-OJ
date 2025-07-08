@@ -2550,6 +2550,23 @@ public:
     }
 };
 ```
+**492. 构造矩形**
+```cpp
+class Solution {
+public:
+    vector<int> constructRectangle(int area) {
+        int minSub = INT_MAX;
+        int l = 0;
+        for (int i = area; i > 0 && i >= area / i; i--){
+            if (0 == area % i && minSub > i - area / i){
+                minSub = i - area / i;
+                l = i;
+            }
+        }
+        return {l, area / l};
+    }
+};
+```
 **495. 提莫攻击**
 ```cpp
 class Solution {
