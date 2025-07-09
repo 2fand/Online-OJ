@@ -2159,7 +2159,42 @@ public:
     }
 };
 ```
-2. Nim 游戏**
+**290. 单词规律**
+```cpp
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        unordered_map<char, string>match;
+        unordered_map<string, char>rmatch;
+        string subStr;
+        vector<string> subStrs;
+        s += " ";
+        for (char ch : s){
+            if (' ' == ch){
+                subStrs.push_back(subStr);
+                subStr = "";
+            }
+            else {
+                subStr.push_back(ch);
+            }
+        }
+        if (pattern.size() != subStrs.size()){
+            return false;
+        }
+        for (int i = 0; i < pattern.size(); i++){
+            if ("" == match[pattern[i]] && 0 == rmatch[subStrs[i]]){
+                match[pattern[i]] = subStrs[i];
+                rmatch[subStrs[i]] = pattern[i];
+            }
+            else if(match[pattern[i]] != subStrs[i] || rmatch[subStrs[i]] != pattern[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+**292. Nim 游戏**
 ```cpp
 class Solution {
 public:
