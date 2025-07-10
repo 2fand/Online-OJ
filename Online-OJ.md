@@ -2088,6 +2088,36 @@ public:
     }
 };
 ```
+**234. 回文链表**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        vector<int>v;
+        ListNode** node = &head;
+        while (nullptr != *node){
+            v.push_back((*node)->val);
+            node = &(*node)->next;
+        }
+        for (int i = 0; i < v.size() / 2; i++){
+            if (v[i] != v[v.size() - 1 - i]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
 **258. 各位相加**
 ```cpp
 class Solution {
