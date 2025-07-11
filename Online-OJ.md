@@ -2615,6 +2615,26 @@ public:
     }
 };
 ```
+**485. 最大连续 1 的个数**
+```cpp
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int count = 0;
+        int maxCount = 0;
+        for (int i : nums){
+            if (i){
+                count++;
+            }
+            else {
+                maxCount = max(maxCount, count);
+                count = 0;
+            }
+        }
+        return max(maxCount, count);
+    }
+};
+```
 **492. 构造矩形**
 ```cpp
 class Solution {
