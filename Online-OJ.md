@@ -2709,6 +2709,40 @@ public:
     }
 };
 ```
+**506. 相对名次**
+```cpp
+class Solution {
+public:
+    vector<string> findRelativeRanks(vector<int>& score) {
+        vector<vector<int>>vv;
+        int index = 0;
+        for (int i : score){
+            vv.push_back({i, index++});
+        }
+        sort(vv.begin(), vv.end(), [=](vector<int> v, vector<int>va)->bool{
+            return v[0] >= va[0];
+        });
+        vector<string>r(score.size(), "");
+        for (int i = 0; i < score.size(); i++){
+            switch(i){
+                case 0:
+                    r[vv[i][1]] = "Gold Medal";
+                    break;
+                case 1:
+                    r[vv[i][1]] = "Silver Medal";
+                    break;
+                case 2:
+                    r[vv[i][1]] = "Bronze Medal";
+                    break;
+                default:
+                    r[vv[i][1]] = to_string(i + 1);
+                    break;
+            }
+        }
+        return r;
+    }
+};
+```
 **507. 完美数**
 ```cpp
 class Solution {
