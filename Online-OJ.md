@@ -3217,6 +3217,30 @@ public:
     }
 };
 ```
+**2410. 运动员和训练师的最大匹配数**
+```cpp
+class Solution {
+public:
+    int matchPlayersAndTrainers(vector<int>& players, vector<int>& trainers) {
+        sort(players.begin(), players.end());
+        sort(trainers.begin(), trainers.end());
+        int i = players.size() - 1;
+        int ia = trainers.size() - 1;
+        int count = 0;
+        while (i >= 0 && ia >= 0){
+            if (trainers[ia] < players[i]){
+                i--;
+            }
+            else {
+                count++;
+                i--;
+                ia--;
+            }
+        }
+        return count;
+    }
+};
+```
 **2566. 替换一个数字后的最大差值**
 ```cpp
 class Solution {
