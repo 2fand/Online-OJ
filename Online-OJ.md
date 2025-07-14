@@ -2871,6 +2871,37 @@ public:
     }
 };
 ```
+**1290. 二进制链表转整数**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        vector<int>v;
+        ListNode** node = &head;
+        while (nullptr != *node){
+            v.push_back((*node)->val);
+            node = &(*node)->next;
+        }
+        int r = 0;
+        int digit = 1;
+        for (int i = v.size() - 1; i >= 0; i--){
+            r += v[i] * digit;
+            digit *= 2;
+        }
+        return r;
+    }
+};
+```
 **1295. 统计位数为偶数的数字**
 ```cpp
 class Solution {
