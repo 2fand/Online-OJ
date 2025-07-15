@@ -3427,6 +3427,34 @@ public:
     }
 };
 ```
+**3136. 有效单词**
+```cpp
+class Solution {
+public:
+    bool isValid(string word) {
+        if (word.size() < 3){
+            return false;
+        }
+        int vowel = 0;
+        int notVowel = 0;
+        for (char ch : word){
+            if ('a' == ch || 'A' == ch || 'e' == ch || 'E' == ch || 'i' == ch || 'I' == ch || 'o' == ch || 'O' == ch || 'u' == ch || 'U' == ch){
+                vowel++;
+            }
+            else if(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z'){
+                notVowel++;
+            }
+            else if(ch < '0' || ch > '9'){
+                return false;
+            }
+        }
+        if (0 == vowel || 0 == notVowel){
+            return false;
+        }
+        return true;
+    }
+};
+```
 **3304. 找出第 K 个字符 I**
 ```cpp
 class Solution {
