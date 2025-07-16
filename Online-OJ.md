@@ -1980,6 +1980,84 @@ public:
     }
 };
 ```
+**206. 反转链表**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        stack<int>s;
+        while (nullptr != head){
+            s.push(head->val);
+            head = head->next;
+        }
+        ListNode** searchNode = &head;
+        while (s.size()){
+            *searchNode = new ListNode(s.top());
+            s.pop();
+            searchNode = &((*searchNode)->next);
+        }
+        return head;
+    }
+};
+```
+**208. 实现 Trie (前缀树)**
+```cpp
+class Trie {
+    unordered_map<string, bool>isHave;
+    struct node{
+        unordered_map<char, node*>nexts;
+    };
+    node* root;
+public:
+    Trie() {
+        root = new node();
+    }
+    
+    void insert(string word) {
+        isHave[word] = true;
+        node** addNode = &root;
+        for (int i = 0; i < word.size(); i++){
+            if (nullptr == (*addNode)->nexts[word[i]]){
+                (*addNode)->nexts[word[i]] = new node();
+            }
+            addNode = &(*addNode)->nexts[word[i]];
+        }
+    }
+    
+    bool search(string word) {
+        return isHave[word];
+    }
+    
+    bool startsWith(string prefix) {
+        node** searchNode = &root;
+        for (int i = 0; i < prefix.size(); i++){
+            if (nullptr == (*searchNode)->nexts[prefix[i]]){
+                return false;
+            }
+            searchNode = &(*searchNode)->nexts[prefix[i]];
+        }
+        return true;
+    }
+};
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
+ * obj->insert(word);
+ * bool param_2 = obj->search(word);
+ * bool param_3 = obj->startsWith(prefix);
+ */
+```
 **217. 存在重复元素**
 ```cpp
 class Solution {
