@@ -2855,6 +2855,15 @@ public:
     }
 };
 ```
+**509. 斐波那契数**
+```cpp
+class Solution {
+public:
+    int fib(int n) {
+        return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+    }
+};
+```
 **594. 最长和谐子序列**
 ```cpp
 class Solution {
