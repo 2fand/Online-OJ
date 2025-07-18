@@ -331,6 +331,80 @@ public:
     }
 };
 ```
+**15. 三数之和**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        set<vector<int>> resultSet;
+        vector<vector<int>> result;
+        unordered_map<int, int>numIndexs;
+        unordered_map<int, int>numCounts;
+        for (int i = 0; i < nums.size(); i++){
+            numCounts[nums[i]]++;
+        }
+        for (int i = 0; i < nums.size(); i++){
+            if (numCounts[nums[i]] > 3){
+                numCounts[nums[i]]--;
+                nums.erase(nums.begin() + i, nums.begin() + i + 1);
+            }
+        }
+        for (int i = 0; i < nums.size(); i++){
+            if (0 == numIndexs[nums[i]]){
+                numIndexs[nums[i]] = i + 1;
+            }
+        }
+        int max = 0;
+        int mid = 0;
+        int min = 0;
+        for (int i = 0; i < nums.size(); i++){
+            for (int j = 0; j < nums.size(); j++){
+                if (i == j || 0 == numIndexs[0 - nums[i] - nums[j]] || i == numIndexs[0 - nums[i] - nums[j]] - 1 || j == numIndexs[0 - nums[i] - nums[j]] - 1){
+                    continue;
+                }
+                if (nums[i] <= nums[j] && nums[i] <= 0 - nums[i] - nums[j]){
+                    min = nums[i];
+                    if (nums[j] <= 0 - nums[i] - nums[j]){
+                        mid = nums[j];
+                        max = 0 - nums[i] - nums[j];
+                    }
+                    else {
+                        max = nums[j];
+                        mid = 0 - nums[i] - nums[j];
+                    }
+                }
+                else if (nums[j] <= nums[i] && nums[j] <= 0 - nums[i] - nums[j]){
+                    min = nums[j];
+                    if (nums[i] <= 0 - nums[i] - nums[j]){
+                        mid = nums[i];
+                        max = 0 - nums[i] - nums[j];
+                    }
+                    else {
+                        max = nums[i];
+                        mid = 0 - nums[i] - nums[j];
+                    }
+                }
+                else {
+                    min = 0 - nums[i] - nums[j];
+                    if (nums[j] <= nums[i]){
+                        mid = nums[j];
+                        max = nums[i];
+                    }
+                    else {
+                        max = nums[j];
+                        mid = nums[i];
+                    }
+                }
+                resultSet.insert({min, mid, max});
+            }
+        }
+        for (vector<int> v : resultSet){
+            result.push_back(v);
+        }
+        return result;
+    }
+};
+```
 **17. 电话号码的字母组合**
 ```cpp
 class Solution {
