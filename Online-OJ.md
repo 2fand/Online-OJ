@@ -1936,6 +1936,28 @@ public:
     }
 };
 ```
+**187. 重复的DNA序列**
+```cpp
+class Solution {
+public:
+    vector<string> findRepeatedDnaSequences(string s) {
+        unordered_map<string, int>haveCount;
+        unordered_map<string, bool>cantCountStr;
+        vector<string> result;
+        if (10 > s.size()){
+            return result;
+        }
+        for (int i = 0; i <= s.size() - 10; i++){
+            haveCount[s.substr(i, 10)]++;
+            if (!cantCountStr[s.substr(i, 10)] && 1 < haveCount[s.substr(i, 10)]){
+                cantCountStr[s.substr(i, 10)] = true;
+                result.push_back(s.substr(i, 10));
+            }
+        }
+        return result;
+    }
+};
+```
 **191. 位1的个数**
 ```cpp
 class Solution {
