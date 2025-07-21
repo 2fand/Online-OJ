@@ -3307,6 +3307,26 @@ public:
     }
 };
 ```
+**1957. 删除字符使字符串变好**
+```cpp
+class Solution {
+public:
+    string makeFancyString(string s) {
+        string result = "";
+        int charCount = 0;
+        for (int i = 0; i < s.size(); i++){
+            if (charCount < 2){
+                charCount++;
+                result.push_back(s[i]);
+            }
+            if (s.size() - 1 != i && s[i + 1] != s[i]){
+                charCount = 0;
+            }
+        }
+        return result;
+    }
+};
+```
 **2016. 增量元素之间的最大差值**
 ```cpp
 class Solution {
