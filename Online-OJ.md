@@ -2883,6 +2883,39 @@ public:
     }
 };
 ```
+**496. 下一个更大元素 I**
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int, int>rnums2;
+        vector<int>v;
+        unordered_map<int, int>result;
+        unordered_map<int, bool>isNotNull;
+        vector<int>temp;
+        for (int i = 0; i < nums2.size(); i++){
+            rnums2[nums2[i]] = i;
+            if (i + 1 < nums2.size()){
+                temp.push_back(i);
+                if (nums2[temp.back()] < nums2[i + 1]){
+                    for (int j = temp.size() - 1; j >= 0 && nums2[temp[j]] < nums2[i + 1]; j--){
+                        result[temp[j]] = nums2[i + 1];
+                        isNotNull[temp[j]] = true;
+                        temp.pop_back();
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < nums2.size(); i++){
+            result[i] = (!isNotNull[i] ? -1 : result[i]);
+        }
+        for (int i = 0; i < nums1.size(); i++){
+            v.push_back(result[rnums2[nums1[i]]]);
+        }
+        return v;
+    }
+};
+```
 **500. 键盘行**
 ```cpp
 class Solution {
