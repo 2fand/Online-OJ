@@ -3081,6 +3081,33 @@ public:
     }
 };
 ```
+**645. 错误的集合**
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        unordered_map<int, int>counts;
+        unordered_map<int, int>isHas;
+        int maxNum = 0;
+        vector<int> result = {0, 0};
+        for (int i = 0; i < nums.size(); i++){
+            counts[nums[i]]++;
+            isHas[nums[i]] = true;
+            maxNum = max(maxNum, nums[i]);
+            if (2 == counts[nums[i]]){
+                result[0] = nums[i];
+            }
+        }
+        for (int i = 1; i <= maxNum + 1; i++){
+            if (!isHas[i]){
+                result[1] = i;
+                break;
+            }
+        }
+        return result;
+    }
+};
+```
 **796. 旋转字符串**
 ```cpp
 class Solution {
