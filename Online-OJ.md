@@ -2224,7 +2224,7 @@ public:
     }
 };
 ```
-2. 完全二叉树的节点个数**
+**222. 完全二叉树的节点个数**
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -2282,6 +2282,23 @@ public:
         }
         r.push_back(rs);
         return r;
+    }
+};
+```
+**229. 多数元素 II**
+```cpp
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        unordered_map<int, int>count;
+        vector<int>result;
+        for (int i = 0; i < nums.size(); i++){
+            count[nums[i]]++;
+            if (nums.size() / 3 + 1 == count[nums[i]]){
+                result.push_back(nums[i]);
+            }
+        }
+        return result;
     }
 };
 ```
