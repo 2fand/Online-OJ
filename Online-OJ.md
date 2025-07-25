@@ -3890,6 +3890,28 @@ public:
     }
 };
 ```
+**3487. 删除后的最大子数组元素和**
+```cpp
+class Solution {
+public:
+    int maxSum(vector<int>& nums) {
+        int sum = 0;
+        unordered_map<int, bool>had;
+        int delNum = 0;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); i++){
+            if (nums.size() - delNum == 1 || !had[nums[i]] && nums[i] > 0){
+                had[nums[i]] = true;
+                sum += nums[i];
+            }
+            else {
+                delNum++;
+            }
+        }
+        return sum;
+    }
+};
+```
 ## shell
 
 **192. 统计词频**
