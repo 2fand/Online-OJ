@@ -2846,6 +2846,26 @@ public:
     }
 };
 ```
+**476. 数字的补数**
+```cpp
+class Solution {
+public:
+    int findComplement(int num) {
+        long long i = 1;
+        int count = 1;
+        while (num >= i){
+            i *= 2;
+            count++;
+        }
+        count--;
+        int result = 0;
+        for (int i = 0; i < count; i++){
+            result += !(num >> i & 1) << i;
+        }
+        return result;
+    }
+};
+```
 **485. 最大连续 1 的个数**
 ```cpp
 class Solution {
