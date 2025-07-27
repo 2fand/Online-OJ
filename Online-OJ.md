@@ -3502,6 +3502,29 @@ public:
     }
 };
 ```
+**2210. 统计数组中峰和谷的数量**
+```cpp
+class Solution {
+public:
+    int countHillValley(vector<int>& nums) {
+        unordered_map<int, int>Iindex;
+        vector<int>v;
+        unordered_map<int, bool>Ihave;
+        for (int i = 0; i < nums.size(); i++){
+            if (0 == v.size() || nums[v.back()] != nums[i]){
+                v.push_back(i);
+            }
+        }
+        int count = 0;
+        for (int i = 1; i < v.size() - 1; i++){
+            if (nums[v[i - 1]] < nums[v[i]] && nums[v[i + 1]] < nums[v[i]] || nums[v[i - 1]] > nums[v[i]] && nums[v[i + 1]] > nums[v[i]]){
+                count++;
+            }
+        }
+        return count;
+    }
+};
+```
 **2138. 将字符串拆分为若干长度为 k 的组**
 ```cpp
 class Solution {
