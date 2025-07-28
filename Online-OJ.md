@@ -3070,6 +3070,25 @@ public:
     }
 };
 ```
+**566. 重塑矩阵**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
+        if (mat.size() * mat[0].size() != r * c){
+            return mat;
+        }
+        vector<vector<int>> result;
+        for (int i = 0; i < r * c; i++){
+            if (0 == i % c){
+                result.push_back({});
+            }
+            result[i / c].push_back(mat[i / mat[0].size()][i % mat[0].size()]);
+        }
+        return result;
+    }
+};
+```
 **594. 最长和谐子序列**
 ```cpp
 class Solution {
