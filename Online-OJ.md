@@ -3210,6 +3210,21 @@ public:
     }
 };
 ```
+**961. 在长度 2N 的数组中找出重复 N 次的元素**
+```cpp
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& nums) {
+        unordered_map<int, int>counts;
+        for (int i = 0; i < nums.size(); i++){
+            if (nums.size() / 2 == ++counts[nums[i]]){
+                return nums[i];
+            }
+        }
+        return 0;
+    }
+};
+```
 **1290. 二进制链表转整数**
 ```cpp
 /**
