@@ -3669,6 +3669,39 @@ public:
     }
 };
 ```
+**2419. 按位与最大的最长子数组**
+```cpp
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        int a = 0;
+        int max = 0;
+        int maxLength = 0;
+        int length = 0;
+        for (int i = 0; i < nums.size(); i++){
+            a = nums[i];
+            if (max < a){
+                max = a;
+            }
+        }
+        for (int i = 0; i < nums.size(); i++){
+            if (max == nums[i]){
+                length++;
+            }
+            else {
+                if (maxLength < length){
+                    maxLength = length;
+                }
+                length = 0;
+            }
+        }
+        if (maxLength < length){
+            maxLength = length;
+        }
+        return maxLength;
+    }
+};
+```
 **2566. 替换一个数字后的最大差值**
 ```cpp
 class Solution {
