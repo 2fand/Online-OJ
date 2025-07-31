@@ -3225,6 +3225,43 @@ public:
     }
 };
 ```
+**989. 数组形式的整数加法**
+```cpp
+class Solution {
+public:
+    vector<int> addToArrayForm(vector<int>& num, int k) {
+        int index = num.size() - 1;
+        bool isToFront = false;
+        bool isPlusOne = false;
+        while (k || !isToFront){
+            if (0 == index){
+                isToFront = true;
+            }
+            num[index] += k % 10;
+            if (num[index] >= 10){
+                num[index] %= 10;
+                if (isToFront || 0 > index) {
+                    num.insert(num.begin(), 1);
+                    isPlusOne = true;
+                    index = 0;
+                }
+                else {
+                    num[index - 1]++;
+                }
+            }
+            k /= 10;
+            if (!isPlusOne && k && isToFront){
+                num.insert(num.begin(), 0);
+            }
+            if (0 < index) {
+                index--;
+            }
+            isPlusOne = false;
+        }
+        return num;
+    }
+};
+```
 **1290. 二进制链表转整数**
 ```cpp
 /**
