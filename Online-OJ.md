@@ -3262,6 +3262,41 @@ public:
     }
 };
 ```
+**1002. 查找共用字符**
+```cpp
+class Solution {
+public:
+    vector<string> commonChars(vector<string>& words) {
+        unordered_map<char, int>showChars;
+        unordered_map<char, bool>isAdd;
+        unordered_map<char, int>tempShowChars;
+        vector<char>hasChars;
+        vector<string>result;
+        for (int i = 0; i < words[0].size(); i++){
+            showChars[words[0][i]]++;
+            hasChars.push_back(words[0][i]);
+        }
+        for (int i = 1; i < words.size(); i++){
+            tempShowChars.clear();
+            for (int ia = 0; ia < words[i].size(); ia++){
+                tempShowChars[words[i][ia]]++;
+            }
+            for (int ia = 0; ia < hasChars.size(); ia++){
+                showChars[hasChars[ia]] = min(showChars[hasChars[ia]], tempShowChars[hasChars[ia]]);
+            }
+        }
+        for (int i = 0; i < hasChars.size(); i++){
+            if (!isAdd[hasChars[i]] && 0 != showChars[hasChars[i]]){
+                isAdd[hasChars[i]] = true;
+                for (int ia = 0; ia < showChars[hasChars[i]]; ia++){
+                    result.push_back(string(1, hasChars[i]));
+                }
+            }
+        }
+        return result;
+    }
+};
+```
 **1290. 二进制链表转整数**
 ```cpp
 /**
