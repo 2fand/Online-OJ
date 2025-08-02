@@ -4094,6 +4094,27 @@ public:
     }
 };
 ```
+
+### 面试
+
+**面试题 05.01. 插入**
+```cpp
+class Solution {
+public:
+    int insertBits(int N, int M, int i, int j) {
+        for (int k = i; k <= j; k++){
+            if (0 == (M >> (k - i) & 1)){
+                N &= ~(1 << k);
+            }
+            else{
+                N |= 1 << k;
+            }
+        }
+        return N;
+    }
+};
+```
+
 ## shell
 
 **192. 统计词频**
