@@ -3297,6 +3297,30 @@ public:
     }
 };
 ```
+**1046. 最后一块石头的重量**
+```cpp
+class Solution {
+public:
+    int lastStoneWeight(vector<int>& stones) {
+        if (1 == stones.size()){
+            return stones[0];
+        }
+        else if (0 == stones.size()){
+            return 0;
+        }
+        sort(stones.rbegin(), stones.rend());
+        stones[0] -= stones[1];
+        if (0 == stones[0]){
+            stones.erase(stones.begin(), stones.begin() + 1);
+            stones.erase(stones.begin(), stones.begin() + 1);
+        }
+        else {
+            stones.erase(stones.begin() + 1, stones.begin() + 2);
+        }
+        return lastStoneWeight(stones);
+    }
+};
+```
 **1290. 二进制链表转整数**
 ```cpp
 /**
