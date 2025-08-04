@@ -3225,6 +3225,25 @@ public:
     }
 };
 ```
+**977. 有序数组的平方**
+```cpp
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        unordered_map<int,int>numCounts;
+        for (int i = 0; i < nums.size(); i++){
+            numCounts[abs(nums[i])]++;
+        }
+        vector<int>result;
+        for (int i = 0; i <= 10000; i++){
+            for (int ia = 0; 1 <= numCounts[i] && ia < numCounts[i]; ia++){
+                result.push_back(i * i);
+            }
+        }
+        return result;
+    }
+};
+```
 **989. 数组形式的整数加法**
 ```cpp
 class Solution {
