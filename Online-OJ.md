@@ -3489,6 +3489,23 @@ public:
     }
 };
 ```
+**1512. 好数对的数目**
+```cpp
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+        int count = 0;
+        for (int i = 0; i < nums.size(); i++){
+            for (int ia = i + 1; ia < nums.size(); ia++){
+                if (nums[i] == nums[ia]){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+};
+```
 **1550. 存在连续三个奇数的数组**
 ```cpp
 class Solution {
