@@ -2969,6 +2969,43 @@ public:
     }
 };
 ```
+**501. 二叉搜索树中的众数**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    unordered_map<int, int>counts;
+    unordered_map<int, vector<int>>rcounts;
+    int maxCount = 0;
+public:
+    void calc(TreeNode* root){
+        if (nullptr != root){
+            counts[root->val]++;
+            maxCount = max(maxCount, counts[root->val]);
+            rcounts[counts[root->val]].push_back(root->val);
+            if (nullptr != root->left){
+                calc(root->left);
+            }
+            if (nullptr != root->right){
+                calc(root->right);
+            }
+        }
+    }
+    vector<int> findMode(TreeNode* root) {
+        calc(root);
+        return rcounts[maxCount];
+    }
+};
+```
 **504. 七进制数**
 ```cpp
 class Solution {
