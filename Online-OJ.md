@@ -2866,6 +2866,33 @@ public:
     }
 };
 ```
+**482. 密钥格式化**
+```cpp
+class Solution {
+public:
+    string licenseKeyFormatting(string s, int k) {
+        string no_str;
+        for (int i = 0; i < s.size(); i++){
+            if ('-' != s[i]){
+                no_str.push_back(toupper(s[i]));
+            }
+        }
+        string result;
+        for (int i = 0; i < ceil(no_str.size() / (float)k); i++){
+            if (0 == i){
+                result += no_str.substr(0, 0 == no_str.size() % k ? k : no_str.size() % k);
+            }
+            else{
+                result += no_str.substr((0 == no_str.size() % k ? k : no_str.size() % k) + (int)k * (i - 1), k);
+            }
+            if (i < (int)ceil(no_str.size() / (float)k) - 1){
+                result += "-";
+            }
+        }
+        return result;
+    }
+};
+```
 **485. 最大连续 1 的个数**
 ```cpp
 class Solution {
