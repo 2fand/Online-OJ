@@ -3252,6 +3252,33 @@ public:
     }
 };
 ```
+**844. 比较含退格的字符串**
+```cpp
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        string real_s = "";
+        string real_t = "";
+        for (int i = 0; i < s.size(); i++){
+            if ('#' != s[i]){
+                real_s.push_back(s[i]);
+            }
+            else if(0 != real_s.size()){
+                real_s.pop_back();
+            }
+        }
+        for (int i = 0; i < t.size(); i++){
+            if ('#' != t[i]){
+                real_t.push_back(t[i]);
+            }
+            else if(0 != real_t.size()){
+                real_t.pop_back();
+            }
+        }
+        return real_s == real_t;
+    }
+};
+```
 **917. 仅仅反转字母**
 ```cpp
 class Solution {
