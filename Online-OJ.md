@@ -1817,6 +1817,41 @@ public:
     }
 };
 ```
+**142. 环形链表 II**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* fastNode = head;
+        ListNode* slowNode = head;
+        ListNode* ptr = head;
+        while (nullptr != fastNode){
+            fastNode = fastNode->next;
+            if (nullptr == fastNode){
+                break;
+            }
+            fastNode = fastNode->next;
+            slowNode = slowNode->next;
+            if (fastNode == slowNode){
+                while (ptr != slowNode){
+                    ptr = ptr->next;
+                    slowNode = slowNode->next;
+                }
+                return slowNode;
+            }
+        }
+        return nullptr;
+    }
+};
+```
 **144. 二叉树的前序遍历**
 ```cpp
 /**
