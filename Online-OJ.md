@@ -1928,6 +1928,57 @@ public:
     }
 };
 ```
+**166. 分数到小数**
+```cpp
+class Solution {
+    enum mode{
+        integer,
+        fact
+    };
+public:
+    int sign(long long i){
+        if (0 == i){
+            return 0;
+        }
+        return i / abs(i);
+    }
+    string getkey(vector<vector<long long>> v){
+        return to_string(v.back()[0]) + " " + to_string(v.back()[1]);
+    }
+    string fractionToDecimal(int numerator, int denominator) {
+        string result = "";
+        long long div = 0;
+        long long mod = INT_MAX;
+        long long llNumerator = numerator;
+        long long llDenominator = denominator;
+        int resultSign = sign(llNumerator) * sign(llDenominator);
+        llNumerator = abs(llNumerator);
+        llDenominator = abs(llDenominator);
+        mode m = integer;
+        vector<vector<long long>>divs;
+        unordered_map<string, vector<int>>haveIndexs;
+        while (mod){
+            if (fact == m){
+                mod *= 10;
+                llNumerator = mod;
+                divs.push_back({llNumerator, llDenominator});
+                haveIndexs[getkey(divs)].push_back(result.size() - 1);
+                if (2 == haveIndexs[getkey(divs)].size()) {
+                    return (-1 == resultSign ? "-" : "") + result.substr(0, haveIndexs[getkey(divs)][0] + 1) + "(" + result.substr(haveIndexs[getkey(divs)][0] + 1, haveIndexs[getkey(divs)][1] - haveIndexs[getkey(divs)][0]) + ")";
+                }
+            }
+            div = llNumerator / llDenominator;
+            mod = llNumerator % llDenominator;
+            result += to_string(div);
+            if (fact != m && 0 != mod){
+                m = fact;
+                result += ".";
+            }
+        }
+        return (-1 == resultSign ? "-" : "") + result;
+    }
+};
+```
 **168. Excel 表列名称**
 ```cpp
 class Solution {
