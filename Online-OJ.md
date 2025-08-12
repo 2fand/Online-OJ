@@ -3387,6 +3387,33 @@ public:
     }
 };
 ```
+**922. 按奇偶排序数组 II**
+```cpp
+class Solution {
+public:
+    vector<int> sortArrayByParityII(vector<int>& nums) {
+        vector<int>vOdd;
+        vector<int>vEven;
+        for (int i = 0; i < nums.size(); i++){
+            if (0 == nums[i] % 2){
+                vEven.push_back(nums[i]);
+            }
+            else{
+                vOdd.push_back(nums[i]);
+            }
+        }
+        for (int i = 0; i < nums.size(); i++){
+            if (0 == i % 2){
+                nums[i] = vEven[i / 2];
+            }
+            else{
+                nums[i] = vOdd[(i - 1) / 2];
+            }
+        }
+        return nums;
+    }
+};
+```
 **961. 在长度 2N 的数组中找出重复 N 次的元素**
 ```cpp
 class Solution {
