@@ -2435,6 +2435,47 @@ public:
     }
 };
 ```
+**257. 二叉树的所有路径**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    vector<string>result;
+public:
+    void calc(string path, TreeNode* node){
+        if (nullptr == node){
+            return;
+        }
+        path += "->" + to_string(node->val);
+        if (nullptr == node->left && nullptr == node->right){
+            result.push_back(path);
+        }
+        if (nullptr != node->left){
+            calc(path, node->left);
+        }
+        if (nullptr != node->right){
+            calc(path, node->right);
+        }
+    }
+    vector<string> binaryTreePaths(TreeNode* root) {
+        if (nullptr == root->left && nullptr == root->right){
+            return {to_string(root->val)};
+        }
+        calc(to_string(root->val), root->left);
+        calc(to_string(root->val), root->right);
+        return result;
+    }
+};
+```
 **258. 各位相加**
 ```cpp
 class Solution {
