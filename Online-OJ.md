@@ -3765,6 +3765,26 @@ public:
     }
 };
 ```
+**1780. 判断一个数字是否可以表示成三的幂的和**
+```cpp
+class Solution {
+public:
+    bool checkPowersOfThree(int n) {
+        int maxI = 1;
+        while (maxI <= n){
+            maxI *= 3;
+        }
+        maxI /= 3;
+        while (n && maxI){
+            if (n >= maxI){
+                n -= maxI;
+            }
+            maxI /= 3;
+        }
+        return 0 == n;
+    }
+};
+```
 **1865. 找出和为指定值的下标对**
 ```cpp
 class FindSumPairs {
