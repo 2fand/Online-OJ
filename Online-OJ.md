@@ -3355,6 +3355,20 @@ public:
     }
 };
 ```
+**709. 转换成小写字母**
+```cpp
+class Solution {
+public:
+    string toLowerCase(string s) {
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] >= 'A' && s[i] <= 'Z'){
+                s[i] += 32;
+            }
+        }
+        return s;
+    }
+};
+```
 **796. 旋转字符串**
 ```cpp
 class Solution {
