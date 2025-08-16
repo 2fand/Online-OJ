@@ -3698,6 +3698,23 @@ public:
     }
 };
 ```
+**1323. 6 和 9 组成的最大数字**
+```cpp
+class Solution {
+public:
+    int maximum69Number(int num) {
+        int i = 1000;
+        while (i){
+            if (6 == num / i % 10){
+                num += 3 * i;
+                break;
+            } 
+            i /= 10;
+        }
+        return num;
+    }
+};
+```
 **1394. 找出数组中的幸运数**
 ```cpp
 class Solution {
