@@ -2022,6 +2022,26 @@ public:
     }
 };
 ```
+**179. 最大数**
+```cpp
+class Solution {
+public:
+    string largestNumber(vector<int>& nums) {
+        vector <string> strs;
+        for (const auto pair : nums)
+            strs.push_back(to_string(pair));
+        sort (strs.begin(),strs.end(),[](const string& a,const string& b) -> bool {
+            return a + b > b + a;
+        });
+        string ans = "";
+        for (const auto& s : strs)
+            ans += s;
+        if (ans[0] == '0')
+            return "0";
+        return ans;
+    }
+};
+```
 **187. 重复的DNA序列**
 ```cpp
 class Solution {
