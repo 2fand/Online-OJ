@@ -1928,6 +1928,51 @@ public:
     }
 };
 ```
+**150. 逆波兰表达式求值**
+```cpp
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<string>stack;
+        int ia = 0;
+        int ib = 0;
+        for (int i = 0; i < tokens.size(); i++){
+            if ("+" == tokens[i]){
+                ib = atoi(stack.top().c_str());
+                stack.pop();
+                ia = atoi(stack.top().c_str());
+                stack.pop();
+                stack.push(to_string(ia + ib));
+            }
+            else if("-" == tokens[i]){
+                ib = atoi(stack.top().c_str());
+                stack.pop();
+                ia = atoi(stack.top().c_str());
+                stack.pop();
+                stack.push(to_string(ia - ib));
+            }
+            else if("*" == tokens[i]){
+                ib = atoi(stack.top().c_str());
+                stack.pop();
+                ia = atoi(stack.top().c_str());
+                stack.pop();
+                stack.push(to_string(ia * ib));
+            }
+            else if("/" == tokens[i]){
+                ib = atoi(stack.top().c_str());
+                stack.pop();
+                ia = atoi(stack.top().c_str());
+                stack.pop();
+                stack.push(to_string(ia / ib));
+            }
+            else {
+                stack.push(tokens[i]);
+            }
+        }
+        return atoi(stack.top().c_str());
+    }
+};
+```
 **166. 分数到小数**
 ```cpp
 class Solution {
