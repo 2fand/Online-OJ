@@ -4138,6 +4138,27 @@ public:
     }
 };
 ```
+**2348. 全 0 子数组的数目**
+```cpp
+class Solution {
+public:
+    long long zeroFilledSubarray(vector<int>& nums) {
+        long long ll = 0;
+        int zeroCount = 0;
+        for (int j = 0; j < nums.size(); j++){
+            if (0 == nums[j]){
+                zeroCount++;
+            }
+            else{
+                ll += (zeroCount + 1) * (zeroCount / 2.0);
+                zeroCount = 0;
+            }
+        }
+        ll += (zeroCount + 1) * (zeroCount / 2.0);
+        return ll;
+    }
+};
+```
 **2410. 运动员和训练师的最大匹配数**
 ```cpp
 class Solution {
