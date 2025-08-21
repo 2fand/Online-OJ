@@ -3534,6 +3534,41 @@ public:
     }
 };
 ```
+**941. 有效的山脉数组**
+```cpp
+class Solution {
+public:
+    bool validMountainArray(vector<int>& arr) {
+        bool isUp = true;
+        bool isUped = false;
+        int changeValue = arr[0];
+        if (arr.size() < 3){
+            return false;
+        }
+        for (int i = 1; i < arr.size(); i++){
+            if (arr[i] == changeValue){
+                return false;
+            }
+            if (arr[i] > changeValue){
+                if (!isUp){
+                    return false;
+                }
+                isUped = true;
+                changeValue = arr[i];
+            }
+            if (arr[i] < changeValue){
+                if (!isUped){
+                    return false;
+                }
+                if (isUp){
+                    isUp = false;
+                }
+                changeValue = arr[i];
+            }
+        }
+        return !isUp;
+    }
+};
 **961. 在长度 2N 的数组中找出重复 N 次的元素**
 ```cpp
 class Solution {
