@@ -4443,6 +4443,29 @@ public:
     }
 };
 ```
+**3195. 包含所有 1 的最小矩形面积 I**
+```cpp
+class Solution {
+public:
+    int minimumArea(vector<vector<int>>& grid) {
+        int leftSide = INT_MAX;
+        int rightSide = 0;
+        int upSide = INT_MAX;
+        int downSide = 0;
+        for (int i = 0; i < grid.size(); i++){
+            for (int ia = 0; ia < grid[0].size(); ia++){
+                if (1 == grid[i][ia]){
+                    leftSide = min(leftSide, ia);
+                    upSide = min(upSide, i);
+                    rightSide = max(rightSide, ia);
+                    downSide = max(downSide, i);
+                }
+            }
+        }
+        return (rightSide - leftSide + 1) * (downSide - upSide + 1);
+    }
+};
+```
 **3304. 找出第 K 个字符 I**
 ```cpp
 class Solution {
