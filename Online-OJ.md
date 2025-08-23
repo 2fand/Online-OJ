@@ -3569,6 +3569,7 @@ public:
         return !isUp;
     }
 };
+```
 **961. 在长度 2N 的数组中找出重复 N 次的元素**
 ```cpp
 class Solution {
@@ -3581,6 +3582,41 @@ public:
             }
         }
         return 0;
+    }
+};
+```
+**965. 单值二叉树**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isUnivalTree(TreeNode* root) {
+        queue<TreeNode*>nodes;
+        nodes.push(root);
+        int value = root->val;
+        while (nodes.size() != 0){
+            if (value != nodes.front()->val){
+                return false;
+            }
+            if (nullptr != nodes.front()->left){
+                nodes.push(nodes.front()->left);
+            }
+            if (nullptr != nodes.front()->right){
+                nodes.push(nodes.front()->right);
+            }
+            nodes.pop();
+        }
+        return true;
     }
 };
 ```
