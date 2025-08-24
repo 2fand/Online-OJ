@@ -3910,6 +3910,45 @@ public:
     }
 };
 ```
+**1493. 删掉一个元素以后全为 1 的最长子数组**
+```cpp
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        vector<vector<int>>numsToGroups;
+        int status = -1;
+        for (int i = 0; i < nums.size(); i++){
+            if (status != nums[i]){
+                status = nums[i];
+                numsToGroups.push_back({status, 0});
+            }
+            numsToGroups.back()[1]++;
+        }
+        int maxOneCount = 0;
+        if (numsToGroups.size() == 1){
+            return 1 == numsToGroups[0][0] ? numsToGroups[0][1] - 1 : 0;
+        }
+        if (numsToGroups.size() == 2){
+            return 1 == numsToGroups[0][0] ? numsToGroups[0][1] : numsToGroups[1][1];
+        }
+        if (numsToGroups.size() == 3 && numsToGroups[0][0] == 0 && numsToGroups[1][0] == 1 && numsToGroups[2][0] == 0){
+            return numsToGroups[1][1];
+        }
+        for (int i = 0; i < numsToGroups.size(); i++){
+            if (0 == numsToGroups[i][0] || (i < numsToGroups.size() - 1 && 1 < numsToGroups[i + 1][1])){
+                if (1 == numsToGroups[i][0]){
+                    maxOneCount = max(maxOneCount, numsToGroups[i][1]);
+                }
+                continue;
+            }
+            if (i < numsToGroups.size() - 2) {
+                maxOneCount = max(numsToGroups[i][1] + numsToGroups[i + 2][1], maxOneCount);
+            }
+        }
+        return maxOneCount;
+    }
+};
+```
 **1512. 好数对的数目**
 ```cpp
 class Solution {
