@@ -3172,6 +3172,33 @@ public:
     }
 };
 ```
+**498. 对角线遍历**
+```cpp
+class Solution {
+public:
+    vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
+        vector<int> result;
+        int lineCount = 0;
+        for (int i = 0; i < mat.size() + mat[0].size() - 1; i++, lineCount++){
+            if (lineCount % 2 == 0){
+                for (int j = 0; j <= i; j++){
+                    if (j < mat[0].size() && i - j < mat.size()){
+                        result.push_back(mat[i-j][j]);
+                    }
+                }
+            }
+            else{
+                for (int j = i; j >= 0; j--){
+                    if (j < mat[0].size() && i - j < mat.size()){
+                        result.push_back(mat[i-j][j]);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+};
+```
 **500. 键盘行**
 ```cpp
 class Solution {
