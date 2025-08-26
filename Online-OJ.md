@@ -4482,6 +4482,23 @@ public:
     }
 };
 ```
+**3000. 对角线最长的矩形的面积**
+```cpp
+class Solution {
+public:
+    int areaOfMaxDiagonal(vector<vector<int>>& dimensions) {
+        int maxi = -1;
+        float length = 0;
+        for (int i = 0; i < dimensions.size(); i++){
+            if (length < sqrt(dimensions[i][0] * dimensions[i][0] + dimensions[i][1] * dimensions[i][1]) || length == sqrt(dimensions[i][0] * dimensions[i][0] + dimensions[i][1] * dimensions[i][1]) && dimensions[maxi][0] * dimensions[maxi][1] < dimensions[i][0] * dimensions[i][1]){
+                length = sqrt(dimensions[i][0] * dimensions[i][0] + dimensions[i][1] * dimensions[i][1]);
+                maxi = i;
+            }
+        }
+        return dimensions[maxi][0] * dimensions[maxi][1];
+    }
+};
+```
 **3085. 成为 K 特殊字符串需要删除的最少字符数**
 ```cpp
 class Solution {
