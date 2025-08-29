@@ -3485,6 +3485,42 @@ public:
     }
 };
 ```
+**824. 山羊拉丁文**
+```cpp
+class Solution {
+public:
+    string toGoatLatin(string sentence) {
+        string result;
+        vector<string>strs;
+        string subStr;
+        for (int i = 0; i < sentence.size(); i++){
+            if (' ' == sentence[i]){
+                strs.push_back(subStr);
+                subStr = "";
+            }
+            else{
+                subStr.push_back(sentence[i]);
+            }
+        }
+        strs.push_back(subStr);
+        for (int i = 0; i < strs.size(); i++){
+            if (!('a' == strs[i][0] || 'e' == strs[i][0] || 'i' == strs[i][0] || 'o' == strs[i][0] || 'u' == strs[i][0] || 'A' == strs[i][0] || 'E' == strs[i][0] || 'I' == strs[i][0] || 'O' == strs[i][0] || 'U' == strs[i][0])){
+                strs[i].push_back(strs[i][0]);
+                strs[i].erase(0,1);
+            }
+            strs[i] += "m";
+            for (int j = 0; j < 2 + i; j++){
+                strs[i] += "a";
+            }
+        }
+        for (int i = 0; i < strs.size(); i++){
+            result += strs[i] + " ";
+        }
+        result.pop_back();
+        return result;
+    }
+};
+```
 **844. 比较含退格的字符串**
 ```cpp
 class Solution {
