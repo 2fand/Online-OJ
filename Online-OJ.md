@@ -4736,6 +4736,93 @@ public:
     }
 };
 ```
+**3446. 按对角线进行矩阵排序**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> sortMatrix(vector<vector<int>>& grid) {
+        vector<int>sorted;
+        for (int i = -((int)grid.size() - 1); i <= (int)grid.size() - 1; i++){
+            sorted.clear();
+            for (int x = i, y = 0; y < grid.size(); x++, y++){
+                if (x >= 0 && x < grid.size()) {
+                    sorted.push_back(grid[y][x]);
+                }
+            }
+            sort(sorted.begin(), sorted.end());
+            if (i <= 0){
+                reverse(sorted.begin(), sorted.end());
+            }
+            for (int x = i, y = 0, k = 0; k < sorted.size() && y < grid.size(); x++, y++){
+                if (x >= 0 && x < grid.size()) {
+                    grid[y][x] = sorted[k++];
+                }
+            }
+        }
+        return grid;
+    }
+};
+```
+**3459. 最长 V 形对角线段的长度**
+```cpp
+class Solution {
+public:
+    bool LeftUpCanMove(vector<vector<int>>& grid, int i, int ia){
+        return i - 1 >= 0 && ia - 1 >= 0;
+    }
+    bool LeftDownCanMove(vector<vector<int>>& grid, int i, int ia){
+        return i + 1 < grid.size() && ia - 1 >= 0;
+    }
+    bool RightUpCanMove(vector<vector<int>>& grid, int i, int ia){
+        return i - 1 >= 0 && ia + 1 < grid[0].size();
+    }
+    bool RightDownCanMove(vector<vector<int>>& grid, int i, int ia){
+        return i + 1 < grid.size() && ia + 1 < grid[0].size();
+    }
+    int getMaxLen(vector<vector<int>>& grid, int i, int ia, int face = 0, int mode = 2, int len = 0, bool isSpin = false){
+        //cout << "--" << endl;
+        len++;
+        int spinLen = 0;
+        if (1 != len && !isSpin){
+            spinLen = getMaxLen(grid, i, ia, (face + 1) % 4, mode, len - 1, true);
+        }
+        switch(face){
+            case 0:
+            if (LeftUpCanMove(grid, i, ia) && mode == grid[i - 1][ia - 1]){
+                len = max(len, getMaxLen(grid, i - 1, ia - 1, face, 2 == mode ? 0 : 2, len, isSpin));
+            }
+            break;
+            case 1:
+            if (RightUpCanMove(grid, i, ia) && mode == grid[i - 1][ia + 1]){
+                len = max(len, getMaxLen(grid, i - 1, ia + 1, face, 2 == mode ? 0 : 2, len, isSpin));
+            }
+            break;
+            case 2:
+            if (RightDownCanMove(grid, i, ia) && mode == grid[i + 1][ia + 1]){
+                len = max(len, getMaxLen(grid, i + 1, ia + 1, face, 2 == mode ? 0 : 2, len, isSpin));
+            }
+            break;
+            default:
+            if (LeftDownCanMove(grid, i, ia) && mode == grid[i + 1][ia - 1]){
+                len = max(len, getMaxLen(grid, i + 1, ia - 1, face, 2 == mode ? 0 : 2, len, isSpin));
+            }
+            break;
+        }
+        return max(spinLen, len);
+    }
+    int lenOfVDiagonal(vector<vector<int>>& grid) {
+        int maxLen = 0;
+        for (int i = 0; i < grid.size(); i++){
+            for (int ia = 0; ia < grid[0].size(); ia++){
+                for (int f = 0; f <= 3 && 1 == grid[i][ia]; f++) {
+                    maxLen = max(maxLen, getMaxLen(grid, i, ia, f));
+                }
+            }
+        }
+        return maxLen;
+    }
+};
+```
 **3487. 删除后的最大子数组元素和**
 ```cpp
 class Solution {
