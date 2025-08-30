@@ -3447,6 +3447,47 @@ public:
     }
 };
 ```
+**671. 二叉树中第二小的节点**
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int findSecondMinimumValue(TreeNode* root) {
+        int firstMin = root->val;
+        int secondMin = -1;
+        queue<TreeNode*>nodes;
+        nodes.push(root);
+        while (0 != nodes.size()){
+            if (nodes.front()->val != firstMin){
+                if (-1 == secondMin) {
+                    secondMin = nodes.front()->val;
+                }
+                else if (secondMin > nodes.front()->val) {
+                    secondMin = nodes.front()->val;
+                }
+            }
+            if (nodes.front()->left != nullptr){
+                nodes.push(nodes.front()->left);
+            }
+            if (nodes.front()->right != nullptr){
+                nodes.push(nodes.front()->right);
+            }
+            nodes.pop();
+        }
+        return secondMin;
+    }
+};
+```
 **709. 转换成小写字母**
 ```cpp
 class Solution {
