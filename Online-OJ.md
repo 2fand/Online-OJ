@@ -3947,6 +3947,32 @@ public:
     }
 };
 ```
+**1317. 将整数转换为两个无零整数的和**
+```cpp
+class Solution {
+public:
+    bool notHasZero(int i){
+        if (0 == i){
+            return false;
+        }
+        while (i){
+            if (0 == i % 10){
+                return false;
+            }
+            i /= 10;
+        }
+        return true;
+    }
+    vector<int> getNoZeroIntegers(int n) {
+        for (int i = 1; i < n; i++){
+            if (notHasZero(i) && notHasZero(n - i)){
+                return {i,n-i};
+            }
+        }
+        return {};
+    }
+};
+```
 **1323. 6 和 9 组成的最大数字**
 ```cpp
 class Solution {
