@@ -3848,6 +3848,30 @@ public:
     }
 };
 ```
+**1207. 独一无二的出现次数**
+```cpp
+cclass Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int>counts;
+        unordered_map<int, bool>isCalc;
+        unordered_map<int, int>countCounts;
+        for (int i = 0; i < arr.size(); i++){
+            counts[arr[i]]++;
+        }
+        for (int i = 0; i < arr.size(); i++){
+            if (!isCalc[arr[i]]){
+                countCounts[counts[arr[i]]]++;
+                isCalc[arr[i]] = true;
+            }
+            if (countCounts[counts[arr[i]]] > 1){
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
 **1290. 二进制链表转整数**
 ```cpp
 /**
