@@ -3848,6 +3848,43 @@ public:
     }
 };
 ```
+**1078. Bigram 分词**
+```cpp
+class Solution {
+public:
+    vector<string> findOcurrences(string text, string first, string second) {
+        vector<string>strs;
+        vector<string>result;
+        string str;
+        for (int i = 0; i < text.size(); i++){
+            if (' ' == text[i]){
+                strs.push_back(str);
+                str = "";
+            }
+            else{
+                str.push_back(text[i]);
+            }
+        }
+        strs.push_back(str);
+        int status = 0;
+        for (int i = 0; i < strs.size(); i++){
+            if (strs[i] != second && 1 == status){
+                status = 0;
+            }
+            if (strs[i] == second && 1 == status){
+                status = 0;
+                if (strs.size() > i + 1){
+                    result.push_back(strs[i + 1]);
+                }
+            }
+            if (strs[i] == first && 0 == status){
+                status = 1;
+            }
+        }
+        return result;
+    }
+};
+```
 **1207. 独一无二的出现次数**
 ```cpp
 cclass Solution {
