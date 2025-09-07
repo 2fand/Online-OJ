@@ -4171,6 +4171,46 @@ public:
     }
 };
 ```
+**1576. 替换所有的问号**
+```cpp
+class Solution {
+public:
+    string modifyString(string s) {
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] == '?'){
+                if (0 == i){
+                    if ('a' == s[i + 1]){
+                        s[i] = 'b';
+                    }
+                    else{
+                        s[i] = 'a';
+                    }
+                }
+                else if (s.size() - 1 == i){
+                    if ('a' == s[i - 1]){
+                        s[i] = 'b';
+                    }
+                    else{
+                        s[i] = 'a';
+                    }
+                }
+                else {
+                    if ('a' == s[i + 1] && 'b' == s[i - 1] || 'a' == s[i - 1] && 'b' == s[i + 1]){
+                        s[i] = 'c';
+                    }
+                    else if('a' == s[i + 1] && 'b' != s[i - 1] || 'a' == s[i - 1] && 'b' != s[i + 1]){
+                        s[i] = 'b';
+                    }
+                    else {
+                        s[i] = 'a';
+                    }
+                }
+            }
+        }
+        return s;
+    }
+};
+```
 **1780. 判断一个数字是否可以表示成三的幂的和**
 ```cpp
 class Solution {
