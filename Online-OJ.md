@@ -5033,6 +5033,23 @@ public:
     }
 };
 ```
+## C#
+**1137. 第 N 个泰波那契数**
+```csharp
+public class Solution {
+    public int Tribonacci(int n) {
+        List<int>arr = new List<int>{0,1,1};
+        if (n < 3){
+            return arr[n];
+        }
+        n -= 3;
+        for (int i = 0; i <= n; i++){
+            arr.Add(arr[arr.Count - 1] + arr[arr.Count - 2] + arr[arr.Count - 3]);
+        }
+        return arr[arr.Count - 1];
+    }
+}
+```
 
 ## shell
 
