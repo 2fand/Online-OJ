@@ -5034,6 +5034,39 @@ public:
 };
 ```
 ## C#
+**929. 独特的电子邮件地址**
+```csharp
+public class Solution {
+    public int NumUniqueEmails(string[] emails) {
+        Dictionary<string, bool>uniqueEmails = new();
+        string realEmail = "";
+        bool hasPlus = false;
+        int result = 0;
+        int ia = 0;
+        for (int i = 0; i < emails.Length; i++){
+            realEmail = "";
+            hasPlus = false;
+            for (ia = 0; ia < emails[i].Length && '@' != emails[i][ia]; ia++){
+                if (hasPlus) {
+                    continue;
+                }
+                else if('+' == emails[i][ia]){
+                    hasPlus = true;
+                }
+                else if ('.' != emails[i][ia]){
+                    realEmail += emails[i][ia];
+                }
+            }
+            realEmail += emails[i][ia..^0];
+            if (!uniqueEmails.ContainsKey(realEmail)){
+                result++;
+                uniqueEmails.Add(realEmail, true);
+            }
+        }
+        return result;
+    }
+}
+```
 **1137. 第 N 个泰波那契数**
 ```csharp
 public class Solution {
@@ -5049,6 +5082,113 @@ public class Solution {
         return arr[arr.Count - 1];
     }
 }
+```
+**1287. 有序数组中出现次数超过25%的元素**
+```csharp
+public class Solution {
+    public int FindSpecialInteger(int[] arr) {
+        int readNum = -1;
+        int readNumCount = 0;
+        int maxCount = 0;
+        int result = 0;
+        for (int i = 0; i < arr.Length; i++){
+            if (readNum != arr[i]){
+                readNum = arr[i];
+                if (maxCount < readNumCount){
+                    maxCount = readNumCount;
+                    result = arr[i - 1];
+                }
+                readNumCount = 1;
+            }
+            else{
+                readNumCount++;
+            }
+        }
+        if (maxCount < readNumCount){
+            result = arr[arr.Length - 1];
+        }
+        return result;
+    }
+}
+```
+**1556. 千位分隔数**
+```csharp
+public class Solution {
+    public string ThousandSeparator(int n) {
+        string numstr = n.ToString();
+        string result = "";
+        for (int i = numstr.Length - 1; i >= 0; i--){
+            if (numstr.Length - 1 - i != 0 && (numstr.Length - 1 - i) % 3 == 0){
+                result = "." + result;
+            }
+            result = numstr[i] + result;
+        }
+        return result;
+    }
+}
+```
+**1716. 计算力扣银行的钱**
+```csharp
+public class Solution {
+    public int TotalMoney(int n) {
+        int result = 1;
+        for (int i = 1, j = 1; i < n; i++){
+            if (i % 7 == 0){
+                j++;
+            }
+            result += j + i % 7;
+        }
+        return result;
+    }
+}
+```
+**2043. 简易银行系统**
+```csharp
+public class Bank {
+    long[] deposits;
+    public Bank(long[] balance) {
+        deposits = balance;
+    }
+    
+    public bool Transfer(int account1, int account2, long money) {
+        if (deposits.Length <= account1 - 1 || deposits.Length <= account2 - 1){
+            return false;
+        }
+        if (deposits[account1 - 1] >= money){
+            deposits[account1 - 1] -= money;
+            deposits[account2 - 1] += money;
+            return true;
+        }
+        return false;
+    }
+    
+    public bool Deposit(int account, long money) {
+        if (deposits.Length <= account - 1){
+            return false;
+        }
+        deposits[account - 1] += money;
+        return true;
+    }
+    
+    public bool Withdraw(int account, long money) {
+        if (deposits.Length <= account - 1){
+            return false;
+        }
+        if (deposits[account - 1] >= money){
+            deposits[account - 1] -= money;
+            return true;
+        }
+        return false;
+    }
+}
+
+/**
+ * Your Bank object will be instantiated and called as such:
+ * Bank obj = new Bank(balance);
+ * bool param_1 = obj.Transfer(account1,account2,money);
+ * bool param_2 = obj.Deposit(account,money);
+ * bool param_3 = obj.Withdraw(account,money);
+ */
 ```
 
 ## shell
