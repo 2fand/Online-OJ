@@ -3885,6 +3885,26 @@ public:
     }
 };
 ```
+**1200. 最小绝对差**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> minimumAbsDifference(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int minSub = INT_MAX;
+        vector<vector<int>> result;
+        for (int i = 0; i < arr.size() - 1; i++){
+            minSub = min(arr[i + 1] - arr[i], minSub);
+        }
+        for (int i = 0; i < arr.size() - 1; i++){
+            if (arr[i + 1] - arr[i] == minSub){
+                result.push_back({arr[i], arr[i+1]});
+            }
+        }
+        return result;
+    }
+};
+```
 **1207. 独一无二的出现次数**
 ```cpp
 cclass Solution {
@@ -5034,6 +5054,40 @@ public:
 };
 ```
 ## C#
+**242. 有效的字母异位词**
+```csharp
+public class Solution {
+    public bool IsAnagram(string s, string t) {
+        if (s.Length != t.Length){
+            return false;
+        }
+        char[] sArray = s.ToCharArray();
+        char[] tArray = t.ToCharArray();
+        Array.Sort(sArray);
+        Array.Sort(tArray);
+        for (int i = 0; i < sArray.Length; i++){
+            if (sArray[i] != tArray[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+**905. 按奇偶排序数组**
+```csharp
+public class Solution {
+    public int[] SortArrayByParity(int[] nums) {
+        int i = 0;
+        int ri = nums.Length - 1;
+        int[] result = new int[nums.Length];
+        for (int numI = 0; numI < nums.Length; numI++){
+            result[nums[numI] % 2 == 1 ? ri-- : i++] = nums[numI];
+        }
+        return result;
+    }
+}
+```
 **929. 独特的电子邮件地址**
 ```csharp
 public class Solution {
@@ -5064,6 +5118,190 @@ public class Solution {
             }
         }
         return result;
+    }
+}
+```
+**993. 二叉树的堂兄弟节点**
+```csharp
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public bool IsCousins(TreeNode root, int x, int y) {
+        List<TreeNode>nodes=new();
+        List<int>nodeDepths=new();
+        nodes.Add(root);
+        nodeDepths.Add(0);
+        int parentX = 0;
+        int parentY = 0;
+        int depthX = 0;
+        int depthY = 0;
+        while ((0 == parentX || 0 == parentY) && nodes.Count != 0){
+            if (null != nodes[0].left){
+                if (nodes[0].left.val == x){
+                    parentX = nodes[0].val;
+                    depthX = nodeDepths[0] + 1;
+                }
+                if (nodes[0].left.val == y){
+                    parentY = nodes[0].val;
+                    depthY = nodeDepths[0] + 1;
+                }
+                nodes.Add(nodes[0].left);
+                nodeDepths.Add(nodeDepths[0] + 1);
+            }
+            if (null != nodes[0].right){
+                if (nodes[0].right.val == x){
+                    parentX = nodes[0].val;
+                    depthX = nodeDepths[0] + 1;
+                }
+                if (nodes[0].right.val == y){
+                    parentY = nodes[0].val;
+                    depthY = nodeDepths[0] + 1;
+                }
+                nodes.Add(nodes[0].right);
+                nodeDepths.Add(nodeDepths[0] + 1);
+            }
+            nodes.RemoveAt(0);
+            nodeDepths.RemoveAt(0);
+        }
+        return parentX != 0 && parentY != 0 && depthX == depthY && parentX != parentY;
+    }
+}
+```
+**999. 可以被一步捕获的棋子数**
+```csharp
+class Solution {
+public:
+    int numRookCaptures(vector<vector<char>>& board) {
+        int px = -1;
+        int py = -1;
+        for (int i = 0; i < board.size(); i++){
+            for (int ia = 0; ia < board[0].size(); ia++){
+                if ('R' == board[i][ia]){
+                    px = i;
+                    py = ia;
+                    break;
+                }
+            }
+            if (px != -1){
+                break;
+            }
+        }
+        int result = 0;
+        for (int i = py - 1; i >= 0; i--){
+            if ('p' == board[px][i]){
+                result++;
+                break;
+            }
+            else if('B' == board[px][i]){
+                break;
+            }
+        }
+        for (int i = py + 1; i < board[0].size(); i++){
+            if ('p' == board[px][i]){
+                result++;
+                break;
+            }
+            else if('B' == board[px][i]){
+                break;
+            }
+        }
+        for (int i = px - 1; i >= 0; i--){
+            if ('p' == board[i][py]){
+                result++;
+                break;
+            }
+            else if('B' == board[i][py]){
+                break;
+            }
+        }
+        for (int i = px + 1; i < board.size(); i++){
+            if ('p' == board[i][py]){
+                result++;
+                break;
+            }
+            else if('B' == board[i][py]){
+                break;
+            }
+        }
+        return result;
+    }
+};
+```
+**1021. 删除最外层的括号**
+```csharp
+public class Solution {
+    public string RemoveOuterParentheses(string s) {
+        string result = "";
+        int level = 0;
+        for (int i = 0; i < s.Length; i++){
+            if (s[i] == '('){
+                if (level != 0){
+                    result += s[i];
+                }
+                level++;
+            }
+            else{
+                level--;
+                if (level != 0){
+                    result += s[i];
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+**1022. 从根到叶的二进制数之和**
+```csharp
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public int SumRootToLeaf(TreeNode root) {
+        if (root.left == null && root.right == null){
+            return root.val;
+        }
+        if (root.left == null){
+            return SumRootToLeaf(root.right, root.val);
+        }
+        if (root.right == null){
+            return SumRootToLeaf(root.left, root.val);
+        }
+        return SumRootToLeaf(root.left, root.val) + SumRootToLeaf(root.right, root.val);
+    }
+    public int SumRootToLeaf(TreeNode root, int value) {
+        value = value * 2 + root.val;
+        if (root.left == null && root.right == null){
+            return value;
+        }
+        if (root.left == null){
+            return SumRootToLeaf(root.right, value);
+        }
+        if (root.right == null){
+            return SumRootToLeaf(root.left, value);
+        }
+        return SumRootToLeaf(root.left, value) + SumRootToLeaf(root.right, value);
     }
 }
 ```
@@ -5142,6 +5380,42 @@ public class Solution {
     }
 }
 ```
+**1812. 判断国际象棋棋盘中一个格子的颜色**
+```csharp
+public class Solution {
+    public bool SquareIsWhite(string coordinates) {
+        return ((coordinates[0] - 'a') % 2 + (coordinates[1] - '1') % 2) % 2 == 1;
+    }
+}
+```
+**1952. 三除数**
+```csharp
+public class Solution {
+    public bool IsThree(int n) {
+        List<int> divs = new();
+        for (int i = 1; i <= n; i++){
+            if (n % i == 0){
+                divs.Add(i);
+            }
+        }   
+        return divs.Count == 3;
+    }
+}
+```
+**1952. 三除数**
+```csharp
+public class Solution {
+    public bool IsThree(int n) {
+        List<int> divs = new();
+        for (int i = 1; i <= n; i++){
+            if (n % i == 0){
+                divs.Add(i);
+            }
+        }   
+        return divs.Count == 3;
+    }
+}
+```
 **2043. 简易银行系统**
 ```csharp
 public class Bank {
@@ -5189,6 +5463,44 @@ public class Bank {
  * bool param_2 = obj.Deposit(account,money);
  * bool param_3 = obj.Withdraw(account,money);
  */
+```
+**3217. 从链表中移除在数组中存在的节点**
+```csharp
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ModifiedList(int[] nums, ListNode head) {
+        ListNode newHead = null;//remove后链表
+        ListNode addNode = null;//remove后链表头节点
+        ListNode searchNode = head;//遍历原链表节点
+        Dictionary<int, bool> isSameForNumsDic = new();//判断与nums数值是否相同的字典
+        for (int i = 0; i < nums.Length; i++){
+            isSameForNumsDic.Add(nums[i], true);
+        }
+        for (; null != searchNode; searchNode = searchNode.next){
+            if (!isSameForNumsDic.ContainsKey(searchNode.val)){
+                if (null == newHead){//添加节点至newHead
+                    newHead = new(searchNode.val, null);
+                    addNode = newHead;
+                }
+                else{
+                    addNode.next = new(searchNode.val, null);
+                    addNode = addNode.next;
+                }
+            }
+        }
+        return newHead;
+    }
+}
 ```
 
 ## shell
