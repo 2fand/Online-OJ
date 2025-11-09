@@ -5054,6 +5054,66 @@ public:
 };
 ```
 ## C#
+**61. 旋转链表**
+```csharp
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode RotateRight(ListNode head, int k) {
+        if (head == null){
+            return null;
+        }
+        List<int> arr = new();
+        List<int> rotatedArr = new();
+        ListNode addNode = head;
+        while (null != addNode){
+            arr.Add(addNode.val);
+            addNode = addNode.next;
+        }
+        for (int i = 0; i < arr.Count; i++){
+            rotatedArr.Add(arr[(i + arr.Count - (k % arr.Count)) % arr.Count]);
+        }
+        ListNode result = new(rotatedArr[0]);
+        ListNode addNodeForResult = result;
+        for (int i = 1; i < arr.Count; i++){
+            addNodeForResult.next = new(rotatedArr[i]);
+            addNodeForResult = addNodeForResult.next;
+        }
+        return result;
+    }
+}
+```
+**137. 只出现一次的数字 II**
+```csharp
+public class Solution {
+    public int SingleNumber(int[] nums) {
+        Dictionary<int, int>numsCount = new();
+        for (int i = 0; i < nums.Length; i++){
+            if (!numsCount.ContainsKey(nums[i])){
+                numsCount.Add(nums[i], 1);
+            }
+            else{
+                numsCount[nums[i]]++;
+            }
+        }
+        foreach (int key in numsCount.Keys){
+            if (3 != numsCount[key]){
+                return key;
+            }
+        }
+        return 0;
+    }
+}
+```
 **242. 有效的字母异位词**
 ```csharp
 public class Solution {
@@ -5463,6 +5523,24 @@ public class Bank {
  * bool param_2 = obj.Deposit(account,money);
  * bool param_3 = obj.Withdraw(account,money);
  */
+```
+**2169. 得到 0 的操作数**
+```csharp
+public class Solution {
+    public int CountOperations(int num1, int num2) {
+        int result = 0;
+        while (0 != num1 && 0 != num2){
+            if (num1 >= num2){
+                num1 -= num2;
+            }
+            else{
+                num2 -= num1;
+            }
+            result++;
+        }
+        return result;
+    }
+}
 ```
 **3217. 从链表中移除在数组中存在的节点**
 ```csharp
