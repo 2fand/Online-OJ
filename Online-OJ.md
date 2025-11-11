@@ -5114,6 +5114,19 @@ public class Solution {
     }
 }
 ```
+**172. 阶乘后的零**
+```csharp
+public class Solution {
+    public int TrailingZeroes(int n) {
+        int fivePowCount = n / 3125;
+        int fourPowCount = n / 625;
+        int threePowCount = n / 125;
+        int twoPowCount = n / 25;
+        int onePowCount = n / 5;
+        return fivePowCount * 5 + (fourPowCount - fivePowCount) * 4 + (threePowCount - fourPowCount) * 3 + (twoPowCount - threePowCount) * 2 + (onePowCount - twoPowCount);
+    }
+}
+```
 **242. 有效的字母异位词**
 ```csharp
 public class Solution {
