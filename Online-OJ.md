@@ -5054,6 +5054,31 @@ public:
 };
 ```
 ## C#
+**22. 括号生成**
+```csharp
+public class Solution {
+    List<string> result = new();
+    void GetCatBrackets(int n, string brackets, int addBracket = 0){
+        if (brackets.Length == n * 2){
+            if (addBracket == 0){
+                result.Add(brackets);
+            }
+            return;
+        }
+        if (n != addBracket){
+            GetCatBrackets(n, brackets + "(", addBracket + 1);
+        }
+        if (0 != addBracket){
+            GetCatBrackets(n, brackets + ")", addBracket - 1);
+        }
+    }
+    public IList<string> GenerateParenthesis(int n) {
+        result = new();
+        GetCatBrackets(n, "");
+        return result;
+    }
+}
+```
 **61. 旋转链表**
 ```csharp
 /**
