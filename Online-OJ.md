@@ -5139,6 +5139,31 @@ public class Solution {
     }
 }
 ```
+**151. 反转字符串中的单词**
+```csharp
+public class Solution {
+    public string ReverseWords(string s) {
+        string trimString = s.Trim();
+        List<string> resultArray = new();
+        for (int i = 0; i < trimString.Length; i++){
+            if (0 == resultArray.Count){
+                resultArray.Add("");//自动添加元素
+            }
+            if (trimString[i] != ' '){//数组后拼接字符串
+                resultArray[^1] += trimString[i];
+            }
+            else if(resultArray[^1] != ""){
+                resultArray.Add("");//为下元素拼接
+            }
+        }
+        string result = resultArray[^1];
+        for (int i = resultArray.Count - 2; i >= 0; i--){
+            result += " " + resultArray[i];
+        }
+        return result;
+    }
+}
+```
 **172. 阶乘后的零**
 ```csharp
 public class Solution {
