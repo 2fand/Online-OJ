@@ -5079,6 +5079,46 @@ public class Solution {
     }
 }
 ```
+**34. 在排序数组中查找元素的第一个和最后一个位置**
+```csharp
+public class Solution {
+    int BinSrh(int[] nums, int target){
+        int min = 0;//二级值
+        int max = nums.Length - 1;
+        int mid = 0;
+        while (min <= max){
+            mid = (min + max) / 2;//取中值
+            if (nums[mid] < target){
+                min = mid + 1;
+            }
+            else if (nums[mid] > target){
+                max = mid - 1;
+            }
+            if (nums[mid] == target){
+                return mid;
+            }
+        }
+        return -1;
+    }
+    public int[] SearchRange(int[] nums, int target) {
+        int getBinSrhIndex = BinSrh(nums, target);
+        if (-1 == getBinSrhIndex){
+            return new int[]{-1,-1};
+        }
+        int resultMin = -1;
+        int resultMax = -1;
+        for (int i = 0; -1 == resultMax || -1 == resultMin; i++){
+            if (-1 == resultMin && (getBinSrhIndex - i < 0 || nums[getBinSrhIndex - i] != target)){//左离
+                resultMin = getBinSrhIndex - i + 1;
+            }
+            if (-1 == resultMax && (getBinSrhIndex + i >= nums.Length || nums[getBinSrhIndex + i] != target)){//右离
+                resultMax = getBinSrhIndex + i - 1;
+            }
+        }
+        return new int[]{resultMin, resultMax};
+    }
+}
+```
 **61. 旋转链表**
 ```csharp
 /**
