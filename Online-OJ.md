@@ -5237,6 +5237,31 @@ public class Solution {
     }
 }
 ```
+**349. 两个数组的交集**
+```csharp
+public class Solution {
+    public int[] Intersection(int[] nums1, int[] nums2) {
+        Dictionary<int, int> resultDic = new();
+        for (int i=0;i<nums1.Length;i++){
+            if (!resultDic.ContainsKey(nums1[i])){
+                resultDic.Add(nums1[i], 1);
+            }
+        }
+        for (int i=0;i<nums2.Length;i++){
+            if (resultDic.ContainsKey(nums2[i])){
+                resultDic[nums2[i]]++;
+            }
+        }
+        List<int> result = new();
+        foreach (int key in resultDic.Keys){
+            if (resultDic[key]>=2){
+                result.Add(key);
+            }
+        }
+        return result.ToArray();
+    }
+}
+```
 **905. 按奇偶排序数组**
 ```csharp
 public class Solution {
