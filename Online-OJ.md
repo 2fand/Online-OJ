@@ -5670,6 +5670,21 @@ public class Solution {
     }
 }
 ```
+**3190. 使所有元素都可以被 3 整除的最少操作数**
+```csharp
+public class Solution {
+    public int MinimumOperations(int[] nums) {
+        //不可被3整除的数最少操作数为1，可被3整除的数最少操作数为0
+        int result = 0;
+        for (int i=0;i<nums.Length;i++){
+            if (nums[i]%3!=0){
+                result++;
+            }
+        }
+        return result;
+    }
+}
+```
 **3217. 从链表中移除在数组中存在的节点**
 ```csharp
 /**
