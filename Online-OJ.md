@@ -5179,6 +5179,41 @@ public class Solution {
     }
 }
 ```
+**148. 排序链表**
+```csharp
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode SortList(ListNode head) {
+        if (null == head){//空链表为空
+            return null;
+        }
+        List<int> resultList = new();//待排序列表
+        ListNode addNode = head;
+        while (addNode != null){
+            resultList.Add(addNode.val);
+            addNode = addNode.next;
+        }
+        resultList.Sort();//排序列表
+        ListNode result = new(resultList[0]);//排序后链表
+        ListNode resultAddNode = result;
+        for (int i = 1; i < resultList.Count; i++){
+            resultAddNode.next = new(resultList[i]);
+            resultAddNode = resultAddNode.next;
+        }
+        return result;
+    }
+}
+```
 **151. 反转字符串中的单词**
 ```csharp
 public class Solution {
