@@ -5625,20 +5625,6 @@ public class Solution {
     }
 }
 ```
-**1952. 三除数**
-```csharp
-public class Solution {
-    public bool IsThree(int n) {
-        List<int> divs = new();
-        for (int i = 1; i <= n; i++){
-            if (n % i == 0){
-                divs.Add(i);
-            }
-        }   
-        return divs.Count == 3;
-    }
-}
-```
 **2043. 简易银行系统**
 ```csharp
 public class Bank {
@@ -5758,7 +5744,18 @@ public class Solution {
     }
 }
 ```
-
+**3512. 使数组和能被 K 整除的最少操作次数**
+```csharp
+public class Solution {
+    public int MinOperations(int[] nums, int k) {
+        int sum = 0;
+        for (int i = 0; i < nums.Length; i++){
+            sum+=nums[i];
+        }
+        return sum % k;
+    }
+}
+```
 ## shell
 
 **192. 统计词频**
