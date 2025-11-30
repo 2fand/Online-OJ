@@ -5239,6 +5239,26 @@ public class Solution {
     }
 }
 ```
+**165. 比较版本号**
+```csharp
+public class Solution {
+    public int CompareVersion(string version1, string version2) {
+        string[] splitVersions1 = version1.Split('.');
+        string[] splitVersions2 = version2.Split('.');
+        int childSplitVersions1 = 0;
+        int childSplitVersions2 = 0;
+        for (int i = 0; i < Math.Max(splitVersions1.Length, splitVersions2.Length); i++){
+            if ((i < splitVersions1.Length ? (childSplitVersions1 = int.Parse(splitVersions1[i])) : 0) < (i < splitVersions2.Length ? (childSplitVersions2 = int.Parse(splitVersions2[i])) : 0)){
+                return -1;
+            }
+            else if((i < splitVersions1.Length ? childSplitVersions1 : 0) > (i < splitVersions2.Length ? childSplitVersions2 : 0)){
+                return 1;
+            }
+        }
+        return 0;
+    }
+}
+```
 **172. 阶乘后的零**
 ```csharp
 public class Solution {
