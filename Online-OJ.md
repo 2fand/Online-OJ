@@ -5119,6 +5119,31 @@ public class Solution {
     }
 }
 ```
+**49. 字母异位词分组**
+```csharp
+public class Solution {
+    public IList<IList<string>> GroupAnagrams(string[] strs) {
+        List<IList<string>>result = new();
+        Dictionary<string, int>stringToIndexDic = new();
+        List<char> charArr = null;
+        string str = "";
+        for (int i = 0; i < strs.Length; i++){
+            charArr = new(strs[i].ToCharArray());
+            charArr.Sort();
+            str = new(charArr.ToArray());
+            if (!stringToIndexDic.ContainsKey(str)){
+                stringToIndexDic.Add(str, result.Count);
+            }
+            if (stringToIndexDic[str] >= result.Count){
+                result.Add(new List<string>{strs[i]});
+            }else{
+                result[stringToIndexDic[str]].Add(strs[i]);
+            }
+        }
+        return result;
+    }
+}
+```
 **61. 旋转链表**
 ```csharp
 /**
