@@ -5617,6 +5617,23 @@ public class Solution {
     }
 }
 ```
+**1523. 在区间范围内统计奇数数目**
+```csharp
+public class Solution {
+    public int CountOdds(int low, int high) {
+        if (low == high){//双相等
+            return low % 2 == 1 ? 1 : 0;
+        }
+        else if(low % 2 == 0 && high % 2 == 0){//双皆偶
+            return (high - low) / 2;
+        }
+        else if(low % 2 == 1 && high % 2 == 1){//双皆奇
+            return 1 + (high - low) / 2;
+        }
+        return (high - low + 1) / 2;//奇与偶
+    }
+}
+```
 **1556. 千位分隔数**
 ```csharp
 public class Solution {
